@@ -16,25 +16,14 @@ import {
 import { Link as ReactLink } from 'react-router-dom';
 import { AiOutlineShoppingCart, AiOutlineLogin } from 'react-icons/ai';
 import { HamburgerIcon, CloseIcon, MoonIcon, SunIcon } from '@chakra-ui/icons';
-import AHLogo from '../logo/AnderHillLogo.png';
+import AHLogo from '../logoandbackground/AnderHillLogo.png';
+import { ChakraProvider, extendTheme } from '@chakra-ui/react';
 
 const links = [
-  {
-    linkName: 'Home',
-    path: '/',
-  },
-  {
-    linkName: 'Shop',
-    path: '/shop',
-  },
-  {
-    linkName: 'About Us ',
-    path: '/aboutus',
-  },
-  {
-    linkName: 'Contact Us ',
-    path: '/contactus',
-  },
+  { linkName: 'Home', path: '/' },
+  { linkName: 'Shop', path: '/shop' },
+  { linkName: 'About Us ', path: '/aboutus' },
+  { linkName: 'Contact Us ', path: '/contactus' },
 ];
 
 const NavLink = ({ path, children }) => (
@@ -43,11 +32,11 @@ const NavLink = ({ path, children }) => (
     to={path}
     px={2}
     py={2}
-    fontSize={{ base: '16px', md: '16px', lg: '20px' }}
+    fontSize={{ base: '16px', md: '16px', lg: '18px' }}
     color='brand.500'
-    // rounded='md'
     variant='none'
     _hover={{ textDecoration: 'none', color: 'brand.400' }}
+    fontFamily='heading'
   >
     {children}
   </Link>
@@ -122,7 +111,7 @@ const Navbar = () => {
                 {link.linkName}
               </NavLink>
             ))}
-            <NavLink key='sing up' path='/registration'>
+            <NavLink key='sign up' path='/registration' fontFamily='heading'>
               Sign Up
             </NavLink>
           </Stack>
