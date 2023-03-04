@@ -6,12 +6,12 @@ export const products = [
     description:
       'This pottery is made of soft amber clay and glazed to a soft sheen. Beautiful enough to stand alone or as the perfect complement to your home decor, our Amber Tea Owl Head stand out in any setting. Eye catching with its unique flower headband and sure to be a conversation starter. ',
     color: 'Blanc ',
-    category: 'Pot',
+    category: 'Home Accents',
     material: 'Ceramic',
     price: 125.99,
     size: '19cm diameter, 20.5cm height',
     rating: 4,
-    numReviews: 5,
+    numReviews: 1,
     isNew: true,
     reviews: [],
     stock: 7,
@@ -23,7 +23,7 @@ export const products = [
     description:
       'A beautifully hand-crafted terracotta pottery bull. The piece is meticulously crafted from natural red clay and features a flower crown on the head. This terracotta bull will fill any space with a cozy and welcoming feel.With years of experience in handcrafting ceramics, our team has created this unique and one of a kind work of art to last you for a lifetime of memories.',
     color: 'Terra Cotta',
-    category: 'Pot',
+    category: 'Home Accents',
     material: 'Terracotta ',
     price: 120.0,
     size: '19cm diameter, 25.5cm height',
@@ -41,7 +41,7 @@ export const products = [
     description:
       'This beautiful alabaster vase is sure to be an eye-catching addition to your home.  Its bold style works in complementary or contrasting settings alike and is made to fit seamlessly into your home. Hand-glazed by skilled artisans, each alabaster vase is one-of-a-kind ',
     color: 'Warm White',
-    category: 'Pot',
+    category: 'Home Accents',
     material: 'Ceramic',
     price: 110.5,
     size: '23cm diameter, 35cm height',
@@ -59,7 +59,7 @@ export const products = [
     description:
       'Volanic Glaze is a contemporary textured stoneware. The dark, rustic grey tones are perfect for both casual and formal styles of decor. Volanic glazes are hand-mixed at each firing, creating one-of-a-kind pieces that will last for years to come. This vase showcases intentional imperfections that add organic beauty to any spot in the home.',
     color: 'Acadia',
-    category: 'Pot',
+    category: 'Home Accents',
     material: 'Stoneware',
     price: 90.5,
     size: '15cm diameter, 25cm height',
@@ -77,7 +77,7 @@ export const products = [
     description:
       'Decorate your home with the Facette Vase. Its cylindrical shape features a narrow top and round base, allowing it to stand on any table or shelf. When filled with freshly cut flowers, it creates the perfect centerpiece for any decor..',
     color: 'Light Grey',
-    category: 'Vase',
+    category: 'Home Accents',
     material: 'Ceramic',
     price: 80.5,
     size: '12cm diameter, 20cm height',
@@ -118,8 +118,8 @@ export const products = [
     price: 45.99,
     size: '8cm diameter, 10cm height',
     rating: 4,
-    numReviews: 7,
-    isNew: true,
+    numReviews: 14,
+    isNew: false,
 
     reviews: [],
     stock: 12,
@@ -138,7 +138,7 @@ export const products = [
     material: 'Stoneware',
     price: 25.5,
     size: '18cm diameter, 1.8cm height',
-    rating: 2,
+    rating: 3,
     numReviews: 2,
 
     isNew: true,

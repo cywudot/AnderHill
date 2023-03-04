@@ -77,8 +77,15 @@ const ProductCard = ({ product }) => {
 
       <Flex justify='space-between'>
         <Rating rating={product.rating} numReviews={product.numReviews} />
-        <Tooltip label='Add to cart' bg='white' placement={'top'} color={'gray.800'} fontSize='1em'>
-          <Button variant='ghost' disabled={product.stock <= 0} bg='white' _hover={{ bg: 'transparent' }}>
+        <Tooltip
+          label='Add to cart'
+          bg='white'
+          placement={'top'}
+          color={'gray.800'}
+          fontSize='1em'
+          isDisabled={product.stock === 0}
+        >
+          <Button variant='ghost' bg='white' _hover={{ bg: 'transparent' }} isDisabled={product.stock === 0}>
             <Icon as={FaCartPlus} h={5} w={5} fill='brand.400' />
           </Button>
         </Tooltip>

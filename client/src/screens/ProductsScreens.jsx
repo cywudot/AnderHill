@@ -17,7 +17,7 @@ import {
 import { Center, Wrap, WrapItem } from '@chakra-ui/react';
 import { products } from '../products';
 import ProductCard from '../components/ProductCard';
-import ProductsHero from '../logoandbackground/neven-krcmarek-accent-unsplash.jpg';
+// import ProductsHero from '../logoandbackground/neven-krcmarek-accent-unsplash.jpg';
 const ProductsScreens = () => {
   return (
     <>
