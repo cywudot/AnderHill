@@ -19,7 +19,7 @@ import { Link as ReactLink } from 'react-router-dom';
 import { StarIcon } from '@chakra-ui/icons';
 import { useState } from 'react';
 
-const Rating = ({ rating, numReviews }) => {
+const Rating = ({ rating, numberOfReviews }) => {
   const { iconSize, setIconSize } = useState('14px');
   return (
     <Flex mb='10px'>
@@ -31,7 +31,7 @@ const Rating = ({ rating, numReviews }) => {
         <StarIcon size={iconSize} w='14px' color={rating >= 5 ? 'brand.400' : 'brand.200'} />
       </HStack>
       <Text fontSize='sm' fontWeight='light' ml='10px' mt='5px'>
-        {`${numReviews} ${numReviews === 1 ? 'Review' : 'Reviews'}`}
+        {`${numberOfReviews} ${numberOfReviews === 1 ? 'Review' : 'Reviews'}`}
       </Text>
     </Flex>
   );
@@ -45,7 +45,7 @@ const ProductCard = ({ product }) => {
       {/* {product.isNew && <img src={NewProductTag} alt='logo' width='100px' position='relative' />} */}
       <Link as={ReactLink} to={`/product${product._id}`} cursor='pointer' variant='none'>
         <Image src={product.images[0]} alt={product.name} objectFit='cover' minW='270px' h='300px' />
-        {product.isNew && (
+        {product.productIsNew && (
           <Box flex='1' max='5' alignItems='baseline' position='absolute' top={4} right={4}>
             <Badge rounded='full' px='5' fontSize='1em' color='brand.400' fontWeight='light' as='i' fontFamily='body'>
               New
@@ -76,7 +76,7 @@ const ProductCard = ({ product }) => {
       </Flex>
 
       <Flex justify='space-between'>
-        <Rating rating={product.rating} numReviews={product.numReviews} />
+        <Rating rating={product.rating} numberOfReviews={product.numberOfReviews} />
         <Tooltip
           label='Add to cart'
           bg='white'
