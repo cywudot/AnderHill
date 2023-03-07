@@ -16,7 +16,7 @@ import {
 import { Link as ReactLink } from 'react-router-dom';
 import { AiOutlineShoppingCart, AiOutlineLogin } from 'react-icons/ai';
 import { HamburgerIcon, CloseIcon, MoonIcon, SunIcon } from '@chakra-ui/icons';
-import AHLogo from '../logoandbackground/AnderHillLogo.png';
+import AHLogo from '../logo/AnderHillLogo.png';
 import { ChakraProvider, extendTheme } from '@chakra-ui/react';
 
 const links = [

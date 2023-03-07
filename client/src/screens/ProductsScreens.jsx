@@ -1,24 +1,22 @@
-import {
-  Flex,
-  Circle,
-  Box,
-  Image,
-  Badge,
-  useColorModeValue,
-  Icon,
-  Button,
-  Tooltip,
-  Stack,
-  Link,
-  HStack,
-  Text,
-} from '@chakra-ui/react';
-
 import { Center, Wrap, WrapItem } from '@chakra-ui/react';
-import { products } from '../products';
 import ProductCard from '../components/ProductCard';
 // import ProductsHero from '../logoandbackground/neven-krcmarek-accent-unsplash.jpg';
+import { useDispatch, useSelector } from 'react-redux';
+import { getProducts } from '../redux/actions/productActions'; // AKA getting getProducts from productAction.jsx
+
+// import { products } from '../products';
+import { useEffect } from 'react';
+
 const ProductsScreens = () => {
+  const dispatch = useDispatch();
+
+  const productList = useSelector((state) => state.products);
+  const { loading, error, products } = productList;
+
+  useEffect(() => {
+    dispatch(getProducts());
+  }, [dispatch]);
+
   return (
     <>
       {/* <Box>

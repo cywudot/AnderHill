@@ -7,7 +7,6 @@ import productRoutes from './routes/productRoutes.js';
 
 dotenv.config();
 connectToDatabase();
-
 const app = express();
 
 app.use(express.json());
