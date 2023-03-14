@@ -1,12 +1,23 @@
 import { createSlice } from '@reduxjs/toolkit';
 
+const calulateSubtotal = (cartState) => {
+  let result = 0;
+  cartState.map((item) => (result += item.qty * item.price));
+  return Number(result).toFixed(2);
+};
+
 //Creating initial state.The Redux Store will hold before we actually start to fetch or manipulate data.
 export const initialState = {
   loading: false,
   error: null,
-  cart: [],
+  cart: JSON.parse(localStorage.getItem('cartItems')) ?? [],
   expressShipping: false,
-  subtotal: 0,
+  subtotal: localStorage.getItem('cartItem') ? calulateSubtotal(JSON.parse(localStorage.getItem('cartItems'))) : 0,
+};
+
+const updateLocalStorage = (cart) => {
+  localStorage.setItem('cartItems', JSON.stringify(cart));
+  localStorage.setItem('subtotal', JSON.stringify(calulateSubtotal(cart)));
 };
 
 //createSlices: A function that accepts an initial state, an object of reducer functions, and a "slice name", and automatically generates action creators and action types that correspond to the reducers and state.
@@ -29,16 +40,26 @@ export const cartSlice = createSlice({
       }
       state.loading = false;
       state.error = null;
+      updateLocalStorage(state.cart);
+      state.subtotal = calulateSubtotal(state.cart);
     },
     setError: (state, { payload }) => {
       state.error = payload;
       state.loading = false;
     },
+
+    cartItemRemoval: (state, { payload }) => {
+      state.cart = [...state.cart].filter((item) => item.id !== payload);
+      updateLocalStorage(state.cart);
+      state.subtotal = calulateSubtotal(state.cart);
+      state.loading = false;
+      state.error = null;
+    },
   },
 });
 
 //Wrapping/binding them all together
-export const { setLoading, setError, cartItemAdd } = cartSlice.actions;
+export const { setLoading, setError, cartItemAdd, cartItemRemoval } = cartSlice.actions;
 export default cartSlice.reducer;
 
 export const cartSelector = (state) => state.cart;
