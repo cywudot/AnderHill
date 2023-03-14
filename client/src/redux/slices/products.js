@@ -1,4 +1,4 @@
-//createSlices: A function that accepts an initial state, an object of reducer functions, and a "slice name", and automatically generates action creators and action types that correspond to the reducers and state.
+//Creating the store
 
 import { createSlice } from '@reduxjs/toolkit';
 
@@ -9,6 +9,7 @@ export const initialState = {
   products: [],
 };
 
+//createSlices: A function that accepts an initial state, an object of reducer functions, and a "slice name", and automatically generates action creators and action types that correspond to the reducers and state.
 export const productsSlice = createSlice({
   name: 'products',
   initialState,
@@ -28,6 +29,7 @@ export const productsSlice = createSlice({
   },
 });
 
+//Wrapping/binding them all together
 export const { setLoading, setError, setProducts } = productsSlice.actions;
 export default productsSlice.reducer;
 

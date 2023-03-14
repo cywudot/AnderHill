@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import ProductsScreens from './screens/ProductsScreens';
 import '@fontsource/cormorant-garamond';
 import '@fontsource/poppins';
+import CartScreen from './screens/CartScreen';
 // import theme from './theme.js';
 
 const theme = extendTheme({
@@ -31,6 +32,7 @@ function App() {
         <main>
           <Routes>
             <Route path='/shop' element={<ProductsScreens />}></Route>
+            <Route path='/shoppingcart' element={<CartScreen />}></Route>
           </Routes>
         </main>
       </Router>

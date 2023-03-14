@@ -1,3 +1,4 @@
+// It is a library which is used to make requests to an API, return data from the API, and then do things with that data in our React application.
 import axios from 'axios';
 import { setProducts, setLoading, setError } from '../slices/products';
 
