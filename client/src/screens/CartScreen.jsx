@@ -12,6 +12,7 @@ import {
   AlertDescription,
   AlertTitle,
   Wrap,
+  Text,
 } from '@chakra-ui/react';
 import { Link as ReactLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
@@ -48,10 +49,15 @@ const CartScreen = () => {
         </Alert>
       ) : (
         <Box
-          maxW={{ base: '3xl', lg: '7xl' }}
+          // maxW={{ base: '3xl', lg: '6xl' }}
           mx='auto'
           px={{ base: '4', md: '8', lg: '12' }}
           py={{ base: '6', md: '8', lg: '12' }}
+          width={[
+            '100%', // 0-30em
+            '95%', // 30em-48em
+            '80%', // 48em-62em
+          ]}
         >
           <Stack
             direction={{ base: 'column', lg: 'row' }}
@@ -59,10 +65,23 @@ const CartScreen = () => {
             spacing={{ base: '8', md: '16' }}
           >
             <Stack spacing={{ base: '8', md: '10' }} flex='2'>
-              <Heading fontSize='2xl' fontWeight='extrabold'>
+              <Heading fontSize='xl' fontWeight='light' fontFamily='body' color='brand.500'>
                 Shopping Cart {getHeadingContent()}
               </Heading>
-
+              {/* <Stack spacing={{ base: '8', md: '10' }} direction='row' flex='2' justify='space-between'>
+                <Text color='brand.800' fontSize='md'>
+                  PRODUCT
+                </Text>
+                <Text color='brand.800' fontSize='md'>
+                  QTY
+                </Text>
+                <Text color='brand.800' fontSize='md'>
+                  PRICE
+                </Text>
+                <Text color='brand.100' fontSize='md'>
+                  SPACE
+                </Text>
+              </Stack> */}
               <Stack spacing='6'>
                 {cart.map((cartItem) => (
                   <CartItem key={cartItem.id} cartItem={cartItem} />
@@ -74,8 +93,8 @@ const CartScreen = () => {
               <CartOrderSummary />
 
               <HStack mt='6' fontWeight='semibold'>
-                <p>or</p>
-                <Link as={ReactLink} to='/shop'>
+                <Text fontWeight='light'>or</Text>
+                <Link as={ReactLink} variant='none' to='/shop'>
                   Continue Shopping
                 </Link>
               </HStack>

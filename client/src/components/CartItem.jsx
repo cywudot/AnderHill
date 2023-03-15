@@ -3,19 +3,51 @@ import { useDispatch } from 'react-redux';
 import { addCartItem, removeCartItem } from '../redux/actions/cartActions';
 
 const CartItem = ({ cartItem }) => {
-  const { name, image, price, stock, qty, id } = cartItem;
+  const { name, image, price, stock, qty, id, color, material, diameter, height } = cartItem;
   const dispatch = useDispatch();
 
   return (
-    <Flex direction={{ base: 'column', md: 'row' }} justify='space-between' align='center'>
-      <Stack direction='row' spacing='5' width='full'>
-        <Image rounded='sm' w='150px' fit='cover' src={image[0]} alt={image} draggable='false' loading='lazy' />
-        <Box pt='4'>
+    <Flex
+      direction={{ base: 'column', md: 'row' }}
+      justify='space-between'
+      gap='10px'
+      align='center'
+      // maxWidth={{ base: '300px', md: '600px' }}
+      // backgroundColor='brand.300'
+    >
+      <Stack direction={{ base: 'row', md: 'column' }} spacing='5' width='full'>
+        <Image
+          rounded='sm'
+          w='160px'
+          h='170px'
+          fit='cover'
+          src={image[0]}
+          alt={image}
+          draggable='false'
+          loading='lazy'
+        />
+
+        <Box>
           <Stack spacing='0.5'>
-            <Text fontWeight='medium'>{name}</Text>
+            <Text fontWeight='semibold' fontSize='md' color='brand.500'>
+              {name}
+            </Text>
+
+            <Stack direction='row' gap='10px'>
+              <Text fontWeight='medium' fontSize='sm' color='brand.800'>
+                Color: {color}
+              </Text>
+              <Text fontWeight='medium' fontSize='sm' color='brand.800'>
+                Material: {material}
+              </Text>
+            </Stack>
           </Stack>
+          <Text fontWeight='medium' fontSize='sm' color='brand.800'>
+            Size: {diameter}cm / {height}cm
+          </Text>
         </Box>
       </Stack>
+
       <Flex
         w='full'
         mt={{ base: '4', md: '0' }}
@@ -24,7 +56,7 @@ const CartItem = ({ cartItem }) => {
         display='flex'
       >
         <Select
-          maxW='64px'
+          maxW='80px'
           focusBorderColor={mode('brand.300', 'brand.500')}
           value={qty}
           onChange={(e) => {
@@ -37,8 +69,10 @@ const CartItem = ({ cartItem }) => {
             </option>
           ))}
         </Select>
-        <Text fontWeight='bold'> ${price}</Text>
-        <CloseButton onClick={() => dispatch(removeCartItem(id))} />
+        <Text fontWeight='bold' color='brand.500'>
+          ${price}
+        </Text>
+        <CloseButton onClick={() => dispatch(removeCartItem(id))} color='brand.500' />
       </Flex>
     </Flex>
   );

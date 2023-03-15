@@ -11,6 +11,10 @@ export const addCartItem = (id, qty) => async (dispatch) => {
       image: data.images,
       price: data.price,
       stock: data.stock,
+      color: data.color,
+      material: data.material,
+      diameter: data.dimensions.diameter,
+      height: data.dimensions.height,
       qty,
     };
     dispatch(cartItemAdd(itemToAdd));

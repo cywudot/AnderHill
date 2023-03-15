@@ -17,22 +17,24 @@ const CartOrderSummary = () => {
   };
 
   return (
-    <Stack spacing='8' borderWidth='1px' rounded='lg' padding='8' w='full'>
-      <Heading size='md'>Order Summary</Heading>
+    <Stack spacing='8' borderWidth='1px' rounded='sm' padding='12' w='full' backgroundColor='brand.700' mt='16'>
+      <Heading size='sm' mx='auto' fontFamily='body'>
+        Order Summary
+      </Heading>
       <Stack spacing='6'>
         <Flex justify='space-between'>
-          <Text fontWeight='medium' color='brand.500'>
+          <Text fontWeight='medium' color='brand.500' size='sm'>
             Subtotal
           </Text>
-          <Text fontWeight='medium' color='brand.500'>
+          <Text fontWeight='medium' color='brand.500' size='sm'>
             ${subtotal}
           </Text>
         </Flex>
         <Flex justify='space-between'>
-          <Text fontWeight='medium' color='brand.500'>
+          <Text fontWeight='medium' color='brand.500' size='sm'>
             Shipping
           </Text>
-          <Text fontWeight='medium' color='brand.500'>
+          <Text fontWeight='medium' color='brand.500' size='sm'>
             {subtotal <= 300 ? (
               standardShipping
             ) : (
@@ -43,25 +45,25 @@ const CartOrderSummary = () => {
           </Text>
         </Flex>
         <Flex justify='space-between'>
-          <Text fontSize='xl' fontWeight='extrabold'>
+          <Text fontSize='lg' fontWeight='extrabold'>
             Total
           </Text>
-          <Text fontSize='xl'>
-            ${subtotal <= 1000 ? Math.round(Number(subtotal)) + Number(standardShipping) : subtotal}
+          <Text fontSize='lg'>
+            ${subtotal <= 1000 ? Math.round(Number(subtotal)) + Math.round(Number(standardShipping)) : subtotal}
           </Text>
         </Flex>
       </Stack>
       <Button
         as={ReactLink}
         to='/checkout'
-        colorScheme='orange'
-        size='lg'
+        backgroundColor='brand.100'
+        size='md'
         fontSize='md'
         rightIcon={<FaArrowRight />}
         isLoading={buttonLoading}
         onClick={() => checkoutHandler()}
       >
-        Checkout
+        <Text color='brand.500'>Checkout</Text>
       </Button>
     </Stack>
   );
