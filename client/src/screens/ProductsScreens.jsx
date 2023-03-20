@@ -34,7 +34,7 @@ const ProductsScreens = () => {
       {/* <Box>
         <img src={ProductsHero} alt='ProductHeroImage' />
       </Box> */}
-      <Wrap spacing='30px' justify='center' minHeight='100vh'>
+      <Wrap spacing='30px' justify='center' minHeight='100vh' backgroundColor='brand.100'>
         {loading ? (
           <Stack direction='row' spacing={4}>
             <Spinner mt={20} thinkness='2px' speed='0.65s' emptyColor='gray.200' color='brand.400' size='xl' />

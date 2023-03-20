@@ -65,11 +65,11 @@ const ProductCard = ({ product }) => {
   return (
     <Stack minW='270px' h='380px' position='absolute'>
       {/* {product.isNew && <img src={NewProductTag} alt='logo' width='100px' position='relative' />} */}
-      <Link as={ReactLink} to={`/product${product._id}`} cursor='pointer' variant='none'>
+      <Link as={ReactLink} to={`/product/${product._id}`} cursor='pointer' variant='none'>
         <Image src={product.images[0]} alt={product.name} objectFit='cover' minW='270px' h='300px' />
         {product.productIsNew && (
           <Box flex='1' max='5' alignItems='baseline' position='absolute' top={4} right={4}>
-            <Badge rounded='full' px='5' fontSize='1em' color='brand.400' fontWeight='light' as='i' fontFamily='body'>
+            <Badge rounded='full' px='5' fontSize='1em' color='brand.400' fontWeight='light' fontFamily='body'>
               New
             </Badge>
           </Box>
@@ -84,7 +84,7 @@ const ProductCard = ({ product }) => {
       </Link>
 
       <Flex justify='space-between' color='brand.500'>
-        <Link as={ReactLink} to={`/product${product._id}`} cursor='pointer' _hover={{ textDecoration: 'none' }}>
+        <Link as={ReactLink} to={`/product/${product._id}`} cursor='pointer' _hover={{ textDecoration: 'none' }}>
           <Box fontSize='18px' fontWeight='light' fontFamily='heading'>
             {product.name}
           </Box>
@@ -114,6 +114,7 @@ const ProductCard = ({ product }) => {
             isDisabled={product.stock === 0}
             p='0px'
             onClick={() => addItem(product._id)}
+            backgroundColor='brand.100'
           >
             <Icon as={FaCartPlus} h={5} w={5} fill='brand.400' mb='10px' />
           </Button>

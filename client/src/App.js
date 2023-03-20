@@ -5,6 +5,7 @@ import ProductsScreens from './screens/ProductsScreens';
 import '@fontsource/cormorant-garamond';
 import '@fontsource/poppins';
 import CartScreen from './screens/CartScreen';
+import ProductScreen from './screens/ProductScreen';
 // import theme from './theme.js';
 
 const theme = extendTheme({
@@ -14,6 +15,7 @@ const theme = extendTheme({
       200: '#EBE7E0',
       300: '#BFB5A6',
       400: '#DFBD8E',
+      4001: '#C4A67C',
       500: '#454545',
       600: '#F16161',
       700: '#ECE8E8',
@@ -34,6 +36,7 @@ function App() {
         <main>
           <Routes>
             <Route path='/shop' element={<ProductsScreens />}></Route>
+            <Route path='/product/:id' element={<ProductScreen />}></Route>
             <Route path='/shoppingcart' element={<CartScreen />}></Route>
           </Routes>
         </main>

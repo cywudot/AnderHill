@@ -46,7 +46,7 @@ const Navbar = () => {
   const { isOpen, onClose, onOpen } = useDisclosure();
   const { colorMode, toggleColorMode } = useColorMode();
   return (
-    <Box bg='transparent' px={12}>
+    <Box bg='transparent' px={12} backgroundColor='brand.100'>
       <Flex h={28} alignItems='center' justifyContent='space-between'>
         {/* -----Hamburger Toggle ------*/}
         <IconButton
@@ -55,12 +55,13 @@ const Navbar = () => {
           icon={isOpen ? <CloseIcon /> : <HamburgerIcon />}
           display={{ md: 'none' }}
           onClick={isOpen ? onClose : onOpen}
+          variant='none'
         />
         {/* -----Logo-----  */}
         <HStack>
           <Link as={ReactLink} to='/'>
             <Flex alignItems='center' minWidth='120px' maxWidth='150px'>
-              <img src={AHLogo} alt='logo' />
+              {<img src={AHLogo} alt='logo' />}
             </Flex>
           </Link>
         </HStack>
