@@ -71,7 +71,7 @@ const ProductScreen = () => {
       ) : (
         product && (
           <Box
-            maxW={{ base: '3xl', lg: '5xl' }}
+            maxW={{ base: '3xl', lg: '7xl' }}
             mx='auto'
             px={{ base: '4', md: '8', lg: '12' }}
             py={{ base: '6', md: '8', lg: '12' }}
@@ -116,7 +116,7 @@ const ProductScreen = () => {
                     {product.name}
                   </Heading>
                   <Text fontSize='xl' color='brand.500'>
-                    ${product.price}
+                    ${product.price.toFixed(2)}
                   </Text>
                 </Stack>
 
@@ -136,37 +136,54 @@ const ProductScreen = () => {
                     </Flex>
                   </Box>
                   <Text color='brand.500'>{product.description}</Text>
-                  <Flex
-                    w='170px'
-                    p='5px'
-                    border='1px'
-                    borderColor='gray.200'
-                    alignItems='center'
-                    justify='space-between'
-                    borderRadius='2px'
-                  >
-                    <Button isDisabled={amount <= 1} onClick={() => changeAmount('minus')} borderRadius='2px'>
-                      <FaMinus />
-                    </Button>
-                    <Text color='brand.500'>{amount}</Text>
-                    <Button
-                      isDisabled={amount >= product.stock}
-                      onClick={() => changeAmount('plus')}
-                      borderRadius='0px'
-                    >
-                      <FaPlus />
-                    </Button>
-                  </Flex>
+                  <Stack spacing='2px' direction='column'>
+                    <Text color='brand.500' fontFamily='heading' fontSize='md'>
+                      Color: {product.color}
+                    </Text>
+                    <Text color='brand.500' fontFamily='heading' fontSize='md'>
+                      Size: {product.dimensions.diameter}cm diameter / {product.dimensions.height}cm height
+                    </Text>
+                    <Text color='brand.500' fontFamily='heading'>
+                      Material: {product.material}
+                    </Text>
+                  </Stack>
 
-                  <Button
-                    backgroundColor='brand.400'
-                    _hover={{ backgroundColor: 'brand.4001' }}
-                    onClick={() => addItem()}
-                    color='brand.100'
-                    borderRadius='2px'
-                  >
-                    <Text fontWeight='light'>Add to cart</Text>
-                  </Button>
+                  <Stack direction={{ base: 'column', lg: 'row' }}>
+                    <Flex
+                      w={{ base: '100%', lg: '50%' }}
+                      p='5px'
+                      border='1px'
+                      borderColor='gray.200'
+                      alignItems='center'
+                      justify='space-between'
+                      borderRadius='2px'
+                    >
+                      <Button isDisabled={amount <= 1} onClick={() => changeAmount('minus')} borderRadius='2px'>
+                        <FaMinus />
+                      </Button>
+                      <Text color='brand.500'>{amount}</Text>
+                      <Button
+                        isDisabled={amount >= product.stock}
+                        onClick={() => changeAmount('plus')}
+                        borderRadius='0px'
+                      >
+                        <FaPlus />
+                      </Button>
+                    </Flex>
+
+                    <Button
+                      backgroundColor='brand.400'
+                      _hover={{ backgroundColor: 'brand.4001' }}
+                      onClick={() => addItem()}
+                      color='brand.100'
+                      borderRadius='2px'
+                      isDisabled={product.stock === 0}
+                      w={{ base: '100%', lg: '50%' }}
+                      h='50px'
+                    >
+                      <Text fontWeight='light'>Add to cart</Text>
+                    </Button>
+                  </Stack>
 
                   <Stack w='270px'>
                     <Flex alignItems='center'>
@@ -187,6 +204,31 @@ const ProductScreen = () => {
               <Flex direction='column' align='center' flex='1'>
                 <Image mb='30px' borderRadius='2px' objectFit='cover' src={product.images[0]} alt={product.name} />
               </Flex>
+            </Stack>
+            <Stack>
+              <Text fontSize='xl' fontWeight='bold'>
+                Reviews
+              </Text>
+              <SimpleGrid minChildWidth='300px' spacingX='40px' spacingY='20px'>
+                {product.reviews.map((review) => (
+                  <Box key={review._id}>
+                    <Flex spacing='2px' alignItems='center'>
+                      <StarIcon color='brand.400' />
+                      <StarIcon color={product.rating >= 2 ? 'brand.400' : 'brand.200'} />
+                      <StarIcon color={product.rating >= 3 ? 'brand.400' : 'brand.200'} />
+                      <StarIcon color={product.rating >= 4 ? 'brand.400' : 'brand.200'} />
+                      <StarIcon color={product.rating >= 5 ? 'brand.400' : 'brand.200'} />
+                      <Text fontWeight='semibold' ml='4px'>
+                        {review.title && review.title}
+                      </Text>
+                    </Flex>
+                    <Box py='12px'>{review.comment}</Box>
+                    <Text fontSize='sm' color='brand.800'>
+                      by {review.name}, {new Date(review.createdAt).toDateString()}
+                    </Text>
+                  </Box>
+                ))}
+              </SimpleGrid>
             </Stack>
           </Box>
         )

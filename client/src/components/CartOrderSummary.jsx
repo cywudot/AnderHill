@@ -49,7 +49,7 @@ const CartOrderSummary = () => {
             Total
           </Text>
           <Text fontSize='lg'>
-            ${subtotal <= 1000 ? Math.round(Number(subtotal)) + Math.round(Number(standardShipping)) : subtotal}
+            ${subtotal <= 300 ? Number(subtotal) + Math.round(Number(standardShipping)) : subtotal}
           </Text>
         </Flex>
       </Stack>
