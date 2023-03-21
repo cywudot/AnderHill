@@ -6,6 +6,7 @@ import {
   Wrap,
   WrapItem,
   Spinner,
+  Button,
   Alert,
   AlertIcon,
   AlertTitle,
@@ -17,23 +18,42 @@ import ProductCard from '../components/ProductCard';
 import { useEffect } from 'react';
 
 import { useDispatch, useSelector } from 'react-redux';
+
+//getFilterProducts inside
 import { getProducts } from '../redux/actions/productActions'; // AKA getting getProducts from productAction.jsx
 
 const ProductsScreens = () => {
   const dispatch = useDispatch();
 
   const productList = useSelector((state) => state.products);
-  const { loading, error, products } = productList;
+  //filterCategory in inside productList
+  const { loading, error, products, filterCategory } = productList;
+
+  // const handleCategoryFilter = (category) => {
+  //   dispatch(getFilterProducts(category));
+  // };
+
+  // useEffect(() => {
+  //   dispatch(getProducts());
+  // }, [dispatch]);
 
   useEffect(() => {
-    dispatch(getProducts());
-  }, [dispatch]);
+    if (filterCategory) {
+      dispatch(getProducts(filterCategory));
+    } else {
+      dispatch(getProducts());
+    }
+  }, [dispatch, filterCategory]);
+
+  const handleFilter = (category) => {
+    dispatch(getProducts(category));
+  };
 
   return (
     <>
-      {/* <Box>
-        <img src={ProductsHero} alt='ProductHeroImage' />
-      </Box> */}
+      <Button onClick={() => handleFilter('Home Accents')}>Home Accents</Button>
+      <Button onClick={() => handleFilter('Dinnerware')}>Dinnerware</Button>
+      <Button onClick={() => handleFilter('')}>All Products</Button>
       <Wrap spacing='30px' justify='center' minHeight='100vh' backgroundColor='brand.100'>
         {loading ? (
           <Stack direction='row' spacing={4}>

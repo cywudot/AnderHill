@@ -10,6 +10,7 @@ import {
   AlertIcon,
   AlertDescription,
   AlertTitle,
+  Divider,
   Flex,
   Badge,
   Heading,
@@ -57,7 +58,7 @@ const ProductScreen = () => {
   };
 
   return (
-    <Wrap spacuing='30px' justify='center' minHeight='100vh' backgroundColor='brand.100'>
+    <Wrap spacing='30px' justify='center' minHeight='100vh' backgroundColor='brand.100'>
       {loading ? (
         <Stack direction='row' spacing={4}>
           <Spinner mt={20} thickness='2px' speed='0.65s' emptyColor='gray.200' color='brand.400' size='xl' />
@@ -76,12 +77,12 @@ const ProductScreen = () => {
             px={{ base: '4', md: '8', lg: '12' }}
             py={{ base: '6', md: '8', lg: '12' }}
           >
-            <Stack direction={{ base: 'column-reverse', lg: 'row' }} align={{ lg: 'flex-start' }}>
+            <Stack direction={{ base: 'column-reverse', lg: 'row' }} align='center' mb='50px'>
               <Stack
                 pr={{ base: '0', md: '12' }}
                 spacing={{ base: '8', md: '4' }}
                 flex='1.5'
-                mb={{ base: '12', md: 'none' }}
+                // mb={{ base: 'none', md: 'none' }}
               >
                 {product.productIsNew && (
                   <Badge
@@ -205,30 +206,54 @@ const ProductScreen = () => {
                 <Image mb='30px' borderRadius='2px' objectFit='cover' src={product.images[0]} alt={product.name} />
               </Flex>
             </Stack>
-            <Stack>
-              <Text fontSize='xl' fontWeight='bold'>
+
+            <Divider orientation='horizontal' backgroundColor='brand.400' h='2px' maxW='80%' mx='auto' />
+
+            <Stack align='center' mt='50px'>
+              <Text fontSize='xl' fontWeight='semibold' mb='40px'>
                 Reviews
               </Text>
-              <SimpleGrid minChildWidth='300px' spacingX='40px' spacingY='20px'>
+
+              <Stack spacingX='40px' spacingY='20px'>
                 {product.reviews.map((review) => (
-                  <Box key={review._id}>
-                    <Flex spacing='2px' alignItems='center'>
-                      <StarIcon color='brand.400' />
-                      <StarIcon color={product.rating >= 2 ? 'brand.400' : 'brand.200'} />
-                      <StarIcon color={product.rating >= 3 ? 'brand.400' : 'brand.200'} />
-                      <StarIcon color={product.rating >= 4 ? 'brand.400' : 'brand.200'} />
-                      <StarIcon color={product.rating >= 5 ? 'brand.400' : 'brand.200'} />
-                      <Text fontWeight='semibold' ml='4px'>
+                  <Stack
+                    key={review._id}
+                    minHeight='100px'
+                    direction={{ base: 'column', md: 'row' }}
+                    gap={{ base: '10px', md: '50px' }}
+                  >
+                    <Stack
+                      justify='space-between'
+                      minW='120px'
+                      direction={{ base: 'row', md: 'column' }}
+                      backgroundColor={{ base: 'brand.200', md: 'brand.100' }}
+                      py={{ base: '10px', md: '0px' }}
+                      px={{ base: '5px', md: '0px' }}
+                    >
+                      <Text fontSize='md' color='brand.500' fontWeight='semibold'>
+                        {review.name}
+                      </Text>
+                      <Text color='brand.800' fontSize='sm'>
+                        {new Date(review.createdAt).toDateString()}
+                      </Text>
+                    </Stack>
+
+                    <Stack justify='space-between'>
+                      <HStack spacing='5px' mt='3px'>
+                        <StarIcon color='brand.400' />
+                        <StarIcon color={product.rating >= 2 ? 'brand.400' : 'brand.200'} />
+                        <StarIcon color={product.rating >= 3 ? 'brand.400' : 'brand.200'} />
+                        <StarIcon color={product.rating >= 4 ? 'brand.400' : 'brand.200'} />
+                        <StarIcon color={product.rating >= 5 ? 'brand.400' : 'brand.200'} />
+                      </HStack>
+                      <Text fontWeight='semibold' color='brand.500'>
                         {review.title && review.title}
                       </Text>
-                    </Flex>
-                    <Box py='12px'>{review.comment}</Box>
-                    <Text fontSize='sm' color='brand.800'>
-                      by {review.name}, {new Date(review.createdAt).toDateString()}
-                    </Text>
-                  </Box>
+                      <Text color='brand.500'>{review.comment}</Text>
+                    </Stack>
+                  </Stack>
                 ))}
-              </SimpleGrid>
+              </Stack>
             </Stack>
           </Box>
         )

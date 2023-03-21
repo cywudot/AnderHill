@@ -31,11 +31,19 @@ export const productsSlice = createSlice({
       state.error = payload;
       state.loading = false;
     },
+    //TO DELETE
+    setFilterCategory(state, { payload }) {
+      state.filterCategory = payload;
+      state.products = state.products.filter((product) => product.category === payload);
+      state.loading = false;
+      state.error = null;
+    },
   },
 });
 
 //Wrapping/binding them all together
-export const { setLoading, setError, setProducts, setProduct } = productsSlice.actions;
+//TO DELETE //setFilterCategory inside productSlices
+export const { setLoading, setError, setProducts, setProduct, setFilterCategory } = productsSlice.actions;
 export default productsSlice.reducer;
 
 export const productsSelector = (state) => state.products;
