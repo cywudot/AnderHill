@@ -6,6 +6,7 @@ import '@fontsource/cormorant-garamond';
 import '@fontsource/poppins';
 import CartScreen from './screens/CartScreen';
 import ProductScreen from './screens/ProductScreen';
+import Footer from './components/Footer';
 // import theme from './theme.js';
 
 const theme = extendTheme({
@@ -17,6 +18,7 @@ const theme = extendTheme({
       400: '#DFBD8E',
       4001: '#C4A67C',
       500: '#454545',
+      5001: '#343434',
       600: '#F16161',
       700: '#ECE8E8',
       800: '#84817C',
@@ -40,6 +42,7 @@ function App() {
             <Route path='/shoppingcart' element={<CartScreen />}></Route>
           </Routes>
         </main>
+        <Footer />
       </Router>
     </ChakraProvider>
   );

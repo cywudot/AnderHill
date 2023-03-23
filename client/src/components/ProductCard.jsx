@@ -69,14 +69,31 @@ const ProductCard = ({ product }) => {
         <Image src={product.images[0]} alt={product.name} objectFit='cover' minW='270px' h='300px' />
         {product.productIsNew && (
           <Box flex='1' max='5' alignItems='baseline' position='absolute' top={4} right={4}>
-            <Badge rounded='full' px='5' fontSize='1em' color='brand.400' fontWeight='light' fontFamily='body'>
+            <Badge
+              rounded='full'
+              px='5'
+              fontSize='1em'
+              color='brand.400'
+              fontWeight='light'
+              fontFamily='body'
+              backgroundColor='brand.100'
+            >
               New
             </Badge>
           </Box>
         )}
         {product.stock <= 0 && (
           <Box flex='1' max='5' alignItems='baseline' position='absolute' top={4} right={4}>
-            <Badge rounded='full' px='5' fontSize='1em' color='brand.600' fontWeight='light' as='i' fontFamily='body'>
+            <Badge
+              rounded='full'
+              px='5'
+              fontSize='1em'
+              color='brand.600'
+              fontWeight='light'
+              as='i'
+              fontFamily='body'
+              backgroundColor='brand.100'
+            >
               Out of Stock
             </Badge>
           </Box>
