@@ -51,9 +51,15 @@ const ProductsScreens = () => {
 
   return (
     <>
-      <Button onClick={() => handleFilter('Home Accents')}>Home Accents</Button>
-      <Button onClick={() => handleFilter('Dinnerware')}>Dinnerware</Button>
-      <Button onClick={() => handleFilter('')}>All Products</Button>
+      <Button onClick={() => handleFilter('Home Accents')} color='brand.500'>
+        Home Accents
+      </Button>
+      <Button onClick={() => handleFilter('Dinnerware')} color='brand.500'>
+        Dinnerware
+      </Button>
+      <Button onClick={() => handleFilter('')} color='brand.500'>
+        All Products
+      </Button>
       <Wrap spacing='30px' justify='center' minHeight='100vh' backgroundColor='brand.100'>
         {loading ? (
           <Stack direction='row' spacing={4}>

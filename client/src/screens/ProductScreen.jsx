@@ -16,12 +16,11 @@ import {
   Heading,
   HStack,
   Button,
-  SimpleGrid,
   useToast,
 } from '@chakra-ui/react';
-import { MinusIcon, StarIcon, SmallAddIcon, PlusSquareIcon } from '@chakra-ui/icons';
+import { StarIcon } from '@chakra-ui/icons';
 import { FaPlus, FaMinus } from 'react-icons/fa';
-import { BiPackage, BiSupport } from 'react-icons/bi';
+import { BiSupport } from 'react-icons/bi';
 import { useDispatch, useSelector } from 'react-redux';
 import { getProduct } from '../redux/actions/productActions';
 import { addCartItem } from '../redux/actions/cartActions';
@@ -159,7 +158,15 @@ const ProductScreen = () => {
                       justify='space-between'
                       borderRadius='2px'
                     >
-                      <Button isDisabled={amount <= 1} onClick={() => changeAmount('minus')} borderRadius='2px'>
+                      <Button
+                        isDisabled={amount <= 1}
+                        onClick={() => changeAmount('minus')}
+                        borderRadius='2px'
+                        backgroundColor='brand.400'
+                        _hover={{
+                          backgroundColor: 'brand.4001',
+                        }}
+                      >
                         <FaMinus />
                       </Button>
                       <Text color='brand.500'>{amount}</Text>
@@ -167,6 +174,10 @@ const ProductScreen = () => {
                         isDisabled={amount >= product.stock}
                         onClick={() => changeAmount('plus')}
                         borderRadius='0px'
+                        backgroundColor='brand.400'
+                        _hover={{
+                          backgroundColor: 'brand.4001',
+                        }}
                       >
                         <FaPlus />
                       </Button>

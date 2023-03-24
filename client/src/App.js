@@ -7,9 +7,17 @@ import '@fontsource/poppins';
 import CartScreen from './screens/CartScreen';
 import ProductScreen from './screens/ProductScreen';
 import Footer from './components/Footer';
+import LandingScreen from './screens/LandingScreen';
 // import theme from './theme.js';
 
 const theme = extendTheme({
+  styles: {
+    global: () => ({
+      body: {
+        background: '#FCFAF7',
+      },
+    }),
+  },
   colors: {
     brand: {
       100: '#FCFAF7',
@@ -28,6 +36,9 @@ const theme = extendTheme({
     heading: `'Cormorant Garamond', sans-serif`,
     body: `'Poppins', sans-serif`,
   },
+  body: {
+    background: '#FCFAF7',
+  },
 });
 
 function App() {
@@ -37,6 +48,7 @@ function App() {
         <Navbar />
         <main>
           <Routes>
+            <Route path='/' element={<LandingScreen />}></Route>
             <Route path='/shop' element={<ProductsScreens />}></Route>
             <Route path='/product/:id' element={<ProductScreen />}></Route>
             <Route path='/shoppingcart' element={<CartScreen />}></Route>

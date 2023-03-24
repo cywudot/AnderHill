@@ -23,7 +23,7 @@ const links = [
   { linkName: 'Home', path: '/' },
   { linkName: 'Shop', path: '/shop' },
   { linkName: 'About Us ', path: '/aboutus' },
-  { linkName: 'Contact Us ', path: '/contactus' },
+  { linkName: 'Contact ', path: '/contact' },
 ];
 
 const NavLink = ({ path, children }) => (
