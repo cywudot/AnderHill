@@ -18,6 +18,8 @@ const theme = extendTheme({
       },
     }),
   },
+  initialColorMode: 'light',
+  useSystemColorMode: false,
   colors: {
     brand: {
       100: '#FCFAF7',

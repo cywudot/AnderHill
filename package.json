@@ -20,9 +20,11 @@
   },
   "homepage": "https://github.com/cwu90/AnderHill#readme",
   "dependencies": {
+    "@fontsource/cormorant-garamond": "^4.5.10",
     "concurrently": "^7.6.0",
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
+    "framer-motion": "^10.9.1",
     "mongoose": "^7.0.0"
   }
 }

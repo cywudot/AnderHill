@@ -5,119 +5,166 @@ import {
   HStack,
   Container,
   Stack,
+  Button,
   Icon,
   Image,
   Link,
   Skeleton,
+  chakra,
   useColorModeValue,
   Text,
+  Wrap,
 } from '@chakra-ui/react';
 import { FaArrowRight } from 'react-icons/fa';
 import { Link as ReactLink } from 'react-router-dom';
 import HeroImage from '../otherassets/HomeHeroImage.png';
+import HeroImageMobile from '../otherassets/HomeHeroImageMobile.png';
+import ContactIcon from '../sourced-icons/contact.png';
+import FreeDeliveryIcon from '../sourced-icons/free-delivery.png';
+import ReturnIcon from '../sourced-icons/30days.png';
+import HomeAccent from '../otherassets/HomeAccent.jpg';
+import Dinnerware from '../otherassets/Dinnerware.jpg';
+import ShopAll from '../otherassets/AllProducts.jpg';
 
+// backgroundImage={`url(${HeroImage})`}
 const LandingScreen = () => (
-  <Box maxW='9xl' mx='auto' px={{ base: '0', lg: '12' }} py={{ base: '0', lg: '12' }} minH='6xl'>
-    <Flex flex='1' overflow='hidden'>
-      <Image
-        src={`${HeroImage}`}
-        alt='Lovely Image'
-        fallback={<Skeleton />}
-        // maxH='450px'
-        minW='300px'
-        objectFit='cover'
-        flex='1'
-      />
-      <Image
-        display={{
-          base: 'none',
-          sm: 'initial',
-        }}
-        src={`url(${HeroImage})`}
-        alt='Lovely Image'
-        fallback={<Skeleton />}
-        maxH='450px'
-        objectFit='cover'
-      />
-    </Flex>
-    {/* <Stack
-      direction={{
-        base: 'column-reverse',
-        lg: 'row',
-      }}
-      spacing={{
-        base: '0',
-        lg: '20',
+  <Box maxW='12xl' mx='auto' px={{ base: '0', lg: '12' }} py={{ base: '0', lg: '0' }} minH='8xl'>
+    <Box
+      w='full'
+      h='xl'
+      bgPos='center'
+      bgSize='cover'
+      backgroundImage={{
+        base: `url(${HeroImageMobile})`,
+        md: `url(${HeroImage})`,
       }}
     >
-      <Box
-        width={{
-          lg: 'sm',
-        }}
-        transform={{
-          base: 'translateY(-50%)',
-          lg: 'none',
-        }}
-        bg={{
-          base: useColorModeValue('red.50', 'gray.700'),
-          lg: 'transparent',
-        }}
-        mx={{
-          base: '6',
-          md: '8',
-          lg: '0',
-        }}
-        px={{
-          base: '6',
-          md: '8',
-          lg: '0',
-        }}
-        py={{
-          base: '6',
-          md: '8',
-          lg: '12',
-        }}
-      >
-        <Stack spacing={{ base: '8', lg: '10' }}>
-          <Stack spacing={{ base: '2', lg: '4' }}>
-            <Heading size='xl' color={useColorModeValue('red.500', 'red.300')}>
-              Misguided
-            </Heading>
-            <Heading size='xl' fontWeight='normal'>
-              Refresh your wardrobe
-            </Heading>
-          </Stack>
-          <HStack spacing='3'>
-            <Link color={useColorModeValue('red.500', 'red.300')} fontWeight='bold' fontSize='lg'>
-              Discover now
-            </Link>
-            <Icon color={useColorModeValue('red.500', 'red.300')} as={FaArrowRight} />
-          </HStack>
+      <Flex pos='relative' boxSize='full' bg='blackAlpha.300'>
+        <Stack
+          spacing={6}
+          w={['8xl', '6xl', '2xl']}
+          pb={{ md: '10%', lg: '8%' }}
+          ml={{ md: '10%', lg: '8%' }}
+          justify={{ base: 'center', md: 'center' }}
+          textAlign={{ base: 'center', md: 'left', lg: 'left' }}
+          // align={{ base: 'center' }}
+        >
+          <Heading
+            fontSize={['4xl', '6xl', '7xl']}
+            fontWeight='extrabold'
+            color='brand.100'
+            textTransform='uppercase'
+            letterSpacing='wide'
+            pl={{ base: '4', md: '0' }}
+            pr={{ base: '4', md: '0' }}
+          >
+            Ander Hill Pottery
+          </Heading>
+
+          <Text
+            fontSize={{ base: 'sm', sm: 'md', lg: 'lg' }}
+            display={{ base: 'none', sm: 'initial' }}
+            fontFamily='body'
+            fontWeight='thin'
+            color='brand.100'
+            letterSpacing='normal'
+            pl={{ base: '8', md: '0' }}
+            pr={{ base: '8', md: '0' }}
+          >
+            Discover the art of pottery through our exquisite offerings, and add a touch of sophistication and
+            refinement to your living space today
+          </Text>
+
+          <Button
+            as={ReactLink}
+            to='/shop'
+            _hover={{ color: 'brand.100', backgroundColor: 'brand.500', transition: 'all 0.3s ease-in-out' }}
+            textTransform='uppercase'
+            w={200}
+            rounded='2px'
+            fontWeight='regular'
+            color='brand.500'
+            backgroundColor='brand.100'
+            alignSelf={{ base: 'center', md: 'start' }}
+          >
+            Our Collections
+          </Button>
         </Stack>
-      </Box>
-      <Flex flex='1' overflow='hidden'>
-        <Image
-          src='https://images.unsplash.com/photo-1589156229687-496a31ad1d1f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=772&q=80'
-          alt='Lovely Image'
-          fallback={<Skeleton />}
-          maxH='450px'
-          minW='300px'
-          objectFit='cover'
-          flex='1'
-        />
-        <Image
-          display={{
-            base: 'none',
-            sm: 'initial',
-          }}
-          src='https://images.unsplash.com/photo-1589156206699-bc21e38c8a7d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=772&q=80'
-          alt='Lovely Image'
-          fallback={<Skeleton />}
-          maxH='450px'
-          objectFit='cover'
-        />
       </Flex>
-    </Stack> */}
+    </Box>
+    <HStack
+      // minH='120px'
+      // maxH='180px'
+      backgroundColor='brand.5001'
+      justify={{ base: 'space-between', sm: 'space-around' }}
+      align='center'
+      textAlign={{ base: 'center', lg: 'left' }}
+      p={5}
+    >
+      <Stack direction={{ base: 'column', lg: 'row' }} align='center' gap={2} maxW={{ base: '190px', md: '300px' }}>
+        <Image src={FreeDeliveryIcon} w='60px' />
+        <Stack>
+          <Text fontSize={{ base: 'sm', md: 'md' }} fontWeight='regular' color='brand.100'>
+            Free Shipping
+          </Text>
+          <Text fontSize='sm' fontWeight='light' color='brand.100' display={{ base: 'none', md: 'initial' }}>
+            For orders over $300
+          </Text>
+        </Stack>
+      </Stack>
+
+      <Stack direction={{ base: 'column', lg: 'row' }} align='center' gap={2} maxW={{ base: '190px', md: '300px' }}>
+        <Image src={ReturnIcon} w='60px' />
+        <Stack>
+          <Text fontSize={{ base: 'sm', md: 'md' }} fontWeight='regular' color='brand.100'>
+            30 Days Guarantee
+          </Text>
+          <Text fontSize='sm' fontWeight='light' color='brand.100' display={{ base: 'none', md: 'initial' }}>
+            Quality ensured or money back
+          </Text>
+        </Stack>
+      </Stack>
+
+      <Stack direction={{ base: 'column', lg: 'row' }} align='center' gap={2} maxW={{ base: '190px', md: '300px' }}>
+        <Image src={ContactIcon} w='60px' />
+        <Stack>
+          <Text fontSize={{ base: 'sm', md: 'md' }} fontWeight='regular' color='brand.100'>
+            24/7 Support
+          </Text>
+          <Text fontSize='sm' fontWeight='light' color='brand.100' display={{ base: 'none', md: 'initial' }}>
+            Always Here to Assist You
+          </Text>
+        </Stack>
+      </Stack>
+    </HStack>
+    <Box mt={10} alignItems='center'>
+      <Stack>
+        <Heading as='h2' textAlign='center' textTransform='uppercase' mb={10}>
+          Discover Ander Hill
+        </Heading>
+      </Stack>
+      <Flex p={50} w='full' justifyContent='center'>
+        <Box w='sm' mx='auto' rounded='2px' overflow='hidden'>
+          <Image w='full' h='lg' fit='cover' objectPosition='center' src={HomeAccent} alt='avatar' />
+          <Button fontFamily='heading' fontSize='xl' backgroundColor='brand.300' rounded='2px' color='brand.100' mt={2}>
+            Home Accents
+          </Button>
+        </Box>
+
+        <Box w='sm' mx='auto' rounded='2px' overflow='hidden'>
+          <Image w='full' h='lg' fit='cover' objectPosition='center' src={Dinnerware} alt='avatar' />
+          <Button fontFamily='heading' fontSize='xl' backgroundColor='brand.300' rounded='2px' color='brand.100' mt={2}>
+            Dinnerware
+          </Button>
+        </Box>
+        <Box w='sm' mx='auto' rounded='2px' overflow='hidden'>
+          <Image w='full' h='lg' fit='cover' objectPosition='center' src={ShopAll} alt='avatar' />
+          <Button fontFamily='heading' fontSize='xl' backgroundColor='brand.300' rounded='2px' color='brand.100' mt={2}>
+            Shop All
+          </Button>
+        </Box>
+      </Flex>
+    </Box>
   </Box>
 );
 

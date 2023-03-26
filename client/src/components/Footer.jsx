@@ -99,13 +99,17 @@ export const Footer = () => (
                 LOCATION
               </Text>
               <Stack spacing='3' shouldWrapChildren>
-                <Text fontSize='sm'>1359 Tanner Street Vancover, B.C, V5R 2T4</Text>
+                <Text fontSize='sm' color='brand.100'>
+                  1359 Tanner Street Vancover, B.C, V5R 2T4
+                </Text>
               </Stack>
               <Text fontSize='md' fontWeight='semibold' color='brand.500' fontFamily='heading'>
                 OPENING HOURS
               </Text>
               <Stack spacing='3' shouldWrapChildren>
-                <Text fontSize='sm'>Monday to Saturday from 10:00 to 19:00</Text>
+                <Text fontSize='sm' color='brand.100'>
+                  Monday to Saturday from 10:00 to 19:00
+                </Text>
               </Stack>
             </Stack>
           </Stack>
