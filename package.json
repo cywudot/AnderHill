@@ -25,6 +25,7 @@
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
     "framer-motion": "^10.9.1",
-    "mongoose": "^7.0.0"
+    "mongoose": "^7.0.0",
+    "react-player": "^2.12.0"
   }
 }

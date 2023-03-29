@@ -8,6 +8,7 @@ import CartScreen from './screens/CartScreen';
 import ProductScreen from './screens/ProductScreen';
 import Footer from './components/Footer';
 import LandingScreen from './screens/LandingScreen';
+import AboutUs from './screens/AboutUs';
 // import theme from './theme.js';
 
 const theme = extendTheme({
@@ -52,6 +53,7 @@ function App() {
           <Routes>
             <Route path='/' element={<LandingScreen />}></Route>
             <Route path='/shop' element={<ProductsScreens />}></Route>
+            <Route path='/aboutus' element={<AboutUs />}></Route>
             <Route path='/product/:id' element={<ProductScreen />}></Route>
             <Route path='/shoppingcart' element={<CartScreen />}></Route>
           </Routes>

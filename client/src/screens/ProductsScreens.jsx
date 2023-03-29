@@ -14,9 +14,9 @@ import {
 } from '@chakra-ui/react';
 import ProductCard from '../components/ProductCard';
 // import { products } from '../products';
-// import ProductsHero from '../logoandbackground/neven-krcmarek-accent-unsplash.jpg';
-import { useEffect } from 'react';
 
+import { useEffect } from 'react';
+// import { useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 
 //getFilterProducts inside
@@ -26,16 +26,11 @@ const ProductsScreens = () => {
   const dispatch = useDispatch();
 
   const productList = useSelector((state) => state.products);
-  //filterCategory in inside productList
   const { loading, error, products, filterCategory } = productList;
 
-  // const handleCategoryFilter = (category) => {
-  //   dispatch(getFilterProducts(category));
-  // };
-
-  // useEffect(() => {
-  //   dispatch(getProducts());
-  // }, [dispatch]);
+  const handleFilter = (category) => {
+    dispatch(getProducts(category));
+  };
 
   useEffect(() => {
     if (filterCategory) {
@@ -44,10 +39,6 @@ const ProductsScreens = () => {
       dispatch(getProducts());
     }
   }, [dispatch, filterCategory]);
-
-  const handleFilter = (category) => {
-    dispatch(getProducts(category));
-  };
 
   return (
     <>
@@ -63,7 +54,7 @@ const ProductsScreens = () => {
       <Wrap spacing='30px' justify='center' minHeight='100vh' backgroundColor='brand.100'>
         {loading ? (
           <Stack direction='row' spacing={4}>
-            <Spinner mt={20} thinkness='2px' speed='0.65s' emptyColor='gray.200' color='brand.400' size='xl' />
+            <Spinner mt={20} thickness='2px' speed='0.65s' emptyColor='gray.200' color='brand.400' size='xl' />
           </Stack>
         ) : error ? (
           <Alert status='error'>
@@ -86,3 +77,7 @@ const ProductsScreens = () => {
 };
 
 export default ProductsScreens;
+
+// useEffect(() => {
+//   dispatch(getProducts());
+// }, [dispatch]);
