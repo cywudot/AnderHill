@@ -13,6 +13,13 @@ import {
   chakra,
   useColorModeValue,
   Text,
+  WrapItem,
+  Center,
+  AlertDescription,
+  Alert,
+  AlertIcon,
+  Spinner,
+  AlertTitle,
   Wrap,
 } from '@chakra-ui/react';
 import { FaArrowRight } from 'react-icons/fa';
@@ -26,20 +33,20 @@ import HomeAccent from '../otherassets/HomeAccent.jpg';
 import Dinnerware from '../otherassets/Dinnerware.jpg';
 import ShopAll from '../otherassets/AllProducts.jpg';
 
-// backgroundImage={`url(${HeroImage})`}
 import { useDispatch, useSelector } from 'react-redux';
-import { getProducts } from '../redux/actions/productActions';
 import { useEffect } from 'react';
+import { getProducts, getFilteredProducts } from '../redux/actions/productActions';
 
 const LandingScreen = () => {
-  // const dispatch = useDispatch();
-
-  // const productList = useSelector((state) => state.products);
-  // const { filterCategory } = productList;
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   // const handleFilter = (category) => {
-  //   dispatch(getProducts(category));
+  //   dispatch(getFilteredProducts(category));
   // };
+
+  const products = useSelector((state) => state.products);
+  const { loading, error, product } = products;
 
   // useEffect(() => {
   //   if (filterCategory) {
@@ -173,13 +180,14 @@ const LandingScreen = () => {
       <Container maxW={['12xl', '10xl', '8xl']}>
         <Box mt={10} alignItems='center'>
           <Stack>
-            <Heading as='h2' textAlign='center' textTransform='uppercase' mb={5}>
+            <Heading as='h2' textAlign='center' textTransform='uppercase' mb={5} color='brand.500'>
               Discover Ander Hill
             </Heading>
           </Stack>
 
           {/* FEATURED PRODUCTS SECTION  */}
-          <Flex p={50} justifyContent='center' gap={10} justify='space-around'>
+
+          {/* <Flex p={50} justifyContent='center' gap={10} justify='space-around'>
             <Box w='sm' mx='auto' rounded='2px' overflow='hidden'>
               <Image w='full' h='lg' fit='cover' objectPosition='center' src={HomeAccent} alt='avatar' />
               <Button
@@ -191,7 +199,7 @@ const LandingScreen = () => {
                 mt={2}
                 as={ReactLink}
                 to='/shop'
-                // onClick={() => handleFilter('Home Accents')}
+                onClick={() => handleFilter('Home Accents')}
               >
                 Home Accents
               </Button>
@@ -208,7 +216,11 @@ const LandingScreen = () => {
                 mt={2}
                 as={ReactLink}
                 to='/shop'
-                // onClick={() => handleFilter('Dinnerware')}
+                // to={{
+                //   pathname: '/shop',
+                //   state: { category: 'Dinnerware' },
+                // }}
+                onClick={() => handleFilter('Dinnerware')}
               >
                 Dinnerware
               </Button>
@@ -229,12 +241,12 @@ const LandingScreen = () => {
                 variant='none'
                 as={ReactLink}
                 to='/shop'
-                // onClick={() => handleFilter('')}
+                onClick={() => handleFilter('')}
               >
                 Shop All
               </Button>
             </Box>
-          </Flex>
+          </Flex> */}
 
           {/* FEATURED PRODUCTS SECTION ENDS */}
         </Box>

@@ -20,25 +20,39 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 //getFilterProducts inside
-import { getProducts } from '../redux/actions/productActions'; // AKA getting getProducts from productAction.jsx
-
+import { getProducts, getFilteredProducts } from '../redux/actions/productActions'; // AKA getting getProducts from productAction.jsx
+import { useNavigate } from 'react-router-dom';
 const ProductsScreens = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const productList = useSelector((state) => state.products);
-  const { loading, error, products, filterCategory } = productList;
+  const { loading, error, products } = productList;
 
   const handleFilter = (category) => {
-    dispatch(getProducts(category));
+    dispatch(getFilteredProducts(category));
   };
 
+  //PREVIOUS CODE
+  // const handleFilter = (category) => {
+  //   if (category === '') {
+  //     dispatch(getProducts());
+  //   } else {
+  //     dispatch(getFilteredProducts(category));
+  //   }
+  // };
+
+  // useEffect(() => {
+  //   if (filterCategory) {
+  //     dispatch(getFilteredProducts(filterCategory));
+  //   } else {
+  //     dispatch(getProducts());
+  //   }
+  // }, [dispatch, filterCategory]);
+
   useEffect(() => {
-    if (filterCategory) {
-      dispatch(getProducts(filterCategory));
-    } else {
-      dispatch(getProducts());
-    }
-  }, [dispatch, filterCategory]);
+    dispatch(getProducts());
+  }, [dispatch]);
 
   return (
     <>
@@ -51,6 +65,7 @@ const ProductsScreens = () => {
       <Button onClick={() => handleFilter('')} color='brand.500'>
         All Products
       </Button>
+
       <Wrap spacing='30px' justify='center' minHeight='100vh' backgroundColor='brand.100'>
         {loading ? (
           <Stack direction='row' spacing={4}>

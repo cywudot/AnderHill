@@ -4,6 +4,7 @@ import { combineReducers, configureStore } from '@reduxjs/toolkit';
 //The combineReducers helper function turns an object whose values are different reducing functions into a single reducing function you can pass to createStore.
 import products from './slices/products';
 import cart from './slices/cart';
+import user from './slices/user';
 
 //In Redux, a reducer is a pure function that takes an action and the previous state of the application and returns the new state.The action describes what happened and it is the reducer's job to return the new state based on that action
 
@@ -12,6 +13,7 @@ const reducer = combineReducers({
   //this has all the reducers and initiate states of the store
   products,
   cart,
+  user,
 });
 
 export default configureStore({

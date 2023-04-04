@@ -9,6 +9,7 @@ import ProductScreen from './screens/ProductScreen';
 import Footer from './components/Footer';
 import LandingScreen from './screens/LandingScreen';
 import AboutUs from './screens/AboutUs';
+import LoginScreen from './screens/LoginScreen';
 // import theme from './theme.js';
 
 const theme = extendTheme({
@@ -56,6 +57,7 @@ function App() {
             <Route path='/aboutus' element={<AboutUs />}></Route>
             <Route path='/product/:id' element={<ProductScreen />}></Route>
             <Route path='/shoppingcart' element={<CartScreen />}></Route>
+            <Route path='/login' element={<LoginScreen />}></Route>
           </Routes>
         </main>
         <Footer />

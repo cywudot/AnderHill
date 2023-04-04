@@ -3,13 +3,20 @@ import Product from '../models/Product.js';
 
 const productRoutes = express.Router();
 
+//PREVIOUS CODE THAT USE BACKEND TO CHANGE STATE OF PRODUCTS
 // In this updated code, we first extract the category parameter from the request query string using req.query.category. If category is present, we create a query object that filters by the specified category using { category }. If category is not present, the query object will be empty, which will return all products.Then, we use the query object to filter the products with Product.find(query), and return the filtered products with res.json(products).
+
+// const getProducts = async (req, res) => {
+//   //TO DELETE
+//   const category = req.query.category;
+//   const query = category ? { category } : {};
+//   const products = await Product.find(query);
+//   // const products = await Product.find({});
+//   res.json(products);
+// };
+
 const getProducts = async (req, res) => {
-  //TO DELETE
-  const category = req.query.category;
-  const query = category ? { category } : {};
-  const products = await Product.find(query);
-  // const products = await Product.find({});
+  const products = await Product.find({});
   res.json(products);
 };
 
