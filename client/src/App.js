@@ -10,6 +10,7 @@ import Footer from './components/Footer';
 import LandingScreen from './screens/LandingScreen';
 import AboutUs from './screens/AboutUs';
 import LoginScreen from './screens/LoginScreen';
+import RegistrationScreen from './screens/RegistrationScreen';
 // import theme from './theme.js';
 
 const theme = extendTheme({
@@ -58,6 +59,7 @@ function App() {
             <Route path='/product/:id' element={<ProductScreen />}></Route>
             <Route path='/shoppingcart' element={<CartScreen />}></Route>
             <Route path='/login' element={<LoginScreen />}></Route>
+            <Route path='/registration' element={<RegistrationScreen />}></Route>
           </Routes>
         </main>
         <Footer />

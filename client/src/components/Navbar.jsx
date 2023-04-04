@@ -128,7 +128,7 @@ const Navbar = () => {
                     <Text ml='2'>Your Order</Text>
                   </MenuItem>
                   <MenuDivider />
-                  <MenuItem>
+                  <MenuItem onClick={logoutHandler}>
                     <MdLogout />
                     <Text ml='2'>Logout</Text>
                   </MenuItem>
