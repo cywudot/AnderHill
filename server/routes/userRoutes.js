@@ -2,6 +2,7 @@ import express from 'express';
 import User from '../models/User.js';
 import asyncHandler from 'express-async-handler';
 import jwt from 'jsonwebtoken';
+import { protectRoute } from '../middleware/authMiddleware.js';
 
 const userRoutes = express.Router();
 
@@ -24,6 +25,7 @@ const loginUser = asyncHandler(async (req, res) => {
       email: user.email,
       isAdmin: user.isAdmin,
       token: genToken(user._id),
+      createdAt: user.createdAt,
     });
 
     //If the user does not exist or the password does not match, it sets the HTTP status code to 401 (Unauthorized) and throws an error with the message 'Invalid email or password'.
@@ -60,7 +62,35 @@ const registerUser = asyncHandler(async (req, res) => {
   }
 });
 
+const updateUserProfile = asyncHandler(async (req, res) => {
+  // it first retrieves a user from the database by calling User.findById function and passing in the id parameter from the req.params object. If the user is found, the function updates the user's name and email fields with values from the req.body object. If the req.body.password field is defined, the user's password is updated as well.
+  const user = await User.findById(req.params.id);
+
+  if (user) {
+    user.name = req.body.name || user.name;
+    user.email = req.body.email || user.email;
+    if (req.body.password) {
+      user.password = req.body.password;
+    }
+    //The updated user is then saved to the database by calling the user.save function.
+    const updatedUser = await user.save();
+    //unction sends a JSON response that includes the updated user's information, such as _id, name, email, isAdmin, token, and createdAt.
+    res.json({
+      _id: updatedUser._id,
+      name: updatedUser.name,
+      email: updatedUser.email,
+      isAdmin: updatedUser.isAdmin,
+      token: genToken(updatedUser._id),
+      createdAt: updatedUser.createdAt,
+    });
+  } else {
+    res.status(404);
+    throw new Error('User not found.');
+  }
+});
+
 userRoutes.route('/login').post(loginUser);
 userRoutes.route('/register').post(registerUser);
+userRoutes.route('/profile/:id').put(protectRoute, updateUserProfile);
 
 export default userRoutes;

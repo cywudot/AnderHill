@@ -1,4 +1,5 @@
 import mongoose from 'mongoose';
+//password hashing function that is used to securely store user passwords
 import bcrypt from 'bcryptjs';
 
 const userSchema = new mongoose.Schema(
