@@ -146,21 +146,21 @@ const Navbar = () => {
           {userInfo ? (
             <>
               <Menu>
-                <MenuButton px='4' py='2' transition='all 0.3s' as={Button}>
-                  {userInfo.name} <ChevronDownIcon />
+                <MenuButton px='4' py='2' transition='all 0.3s' as={Button} variant='none'>
+                  Hi, {userInfo.name} <ChevronDownIcon />
                 </MenuButton>
-                <MenuList>
-                  <MenuItem as={ReactLink} to='/profile'>
-                    <CgProfile />
+                <MenuList rounded={2} backgroundColor='brand.100' borderColor='brand.500'>
+                  <MenuItem as={ReactLink} to='/profile' backgroundColor='brand.100' color='brand.500'>
+                    <CgProfile color='brand.500' />
                     <Text ml='2'>Profile</Text>
                   </MenuItem>
-                  <MenuItem as={ReactLink} to='/your-orders'>
-                    <MdLocalShipping />
+                  <MenuItem as={ReactLink} to='/your-orders' backgroundColor='brand.100' color='brand.500'>
+                    <MdLocalShipping color='brand.500' />
                     <Text ml='2'>Your Order</Text>
                   </MenuItem>
                   <MenuDivider />
-                  <MenuItem onClick={logoutHandler}>
-                    <MdLogout />
+                  <MenuItem onClick={logoutHandler} backgroundColor='brand.100' color='brand.500'>
+                    <MdLogout color='brand.500' />
                     <Text ml='2'>Logout</Text>
                   </MenuItem>
                 </MenuList>
@@ -196,7 +196,7 @@ const Navbar = () => {
                 variant='none'
                 backgroundColor='transparent'
               >
-                <AiOutlineLogin size='20px' />
+                <Icon as={AiOutlineLogin} h='10' w='7' />
               </Button>
             </>
           )}

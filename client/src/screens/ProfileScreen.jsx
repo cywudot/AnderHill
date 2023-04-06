@@ -1,5 +1,6 @@
 import {
   Box,
+  Badge,
   Button,
   FormControl,
   Heading,
@@ -67,7 +68,7 @@ const ProfileScreen = () => {
         >
           <Stack spacing='10' direction={{ base: 'column', lg: 'row' }} align={{ lg: 'flex-start' }}>
             <Stack flex='1.5' mb={{ base: '2xl', md: 'none' }}>
-              <Heading fontSize='2xl' fontWeight='extrabold'>
+              <Heading fontSize='3xl' fontWeight='extrabold' pb={4}>
                 Profile
               </Heading>
               <Stack spacing='6'>
@@ -116,9 +117,9 @@ const ProfileScreen = () => {
               </Stack>
             </Stack>
             <Flex direction='column' align='center' flex='1'>
-              <Card>
+              <Card borderColor='brand.500' backgroundColor='brand.100' rounded={2}>
                 <CardHeader>
-                  <Heading size='md'> User Report </Heading>
+                  <Heading size='md'> Welcome, {userInfo.name} </Heading>
                 </CardHeader>
                 <CardBody>
                   <Stack divider={<StackDivider />} spacing='4'>

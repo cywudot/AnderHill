@@ -5,6 +5,7 @@ import { combineReducers, configureStore } from '@reduxjs/toolkit';
 import products from './slices/products';
 import cart from './slices/cart';
 import user from './slices/user';
+import order from './slices/order';
 
 //In Redux, a reducer is a pure function that takes an action and the previous state of the application and returns the new state.The action describes what happened and it is the reducer's job to return the new state based on that action
 
@@ -14,6 +15,7 @@ const reducer = combineReducers({
   products,
   cart,
   user,
+  order,
 });
 
 export default configureStore({
