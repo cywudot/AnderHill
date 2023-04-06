@@ -1,5 +1,6 @@
 import {
   Box,
+  Badge,
   Flex,
   HStack,
   Link,
@@ -31,6 +32,36 @@ import AHLogo2 from '../logo/AnderHillLogo2.png';
 import { ChakraProvider, extendTheme } from '@chakra-ui/react';
 import { motion } from 'framer-motion';
 import { logout } from '../redux/actions/userActions';
+
+const ShoppingCartIcon = () => {
+  const cartInfo = useSelector((state) => state.cart);
+  const { cart } = cartInfo;
+  return (
+    <Flex>
+      {cart.length > 0 && (
+        <Badge
+          position='absolute'
+          top='-1'
+          right='-1'
+          backgroundColor='brand.4001'
+          color='brand.100'
+          borderRadius='full'
+          size='sm'
+          align='center'
+          fontWeight='light'
+          p='2px'
+          w='22px'
+          h='22px'
+          lineHeight='1.7'
+        >
+          {cart.length}
+        </Badge>
+      )}
+      <Icon as={AiOutlineShoppingCart} h='10' w='7' alignSelf='center' />
+      {/* <AiOutlineShoppingCart size='30px' /> */}
+    </Flex>
+  );
+};
 
 const links = [
   { linkName: 'Home', path: '/' },
@@ -179,7 +210,8 @@ const Navbar = () => {
             variant='none'
             backgroundColor='transparent'
           >
-            <AiOutlineShoppingCart size='20px' />
+            <ShoppingCartIcon />
+            {/* <AiOutlineShoppingCart size='20px' /> */}
           </Button>
         </Flex>
       </Flex>
