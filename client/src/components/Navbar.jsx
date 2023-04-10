@@ -36,6 +36,13 @@ import { logout } from '../redux/actions/userActions';
 const ShoppingCartIcon = () => {
   const cartInfo = useSelector((state) => state.cart);
   const { cart } = cartInfo;
+
+  const cartItemsTotalCalc = (cartState) => {
+    let total = 0;
+    cartState.map((item) => (total += Number(item.qty)));
+    return total;
+  };
+
   return (
     <Flex>
       {cart.length > 0 && (
@@ -54,7 +61,7 @@ const ShoppingCartIcon = () => {
           h='22px'
           lineHeight='1.7'
         >
-          {cart.length}
+          {cartItemsTotalCalc(cart)}
         </Badge>
       )}
       <Icon as={AiOutlineShoppingCart} h='10' w='7' alignSelf='center' />

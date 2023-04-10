@@ -12,7 +12,7 @@ export const initialState = {
   error: null,
   cart: JSON.parse(localStorage.getItem('cartItems')) ?? [],
   expressShipping: false,
-  subtotal: localStorage.getItem('cartItem') ? calulateSubtotal(JSON.parse(localStorage.getItem('cartItems'))) : 0,
+  subtotal: localStorage.getItem('cartItems') ? calulateSubtotal(JSON.parse(localStorage.getItem('cartItems'))) : 0,
 };
 
 const updateLocalStorage = (cart) => {

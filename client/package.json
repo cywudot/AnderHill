@@ -12,6 +12,7 @@
     "@fontsource/open-sans": "^4.5.14",
     "@fontsource/poppins": "^4.5.10",
     "@fontsource/raleway": "^4.5.12",
+    "@paypal/react-paypal-js": "^7.8.3",
     "@reduxjs/toolkit": "^1.9.3",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",

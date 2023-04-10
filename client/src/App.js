@@ -12,6 +12,7 @@ import AboutUs from './screens/AboutUs';
 import LoginScreen from './screens/LoginScreen';
 import RegistrationScreen from './screens/RegistrationScreen';
 import ProfileScreen from './screens/ProfileScreen';
+import CheckoutScreen from './screens/CheckoutScreen';
 // import theme from './theme.js';
 
 const theme = extendTheme({
@@ -62,6 +63,7 @@ function App() {
             <Route path='/login' element={<LoginScreen />}></Route>
             <Route path='/registration' element={<RegistrationScreen />}></Route>
             <Route path='/profile' element={<ProfileScreen />}></Route>
+            <Route path='/checkout' element={<CheckoutScreen />}></Route>
           </Routes>
         </main>
         <Footer />
