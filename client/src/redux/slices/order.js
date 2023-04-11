@@ -24,12 +24,15 @@ export const orderSlice = createSlice({
       state.shippingAddress = payload;
       state.loading = false;
     },
+    clearOrder: (state) => {
+      state = initialState;
+    },
   },
 });
 
 //Wrapping/binding them all together
 //TO DELETE //setFilterCategory inside productSlices
-export const { setLoading, setError, shippingAddressAdd } = orderSlice.actions;
+export const { setLoading, setError, shippingAddressAdd, clearOrder } = orderSlice.actions;
 export default orderSlice.reducer;
 
 export const orderSelector = (state) => state.order;
