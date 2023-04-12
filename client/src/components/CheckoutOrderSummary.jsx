@@ -25,7 +25,7 @@ const CheckoutOrderSummary = () => {
   const user = useSelector((state) => state.user);
   const { userInfo } = user;
   const shippingInfo = useSelector((state) => state.order);
-  const { error, shippingAddress } = cartItems;
+  const { error, shippingAddress } = shippingInfo;
   const [buttonDisabled, setButtonDisabled] = useState(false);
   const dispatch = useDispatch();
 
@@ -39,7 +39,15 @@ const CheckoutOrderSummary = () => {
     [shipping, subtotal]
   );
 
-  const onPaymentSuccess = () => {
+  useEffect(() => {
+    if (!error) {
+      setButtonDisabled(false);
+    } else {
+      setButtonDisabled(true);
+    }
+  }, [error, shippingAddress, total, expressShipping, shipping, dispatch]);
+
+  const onPaymentSuccess = async (data) => {
     alert('order success');
   };
 
@@ -88,7 +96,13 @@ const CheckoutOrderSummary = () => {
           </Text>
         </Flex>
       </Stack>
-      <PayPalButton total={total} onPaymentSuccess={onPaymentSuccess} onPaymentError={onPaymentError} />
+      <PayPalButton
+        total={total}
+        onPaymentSuccess={onPaymentSuccess}
+        onPaymentError={onPaymentError}
+        disabled={buttonDisabled}
+        // isDisabled={buttonDisabled}
+      />
       <Box align='center'>
         <Text fontSize='sm' color='brand.500'>
           Have a question? or need help to complete your order?

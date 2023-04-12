@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { setLoading, setError, cartItemAdd, cartItemRemoval, setExpresShipping, clearCart } from '../slices/cart';
+import { setLoading, setError, cartItemAdd, cartItemRemoval, setExpressShipping, clearCart } from '../slices/cart';
 
 export const addCartItem = (id, qty) => async (dispatch) => {
   dispatch(setLoading(true));
@@ -37,7 +37,7 @@ export const removeCartItem = (id) => async (dispatch) => {
 };
 
 export const setExpress = (value) => async (dispatch) => {
-  dispatch(setExpresShipping(value));
+  dispatch(setExpressShipping(value));
 };
 
 export const resetCart = () => (dispatch) => {

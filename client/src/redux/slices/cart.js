@@ -67,7 +67,7 @@ export const cartSlice = createSlice({
 });
 
 //Wrapping/binding them all together
-export const { setLoading, setError, cartItemAdd, cartItemRemoval, setExpresShipping, clearCart } = cartSlice.actions;
+export const { setLoading, setError, cartItemAdd, cartItemRemoval, setExpressShipping, clearCart } = cartSlice.actions;
 export default cartSlice.reducer;
 
 export const cartSelector = (state) => state.cart;
