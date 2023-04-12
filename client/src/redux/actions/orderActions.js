@@ -9,7 +9,7 @@ export const setShippingAddressError = (value) => (dispatch) => {
   dispatch(setError(value));
 };
 
-export const createdOrder = (order) => async (dispatch, getState) => {
+export const createOrder = (order) => async (dispatch, getState) => {
   const {
     order: { shippingAddress },
     user: { userInfo },
@@ -18,9 +18,9 @@ export const createdOrder = (order) => async (dispatch, getState) => {
   const preparedOrder = { ...order, shippingAddress };
   try {
     const config = {
-      header: {
+      headers: {
         Authorization: `Bearer ${userInfo.token}`,
-        'Content=-Type': `application/json`,
+        'Content-Type': `application/json`,
       },
     };
     const { data } = await axios.post('api/orders', preparedOrder, config);

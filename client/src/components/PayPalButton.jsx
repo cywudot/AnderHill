@@ -21,10 +21,11 @@ const PayPalButton = ({ total, onPaymentSuccess, onPaymentError, disabled }) => 
         onApprove={(data, actions) => {
           return actions.order.capture().then((details) => {
             onPaymentSuccess(data);
+            // onPaymentError(); //Testing Payment Error
           });
         }}
         onError={(err) => {
-          onPaymentError(err);
+          onPaymentError();
         }}
       />
     </PayPalScriptProvider>

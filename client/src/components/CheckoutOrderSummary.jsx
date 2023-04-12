@@ -14,11 +14,16 @@ import { useEffect, useState, useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link as ReactLink } from 'react-router-dom';
 import { PhoneIcon, EmailIcon, ChatIcon } from '@chakra-ui/icons';
-import { createOrder } from '../redux/actions/orderActions';
+import { createOrder, resetOrder } from '../redux/actions/orderActions';
+import { resetCart } from '../redux/actions/cartActions';
 import CheckoutItem from './CheckoutItem';
 import PayPalButton from './PayPalButton';
+import PaymentSuccessModal from './PaymentSuccessModal';
+import PaymentErrorModal from './PaymentErrorModal';
 
 const CheckoutOrderSummary = () => {
+  const { onClose: onErrorClose, onOpen: onErrorOpen, isOpen: isErrorOpen } = useDisclosure();
+  const { onClose: onSuccessClose, onOpen: onSuccessOpen, isOpen: isSuccessOpen } = useDisclosure();
   const colorMode = mode('gray.600', 'gray.400');
   const cartItems = useSelector((state) => state.cart);
   const { cart, subtotal, expressShipping } = cartItems;
@@ -48,11 +53,24 @@ const CheckoutOrderSummary = () => {
   }, [error, shippingAddress, total, expressShipping, shipping, dispatch]);
 
   const onPaymentSuccess = async (data) => {
-    alert('order success');
+    dispatch(
+      createOrder({
+        orderItems: cart,
+        shippingAddress,
+        paymentMethod: data.paymentSource,
+        paymentDetails: data,
+        shippingPrice: shipping(),
+        totalPrice: total(),
+        userInfo,
+      })
+    );
+    dispatch(resetOrder());
+    dispatch(resetCart());
+    onSuccessOpen();
   };
 
   const onPaymentError = () => {
-    alert('order error');
+    onErrorOpen();
   };
 
   return (
@@ -129,6 +147,8 @@ const CheckoutOrderSummary = () => {
           Continue Shopping
         </Link>
       </Flex>
+      <PaymentErrorModal onClose={onErrorClose} onOpen={onErrorOpen} isOpen={isErrorOpen} />
+      <PaymentSuccessModal onClose={onSuccessClose} onOpen={onSuccessOpen} isOpen={isSuccessOpen} />
     </Stack>
   );
 };

@@ -55,7 +55,7 @@ const ShippingInformation = () => {
                 <TextField name='postalCode' placeholder='Postal Code' label='Postal Code' />
               </Box>
               <Box flex='2'>
-                <TextField name='city' placeholder='City' label='city' />
+                <TextField name='city' placeholder='City' label='City' />
               </Box>
             </Flex>
             <TextField name='country' placeholder='Country' label='' Country />
