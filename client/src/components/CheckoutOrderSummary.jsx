@@ -8,22 +8,18 @@ import {
   Box,
   Link,
   Divider,
-  useDisclosure,
+  useToast,
 } from '@chakra-ui/react';
 import { useEffect, useState, useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link as ReactLink } from 'react-router-dom';
+import { Link as ReactLink, useNavigate } from 'react-router-dom';
 import { PhoneIcon, EmailIcon, ChatIcon } from '@chakra-ui/icons';
 import { createOrder, resetOrder } from '../redux/actions/orderActions';
 import { resetCart } from '../redux/actions/cartActions';
 import CheckoutItem from './CheckoutItem';
 import PayPalButton from './PayPalButton';
-import PaymentSuccessModal from './PaymentSuccessModal';
-import PaymentErrorModal from './PaymentErrorModal';
 
 const CheckoutOrderSummary = () => {
-  const { onClose: onErrorClose, onOpen: onErrorOpen, isOpen: isErrorOpen } = useDisclosure();
-  const { onClose: onSuccessClose, onOpen: onSuccessOpen, isOpen: isSuccessOpen } = useDisclosure();
   const colorMode = mode('gray.600', 'gray.400');
   const cartItems = useSelector((state) => state.cart);
   const { cart, subtotal, expressShipping } = cartItems;
@@ -33,6 +29,8 @@ const CheckoutOrderSummary = () => {
   const { error, shippingAddress } = shippingInfo;
   const [buttonDisabled, setButtonDisabled] = useState(false);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const toast = useToast();
 
   const shipping = useCallback(
     () => (expressShipping === 'true' ? 14.99 : subtotal <= 300 ? 4.99 : 0),
@@ -66,11 +64,16 @@ const CheckoutOrderSummary = () => {
     );
     dispatch(resetOrder());
     dispatch(resetCart());
-    onSuccessOpen();
+    navigate('/order-success');
   };
 
   const onPaymentError = () => {
-    onErrorOpen();
+    toast({
+      description: 'Something went wrong during payment process. Please try again.',
+      status: 'error',
+      duration: '20s',
+      isClosable: true,
+    });
   };
 
   return (
@@ -147,8 +150,6 @@ const CheckoutOrderSummary = () => {
           Continue Shopping
         </Link>
       </Flex>
-      <PaymentErrorModal onClose={onErrorClose} onOpen={onErrorOpen} isOpen={isErrorOpen} />
-      <PaymentSuccessModal onClose={onSuccessClose} onOpen={onSuccessOpen} isOpen={isSuccessOpen} />
     </Stack>
   );
 };

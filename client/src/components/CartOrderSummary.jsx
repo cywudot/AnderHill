@@ -9,7 +9,7 @@ const CartOrderSummary = () => {
   const standardShipping = Number(4.99).toFixed(2);
   const cartItem = useSelector((state) => state.cart);
   const { subtotal } = cartItem;
-  const navigate = useNavigate;
+  const navigate = useNavigate();
 
   const checkoutHandler = () => {
     setButtonLoading(true);
