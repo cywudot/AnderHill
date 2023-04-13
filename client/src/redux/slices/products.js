@@ -33,10 +33,8 @@ export const productsSlice = createSlice({
       state.error = payload;
       state.loading = false;
     },
-    //TO DELETE (TO FIX)
+
     setFilterCategory(state, { payload }) {
-      // state.filterCategory = payload;
-      //Delete later?
       state.category = payload;
       state.products = state.products.filter((product) => product.category === payload);
       state.loading = false;

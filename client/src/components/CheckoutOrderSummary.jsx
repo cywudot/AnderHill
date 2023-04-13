@@ -78,7 +78,7 @@ const CheckoutOrderSummary = () => {
 
   return (
     <Stack spacing='8' rounded='xl' padding='8' width='full'>
-      <Heading size='md' color='brand.5001'>
+      <Heading size='md' color='brand.5001' textTransform='uppercase'>
         Order Summary
       </Heading>
       {cart.map((item) => (
@@ -90,7 +90,7 @@ const CheckoutOrderSummary = () => {
             Subtotal
           </Text>
           <Text fontWeight='medium' color='brand.5001'>
-            {subtotal}
+            ${subtotal}
           </Text>
         </Flex>
         <Flex justify='space-between'>
@@ -103,7 +103,7 @@ const CheckoutOrderSummary = () => {
                 Free
               </Badge>
             ) : (
-              `${shipping()}`
+              `$${shipping()}`
             )}
           </Text>
         </Flex>

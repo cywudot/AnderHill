@@ -7,9 +7,9 @@ const CheckoutItem = ({ cartItem }) => {
   const dispatch = useDispatch();
   return (
     <>
-      <Flex>
+      <Flex gap='10px'>
         <Image
-          rounded='lg'
+          rounded='sm'
           width='120px'
           height='120px'
           fit='cover'

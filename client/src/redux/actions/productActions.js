@@ -26,7 +26,7 @@ import { setProducts, setLoading, setError, setProduct, setFilterCategory, clear
 //     }
 //   };
 export const getProducts = () => async (dispatch) => {
-  dispatch(clearCategory());
+  // dispatch(clearCategory());
   dispatch(setLoading(true));
   try {
     const { data } = await axios.get('/api/products');

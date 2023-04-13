@@ -114,7 +114,7 @@ export const Footer = () => (
             </Stack>
           </Stack>
           <Stack spacing='4'>
-            <Text fontSize='md' fontWeight='light' color='brand.100'>
+            <Text fontSize='md' fontWeight='regular' color='brand.100'>
               Stay up to date
             </Text>
             <Stack
@@ -134,10 +134,18 @@ export const Footer = () => (
                 variant='flushed'
                 borderColor='brand.100'
                 focusBorderColor='brand.800'
+                _placeholder={{ color: 'brand.800' }}
                 // isInvalid
                 // errorBorderColor='brand.600'
               />
-              <Button variant='primary' type='submit' flexShrink={0} backgroundColor='brand.500'>
+              <Button
+                variant='primary'
+                type='submit'
+                flexShrink={0}
+                backgroundColor='brand.100'
+                color='brand.800'
+                rounded='2'
+              >
                 Subscribe
               </Button>
             </Stack>
