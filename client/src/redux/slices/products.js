@@ -8,6 +8,7 @@ export const initialState = {
   error: null,
   products: [],
   category: null,
+  reviewSend: null,
   // filterCategory: null,
 };
 
@@ -44,13 +45,30 @@ export const productsSlice = createSlice({
       state.category = null;
       // state.filterCategory = null;
     },
+    productReviewed: (state) => {
+      state.loading = false;
+      state.error = null;
+      state.reviewSend = true;
+    },
+    resetError: (state) => {
+      state.error = null;
+      state.reviewSend = false;
+    },
   },
 });
 
 //Wrapping/binding them all together
 //TO DELETE //setFilterCategory inside productSlices
-export const { setLoading, setError, setProducts, setProduct, setFilterCategory, clearCategory } =
-  productsSlice.actions;
+export const {
+  setLoading,
+  setError,
+  setProducts,
+  setProduct,
+  setFilterCategory,
+  clearCategory,
+  productReviewed,
+  resetError,
+} = productsSlice.actions;
 export default productsSlice.reducer;
 
 export const productsSelector = (state) => state.products;

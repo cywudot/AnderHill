@@ -9,6 +9,7 @@ export const initialState = {
   //Checking if userinfo already exist in localStorage
   userInfo: JSON.parse(localStorage.getItem('userInfo')) ?? null,
   updateSuccess: false,
+  orders: [],
 };
 
 //createSlices: A function that accepts an initial state, an object of reducer functions, and a "slice name", and automatically generates action creators and action types that correspond to the reducers and state.
@@ -42,12 +43,18 @@ export const userSlice = createSlice({
     resetUpdate: (state) => {
       state.updateSuccess = false;
     },
+    setUserOrders: (state, { payload }) => {
+      state.error = null;
+      state.orders = payload;
+      state.loading = false;
+    },
   },
 });
 
 //Wrapping/binding them all together
 //TO DELETE //setFilterCategory inside productSlices
-export const { setLoading, setError, userLogin, userLogout, updateUserProfile, resetUpdate } = userSlice.actions;
+export const { setLoading, setError, userLogin, userLogout, updateUserProfile, resetUpdate, setUserOrders } =
+  userSlice.actions;
 export default userSlice.reducer;
 
 export const userSelector = (state) => state.user;

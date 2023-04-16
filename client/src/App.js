@@ -14,6 +14,7 @@ import RegistrationScreen from './screens/RegistrationScreen';
 import ProfileScreen from './screens/ProfileScreen';
 import CheckoutScreen from './screens/CheckoutScreen';
 import OrderSuccessScreen from './screens/OrderSuccessScreen';
+import YourOrdersScreen from './screens/YourOrdersScreen';
 // import theme from './theme.js';
 
 const theme = extendTheme({
@@ -66,6 +67,7 @@ function App() {
             <Route path='/profile' element={<ProfileScreen />}></Route>
             <Route path='/checkout' element={<CheckoutScreen />}></Route>
             <Route path='/order-success' element={<OrderSuccessScreen />}></Route>
+            <Route path='/your-orders' element={<YourOrdersScreen />}></Route>
           </Routes>
         </main>
         <Footer />
