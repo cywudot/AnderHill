@@ -24,7 +24,7 @@ import AboutUsHandsTwo from '../otherassets/AboutUs-barnimages.jpg';
 import AboutUsThree from '../otherassets/AboutUs-barn03.jpg';
 const AboutUs = () => {
   return (
-    <Box maxW='12xl' mx='auto' px={{ base: '0', lg: '12' }} py={{ base: '0', lg: '0' }} minH='8xl'>
+    <Box maxW='12xl' mx='auto' px={{ base: '0', lg: '12' }} py={{ base: '0', lg: '0' }} minH='8xl' mt='107.7px'>
       <Flex
         w='full'
         h='3xl'

@@ -26,6 +26,9 @@ const Footer = () => {
     e.preventDefault();
     if (/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
       setEmail('');
+      toast({ description: 'Subscribed', status: 'success', isClosable: true });
+    } else if (!email) {
+      toast({ description: 'Please enter an email', status: 'warning', isClosable: true });
     } else {
       toast({ description: 'Please enter a vaild email', status: 'error', isClosable: true });
     }
@@ -160,6 +163,7 @@ const Footer = () => {
                   flexShrink={0}
                   backgroundColor='brand.100'
                   color='brand.800'
+                  _hover={{ backgroundColor: 'brand.800', color: 'brand.100' }}
                   rounded='2'
                   onClick={(e) => handleSubmit(e)}
                 >

@@ -65,9 +65,17 @@ const ProfileScreen = () => {
           mx='auto'
           px={{ base: '4', md: '8', lg: '12' }}
           py={{ base: '6', md: '8', lg: '12' }}
+          mt='107.7px'
         >
           <Stack spacing='10' direction={{ base: 'column', lg: 'row' }} align={{ lg: 'flex-start' }}>
-            <Stack flex='1.5' mb={{ base: '2xl', md: 'none' }}>
+            <Stack
+              flex='1.5'
+              mb={{ base: '2xl', md: 'none' }}
+              backgroundColor='white'
+              p={5}
+              rounded={2}
+              boxShadow='base'
+            >
               <Heading fontSize='3xl' fontWeight='extrabold' pb={4}>
                 Profile
               </Heading>
@@ -102,6 +110,7 @@ const ProfileScreen = () => {
                   <Stack spacing='6'>
                     <Button
                       backgroundColor='brand.800'
+                      _hover={{ backgroundColor: 'brand.900' }}
                       color='brand.100'
                       size='lg'
                       fontWeight='regular'
@@ -117,7 +126,7 @@ const ProfileScreen = () => {
               </Stack>
             </Stack>
             <Flex direction='column' align='center' flex='1'>
-              <Card borderColor='brand.500' backgroundColor='brand.100' rounded={2}>
+              <Card boxShadow='base' rounded={2}>
                 <CardHeader>
                   <Heading size='md'> Welcome, {userInfo.name} </Heading>
                 </CardHeader>

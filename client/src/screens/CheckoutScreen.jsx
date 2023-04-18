@@ -16,6 +16,7 @@ const CheckoutScreen = () => {
       mx='auto'
       px={{ base: '4', md: '8', lg: '12' }}
       py={{ base: '6', md: '8', lg: '12' }}
+      mt='107.7px'
     >
       <Stack direction={{ base: 'column', lg: 'row' }} align={{ lg: 'flex-start' }}>
         <Stack spacing={{ base: '8', md: '10' }} flex='1.5' mb={{ base: '12', md: 'none' }}>

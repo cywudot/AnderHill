@@ -62,7 +62,7 @@ const RegistrationScreen = () => {
       }}
     >
       {(formik) => (
-        <Container maxW='lg' py={{ base: '12', md: '24' }} px={{ base: '0', md: '8' }} minH='4xl'>
+        <Container maxW='lg' py={{ base: '12', md: '24' }} px={{ base: '0', md: '8' }} minH='4xl' mt='107.7px'>
           <Stack spacing='8'>
             <Stack spacing='6'>
               <Stack spacing={{ base: '2', md: '3' }} textAlign='center'>

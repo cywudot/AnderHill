@@ -81,7 +81,7 @@ const LandingScreen = () => {
           </Stack>
         </Wrap>
       ) : (
-        <Box maxW='12xl' mx='auto' px={{ base: '0', lg: '12' }} py={{ base: '0', lg: '0' }} minH='12xl'>
+        <Box maxW='12xl' mx='auto' px={{ base: '0', lg: '12' }} py={{ base: '0', lg: '0' }} minH='12xl' mt='107.7px'>
           {/* HERO SECTION */}
           <Box
             w='full'
@@ -225,6 +225,7 @@ const LandingScreen = () => {
                     fontFamily='heading'
                     fontSize='xl'
                     backgroundColor='brand.300'
+                    _hover={{ backgroundColor: 'brand.3001' }}
                     rounded='2px'
                     color='brand.100'
                     mt={2}
@@ -244,6 +245,7 @@ const LandingScreen = () => {
                     fontFamily='heading'
                     fontSize='xl'
                     backgroundColor='brand.300'
+                    _hover={{ backgroundColor: 'brand.3001' }}
                     rounded='2px'
                     color='brand.100'
                     mt={2}
@@ -267,6 +269,7 @@ const LandingScreen = () => {
                     fontFamily='heading'
                     fontSize='xl'
                     backgroundColor='brand.300'
+                    _hover={{ backgroundColor: 'brand.3001' }}
                     rounded='2px'
                     color='brand.100'
                     mt={2}
@@ -310,7 +313,7 @@ const LandingScreen = () => {
               </Text>
               <Button
                 backgroundColor='brand.300'
-                _hover={{ backgroundColor: 'none' }}
+                _hover={{ backgroundColor: 'brand.3001' }}
                 color='brand.100'
                 fontSize={{ base: 'sm', lg: 'md' }}
                 rounded='sm'

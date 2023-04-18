@@ -32,6 +32,7 @@ import AHLogo2 from '../logo/AnderHillLogo2.png';
 import { ChakraProvider, extendTheme } from '@chakra-ui/react';
 import { motion } from 'framer-motion';
 import { logout } from '../redux/actions/userActions';
+import { useLayoutEffect, useRef } from 'react';
 
 const ShoppingCartIcon = () => {
   const cartInfo = useSelector((state) => state.cart);
@@ -74,7 +75,6 @@ const links = [
   { linkName: 'Home', path: '/' },
   { linkName: 'Shop', path: '/shop' },
   { linkName: 'About Us ', path: '/aboutus' },
-  { linkName: 'Contact ', path: '/contact' },
 ];
 
 const NavLink = ({ path, children }) => (
@@ -110,7 +110,17 @@ const Navbar = () => {
   };
 
   return (
-    <Box bg='transparent' px={{ base: 1, lg: 12 }} backgroundColor='brand.100'>
+    <Box
+      bg='transparent'
+      px={{ base: 1, lg: 12 }}
+      backgroundColor='brand.100'
+      position='fixed'
+      top='0'
+      width='100%'
+      zIndex='9999'
+      boxShadow='base'
+      // mb={8}
+    >
       <Flex minH={16} pt={5} pb={5} pr={{ base: '5px', lg: '0px' }} alignItems='center' justifyContent='space-between'>
         <IconButton
           size='md'

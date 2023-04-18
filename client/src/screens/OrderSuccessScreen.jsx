@@ -14,7 +14,7 @@ const OrderSuccessScreen = () => {
   };
 
   return (
-    <Wrap justify='center' direction='column' align='center' mt='20px' minH='100vh'>
+    <Wrap justify='center' direction='column' align='center' mt='20px' minH='100vh' mt='107.7px'>
       <Alert
         status='success'
         variant='subtle'

@@ -32,6 +32,7 @@ const theme = extendTheme({
       100: '#FCFAF7',
       200: '#EBE7E0',
       300: '#BFB5A6',
+      3001: '#989084',
       400: '#DFBD8E',
       4001: '#C4A67C',
       500: '#454545',
@@ -39,6 +40,7 @@ const theme = extendTheme({
       600: '#F16161',
       700: '#ECE8E8',
       800: '#84817C',
+      900: '#5c5a56',
     },
   },
   fonts: {

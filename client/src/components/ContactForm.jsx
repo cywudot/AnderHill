@@ -47,12 +47,8 @@ const ContactForm = () => {
       {(formik) => (
         <Container maxW='7xl' px={{ base: '2', md: '4' }} py={{ base: '2', md: '6' }}>
           <Flex
-            // py={{ base: '0', sm: '5' }}
-            // px={{ base: '3', sm: '4' }}
             bg={{ boxBR }}
-            // border='1px solid black'
-            boxShadow={{ base: 'lg', md: 'xl' }}
-            // backgroundColor='brand.400'
+            boxShadow='base'
             display='flex'
             direction='row'
             w='100%'
@@ -104,7 +100,7 @@ const ContactForm = () => {
                 <Button
                   backgroundColor='brand.300'
                   color='brand.100'
-                  _hover={{ backgroundColor: 'brand.300' }}
+                  _hover={{ backgroundColor: 'brand.3001' }}
                   size='lg'
                   fontSize='md'
                   type='submit'
