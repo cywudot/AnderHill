@@ -9,6 +9,8 @@ import {
   Icon,
   Image,
   Link,
+  Spinner,
+  VStack,
   IconButton,
   Skeleton,
   chakra,
@@ -19,7 +21,6 @@ import {
   AlertDescription,
   Alert,
   AlertIcon,
-  Spinner,
   AlertTitle,
   Wrap,
   useBreakpointValue,
@@ -32,43 +33,56 @@ import HeroImageMobile from '../otherassets/HomeHeroImageMobile.png';
 import ContactIcon from '../sourced-icons/contact.png';
 import FreeDeliveryIcon from '../sourced-icons/free-delivery.png';
 import ReturnIcon from '../sourced-icons/30days.png';
-import HomeAccent from '../otherassets/HomeAccent.jpg';
-import Dinnerware from '../otherassets/Dinnerware.jpg';
+import HomeAccent from '../otherassets/HomeAccent.png';
+import Dinnerware from '../otherassets/Dinnerware.png';
+import QuotesImage from '../otherassets/about-us-barnimages-02.jpg';
 import Video from '../otherassets/AnderHillVideo.mp4';
-import ShopAll from '../otherassets/AllProducts.jpg';
+import ShopAll from '../otherassets/AllProducts.png';
 import { useDispatch } from 'react-redux';
 import { getFilteredProducts } from '../redux/actions/productActions';
 import ReactPlayer from 'react-player';
+import QuotesCarousel from '../components/QuotesCarousel';
+import ContactForm from '../components/ContactForm';
 
 const LandingScreen = () => {
   const [isLoading, setIsLoading] = useState(true);
-
   const dispatch = useDispatch();
 
+  useEffect(() => {
+    const handleLoad = () => {
+      // This function will be called when the page has finished loading
+      setIsLoading(false);
+      // Trigger your action to load the page here
+    };
+    if (document.readyState === 'complete') {
+      // If the document is already loaded, call handleLoad immediately
+      handleLoad();
+    } else {
+      // Otherwise, add an event listener for the load event
+      window.addEventListener('load', handleLoad);
+    }
+
+    return () => {
+      window.removeEventListener('load', handleLoad); // Cleanup the event listener
+    };
+  }, []);
+
+  //Filter Handler
   const handleFilter = (category) => {
     dispatch(getFilteredProducts(category));
   };
 
-  // VIDEO BREAKPOINT
-  const top = useBreakpointValue({ base: '90%', md: '50%' });
-  const side = useBreakpointValue({ base: '30%', md: '40px' });
-
-  useEffect(() => {
-    // Simulate API call or other async tasks
-    const loadData = async () => {
-      await new Promise((resolve) => setTimeout(resolve, 1000)); // Simulate 1 seconds loading delay
-      setIsLoading(false); // Set isLoading to false after loading is complete
-    };
-
-    loadData();
-  }, []);
-
   return (
     <>
       {isLoading ? (
-        <div>Loading</div>
+        <Wrap justify='center' direction='column' mt='20px' minH='100vh'>
+          <Stack direction='row' spacing={4}>
+            <Spinner mt={20} thickness='2px' speed='0.65s' emptyColor='gray.200' color='brand.400' size='xl' />
+          </Stack>
+        </Wrap>
       ) : (
-        <Box maxW='12xl' mx='auto' px={{ base: '0', lg: '12' }} py={{ base: '0', lg: '0' }} minH='8xl'>
+        <Box maxW='12xl' mx='auto' px={{ base: '0', lg: '12' }} py={{ base: '0', lg: '0' }} minH='12xl'>
+          {/* HERO SECTION */}
           <Box
             w='full'
             h='lg'
@@ -134,8 +148,6 @@ const LandingScreen = () => {
           </Box>
 
           <HStack
-            // minH='120px'
-            // maxH='180px'
             backgroundColor='brand.5001'
             justify={{ base: 'space-between', sm: 'space-around' }}
             align='center'
@@ -193,16 +205,12 @@ const LandingScreen = () => {
               </Stack>
             </Stack>
           </HStack>
-
-          <Container maxW={['12xl', '10xl', '8xl']}>
-            <Box mt={10} alignItems='center'>
-              <Stack>
-                <Heading as='h2' textAlign='center' textTransform='uppercase' mb={5} color='brand.500'>
-                  Discover Ander Hill
-                </Heading>
-              </Stack>
-
-              {/* FEATURED PRODUCTS SECTION  */}
+          {/* FEATURED PRODUCTS SECTION  */}
+          <Container maxW={['12xl', '10xl', '8xl']} justifyContent='center' mt={8}>
+            <Box alignItems='center'>
+              <Heading as='h2' textAlign='center' textTransform='uppercase' color='brand.500'>
+                Discover Ander Hill
+              </Heading>
 
               <Flex
                 p={50}
@@ -211,8 +219,8 @@ const LandingScreen = () => {
                 justify='space-around'
                 direction={{ base: 'column', lg: 'row' }}
               >
-                <Box w={{ base: 'sm', md: 'lg' }} mx='auto' rounded='2px' overflow='hidden'>
-                  <Image w='full' h='lg' fit='cover' objectPosition='center' src={HomeAccent} alt='avatar' />
+                <Box h='auto' mx='auto' rounded='2px' overflow='hidden'>
+                  <Image w='full' fit='cover' objectPosition='center' src={HomeAccent} alt='avatar' />
                   <Button
                     fontFamily='heading'
                     fontSize='xl'
@@ -228,8 +236,10 @@ const LandingScreen = () => {
                   </Button>
                 </Box>
 
-                <Box w={{ base: 'sm', md: 'lg' }} mx='auto' rounded='2px' overflow='hidden'>
-                  <Image w='full' h='lg' fit='cover' objectPosition='center' src={Dinnerware} alt='avatar' />
+                <Box h='auto' mx='auto' rounded='2px' overflow='hidden'>
+                  <Link as={ReactLink} to='/shop'>
+                    <Image w='full' fit='cover' objectPosition='center' src={Dinnerware} alt='avatar' />
+                  </Link>
                   <Button
                     fontFamily='heading'
                     fontSize='xl'
@@ -249,9 +259,9 @@ const LandingScreen = () => {
                   </Button>
                 </Box>
 
-                <Box w={{ base: 'sm', md: 'lg' }} mx='auto' rounded='2px' overflow='hidden'>
+                <Box h='auto' mx='auto' rounded='2px' overflow='hidden'>
                   <Link as={ReactLink} to='/shop'>
-                    <Image w='full' h='lg' fit='cover' objectPosition='center' src={ShopAll} alt='avatar' />
+                    <Image w='full' fit='cover' objectPosition='center' src={ShopAll} alt='avatar' />
                   </Link>
                   <Button
                     fontFamily='heading'
@@ -274,26 +284,52 @@ const LandingScreen = () => {
               {/* FEATURED PRODUCTS SECTION ENDS */}
             </Box>
           </Container>
-          {/* VIDEO */}
-          {/* 
-      <Box position='relative' height={'100vh'} width={'full'}>
-        <ReactPlayer url={Video} playing={true} loop={true} muted={true} volume={0} width={'100%'} height={'100%'}>
-    
-          <Container position='absolute' top='20%' left={0} right={0} bottom={0}>
-            <Stack spacing={6} justify='center' textAlign='center'>
-              <Text fontSize={{ base: 'lg', md: '4xl' }} color='brand.100' fontFamily='heading'>
-                Welcome to Ander Hill's Pottery, where we believe in the power of beautiful, meaningful, and
-                environmentally responsible creations.
+          {/* VIDEO SECTION */}
+          <Box width='full' h='auto' backgroundColor='brand.400' mb={12} position='relative'>
+            <ReactPlayer url={Video} playing={true} loop={true} muted={true} volume={0} width='100%' height='lg' />
+            <Box
+              position='absolute'
+              top='20%'
+              left='10%'
+              right='10%'
+              bottom='10%'
+              textAlign='center'
+              display='flex'
+              flexDirection='column'
+              justifyContent={{ base: 'flex-end', md: 'space-between' }}
+            >
+              <Text
+                fontSize={{ base: '2xl', md: '3xl', lg: '4xl' }}
+                color='brand.100'
+                fontFamily='heading'
+                fontWeight='bold'
+                display={{ base: 'none', md: 'block' }}
+              >
+                Welcome to Ander Hill's Pottery, where we believe in the power of beautiful and environmentally
+                responsible creations.
               </Text>
-              <Button fontSize={{ base: 'sm', lg: 'md' }} color='GrayText'>
+              <Button
+                backgroundColor='brand.300'
+                _hover={{ backgroundColor: 'none' }}
+                color='brand.100'
+                fontSize={{ base: 'sm', lg: 'md' }}
+                rounded='sm'
+                as={ReactLink}
+                to='/aboutus'
+                maxW='200px'
+                mx='auto'
+              >
                 Learn More About Us
               </Button>
-            </Stack>
-          </Container>
-        </ReactPlayer>
-      </Box> */}
+            </Box>
+          </Box>
 
-          {/* VIDEO */}
+          <QuotesCarousel />
+
+          {/* CONTACT */}
+          <Flex width='full' justifyContent='center' py={8}>
+            <ContactForm />
+          </Flex>
         </Box>
       )}
     </>
