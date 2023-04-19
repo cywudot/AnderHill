@@ -41,7 +41,7 @@ const YourOrdersScreen = () => {
   }, []);
 
   return userInfo ? (
-    <Box justify='center' w='full' mt='107.7px'>
+    <Box justify='center' w='full'>
       {loading ? (
         <Wrap justify='center' direction='column' mt='20px' minH='100vh'>
           <Stack direction='row' spacing={4}>

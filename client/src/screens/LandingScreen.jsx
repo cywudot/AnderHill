@@ -81,7 +81,7 @@ const LandingScreen = () => {
           </Stack>
         </Wrap>
       ) : (
-        <Box maxW='12xl' mx='auto' px={{ base: '0', lg: '12' }} py={{ base: '0', lg: '0' }} minH='12xl' mt='107.7px'>
+        <Box maxW='12xl' mx='auto' px={{ base: '0', lg: '12' }} py={{ base: '0', lg: '0' }} minH='12xl'>
           {/* HERO SECTION */}
           <Box
             w='full'

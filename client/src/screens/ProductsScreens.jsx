@@ -73,7 +73,7 @@ const ProductsScreens = () => {
 
   return (
     <>
-      <Box mx='auto' overflow='hidden' flex={1} minW='100%' mt='107.7px'>
+      <Box mx='auto' overflow='hidden' flex={1} minW='100%'>
         <Image fit='cover' src={shopallhero} alt='Pottery Making' width='100%' minH='100px' maxH='200px' />
       </Box>
       <Stack direction='column' justify='center'>

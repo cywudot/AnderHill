@@ -82,7 +82,7 @@ const ProductScreen = () => {
   };
 
   return (
-    <Wrap spacing='30px' justify='center' minHeight='100vh' backgroundColor='brand.100' mt='107.7px'>
+    <Wrap spacing='30px' justify='center' minHeight='100vh' backgroundColor='brand.100'>
       {loading ? (
         <Stack direction='row' spacing={4}>
           <Spinner mt={20} thickness='2px' speed='0.65s' emptyColor='gray.200' color='brand.400' size='xl' />

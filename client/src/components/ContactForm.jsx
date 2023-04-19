@@ -48,7 +48,7 @@ const ContactForm = () => {
         <Container maxW='7xl' px={{ base: '2', md: '4' }} py={{ base: '2', md: '6' }}>
           <Flex
             bg={{ boxBR }}
-            boxShadow='base'
+            boxShadow='sm'
             display='flex'
             direction='row'
             w='100%'

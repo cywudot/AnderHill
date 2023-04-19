@@ -13,7 +13,9 @@ const CartItem = ({ cartItem }) => {
       gap='10px'
       align='center'
       // maxWidth={{ base: '300px', md: '600px' }}
-      // backgroundColor='brand.300'
+      // backgroundColor='white'
+      // boxShadow='base'
+      // p={3}
     >
       <Stack direction={{ base: 'row', md: 'column' }} spacing='5' width='full'>
         <Image
