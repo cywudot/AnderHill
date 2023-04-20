@@ -1,6 +1,5 @@
 import { Button, Flex, Heading, Stack, Text, useColorModeValue as mode, Badge } from '@chakra-ui/react';
 import { useState } from 'react';
-import { FaArrowRight } from 'react-icons/fa';
 import { useSelector } from 'react-redux';
 import { Link as ReactLink, useNavigate } from 'react-router-dom';
 
@@ -19,13 +18,13 @@ const CartOrderSummary = () => {
   return (
     <Stack
       spacing='8'
-      borderWidth='1px'
+      // borderWidth='1px'
       rounded='sm'
       padding='12'
       w='full'
       backgroundColor='white'
-      boxShadow='sm'
-      mt='16'
+      boxShadow='base'
+      // mt='16'
     >
       <Heading size='sm' mx='auto' fontFamily='body'>
         Order Summary
@@ -47,7 +46,7 @@ const CartOrderSummary = () => {
             {subtotal <= 300 ? (
               standardShipping
             ) : (
-              <Badge rounded='full' px='2' fontSize='0.8em' colorScheme='green'>
+              <Badge rounded='full' px='4' py='1' fontSize='0.8em' colorScheme='green'>
                 Free
               </Badge>
             )}
@@ -65,14 +64,17 @@ const CartOrderSummary = () => {
       <Button
         as={ReactLink}
         to='/checkout'
-        backgroundColor='brand.100'
+        backgroundColor='brand.1000'
+        _hover={{ backgroundColor: 'brand.1001' }}
         size='md'
         fontSize='md'
-        rightIcon={<FaArrowRight />}
+        rounded='2'
         isLoading={buttonLoading}
         onClick={() => checkoutHandler()}
       >
-        <Text color='brand.500'>Checkout</Text>
+        <Text color='brand.100' fontWeight='regular'>
+          Checkout
+        </Text>
       </Button>
     </Stack>
   );

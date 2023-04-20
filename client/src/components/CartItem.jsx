@@ -13,11 +13,11 @@ const CartItem = ({ cartItem }) => {
       gap='10px'
       align='center'
       // maxWidth={{ base: '300px', md: '600px' }}
-      // backgroundColor='white'
-      // boxShadow='base'
-      // p={3}
+      backgroundColor='white'
+      boxShadow='base'
+      p={5}
     >
-      <Stack direction={{ base: 'row', md: 'column' }} spacing='5' width='full'>
+      <Stack direction={{ base: 'row', md: 'column' }} spacing='5' width={{ base: 'full', lg: '500px' }}>
         <Image
           rounded='sm'
           w='160px'
@@ -31,20 +31,20 @@ const CartItem = ({ cartItem }) => {
 
         <Box>
           <Stack spacing='0.5'>
-            <Text fontWeight='semibold' fontSize='md' color='brand.500'>
+            <Text fontWeight='semibold' fontSize={{ base: 'sm', md: 'md' }} color='brand.500'>
               {name}
             </Text>
 
             <Stack direction='row' gap='10px'>
-              <Text fontWeight='medium' fontSize='sm' color='brand.800'>
+              <Text fontWeight={{ base: 'sm', md: 'regular' }} fontSize='sm' color='brand.800'>
                 Color: {color}
               </Text>
-              <Text fontWeight='medium' fontSize='sm' color='brand.800'>
+              <Text fontWeight={{ base: 'sm', md: 'regular' }} fontSize='sm' color='brand.800'>
                 Material: {material}
               </Text>
             </Stack>
           </Stack>
-          <Text fontWeight='medium' fontSize='sm' color='brand.800'>
+          <Text fontWeight={{ base: 'sm', md: 'regular' }} fontSize='sm' color='brand.800'>
             Size: {diameter}cm / {height}cm
           </Text>
         </Box>
@@ -60,7 +60,8 @@ const CartItem = ({ cartItem }) => {
         <Select
           maxW='80px'
           color='brand.500'
-          backgroundColor='brand.100'
+          backgroundColor='white'
+          rounded='sm'
           focusBorderColor='brand.500'
           borderColor='brand.500'
           value={qty}

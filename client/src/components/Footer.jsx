@@ -98,17 +98,6 @@ const Footer = () => {
                   >
                     About Us
                   </Button>
-                  <Button
-                    variant='link'
-                    color='brand.100'
-                    as={ReactLink}
-                    to='/contact'
-                    fontWeight='light'
-                    fontSize='sm'
-                    style={{ textDecoration: 'none' }}
-                  >
-                    Contact
-                  </Button>
                 </Stack>
               </Stack>
               <Stack spacing='3' minW='36' flex='1'>

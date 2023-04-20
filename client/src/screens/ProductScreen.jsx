@@ -13,6 +13,7 @@ import {
   Divider,
   Flex,
   Badge,
+  Icon,
   Heading,
   HStack,
   Button,
@@ -36,6 +37,29 @@ const ProductScreen = () => {
   const [rating, setRating] = useState(1);
   const [title, setTitle] = useState('');
   const [reviewBoxOpen, setReviewBoxOpen] = useState(false);
+
+  //image carousel
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  const handleNextSlide = () => {
+    setCurrentIndex((prevIndex) => (prevIndex + 1) % product.images.length);
+  };
+
+  const handlePrevSlide = () => {
+    setCurrentIndex((prevIndex) => (prevIndex - 1 + product.images.length) % product.images.length);
+  };
+
+  const handleDotClick = (index) => {
+    setCurrentIndex(index);
+  };
+
+  // const handleNext = () => {
+  //   setCurrentIndex((currentIndex + 1) % product.images.length);
+  // };
+
+  // const handlePrev = () => {
+  //   setCurrentIndex(currentIndex === 0 ? product.images.length - 1 : currentIndex - 1);
+  // };
 
   //redux
   const [amount, setAmount] = useState(1);
@@ -112,11 +136,13 @@ const ProductScreen = () => {
                   <Badge
                     rounded='full'
                     px='5'
+                    py='1'
                     fontSize='1em'
                     w='75px'
-                    color='brand.400'
-                    fontWeight='light'
+                    color='brand.100'
+                    fontWeight='regular'
                     fontFamily='body'
+                    backgroundColor='brand.3001'
                   >
                     New
                   </Badge>
@@ -137,7 +163,7 @@ const ProductScreen = () => {
                 )}
 
                 <Stack direction={{ base: 'row', lg: 'column' }} justify='space-between'>
-                  <Heading fontSize='2xl' fontWeight='extrabold' color='brand.500'>
+                  <Heading fontSize={{ base: '2xl', md: '3xl' }} fontWeight='extrabold' color='brand.500'>
                     {product.name}
                   </Heading>
                   <Text fontSize='xl' color='brand.500'>
@@ -162,13 +188,13 @@ const ProductScreen = () => {
                   </Box>
                   <Text color='brand.500'>{product.description}</Text>
                   <Stack spacing='2px' direction='column'>
-                    <Text color='brand.500' fontFamily='heading' fontSize='md'>
+                    <Text color='brand.500' fontFamily='heading' fontSize={{ base: 'md', lg: 'lg' }}>
                       Color: {product.color}
                     </Text>
-                    <Text color='brand.500' fontFamily='heading' fontSize='md'>
+                    <Text color='brand.500' fontFamily='heading' fontSize={{ base: 'md', lg: 'lg' }}>
                       Size: {product.dimensions.diameter}cm diameter / {product.dimensions.height}cm height
                     </Text>
-                    <Text color='brand.500' fontFamily='heading'>
+                    <Text color='brand.500' fontFamily='heading' fontSize={{ base: 'md', lg: 'lg' }}>
                       Material: {product.material}
                     </Text>
                   </Stack>
@@ -192,7 +218,7 @@ const ProductScreen = () => {
                           backgroundColor: 'brand.4001',
                         }}
                       >
-                        <FaMinus />
+                        <Icon as={FaMinus} color='brand.100' />
                       </Button>
                       <Text color='brand.500'>{amount}</Text>
                       <Button
@@ -204,7 +230,7 @@ const ProductScreen = () => {
                           backgroundColor: 'brand.4001',
                         }}
                       >
-                        <FaPlus />
+                        <Icon as={FaPlus} color='brand.100' />
                       </Button>
                     </Flex>
 
@@ -218,15 +244,15 @@ const ProductScreen = () => {
                       w={{ base: '100%', lg: '50%' }}
                       h='50px'
                     >
-                      <Text fontWeight='light'>Add to cart</Text>
+                      <Text fontWeight='regular'>Add to cart</Text>
                     </Button>
                   </Stack>
 
-                  <Stack w='270px'>
+                  <Stack w='300px'>
                     <Flex alignItems='center'>
                       <TbTruckDelivery size='20px' color='#DFBD8E' />
                       <Text fontWeight='medium' fontSize='sm' ml='2' color='brand.500'>
-                        Free shipping if order is over $300
+                        Free shipping if order is $300 or above
                       </Text>
                     </Flex>
                     <Flex alignItems='center'>
@@ -238,10 +264,36 @@ const ProductScreen = () => {
                   </Stack>
                 </Stack>
               </Stack>
-              <Flex direction='column' align='center' flex='1'>
-                <Image mb='30px' borderRadius='2px' objectFit='cover' src={product.images[0]} alt={product.name} />
+              <Flex direction='column' align='center' flex='1' position='relative'>
+                <Image
+                  mb='30px'
+                  borderRadius='2px'
+                  objectFit='cover'
+                  src={product.images[currentIndex]}
+                  alt={product.name}
+                  width='100%'
+                  maxH={{ base: 'none', lg: '520px' }}
+                />
+                <Box textAlign='center' mt={2} position='absolute' bottom='0'>
+                  <Box display='flex' justifyContent='center'>
+                    {product.images.map((image, index) => (
+                      <Box
+                        key={index}
+                        width='12px'
+                        height='12px'
+                        borderRadius='50%'
+                        bg={index === currentIndex ? 'brand.3001' : 'brand.200'}
+                        margin='5px'
+                        cursor='pointer'
+                        onClick={() => handleDotClick(index)}
+                      />
+                    ))}
+                  </Box>
+                </Box>
               </Flex>
             </Stack>
+            {/* <Button onClick={handlePrev}>Prev</Button>
+            <Button onClick={handleNext}>Next</Button> */}
 
             <Divider orientation='horizontal' backgroundColor='brand.400' h='2px' maxW='80%' mx='auto' />
 

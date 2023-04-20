@@ -26,7 +26,8 @@ const CheckoutItem = ({ cartItem }) => {
           <Select
             maxW='80px'
             color='brand.500'
-            backgroundColor='brand.100'
+            rounded='2'
+            backgroundColor='white'
             focusBorderColor='brand.500'
             borderColor='brand.500'
             value={qty}
@@ -43,7 +44,7 @@ const CheckoutItem = ({ cartItem }) => {
         </Flex>
 
         <Box>
-          <Text fontWeight='bold'>${price}</Text>
+          <Text fontWeight='bold'>${price.toFixed(2)}</Text>
         </Box>
       </Flex>
       <Divider bg={mode('gray.400', 'gray.800')} />

@@ -330,7 +330,7 @@ const LandingScreen = () => {
           <QuotesCarousel />
 
           {/* CONTACT */}
-          <Flex width='full' justifyContent='center' py={8}>
+          <Flex width='full' justifyContent='center' py={8} id='contact-form'>
             <ContactForm />
           </Flex>
         </Box>

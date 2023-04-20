@@ -77,14 +77,14 @@ const CheckoutOrderSummary = () => {
   };
 
   return (
-    <Stack spacing='8' rounded='xl' padding='8' width='full'>
+    <Stack spacing='8' rounded='2' padding='8' width='full' backgroundColor='white' p={5} boxShadow='base'>
       <Heading size='md' color='brand.5001' textTransform='uppercase'>
         Order Summary
       </Heading>
       {cart.map((item) => (
         <CheckoutItem key={item.id} cartItem={item} />
       ))}
-      <Stack spacing='6'>
+      <Stack spacing='6' color='brand.500'>
         <Flex justify='space-between'>
           <Text fontWeight='medium' color='brand.5001'>
             Subtotal
@@ -108,7 +108,7 @@ const CheckoutOrderSummary = () => {
           </Text>
         </Flex>
 
-        <Flex justify='space-between'>
+        <Flex justify='space-between' color='brand.500'>
           <Text fontSize='lg' fontWeight='semibold' color='brand.5001'>
             Subtotal
           </Text>
@@ -144,9 +144,9 @@ const CheckoutOrderSummary = () => {
         </Flex>
       </Box>
       <Divider backgroundColor='brand.600' />
-      <Flex justifyContent='center' my='6' fontWeight='semibold'>
-        <p>or</p>
-        <Link as={ReactLink} to='/shop' ml='1'>
+      <Flex justifyContent='center' my='6' color='brand.500'>
+        <Text fontWeight='light'>or</Text>
+        <Link as={ReactLink} to='/shop' ml='1' fontWeight='semibold'>
           Continue Shopping
         </Link>
       </Flex>
