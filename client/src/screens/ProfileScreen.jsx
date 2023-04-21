@@ -38,8 +38,9 @@ const ProfileScreen = () => {
   useEffect(() => {
     if (updateSuccess) {
       toast({ description: 'Profile updated.', status: 'success', isCloseable: true });
+      dispatch(resetUpdateSuccess());
     }
-  }, [toast, updateSuccess]);
+  }, [dispatch, toast, updateSuccess]);
 
   return userInfo ? (
     <Formik
@@ -54,7 +55,6 @@ const ProfileScreen = () => {
         //YUP checks if passwords matches
       })}
       onSubmit={(values) => {
-        dispatch(resetUpdateSuccess());
         dispatch(updateProfile(userInfo._id, values.name, values.email, values.password));
       }}
     >
