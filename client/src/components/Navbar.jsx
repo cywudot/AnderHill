@@ -47,7 +47,7 @@ import { BsPersonCircle } from 'react-icons/bs';
 
 const links = [
   { linkName: 'Home', path: '/' },
-  { linkName: 'Shop', path: '/shop' },
+  { linkName: 'Shop', path: '/products' },
   { linkName: 'About Us ', path: '/aboutus' },
 ];
 

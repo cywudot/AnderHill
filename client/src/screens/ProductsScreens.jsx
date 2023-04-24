@@ -1,5 +1,3 @@
-//THIS IS THE UI...or King(example from redux video) or the customer of the store(my example)
-
 import {
   Center,
   Stack,
@@ -17,14 +15,14 @@ import {
   Text,
 } from '@chakra-ui/react';
 import ProductCard from '../components/ProductCard';
-// import { products } from '../products';
 
 import { useEffect } from 'react';
-// import { useParams } from 'react-router-dom';
+
 import { useDispatch, useSelector } from 'react-redux';
 
 //getFilterProducts inside
-import { getProducts, getFilteredProducts } from '../redux/actions/productActions'; // AKA getting getProducts from productAction.jsx
+import { getProducts } from '../redux/actions/productActions'; // AKA getting getProducts from productAction.jsx
+import { setFilterCategory, clearCategory } from '../redux/slices/products';
 import { useNavigate } from 'react-router-dom';
 import shopallhero from '../otherassets/shopall-hero.jpg';
 
@@ -33,43 +31,35 @@ const ProductsScreens = () => {
   const navigate = useNavigate();
 
   const productList = useSelector((state) => state.products);
-  const { loading, error, products } = productList;
-
-  let category;
-
-  //PREVIOUS CODE
-  // const handleFilter = (category) => {
-  //   if (category === '') {
-  //     dispatch(getProducts());
-  //   } else {
-  //     dispatch(getFilteredProducts(category));
-  //   }
-  // };
-
-  // useEffect(() => {
-  //   if (filterCategory) {
-  //     dispatch(getFilteredProducts(filterCategory));
-  //   } else {
-  //     dispatch(getProducts());
-  //   }
-  // }, [dispatch, filterCategory]);
-
-  //BRING BACK IF IT DOESNT WORK?
-  // useEffect(() => {
-  //   dispatch(getProducts());
-  // }, []);
+  const { loading, error, products, category } = productList;
 
   useEffect(() => {
-    const effectHasRun = sessionStorage.getItem('effectHasRun');
-    if (!effectHasRun) {
-      dispatch(getFilteredProducts());
-      sessionStorage.setItem('effectHasRun', true);
-    }
-  }, []);
+    dispatch(getProducts());
+    return () => {
+      dispatch(clearCategory());
+    };
+  }, [dispatch]);
 
   const handleFilter = (category) => {
-    dispatch(getFilteredProducts(category));
+    if (category) {
+      dispatch(setFilterCategory(category));
+    } else {
+      dispatch(clearCategory());
+      dispatch(getProducts());
+    }
   };
+
+  const filteredProducts = category === null ? products : products.filter((product) => product.category === category);
+
+  //BRING BACK!!!!!!!!!!!!
+  //I Dun rmb this code....effectHasRun??
+  // useEffect(() => {
+  //   const effectHasRun = sessionStorage.getItem('effectHasRun');
+  //   if (!effectHasRun) {
+  //     dispatch(getFilteredProducts());
+  //     sessionStorage.setItem('effectHasRun', true);
+  //   }
+  // }, [dispatch]);
 
   return (
     <>
@@ -114,7 +104,7 @@ const ProductsScreens = () => {
               <AlertDescription>{error}</AlertDescription>
             </Alert>
           ) : (
-            products.map((product) => (
+            filteredProducts.map((product) => (
               <WrapItem key={product._id}>
                 <Center w='320px' h='420px'>
                   <ProductCard product={product} />
@@ -129,7 +119,3 @@ const ProductsScreens = () => {
 };
 
 export default ProductsScreens;
-
-// useEffect(() => {
-//   dispatch(getProducts());
-// }, [dispatch]);

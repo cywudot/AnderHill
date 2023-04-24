@@ -6,7 +6,6 @@ import {
   Container,
   Stack,
   Button,
-  Icon,
   Image,
   Link,
   Spinner,
@@ -43,6 +42,7 @@ import { getFilteredProducts } from '../redux/actions/productActions';
 import ReactPlayer from 'react-player';
 import QuotesCarousel from '../components/QuotesCarousel';
 import ContactForm from '../components/ContactForm';
+import { setFilterCategory } from '../redux/slices/products';
 
 const LandingScreen = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -67,17 +67,24 @@ const LandingScreen = () => {
     };
   }, []);
 
-  //Filter Handler
   const handleFilter = (category) => {
-    dispatch(getFilteredProducts(category));
+    dispatch(setFilterCategory(category));
   };
 
   return (
     <>
       {isLoading ? (
         <Wrap justify='center' direction='column' mt='20px' minH='100vh'>
-          <Stack direction='row' spacing={4}>
-            <Spinner mt={20} thickness='2px' speed='0.65s' emptyColor='gray.200' color='brand.400' size='xl' />
+          <Stack direction='row' spacing={4} textAlign='center'>
+            <Spinner
+              mt={20}
+              thickness='2px'
+              speed='0.65s'
+              emptyColor='gray.200'
+              color='brand.400'
+              size='xl'
+              mx='auto'
+            />
           </Stack>
         </Wrap>
       ) : (
@@ -130,7 +137,7 @@ const LandingScreen = () => {
 
                 <Button
                   as={ReactLink}
-                  to='/shop'
+                  to='/products'
                   _hover={{ color: 'brand.100', backgroundColor: 'brand.500', transition: 'all 0.3s ease-in-out' }}
                   textTransform='uppercase'
                   w={200}
@@ -139,7 +146,7 @@ const LandingScreen = () => {
                   color='brand.500'
                   backgroundColor='brand.100'
                   alignSelf={{ base: 'center', md: 'start' }}
-                  onClick={() => handleFilter('')}
+                  // onClick={() => handleFilter('')}
                 >
                   Our Collections
                 </Button>
@@ -230,7 +237,7 @@ const LandingScreen = () => {
                     color='brand.100'
                     mt={2}
                     as={ReactLink}
-                    to='/shop'
+                    to='/products'
                     onClick={() => handleFilter('Home Accents')}
                   >
                     Home Accents
@@ -238,7 +245,7 @@ const LandingScreen = () => {
                 </Box>
 
                 <Box h='auto' mx='auto' rounded='2px' overflow='hidden'>
-                  <Link as={ReactLink} to='/shop'>
+                  <Link as={ReactLink} to='/products'>
                     <Image w='full' fit='cover' objectPosition='center' src={Dinnerware} alt='avatar' />
                   </Link>
                   <Button
@@ -250,11 +257,7 @@ const LandingScreen = () => {
                     color='brand.100'
                     mt={2}
                     as={ReactLink}
-                    to='/shop'
-                    // to={{
-                    //   pathname: '/shop',
-                    //   state: { category: 'Dinnerware' },
-                    // }}
+                    to='/products'
                     onClick={() => handleFilter('Dinnerware')}
                   >
                     Dinnerware
@@ -262,7 +265,7 @@ const LandingScreen = () => {
                 </Box>
 
                 <Box h='auto' mx='auto' rounded='2px' overflow='hidden'>
-                  <Link as={ReactLink} to='/shop'>
+                  <Link as={ReactLink} to='/products'>
                     <Image w='full' fit='cover' objectPosition='center' src={ShopAll} alt='avatar' />
                   </Link>
                   <Button
@@ -276,8 +279,8 @@ const LandingScreen = () => {
                     style={{ textDecoration: 'none' }}
                     variant='none'
                     as={ReactLink}
-                    to='/shop'
-                    onClick={() => handleFilter('')}
+                    to='/products'
+                    // onClick={() => handleFilter('')}
                   >
                     Shop All
                   </Button>

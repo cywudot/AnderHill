@@ -1,5 +1,5 @@
 //Creating the store
-
+//REDUCER
 import { createSlice } from '@reduxjs/toolkit';
 
 //Creating initial state.The Redux Store will hold before we actually start to fetch or manipulate data.
@@ -9,7 +9,6 @@ export const initialState = {
   products: [],
   category: null,
   reviewSend: null,
-  // filterCategory: null,
 };
 
 //createSlices: A function that accepts an initial state, an object of reducer functions, and a "slice name", and automatically generates action creators and action types that correspond to the reducers and state.
@@ -34,16 +33,14 @@ export const productsSlice = createSlice({
       state.error = payload;
       state.loading = false;
     },
-
-    setFilterCategory(state, { payload }) {
+    setFilterCategory: (state, { payload }) => {
       state.category = payload;
-      state.products = state.products.filter((product) => product.category === payload);
+      // state.products = state.products.filter((product) => product.category === payload);
       state.loading = false;
       state.error = null;
     },
     clearCategory: (state) => {
       state.category = null;
-      // state.filterCategory = null;
     },
     productReviewed: (state) => {
       state.loading = false;

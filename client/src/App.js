@@ -15,6 +15,7 @@ import ProfileScreen from './screens/ProfileScreen';
 import CheckoutScreen from './screens/CheckoutScreen';
 import OrderSuccessScreen from './screens/OrderSuccessScreen';
 import YourOrdersScreen from './screens/YourOrdersScreen';
+import ScrollToTop from './helpers/ScrollToTop.js';
 // import theme from './theme.js';
 
 const theme = extendTheme({
@@ -58,11 +59,12 @@ function App() {
   return (
     <ChakraProvider theme={theme}>
       <Router>
+        <ScrollToTop />
         <Navbar />
         <main>
           <Routes>
             <Route path='/' element={<LandingScreen />}></Route>
-            <Route path='/shop' element={<ProductsScreens />}></Route>
+            <Route path='/products' element={<ProductsScreens />}></Route>
             <Route path='/aboutus' element={<AboutUs />}></Route>
             <Route path='/product/:id' element={<ProductScreen />}></Route>
             <Route path='/shoppingcart' element={<CartScreen />}></Route>

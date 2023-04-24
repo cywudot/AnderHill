@@ -56,7 +56,7 @@ const OrderSuccessScreen = () => {
           >
             Your Orders
           </Button>
-          <Button borderColor='brand.500' color='brand.500' variant='outline' rounded='2' as={ReactLink} to='/shop'>
+          <Button borderColor='brand.500' color='brand.500' variant='outline' rounded='2' as={ReactLink} to='/products'>
             Products
           </Button>
           <Button borderColor='brand.500' color='brand.500' variant='outline' rounded='2' onClick={logoutHandler}>

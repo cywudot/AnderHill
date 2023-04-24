@@ -53,7 +53,7 @@ const CartScreen = () => {
           <AlertIcon />
           <AlertTitle>Your cart is empty!</AlertTitle>
           <AlertDescription>
-            <Link as={ReactLink} to='/shop'>
+            <Link as={ReactLink} to='/products'>
               Click here to see products.
             </Link>
           </AlertDescription>
@@ -120,7 +120,7 @@ const CartScreen = () => {
 
               <HStack mt='6' fontWeight='semibold'>
                 <Text fontWeight='light'>or</Text>
-                <Link as={ReactLink} variant='none' to='/shop'>
+                <Link as={ReactLink} variant='none' to='/products'>
                   Continue Shopping
                 </Link>
               </HStack>

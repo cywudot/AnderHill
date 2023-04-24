@@ -41,7 +41,7 @@ const ShippingInformation = () => {
       })}
     >
       {(formik) => (
-        <VStack as='form' backgroundColor='white' p={5} boxShadow='base'>
+        <VStack as='form' backgroundColor='white' p={5} boxShadow='base' h={{ base: 'xl', lg: 'lg' }}>
           <FormControl
             onChange={
               Object.keys(formik.errors).length === 0 && Object.keys(formik.touched).length >= 2

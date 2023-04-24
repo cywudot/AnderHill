@@ -146,7 +146,7 @@ const CheckoutOrderSummary = () => {
       <Divider backgroundColor='brand.600' />
       <Flex justifyContent='center' my='6' color='brand.500'>
         <Text fontWeight='light'>or</Text>
-        <Link as={ReactLink} to='/shop' ml='1' fontWeight='semibold'>
+        <Link as={ReactLink} to='/products' ml='1' fontWeight='semibold'>
           Continue Shopping
         </Link>
       </Flex>

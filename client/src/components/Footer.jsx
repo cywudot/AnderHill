@@ -80,7 +80,7 @@ const Footer = () => {
                     variant='link'
                     color='brand.100'
                     as={ReactLink}
-                    to='/shop'
+                    to='/products'
                     fontWeight='light'
                     fontSize='sm'
                     style={{ textDecoration: 'none' }}
