@@ -64,7 +64,8 @@ function App() {
         <main>
           <Routes>
             <Route path='/' element={<LandingScreen />}></Route>
-            <Route path='/products' element={<ProductsScreens />}></Route>
+            {/* <Route path='/products' element={<ProductsScreens />}></Route> */}
+            <Route path='/products/:category?' element={<ProductsScreens />}></Route>
             <Route path='/aboutus' element={<AboutUs />}></Route>
             <Route path='/product/:id' element={<ProductScreen />}></Route>
             <Route path='/shoppingcart' element={<CartScreen />}></Route>

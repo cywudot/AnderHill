@@ -33,9 +33,8 @@ import {
 
 import { IoMdMenu } from 'react-icons/io';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link as ReactLink } from 'react-router-dom';
+import { Link as ReactLink, useLocation } from 'react-router-dom';
 import { AiOutlineShoppingCart, AiOutlineLogin } from 'react-icons/ai';
-import { HamburgerIcon, CloseIcon, ChevronDownIcon } from '@chakra-ui/icons';
 import { MdLocalShipping, MdLogout } from 'react-icons/md';
 import { CgProfile } from 'react-icons/cg';
 import AHLogo from '../logo/AnderHillLogo.png';
@@ -51,24 +50,30 @@ const links = [
   { linkName: 'About Us ', path: '/aboutus' },
 ];
 
-const NavLink = ({ path, children }) => (
-  <Link
-    as={ReactLink}
-    to={path}
-    px={2}
-    py={2}
-    alt={links.linkName}
-    fontSize={{ base: '2xl', md: 'lg' }}
-    fontWeight='semibold'
-    color='brand.500'
-    textTransform='uppercase'
-    variant='none'
-    _hover={{ textDecoration: 'none', color: 'brand.400' }}
-    fontFamily='heading'
-  >
-    {children}
-  </Link>
-);
+const NavLink = ({ path, children }) => {
+  const { pathname } = useLocation();
+  const isActive = pathname === path;
+
+  return (
+    <Link
+      as={ReactLink}
+      to={path}
+      px={2}
+      py={2}
+      alt={links.linkName}
+      fontSize={{ base: '2xl', md: 'lg' }}
+      fontWeight='semibold'
+      color={isActive ? 'brand.400' : 'brand.500'}
+      textTransform='uppercase'
+      variant='none'
+      _activeLink={{ color: 'brand.400' }}
+      _hover={{ textDecoration: 'none', color: 'brand.400' }}
+      fontFamily='heading'
+    >
+      <Box>{children}</Box>
+    </Link>
+  );
+};
 
 const MobileNav = ({ width, placement = 'right', children, title = 'Menu', footer }) => {
   const user = useSelector((state) => state.user);
@@ -91,7 +96,7 @@ const MobileNav = ({ width, placement = 'right', children, title = 'Menu', foote
           <DrawerBody mt={8}>
             <VStack alignItems='left'>
               {links.map((item, i) => (
-                <NavLink key={item.linkName} path={item.path} color='brand.500'>
+                <NavLink key={item.linkName} path={item.path} color='brand.500' alt={item.linkName}>
                   {item.linkName}
                 </NavLink>
               ))}
@@ -109,6 +114,7 @@ const MobileNav = ({ width, placement = 'right', children, title = 'Menu', foote
     </Flex>
   );
 };
+
 const ShoppingCartIcon = () => {
   const cartInfo = useSelector((state) => state.cart);
   const { cart } = cartInfo;

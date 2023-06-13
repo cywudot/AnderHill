@@ -45,7 +45,15 @@ const YourOrdersScreen = () => {
       {loading ? (
         <Wrap justify='center' direction='column' mt='20px' minH='100vh'>
           <Stack direction='row' spacing={4}>
-            <Spinner mt={20} thickness='2px' speed='0.65s' emptyColor='gray.200' color='brand.400' size='xl' />
+            <Spinner
+              mt={20}
+              thickness='2px'
+              speed='0.65s'
+              emptyColor='gray.200'
+              color='brand.400'
+              size='xl'
+              mx='auto'
+            />
           </Stack>
         </Wrap>
       ) : error ? (

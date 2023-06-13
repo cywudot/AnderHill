@@ -49,6 +49,12 @@ const ProductCard = ({ product }) => {
   const cartInfo = useSelector((state) => state.cart);
   const { cart } = cartInfo;
 
+  const [isHovering, setIsHovering] = useState(false);
+
+  const handleMouseToggle = () => {
+    setIsHovering((prevState) => !prevState);
+  };
+
   const addItem = (id) => {
     if (cart.some((cartItem) => cartItem.id === id)) {
       toast({
@@ -66,7 +72,15 @@ const ProductCard = ({ product }) => {
     <Stack minW='270px' h='380px' position='absolute'>
       {/* {product.isNew && <img src={NewProductTag} alt='logo' width='100px' position='relative' />} */}
       <Link as={ReactLink} to={`/product/${product._id}`} cursor='pointer' variant='none'>
-        <Image src={product.images[0]} alt={product.name} objectFit='cover' minW='270px' h='300px' />
+        <Image
+          src={product.images[isHovering ? 1 : 0]}
+          alt={product.name}
+          objectFit='cover'
+          minW='270px'
+          h='300px'
+          onMouseEnter={handleMouseToggle}
+          onMouseLeave={handleMouseToggle}
+        />
         {product.productIsNew && (
           <Box flex='1' max='5' alignItems='baseline' position='absolute' top={4} right={4}>
             <Badge

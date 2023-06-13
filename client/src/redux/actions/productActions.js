@@ -9,11 +9,9 @@ import {
   setFilterCategory,
   productReviewed,
   resetError,
-  clearCategory,
 } from '../slices/products';
 
 export const getProducts = () => async (dispatch) => {
-  // dispatch(clearCategory());
   dispatch(setLoading(true));
   try {
     const { data } = await axios.get('/api/products');
@@ -51,13 +49,11 @@ export const getProduct = (id) => async (dispatch) => {
 };
 
 export const getFilteredProducts = (category) => async (dispatch) => {
+  dispatch(setLoading(true));
   try {
-    // First fetch all products
-    await dispatch(getProducts());
-    // Then filter products by category
-    if (category) {
-      dispatch(setFilterCategory(category));
-    }
+    const { data } = await axios.get(`/api/products?category=${category}`);
+    dispatch(setProducts(data));
+    dispatch(setFilterCategory(category));
   } catch (error) {
     dispatch(
       setError(
@@ -65,29 +61,12 @@ export const getFilteredProducts = (category) => async (dispatch) => {
           ? error.response.data.message
           : error.message
           ? error.message
-          : 'An unexpected error has occured. Please try again later'
+          : 'An unexpected error has occurred. Please try again later.'
       )
     );
   }
 };
 
-// export const getFilteredProducts = (category) => async (dispatch) => {
-//   dispatch(setLoading(true));
-//   try {
-//     const { data } = await axios.get(`/api/products?category=${category}`);
-//     dispatch(setProducts(data));
-//   } catch (error) {
-//     dispatch(
-//       setError(
-//         error.response && error.response.data.message
-//           ? error.response.data.message
-//           : error.message
-//           ? error.message
-//           : 'An unexpected error has occurred. Please try again later'
-//       )
-//     );
-//   }
-// };
 export const createProductReview = (productId, userId, comment, rating, title) => async (dispatch, getState) => {
   dispatch(setLoading(true));
 

@@ -7,6 +7,7 @@ export const initialState = {
   loading: false,
   error: null,
   products: [],
+  filteredProducts: [],
   category: null,
   reviewSend: null,
 };
@@ -33,12 +34,13 @@ export const productsSlice = createSlice({
       state.error = payload;
       state.loading = false;
     },
+
     setFilterCategory: (state, { payload }) => {
       state.category = payload;
-      // state.products = state.products.filter((product) => product.category === payload);
-      state.loading = false;
-      state.error = null;
+      const { category, products } = state;
+      state.filteredProducts = category ? products.filter((product) => product.category === category) : products;
     },
+
     clearCategory: (state) => {
       state.category = null;
     },
@@ -62,6 +64,7 @@ export const {
   setProducts,
   setProduct,
   setFilterCategory,
+  setFilteredProducts,
   clearCategory,
   productReviewed,
   resetError,
@@ -69,3 +72,16 @@ export const {
 export default productsSlice.reducer;
 
 export const productsSelector = (state) => state.products;
+
+//orginal
+// setFilterCategory: (state, payload) => {
+//   state.category = payload;
+//   state.loading = false;
+//   state.error = null;
+// },
+
+// In the setFilteredProducts reducer, it checks if a category is set in the state. If a category is set, it filters the products array based on the category and assigns the filtered products to filteredProducts state. If no category is set, it assigns the entire products array to filteredProducts.
+// setFilteredProducts: (state, { payload }) => {
+//   const { category, products } = state;
+//   state.filteredProducts = category ? products.filter((product) => product.category === category) : products;
+// },

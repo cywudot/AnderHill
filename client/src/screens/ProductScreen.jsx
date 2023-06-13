@@ -41,14 +41,6 @@ const ProductScreen = () => {
   //image carousel
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  const handleNextSlide = () => {
-    setCurrentIndex((prevIndex) => (prevIndex + 1) % product.images.length);
-  };
-
-  const handlePrevSlide = () => {
-    setCurrentIndex((prevIndex) => (prevIndex - 1 + product.images.length) % product.images.length);
-  };
-
   const handleDotClick = (index) => {
     setCurrentIndex(index);
   };

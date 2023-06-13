@@ -47,6 +47,7 @@ import { setFilterCategory } from '../redux/slices/products';
 const LandingScreen = () => {
   const [isLoading, setIsLoading] = useState(true);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleLoad = () => {
@@ -67,8 +68,12 @@ const LandingScreen = () => {
     };
   }, []);
 
-  const handleFilter = (category) => {
-    dispatch(setFilterCategory(category));
+  // const handleFilter = (category) => {
+  //   dispatch(setFilterCategory(category));
+  // };
+
+  const handleCategoryClick = (category) => {
+    navigate(`/products/${category}`); // Navigate to the products page with the filtered category in the URL
   };
 
   return (
@@ -227,63 +232,21 @@ const LandingScreen = () => {
                 direction={{ base: 'column', lg: 'row' }}
               >
                 <Box h='auto' mx='auto' rounded='2px' overflow='hidden'>
-                  <Image w='full' fit='cover' objectPosition='center' src={HomeAccent} alt='avatar' />
-                  <Button
-                    fontFamily='heading'
-                    fontSize='xl'
-                    backgroundColor='brand.300'
-                    _hover={{ backgroundColor: 'brand.3001' }}
-                    rounded='2px'
-                    color='brand.100'
-                    mt={2}
-                    as={ReactLink}
-                    to='/products'
-                    onClick={() => handleFilter('Home Accents')}
-                  >
-                    Home Accents
-                  </Button>
+                  <Link as={ReactLink} to='/products/Home%20Accents'>
+                    <Image w='full' fit='cover' objectPosition='center' src={HomeAccent} alt='avatar' />
+                  </Link>
                 </Box>
 
                 <Box h='auto' mx='auto' rounded='2px' overflow='hidden'>
-                  <Link as={ReactLink} to='/products'>
+                  <Link as={ReactLink} to='/products/Dinnerware'>
                     <Image w='full' fit='cover' objectPosition='center' src={Dinnerware} alt='avatar' />
                   </Link>
-                  <Button
-                    fontFamily='heading'
-                    fontSize='xl'
-                    backgroundColor='brand.300'
-                    _hover={{ backgroundColor: 'brand.3001' }}
-                    rounded='2px'
-                    color='brand.100'
-                    mt={2}
-                    as={ReactLink}
-                    to='/products'
-                    onClick={() => handleFilter('Dinnerware')}
-                  >
-                    Dinnerware
-                  </Button>
                 </Box>
 
                 <Box h='auto' mx='auto' rounded='2px' overflow='hidden'>
                   <Link as={ReactLink} to='/products'>
                     <Image w='full' fit='cover' objectPosition='center' src={ShopAll} alt='avatar' />
                   </Link>
-                  <Button
-                    fontFamily='heading'
-                    fontSize='xl'
-                    backgroundColor='brand.300'
-                    _hover={{ backgroundColor: 'brand.3001' }}
-                    rounded='2px'
-                    color='brand.100'
-                    mt={2}
-                    style={{ textDecoration: 'none' }}
-                    variant='none'
-                    as={ReactLink}
-                    to='/products'
-                    // onClick={() => handleFilter('')}
-                  >
-                    Shop All
-                  </Button>
                 </Box>
               </Flex>
 
