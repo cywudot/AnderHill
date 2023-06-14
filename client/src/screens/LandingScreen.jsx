@@ -35,7 +35,7 @@ import ReturnIcon from '../sourced-icons/30days.png';
 import HomeAccent from '../otherassets/HomeAccent.png';
 import Dinnerware from '../otherassets/Dinnerware.png';
 import QuotesImage from '../otherassets/about-us-barnimages-02.jpg';
-import Video from '../otherassets/AnderHillVideo.mp4';
+// import Video from '../otherassets/AnderHillVideo.mp4';
 import ShopAll from '../otherassets/AllProducts.png';
 import { useDispatch } from 'react-redux';
 import { getFilteredProducts } from '../redux/actions/productActions';
@@ -43,6 +43,7 @@ import ReactPlayer from 'react-player';
 import QuotesCarousel from '../components/QuotesCarousel';
 import ContactForm from '../components/ContactForm';
 import { setFilterCategory } from '../redux/slices/products';
+import VideoSection from '../components/homepage/VideoSection';
 
 const LandingScreen = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -72,9 +73,9 @@ const LandingScreen = () => {
   //   dispatch(setFilterCategory(category));
   // };
 
-  const handleCategoryClick = (category) => {
-    navigate(`/products/${category}`); // Navigate to the products page with the filtered category in the URL
-  };
+  // const handleCategoryClick = (category) => {
+  //   navigate(`/products/${category}`); // Navigate to the products page with the filtered category in the URL
+  // };
 
   return (
     <>
@@ -254,7 +255,7 @@ const LandingScreen = () => {
             </Box>
           </Container>
           {/* VIDEO SECTION */}
-          <Box width='full' h='auto' backgroundColor='brand.400' mb={12} position='relative'>
+          {/* <Box width='full' h='auto' backgroundColor='brand.400' mb={12} position='relative'>
             <ReactPlayer url={Video} playing={true} loop={true} muted={true} volume={0} width='100%' height='lg' />
             <Box
               position='absolute'
@@ -291,8 +292,8 @@ const LandingScreen = () => {
                 Learn More About Us
               </Button>
             </Box>
-          </Box>
-
+          </Box> */}
+          <VideoSection />
           <QuotesCarousel />
 
           {/* CONTACT */}
