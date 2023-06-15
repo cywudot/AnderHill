@@ -35,7 +35,7 @@ const Footer = () => {
   };
 
   return (
-    <Box backgroundColor='brand.300' w='100%'>
+    <Box backgroundColor='brand.500' w='100%'>
       <Container as='footer' role='contentinfo' maxW='7xl'>
         <Stack
           spacing='8'
@@ -61,7 +61,7 @@ const Footer = () => {
           >
             <Stack direction='row' spacing='8'>
               <Stack spacing='4' minW='28' flex='1'>
-                <Text fontSize='md' fontWeight='semibold' color='brand.500' fontFamily='heading'>
+                <Text fontSize='md' fontWeight='bold' color='brand.100' fontFamily='heading'>
                   NAVIGATION
                 </Text>
                 <Stack spacing='3' shouldWrapChildren>
@@ -69,7 +69,7 @@ const Footer = () => {
                     variant='link'
                     as={ReactLink}
                     to='/'
-                    color='brand.100'
+                    color='brand.750'
                     fontWeight='light'
                     fontSize='sm'
                     style={{ textDecoration: 'none' }}
@@ -78,7 +78,7 @@ const Footer = () => {
                   </Button>
                   <Button
                     variant='link'
-                    color='brand.100'
+                    color='brand.750'
                     as={ReactLink}
                     to='/products'
                     fontWeight='light'
@@ -89,7 +89,7 @@ const Footer = () => {
                   </Button>
                   <Button
                     variant='link'
-                    color='brand.100'
+                    color='brand.750'
                     as={ReactLink}
                     to='/aboutus'
                     fontWeight='light'
@@ -101,19 +101,19 @@ const Footer = () => {
                 </Stack>
               </Stack>
               <Stack spacing='3' minW='36' flex='1'>
-                <Text fontSize='md' fontWeight='semibold' color='brand.500' fontFamily='heading'>
+                <Text fontSize='md' fontWeight='bold' color='brand.100' fontFamily='heading'>
                   LOCATION
                 </Text>
                 <Stack spacing='3' shouldWrapChildren>
-                  <Text fontSize='sm' color='brand.100'>
+                  <Text fontSize='sm' color='brand.750'>
                     1359 Tanner Street Vancover, B.C, V5R 2T4
                   </Text>
                 </Stack>
-                <Text fontSize='md' fontWeight='semibold' color='brand.500' fontFamily='heading'>
+                <Text fontSize='md' fontWeight='bold' color='brand.100' fontFamily='heading'>
                   OPENING HOURS
                 </Text>
                 <Stack spacing='3' shouldWrapChildren>
-                  <Text fontSize='sm' color='brand.100'>
+                  <Text fontSize='sm' color='brand.750'>
                     Monday to Saturday from 10:00 to 19:00
                   </Text>
                 </Stack>
@@ -121,7 +121,7 @@ const Footer = () => {
             </Stack>
 
             <Stack spacing='1'>
-              <Text fontSize='md' fontWeight='regular' color='brand.100'>
+              <Text fontSize='md' fontFamily='heading' textTransform='uppercase' fontWeight='bold' color='brand.100'>
                 Stay up to date
               </Text>
 
@@ -142,6 +142,7 @@ const Footer = () => {
                   variant='flushed'
                   borderColor='brand.100'
                   focusBorderColor='brand.800'
+                  color='brand.100'
                   _placeholder={{ color: 'brand.800' }}
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
@@ -173,13 +174,34 @@ const Footer = () => {
           }}
           align='center'
         >
-          <Text fontSize='sm' color='subtle' textAlign='center'>
+          <Text fontSize='sm' color='brand.750' textAlign='center'>
             &copy; {new Date().getFullYear()} Ander Hill Pottery, All rights reserved.
           </Text>
           <ButtonGroup variant='ghost'>
-            <IconButton as='a' href='#' aria-label='LinkedIn' icon={<FaInstagram fontSize='1.25rem' />} />
-            <IconButton as='a' href='#' aria-label='GitHub' icon={<FaFacebook fontSize='1.25rem' />} />
-            <IconButton as='a' href='#' aria-label='Twitter' icon={<FaTwitter fontSize='1.25rem' />} />
+            <IconButton
+              as='a'
+              href='#'
+              aria-label='LinkedIn'
+              color='brand.750'
+              _hover={{ backgroundColor: 'transparent' }}
+              icon={<FaInstagram fontSize='1.25rem' />}
+            />
+            <IconButton
+              as='a'
+              href='#'
+              aria-label='GitHub'
+              color='brand.750'
+              _hover={{ backgroundColor: 'transparent' }}
+              icon={<FaFacebook fontSize='1.25rem' />}
+            />
+            <IconButton
+              as='a'
+              href='#'
+              aria-label='Twitter'
+              color='brand.750'
+              _hover={{ backgroundColor: 'transparent' }}
+              icon={<FaTwitter fontSize='1.25rem' />}
+            />
           </ButtonGroup>
         </Stack>
       </Container>

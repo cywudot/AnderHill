@@ -32,11 +32,9 @@ import HeroImageMobile from '../otherassets/HomeHeroImageMobile.png';
 import ContactIcon from '../sourced-icons/contact.png';
 import FreeDeliveryIcon from '../sourced-icons/free-delivery.png';
 import ReturnIcon from '../sourced-icons/30days.png';
-import HomeAccent from '../otherassets/HomeAccent.png';
-import Dinnerware from '../otherassets/Dinnerware.png';
+
 import QuotesImage from '../otherassets/about-us-barnimages-02.jpg';
-// import Video from '../otherassets/AnderHillVideo.mp4';
-import ShopAll from '../otherassets/AllProducts.png';
+
 import { useDispatch } from 'react-redux';
 import { getFilteredProducts } from '../redux/actions/productActions';
 import ReactPlayer from 'react-player';
@@ -44,6 +42,7 @@ import QuotesCarousel from '../components/QuotesCarousel';
 import ContactForm from '../components/ContactForm';
 import { setFilterCategory } from '../redux/slices/products';
 import VideoSection from '../components/homepage/VideoSection';
+import CategoriesSection from '../components/homepage/CategoriesSection';
 
 const LandingScreen = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -218,42 +217,7 @@ const LandingScreen = () => {
               </Stack>
             </Stack>
           </HStack>
-          {/* FEATURED PRODUCTS SECTION  */}
-          <Container maxW={['12xl', '10xl', '8xl']} justifyContent='center' mt={8}>
-            <Box alignItems='center'>
-              <Heading as='h2' textAlign='center' textTransform='uppercase' color='brand.500'>
-                Discover Ander Hill
-              </Heading>
-
-              <Flex
-                p={50}
-                justifyContent='center'
-                gap={10}
-                justify='space-around'
-                direction={{ base: 'column', lg: 'row' }}
-              >
-                <Box h='auto' mx='auto' rounded='2px' overflow='hidden'>
-                  <Link as={ReactLink} to='/products/Home%20Accents'>
-                    <Image w='full' fit='cover' objectPosition='center' src={HomeAccent} alt='avatar' />
-                  </Link>
-                </Box>
-
-                <Box h='auto' mx='auto' rounded='2px' overflow='hidden'>
-                  <Link as={ReactLink} to='/products/Dinnerware'>
-                    <Image w='full' fit='cover' objectPosition='center' src={Dinnerware} alt='avatar' />
-                  </Link>
-                </Box>
-
-                <Box h='auto' mx='auto' rounded='2px' overflow='hidden'>
-                  <Link as={ReactLink} to='/products'>
-                    <Image w='full' fit='cover' objectPosition='center' src={ShopAll} alt='avatar' />
-                  </Link>
-                </Box>
-              </Flex>
-
-              {/* FEATURED PRODUCTS SECTION ENDS */}
-            </Box>
-          </Container>
+          <CategoriesSection />
           {/* VIDEO SECTION */}
           {/* <Box width='full' h='auto' backgroundColor='brand.400' mb={12} position='relative'>
             <ReactPlayer url={Video} playing={true} loop={true} muted={true} volume={0} width='100%' height='lg' />

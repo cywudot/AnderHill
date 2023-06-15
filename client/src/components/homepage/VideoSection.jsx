@@ -13,7 +13,6 @@ import {
   VStack,
 } from '@chakra-ui/react';
 import { Link as ReactLink, useNavigate } from 'react-router-dom';
-
 import ReactPlayer from 'react-player';
 import Video from '../../otherassets/AnderHillVideo.mp4';
 import { ArrowForwardIcon } from '@chakra-ui/icons';
@@ -21,29 +20,6 @@ import { ArrowForwardIcon } from '@chakra-ui/icons';
 const VideoSection = () => {
   return (
     <Box width='full' h='auto' backgroundColor='brand.100' mb={12} position='relative'>
-      {/* <Flex
-        direction={{ base: 'column', lg: 'row' }}
-        align='center'
-        justify='space-between'
-        gap={5}
-        backgroundColor='brand.200'
-      >
-        <Box w='40%'>
-          <Text fontFamily='heading' fontWeight='bold' fontSize='6xl' color='brand.500'>
-            Elevating pottery to unparalleled perfection
-          </Text>
-        </Box>
-        <Box w='40%'>
-          <Text fontSize='2xl' color='brand.500'>
-            Since 1985, AnderHill has passionately honed the art of pottery, creating exquisite masterpieces that embody
-            the perfect harmony of form, function, and timeless beauty.
-          </Text>
-          <Button variant='none' p={0} color='brand.500'>
-            Read More About Us
-          </Button>
-          <ArrowForwardIcon w={8} h={8} color='brand.500' />
-        </Box>
-      </Flex> */}
       <Flex py={10} w='auto' justifyContent='center' alignItems='center'>
         <Box mx='auto'>
           <SimpleGrid
