@@ -1,18 +1,5 @@
-import {
-  Box,
-  Button,
-  Container,
-  Flex,
-  Grid,
-  GridItem,
-  HStack,
-  Link,
-  Heading,
-  SimpleGrid,
-  Text,
-  VStack,
-} from '@chakra-ui/react';
-import { Link as ReactLink, useNavigate } from 'react-router-dom';
+import { Box, Button, Flex, Heading, SimpleGrid, Text, VStack } from '@chakra-ui/react';
+import { Link as ReactLink } from 'react-router-dom';
 import ReactPlayer from 'react-player';
 import Video from '../../otherassets/AnderHillVideo.mp4';
 import { ArrowForwardIcon } from '@chakra-ui/icons';
@@ -20,8 +7,8 @@ import { ArrowForwardIcon } from '@chakra-ui/icons';
 const VideoSection = () => {
   return (
     <Box width='full' h='auto' backgroundColor='brand.100' mb={12} position='relative'>
-      <Flex py={10} w='auto' justifyContent='center' alignItems='center'>
-        <Box mx='auto'>
+      <Flex pt={{ base: '0', lg: '16' }} pb={16} w='auto' justifyContent='center' alignItems='center'>
+        <Box mx='auto' px={{ base: 10, lg: 0 }}>
           <SimpleGrid
             columns={{
               base: 1,
@@ -35,7 +22,6 @@ const VideoSection = () => {
               base: 10,
               lg: 24,
             }}
-            px={{ base: 5, lg: 0 }}
           >
             <Box textAlign={{ base: 'center', lg: 'left' }}>
               <Heading as='h3' size={{ base: 'xl', md: '2xl' }} color='brand.500'>
@@ -46,8 +32,8 @@ const VideoSection = () => {
               <Box textAlign={{ base: 'center', lg: 'left' }}>
                 <Text
                   fontSize={{
-                    base: 'lg',
-                    md: 'xl',
+                    base: 'md',
+                    md: 'lg',
                   }}
                   color='brand.500'
                 >
@@ -57,7 +43,6 @@ const VideoSection = () => {
                 <Button
                   p={0}
                   variant='none'
-                  // _hover={{ backgroundColor: 'brand.3001' }}
                   as={ReactLink}
                   to='/aboutus'
                   w={{
@@ -78,7 +63,7 @@ const VideoSection = () => {
           </SimpleGrid>
         </Box>
       </Flex>
-      <ReactPlayer url={Video} playing={true} loop={true} muted={true} volume={0} width='100%' height='lg' />
+      <ReactPlayer url={Video} playing={true} loop={true} muted={true} volume={0} width='100%' height='auto' />
     </Box>
   );
 };

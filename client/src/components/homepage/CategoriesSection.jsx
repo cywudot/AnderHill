@@ -1,18 +1,128 @@
-import { Box, Button, Container, Flex, Image, Link, Heading } from '@chakra-ui/react';
+import { Box, Button, Container, Flex, Grid, GridItem, Image, Link, Heading } from '@chakra-ui/react';
 import { Link as ReactLink, useNavigate } from 'react-router-dom';
-import HomeAccent from '../../otherassets/HomeAccent.png';
-import Dinnerware from '../../otherassets/Dinnerware.png';
-import ShopAll from '../../otherassets/AllProducts.png';
+import HomeAccent from '../../otherassets/HomeAccent.jpg';
+import Dinnerware from '../../otherassets/Dinnerware.jpg';
+import ShopAll from '../../otherassets/AllProducts.jpg';
 
-const DiscoverSection = () => {
+const CategoriesSection = () => {
   return (
-    <Container maxW={['10xl', '12xl']} justifyContent='center' mt={10}>
-      <Box alignItems='center'>
-        <Heading as='h2' textAlign='center' textTransform='uppercase' color='brand.500'>
+    <Container maxW='12xl' justifyContent='center' mt={16} p={0}>
+      <Heading as='h2' textAlign='center' textTransform='uppercase' color='brand.500' pb={{ base: '0', lg: '16' }}>
+        Discover Ander Hill
+      </Heading>
+
+      <Grid
+        templateColumns={{ base: 'repeat(1, 1fr)', md: 'repeat(2, 1fr)', lg: 'repeat(3, 1fr)' }}
+        templateRows={{ base: 'repeat(3, 1fr)', md: 'repeat(2, 1fr)', lg: '1fr' }}
+        gap={4}
+        p={{ base: '50', lg: '0' }}
+      >
+        <GridItem colSpan={{ base: 1, lg: 1 }} rowSpan={{ base: 1, lg: 1 }} position='relative'>
+          <Link as={ReactLink} to='/products/Home%20Accents'>
+            <Image w='full' fit='cover' objectPosition='center' src={HomeAccent} alt='avatar' />
+            <Box position='absolute' top='80%' left='50%' transform='translate(-50%, -50%)'>
+              <Button
+                p={6}
+                rounded={2}
+                variant='none'
+                fontWeight='regular'
+                w={{
+                  base: 'full',
+                  sm: 'auto',
+                }}
+                backgroundColor='brand.100'
+                color='brand.500'
+                fontSize={{
+                  base: 'sm',
+                  md: 'md',
+                }}
+              >
+                Shop Home Accents
+              </Button>
+            </Box>
+          </Link>
+        </GridItem>
+
+        <GridItem colSpan={{ base: 1, lg: 1 }} rowSpan={{ base: 1, lg: 1 }} position='relative'>
+          <Link as={ReactLink} to='/products/Dinnerware'>
+            <Image w='full' fit='cover' objectPosition='center' src={Dinnerware} alt='avatar' />
+            <Box position='absolute' top='80%' left='50%' transform='translate(-50%, -50%)'>
+              <Button
+                p={6}
+                rounded={2}
+                variant='none'
+                fontWeight='regular'
+                w={{
+                  base: 'full',
+                  sm: 'auto',
+                }}
+                backgroundColor='brand.100'
+                color='brand.500'
+                fontSize={{
+                  base: 'sm',
+                  md: 'md',
+                }}
+              >
+                Shop Dinnerware
+              </Button>
+            </Box>
+          </Link>
+        </GridItem>
+
+        <GridItem
+          colSpan={{ base: 1, md: 2, lg: 1 }}
+          rowSpan={{ base: 1, lg: 1 }}
+          backgroundColor='brand.600'
+          position='relative'
+        >
+          <Link as={ReactLink} to='/products'>
+            <Image
+              objectFit='cover'
+              position='absolute'
+              top={0}
+              left={0}
+              w='100%'
+              h='100%'
+              src={ShopAll}
+              alt='avatar'
+            />
+            <Box position='absolute' top='80%' left='50%' transform='translate(-50%, -50%)'>
+              <Button
+                p={6}
+                rounded={2}
+                variant='none'
+                fontWeight='regular'
+                w={{
+                  base: 'full',
+                  sm: 'auto',
+                }}
+                backgroundColor='brand.100'
+                color='brand.500'
+                fontSize={{
+                  base: 'sm',
+                  md: 'md',
+                }}
+              >
+                Shop All
+              </Button>
+            </Box>
+          </Link>
+        </GridItem>
+      </Grid>
+
+      {/* <Box alignItems='center'>
+       
+       <Heading as='h2' textAlign='center' textTransform='uppercase' color='brand.500' pb={{ base: '0', lg: '10' }}>
           Discover Ander Hill
         </Heading>
 
-        <Flex p={50} justifyContent='center' gap={10} justify='space-around' direction={{ base: 'column', lg: 'row' }}>
+        <Flex
+          p={{ base: '50', lg: '0' }}
+          justifyContent='center'
+          gap={10}
+          direction={{ base: 'column', lg: 'row' }}
+          backgroundColor='brand.600'
+        >
           <Link as={ReactLink} to='/products/Home%20Accents'>
             <Box h='auto' mx='auto' rounded='2px' overflow='hidden' position='relative'>
               <Image w='full' fit='cover' objectPosition='center' src={HomeAccent} alt='avatar' />
@@ -91,10 +201,9 @@ const DiscoverSection = () => {
             </Box>
           </Link>
         </Flex>
-        {/* FEATURED PRODUCTS SECTION ENDS */}
-      </Box>
+      </Box> */}
     </Container>
   );
 };
 
-export default DiscoverSection;
+export default CategoriesSection;

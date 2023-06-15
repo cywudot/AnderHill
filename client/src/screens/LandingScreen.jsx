@@ -218,48 +218,8 @@ const LandingScreen = () => {
             </Stack>
           </HStack>
           <CategoriesSection />
-          {/* VIDEO SECTION */}
-          {/* <Box width='full' h='auto' backgroundColor='brand.400' mb={12} position='relative'>
-            <ReactPlayer url={Video} playing={true} loop={true} muted={true} volume={0} width='100%' height='lg' />
-            <Box
-              position='absolute'
-              top='20%'
-              left='10%'
-              right='10%'
-              bottom='10%'
-              textAlign='center'
-              display='flex'
-              flexDirection='column'
-              justifyContent={{ base: 'flex-end', md: 'space-between' }}
-            >
-              <Text
-                fontSize={{ base: '2xl', md: '3xl', lg: '4xl' }}
-                color='brand.100'
-                fontFamily='heading'
-                fontWeight='bold'
-                display={{ base: 'none', md: 'block' }}
-              >
-                Welcome to Ander Hill's Pottery, where we believe in the power of beautiful and environmentally
-                responsible creations.
-              </Text>
-              <Button
-                backgroundColor='brand.300'
-                _hover={{ backgroundColor: 'brand.3001' }}
-                color='brand.100'
-                fontSize={{ base: 'sm', lg: 'md' }}
-                rounded='sm'
-                as={ReactLink}
-                to='/aboutus'
-                maxW='200px'
-                mx='auto'
-              >
-                Learn More About Us
-              </Button>
-            </Box>
-          </Box> */}
           <VideoSection />
           <QuotesCarousel />
-
           {/* CONTACT */}
           <Flex width='full' justifyContent='center' py={8} id='contact-form'>
             <ContactForm />
