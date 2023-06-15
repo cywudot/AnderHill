@@ -60,11 +60,11 @@ const Footer = () => {
             }}
           >
             <Stack direction='row' spacing='8'>
-              <Stack spacing='4' minW='28' flex='1'>
+              <Stack spacing='3' minW='28' flex='1'>
                 <Text fontSize='md' fontWeight='bold' color='brand.100' fontFamily='heading'>
                   NAVIGATION
                 </Text>
-                <Stack spacing='3' shouldWrapChildren>
+                <Stack shouldWrapChildren>
                   <Button
                     variant='link'
                     as={ReactLink}
@@ -137,6 +137,7 @@ const Footer = () => {
               >
                 <Input
                   placeholder='Enter your email'
+                  size='sm'
                   type='email'
                   required
                   variant='flushed'
@@ -149,17 +150,20 @@ const Footer = () => {
                 />
                 <Button
                   variant='primary'
+                  size='sm'
                   type='submit'
                   flexShrink={0}
                   backgroundColor='brand.100'
-                  color='brand.800'
-                  _hover={{ backgroundColor: 'brand.800', color: 'brand.100' }}
+                  color='brand.500'
                   rounded='2'
                   onClick={(e) => handleSubmit(e)}
                 >
                   Subscribe
                 </Button>
               </Stack>
+              <Text color='brand.750' fontSize='sm' width='80%' pt={2}>
+                Get 15% off on your first order just by subscribing to our newsletter
+              </Text>
             </Stack>
           </Stack>
         </Stack>
