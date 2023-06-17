@@ -43,6 +43,7 @@ import ContactForm from '../components/ContactForm';
 import { setFilterCategory } from '../redux/slices/products';
 import VideoSection from '../components/homepage/VideoSection';
 import CategoriesSection from '../components/homepage/CategoriesSection';
+import Testimonials from '../components/homepage/Testimonials';
 
 const LandingScreen = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -219,7 +220,7 @@ const LandingScreen = () => {
           </HStack>
           <CategoriesSection />
           <VideoSection />
-          <QuotesCarousel />
+          <Testimonials />
           {/* CONTACT */}
           <Flex width='full' justifyContent='center' py={8} id='contact-form'>
             <ContactForm />
