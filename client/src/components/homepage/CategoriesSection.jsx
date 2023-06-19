@@ -6,7 +6,7 @@ import ShopAll from '../../otherassets/AllProducts.jpg';
 
 const CategoriesSection = () => {
   return (
-    <Container maxW='12xl' justifyContent='center' mt={16} p={0}>
+    <Container maxW='12xl' justifyContent='center' mt={16} p={0} px={{ base: '0', lg: '12' }}>
       <Heading as='h2' textAlign='center' textTransform='uppercase' color='brand.500' pb={{ base: '0', lg: '16' }}>
         Discover Ander Hill
       </Heading>

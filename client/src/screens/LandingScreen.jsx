@@ -94,7 +94,7 @@ const LandingScreen = () => {
           </Stack>
         </Wrap>
       ) : (
-        <Box maxW='12xl' mx='auto' px={{ base: '0', lg: '12' }} py={{ base: '0', lg: '0' }} minH='12xl'>
+        <Box maxW='12xl' mx='auto' py={{ base: '0', lg: '0' }} minH='12xl'>
           {/* HERO SECTION */}
           <Box
             w='full'
@@ -221,6 +221,7 @@ const LandingScreen = () => {
           <CategoriesSection />
           <VideoSection />
           <Testimonials />
+
           {/* CONTACT */}
           <Flex width='full' justifyContent='center' py={8} id='contact-form'>
             <ContactForm />

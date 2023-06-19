@@ -6,7 +6,7 @@ import { ArrowForwardIcon } from '@chakra-ui/icons';
 
 const VideoSection = () => {
   return (
-    <Box width='full' h='auto' backgroundColor='brand.100' mb={12} position='relative'>
+    <Box width='full' h='auto' px={{ base: '0', lg: '12' }} backgroundColor='brand.100' mb={12} position='relative'>
       <Flex pt={{ base: '0', lg: '16' }} pb={16} w='auto' justifyContent='center' alignItems='center'>
         <Box mx='auto' px={{ base: 10, lg: 0 }}>
           <SimpleGrid
