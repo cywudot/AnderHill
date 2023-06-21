@@ -13,6 +13,9 @@ import {
   HStack,
   Text,
   useToast,
+  Card,
+  Fade,
+  AspectRatio,
   useTheme,
 } from '@chakra-ui/react';
 import { FaCartPlus } from 'react-icons/fa';
@@ -21,20 +24,22 @@ import { StarIcon } from '@chakra-ui/icons';
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { addCartItem } from '../redux/actions/cartActions';
-
+import ProductCardTest from './homepage/ProductCardTest';
 const Rating = ({ rating, numberOfReviews }) => {
   const { iconSize, setIconSize } = useState('14px');
   return (
     <Flex mb='10px'>
       <HStack spacing='2px'>
-        <StarIcon size={iconSize} w='14px' color='brand.400' />
+        <StarIcon size={iconSize} w='14px' color={rating >= 1 ? 'brand.400' : 'brand.200'} />
         <StarIcon size={iconSize} w='14px' color={rating >= 2 ? 'brand.400' : 'brand.200'} />
         <StarIcon size={iconSize} w='14px' color={rating >= 3 ? 'brand.400' : 'brand.200'} />
         <StarIcon size={iconSize} w='14px' color={rating >= 4 ? 'brand.400' : 'brand.200'} />
         <StarIcon size={iconSize} w='14px' color={rating >= 5 ? 'brand.400' : 'brand.200'} />
       </HStack>
-      <Text fontSize='sm' fontWeight='light' ml='10px' mt='5px'>
-        {`${numberOfReviews} ${numberOfReviews === 1 ? 'Review' : 'Reviews'}`}
+      <Text fontSize={{ base: 'sm', lg: 'md' }} fontWeight='regular' ml='10px' mt='5px'>
+        {numberOfReviews === 0
+          ? 'No Reviews Yet'
+          : `${numberOfReviews} ${numberOfReviews === 1 ? 'Review' : 'Reviews'}`}
       </Text>
     </Flex>
   );
@@ -69,59 +74,61 @@ const ProductCard = ({ product }) => {
   };
 
   return (
-    <Stack minW='270px' h='380px' position='absolute'>
-      {/* {product.isNew && <img src={NewProductTag} alt='logo' width='100px' position='relative' />} */}
+    <Stack maxW='320px' mx='auto'>
       <Link as={ReactLink} to={`/product/${product._id}`} cursor='pointer' variant='none'>
-        <Image
-          src={product.images[isHovering ? 1 : 0]}
-          alt={product.name}
-          objectFit='cover'
-          minW='270px'
-          h='300px'
-          onMouseEnter={handleMouseToggle}
-          onMouseLeave={handleMouseToggle}
-        />
-        {product.productIsNew && (
-          <Box flex='1' max='5' alignItems='baseline' position='absolute' top={4} right={4}>
-            <Badge
-              rounded='full'
-              px='5'
-              fontSize='1em'
-              color='brand.400'
-              fontWeight='light'
-              fontFamily='body'
-              backgroundColor='brand.100'
-            >
-              New
-            </Badge>
-          </Box>
-        )}
-        {product.stock <= 0 && (
-          <Box flex='1' max='5' alignItems='baseline' position='absolute' top={4} right={4}>
-            <Badge
-              rounded='full'
-              px='5'
-              fontSize='1em'
-              color='brand.600'
-              fontWeight='light'
-              as='i'
-              fontFamily='body'
-              backgroundColor='brand.100'
-            >
-              Out of Stock
-            </Badge>
-          </Box>
-        )}
+        <Box position='relative'>
+          <Image
+            src={product.images[isHovering ? 1 : 0]}
+            alt={product.name}
+            objectFit='cover'
+            w='full'
+            onMouseEnter={handleMouseToggle}
+            onMouseLeave={handleMouseToggle}
+            position='relative'
+          />
+
+          {product.productIsNew && (
+            <Box flex='1' max='5' alignItems='baseline' position='absolute' top={4} right={4}>
+              <Badge
+                rounded='2'
+                px='5'
+                fontSize='1em'
+                color='brand.400'
+                fontWeight='light'
+                fontFamily='body'
+                backgroundColor='brand.100'
+              >
+                New
+              </Badge>
+            </Box>
+          )}
+          {product.stock <= 0 && (
+            <Box flex='1' max='5' alignItems='baseline' position='absolute' top={4} right={4}>
+              <Badge
+                rounded='2'
+                px='5'
+                fontSize='1em'
+                color='brand.600'
+                fontWeight='light'
+                as='i'
+                fontFamily='body'
+                backgroundColor='brand.100'
+              >
+                Out of Stock
+              </Badge>
+            </Box>
+          )}
+        </Box>
       </Link>
 
       <Flex justify='space-between' color='brand.500'>
         <Link as={ReactLink} to={`/product/${product._id}`} cursor='pointer' _hover={{ textDecoration: 'none' }}>
-          <Box fontSize='18px' fontWeight='light' fontFamily='heading'>
+          <Box fontSize={{ base: 'md', lg: 'lg' }} fontWeight='medium' fontFamily='heading'>
             {product.name}
           </Box>
         </Link>
 
-        <Box fontSize='15px' fontWeight='light'>
+        <Box fontSize={{ base: 'sm', lg: 'md' }} fontWeight='regular'>
           <Text alignSelf='center' mt='3px'>
             ${product.price.toFixed(2)}
           </Text>
@@ -135,7 +142,7 @@ const ProductCard = ({ product }) => {
           bg='white'
           placement={'top'}
           color={'gray.800'}
-          fontSize='1em'
+          fontSize={{ base: 'sm', lg: 'md' }}
           isDisabled={product.stock === 0}
         >
           <Button

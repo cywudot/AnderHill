@@ -159,26 +159,28 @@ const ProductScreen = () => {
                   <Box>
                     <Flex>
                       <HStack spacing='5px'>
-                        <StarIcon color='brand.400' />
+                        <StarIcon color={product.rating >= 1 ? 'brand.400' : 'brand.200'} />
                         <StarIcon color={product.rating >= 2 ? 'brand.400' : 'brand.200'} />
                         <StarIcon color={product.rating >= 3 ? 'brand.400' : 'brand.200'} />
                         <StarIcon color={product.rating >= 4 ? 'brand.400' : 'brand.200'} />
                         <StarIcon color={product.rating >= 5 ? 'brand.400' : 'brand.200'} />
                       </HStack>
                       <Text fontSize='md' fontWeight='bold' ml='15px' color='brand.500'>
-                        {`${product.numberOfReviews} ${product.numberOfReviews === 1 ? 'Review' : 'Reviews'}`}
+                        {product.numberOfReviews === 0
+                          ? 'No Reviews Yet'
+                          : `${product.numberOfReviews} ${product.numberOfReviews === 1 ? 'Review' : 'Reviews'}`}
                       </Text>
                     </Flex>
                   </Box>
                   <Text color='brand.500'>{product.description}</Text>
                   <Stack spacing='2px' direction='column'>
-                    <Text color='brand.500' fontFamily='heading' fontSize={{ base: 'md', lg: 'lg' }}>
+                    <Text color='brand.500' fontFamily='heading' fontSize='lg'>
                       Color: {product.color}
                     </Text>
-                    <Text color='brand.500' fontFamily='heading' fontSize={{ base: 'md', lg: 'lg' }}>
+                    <Text color='brand.500' fontFamily='heading' fontSize='lg'>
                       Size: {product.dimensions.diameter}cm diameter / {product.dimensions.height}cm height
                     </Text>
-                    <Text color='brand.500' fontFamily='heading' fontSize={{ base: 'md', lg: 'lg' }}>
+                    <Text color='brand.500' fontFamily='heading' fontSize='lg'>
                       Material: {product.material}
                     </Text>
                   </Stack>
@@ -361,6 +363,54 @@ const ProductScreen = () => {
             </Text>
             <Stack align='center' w='full' backgroundColor='white' boxShadow='base' rounded={2}>
               <Stack spacingx='40px' spacing='20px' w='100%' p={5} rounded={2}>
+                {product.reviews.length === 0 ? (
+                  <Text fontSize='md' color='brand.500' textAlign='center'>
+                    No reviews yet. Be the first to leave a review!
+                  </Text>
+                ) : (
+                  product.reviews.map((review) => (
+                    <Stack
+                      key={review._id}
+                      minHeight='100px'
+                      direction={{ base: 'column', md: 'row' }}
+                      gap={{ base: '10px', md: '50px' }}
+                      backgroundColor='brand.200'
+                      p={5}
+                    >
+                      <Stack
+                        justify='space-between'
+                        minW='150px'
+                        direction={{ base: 'row', md: 'column' }}
+                        py={{ base: '10px', md: '0px' }}
+                        px={{ base: '5px', md: '0px' }}
+                      >
+                        <Text fontSize='md' color='brand.500' fontWeight='semibold'>
+                          {review.name}
+                        </Text>
+                        <Text color='brand.800' fontSize='sm'>
+                          {new Date(review.createdAt).toDateString()}
+                        </Text>
+                      </Stack>
+
+                      <Stack justify='space-between'>
+                        <HStack spacing='5px' mt='3px'>
+                          <StarIcon color='brand.400' />
+                          <StarIcon color={review.rating >= 2 ? 'brand.400' : 'brand.200'} />
+                          <StarIcon color={review.rating >= 3 ? 'brand.400' : 'brand.200'} />
+                          <StarIcon color={review.rating >= 4 ? 'brand.400' : 'brand.200'} />
+                          <StarIcon color={review.rating >= 5 ? 'brand.400' : 'brand.200'} />
+                        </HStack>
+                        <Text fontWeight='semibold' color='brand.500'>
+                          {review.title && review.title}
+                        </Text>
+                        <Text color='brand.500'>{review.comment}</Text>
+                      </Stack>
+                    </Stack>
+                  ))
+                )}
+              </Stack>
+
+              {/* <Stack spacingx='40px' spacing='20px' w='100%' p={5} rounded={2}>
                 {product.reviews.map((review) => (
                   <Stack
                     key={review._id}
@@ -400,7 +450,7 @@ const ProductScreen = () => {
                     </Stack>
                   </Stack>
                 ))}
-              </Stack>
+              </Stack> */}
             </Stack>
 
             {userInfo && (

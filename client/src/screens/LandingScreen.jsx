@@ -152,7 +152,6 @@ const LandingScreen = () => {
                   color='brand.500'
                   backgroundColor='brand.100'
                   alignSelf={{ base: 'center', md: 'start' }}
-                  // onClick={() => handleFilter('')}
                 >
                   Our Collections
                 </Button>
