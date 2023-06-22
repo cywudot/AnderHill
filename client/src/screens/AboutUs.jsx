@@ -1,21 +1,4 @@
-import {
-  Box,
-  Flex,
-  Heading,
-  HStack,
-  Container,
-  Stack,
-  SimpleGrid,
-  Button,
-  Icon,
-  Image,
-  Link,
-  Skeleton,
-  chakra,
-  useColorModeValue,
-  Text,
-  Wrap,
-} from '@chakra-ui/react';
+import { Box, Flex, Heading, Stack, Image, Text } from '@chakra-ui/react';
 import ReactPlayer from 'react-player';
 import AboutUsHeroImage from '../otherassets/AboutUsHero.jpg';
 import AboutUsHeroImageMobile from '../otherassets/AboutUsHeroMobile.png';
@@ -27,7 +10,7 @@ const AboutUs = () => {
     <Box maxW='12xl' mx='auto' px={{ base: '0', lg: '12' }} py={{ base: '0', lg: '0' }} minH='8xl'>
       <Flex
         w='full'
-        h='3xl'
+        h='lg'
         bgPos='center'
         bgSize='cover'
         backgroundImage={{
@@ -72,11 +55,19 @@ const AboutUs = () => {
           mb={12}
         >
           <Box mx='auto' rounded='2px' overflow='hidden' flex={1}>
-            <Image fit='cover' src={AboutUsHandsOne} alt='Pottery Making' maxW='100%' minH='320px' />
+            <Image fit='cover' src={AboutUsHandsOne} alt='Pottery Making' maxW='100%' minH='350px' />
           </Box>
 
           <Box textAlign={{ base: 'center', md: 'left' }} mx='auto' alignSelf='center' flex={1}>
-            <Text color='brand.4001' fontSize='1.5em' fontFamily='heading' maxW='2xl' mx='auto' mb={5}>
+            <Text
+              color='brand.4001'
+              fontSize={{ base: '2xl', lg: '3xl' }}
+              fontWeight='bold'
+              fontFamily='heading'
+              maxW='2xl'
+              mx='auto'
+              mb={5}
+            >
               We are passionate believers in the power of beauty and meaning in the objects we surround ourselves with.
             </Text>
             <Text color='brand.500' fontSize='1em' maxW='2xl' mx='auto'>
@@ -89,8 +80,15 @@ const AboutUs = () => {
       </Flex>
 
       {/* Section Two  */}
-      <Box mt={8} mb={12} mx='auto' pos='relative'>
-        <Image fit='cover' src={AboutUsThree} alt='Pottery Studio' maxW='100%' pb={8} />
+      <Flex
+        w='full'
+        my={8}
+        h={{ base: 'md', lg: '2xl' }}
+        bgPos='center'
+        bgSize='cover'
+        backgroundImage={AboutUsThree}
+        pos='relative'
+      >
         <Box
           backgroundColor='brand.5001'
           py={8}
@@ -113,22 +111,31 @@ const AboutUs = () => {
             and we are honored to share our commitment with you.
           </Text>
         </Box>
-        <Box display={{ base: 'initial', lg: 'none' }} textAlign='center'>
-          <Text color='brand.4001' pb={3} fontFamily='heading' fontSize='1.5em' px={5}>
-            We are committed to sustainability and minimizing our environmental impact.
-          </Text>
-          <Text color='brand.500' fontSize='1em' px={5}>
-            We use locally sourced our materials whenever possible, recycle all of our clay and package our products
-            with sustainable materials. We believe that exquisite design should never come at the expense of the planet,
-            and we are honored to share our commitment with you.
-          </Text>
-        </Box>
+      </Flex>
+      <Box display={{ base: 'initial', lg: 'none' }} textAlign='center'>
+        <Text color='brand.4001' pb={3} fontFamily='heading' fontSize='1.5em' px={5}>
+          We are committed to sustainability and minimizing our environmental impact.
+        </Text>
+        <Text color='brand.500' fontSize='1em' px={5}>
+          We use locally sourced our materials whenever possible, recycle all of our clay and package our products with
+          sustainable materials. We believe that exquisite design should never come at the expense of the planet, and we
+          are honored to share our commitment with you.
+        </Text>
       </Box>
+
       {/* Section Three  */}
       <Flex direction='column' minH='full' mt={12} mb={12} px={{ base: '5', lg: '0' }}>
         <Stack direction={{ base: 'column-reverse', md: 'row' }} justify='space-between' gap={5}>
           <Box textAlign={{ base: 'center', md: 'left' }} mx='auto' alignSelf='center' flex={1}>
-            <Text color='brand.4001' fontSize='1.5em' fontFamily='heading' maxW='2xl' mx='auto' mb={5}>
+            <Text
+              color='brand.4001'
+              fontSize={{ base: '2xl', lg: '3xl' }}
+              fontWeight='bold'
+              fontFamily='heading'
+              maxW='2xl'
+              mx='auto'
+              mb={5}
+            >
               At Ander Hill's Pottery, we believe that every piece we create tells a story and becomes a cherished part
               of your life's journey.
             </Text>

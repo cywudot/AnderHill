@@ -6,8 +6,8 @@ import ShopAll from '../../otherassets/AllProducts.jpg';
 
 const CategoriesSection = () => {
   return (
-    <Container maxW='12xl' justifyContent='center' mt={16} p={0} px={{ base: '0', lg: '12' }}>
-      <Heading as='h2' textAlign='center' textTransform='uppercase' color='brand.500' pb={{ base: '0', lg: '16' }}>
+    <Container maxW='12xl' justifyContent='center' mt={14} p={0} px={{ base: '0', lg: '12' }}>
+      <Heading as='h2' textAlign='center' textTransform='uppercase' color='brand.500' pb={{ base: '0', lg: '4' }}>
         Discover Ander Hill
       </Heading>
 
@@ -15,7 +15,8 @@ const CategoriesSection = () => {
         templateColumns={{ base: 'repeat(1, 1fr)', md: 'repeat(2, 1fr)', lg: 'repeat(3, 1fr)' }}
         templateRows={{ base: 'repeat(3, 1fr)', md: 'repeat(2, 1fr)', lg: '1fr' }}
         gap={4}
-        p={{ base: '50', lg: '0' }}
+        // bg='brand.1000'
+        pb={{ base: '12', lg: '0' }}
       >
         <GridItem colSpan={{ base: 1, lg: 1 }} rowSpan={{ base: 1, lg: 1 }} position='relative'>
           <Link as={ReactLink} to='/products/Home%20Accents'>

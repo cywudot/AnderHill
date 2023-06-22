@@ -18,8 +18,8 @@ import {
 import React from 'react';
 import { BsGithub, BsLinkedin, BsPerson, BsTwitter } from 'react-icons/bs';
 import { MdEmail, MdOutlineEmail } from 'react-icons/md';
-import TextField from '../components/TextField';
-import QuotesImage from '../otherassets/about-us-barnimages-02.jpg';
+import TextField from '../TextField';
+import QuotesImage from '../../otherassets/about-us-barnimages-02.jpg';
 import { Formik } from 'formik';
 import * as Yup from 'yup';
 
@@ -45,7 +45,7 @@ const ContactForm = () => {
       }}
     >
       {(formik) => (
-        <Container maxW='7xl' px={{ base: '2', md: '4' }} py={{ base: '2', md: '6' }}>
+        <Container maxW='7xl' px={{ base: '2', md: '4' }} pb={6}>
           <Flex
             bg={{ boxBR }}
             boxShadow='sm'
