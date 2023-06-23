@@ -6,14 +6,14 @@ import ShopAll from '../../otherassets/AllProducts.jpg';
 
 const CategoriesSection = () => {
   return (
-    <Container maxW='12xl' justifyContent='center' mt={14} p={0} px={{ base: '0', lg: '12' }}>
+    <Container maxW='12xl' justifyContent='center' mt={14} p={0} px={{ base: '8', lg: '12' }}>
       <Heading as='h2' textAlign='center' textTransform='uppercase' color='brand.500' pb={{ base: '0', lg: '4' }}>
         Discover Ander Hill
       </Heading>
 
       <Grid
-        templateColumns={{ base: 'repeat(1, 1fr)', md: 'repeat(2, 1fr)', lg: 'repeat(3, 1fr)' }}
-        templateRows={{ base: 'repeat(3, 1fr)', md: 'repeat(2, 1fr)', lg: '1fr' }}
+        templateColumns={{ base: 'repeat(1, 1fr)', sm: 'repeat(2, 1fr)', lg: 'repeat(3, 1fr)' }}
+        templateRows={{ base: 'repeat(3, 1fr)', sm: 'repeat(2, 1fr)', lg: '1fr' }}
         gap={4}
         // bg='brand.1000'
         pb={{ base: '12', lg: '0' }}
@@ -71,7 +71,7 @@ const CategoriesSection = () => {
         </GridItem>
 
         <GridItem
-          colSpan={{ base: 1, md: 2, lg: 1 }}
+          colSpan={{ base: 1, sm: 2, lg: 1 }}
           rowSpan={{ base: 1, lg: 1 }}
           backgroundColor='brand.600'
           position='relative'

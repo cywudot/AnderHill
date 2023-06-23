@@ -48,10 +48,10 @@ const FeatureProducts = () => {
   return (
     <>
       <Flex
-        w='auto'
+        w='100%'
         justifyContent={{ base: 'center', lg: 'left' }}
         alignItems='center'
-        px='12'
+        px='10'
         pt={{ base: '0', lg: '14' }}
       >
         <Box>

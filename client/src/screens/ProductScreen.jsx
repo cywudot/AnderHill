@@ -110,12 +110,7 @@ const ProductScreen = () => {
             py={{ base: '6', md: '8', lg: '12' }}
           >
             <Stack direction={{ base: 'column-reverse', lg: 'row' }} align='center' mb='50px'>
-              <Stack
-                pr={{ base: '0', md: '12' }}
-                spacing={{ base: '8', md: '4' }}
-                flex='1.5'
-                // mb={{ base: 'none', md: 'none' }}
-              >
+              <Stack pr={{ base: '0', md: '12' }} spacing={{ base: '8', md: '4' }} flex='1.5'>
                 {product.productIsNew && (
                   <Badge
                     rounded='full'
@@ -147,10 +142,10 @@ const ProductScreen = () => {
                 )}
 
                 <Stack direction={{ base: 'row', lg: 'column' }} justify='space-between'>
-                  <Heading fontSize={{ base: '2xl', md: '3xl' }} fontWeight='extrabold' color='brand.500'>
+                  <Heading ing fontSize={{ base: 'lg', lg: '2xl', md: '4xl' }} fontWeight='extrabold' color='brand.500'>
                     {product.name}
                   </Heading>
-                  <Text fontSize='xl' color='brand.500'>
+                  <Text fontSize={{ base: 'lg', lg: '2xl', md: '3xl' }} color='brand.500'>
                     ${product.price.toFixed(2)}
                   </Text>
                 </Stack>
@@ -234,7 +229,7 @@ const ProductScreen = () => {
                     </Button>
                   </Stack>
 
-                  <Stack w='300px'>
+                  <Stack maxWidth='300px'>
                     <Flex alignItems='center'>
                       <TbTruckDelivery size='20px' color='#DFBD8E' />
                       <Text fontWeight='medium' fontSize='sm' ml='2' color='brand.500'>

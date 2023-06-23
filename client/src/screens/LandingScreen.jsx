@@ -1,24 +1,6 @@
-import {
-  Box,
-  Flex,
-  Heading,
-  HStack,
-  Stack,
-  Button,
-  Image,
-  Spinner,
-  Text,
-  WrapItem,
-  Center,
-  AlertDescription,
-  Alert,
-  AlertIcon,
-  AlertTitle,
-  Wrap,
-  useBreakpointValue,
-} from '@chakra-ui/react';
+import { Box, Flex, Heading, HStack, Stack, Button, Image, Spinner, Text, Wrap } from '@chakra-ui/react';
 import React, { useState, useEffect } from 'react';
-import { Link as ReactLink, useNavigate } from 'react-router-dom';
+import { Link as ReactLink } from 'react-router-dom';
 import HeroImage from '../otherassets/HomeHeroImage.png';
 import HeroImageMobile from '../otherassets/HomeHeroImageMobile.png';
 import ContactIcon from '../sourced-icons/contact.png';
@@ -32,35 +14,21 @@ import FeaturedProducts from '../components/homepage/FeaturedProducts';
 
 const LandingScreen = () => {
   const [isLoading, setIsLoading] = useState(true);
-  const dispatch = useDispatch();
-  const navigate = useNavigate();
 
+  // manages the loading state  and perform the necessary actions once the page has finished loading
   useEffect(() => {
     const handleLoad = () => {
-      // This function will be called when the page has finished loading
       setIsLoading(false);
-      // Trigger your action to load the page here
     };
     if (document.readyState === 'complete') {
-      // If the document is already loaded, call handleLoad immediately
       handleLoad();
     } else {
-      // Otherwise, add an event listener for the load event
       window.addEventListener('load', handleLoad);
     }
-
     return () => {
-      window.removeEventListener('load', handleLoad); // Cleanup the event listener
+      window.removeEventListener('load', handleLoad);
     };
   }, []);
-
-  // const handleFilter = (category) => {
-  //   dispatch(setFilterCategory(category));
-  // };
-
-  // const handleCategoryClick = (category) => {
-  //   navigate(`/products/${category}`); // Navigate to the products page with the filtered category in the URL
-  // };
 
   return (
     <>
@@ -99,10 +67,11 @@ const LandingScreen = () => {
                   pb={{ md: '5%', lg: '2%' }}
                   ml={{ md: '10%', lg: '8%' }}
                   justify={{ base: 'center', md: 'center' }}
-                  textAlign={{ base: 'center', md: 'left', lg: 'left' }}
+                  textAlign={{ base: 'center', lg: 'left' }}
                 >
                   <Heading
-                    fontSize={['4xl', '6xl', '7xl']}
+                    as='h1'
+                    size={['xl', '3xl', '4xl']}
                     fontWeight='extrabold'
                     color='brand.100'
                     textTransform='uppercase'
@@ -116,7 +85,6 @@ const LandingScreen = () => {
                   <Text
                     fontSize={{ base: 'sm', sm: 'md', lg: 'lg' }}
                     display={{ base: 'none', sm: 'initial' }}
-                    fontFamily='body'
                     fontWeight='thin'
                     color='brand.100'
                     letterSpacing='normal'
@@ -132,12 +100,12 @@ const LandingScreen = () => {
                     to='/products'
                     _hover={{ color: 'brand.100', backgroundColor: 'brand.500', transition: 'all 0.3s ease-in-out' }}
                     textTransform='uppercase'
-                    w={200}
+                    w='180px'
                     rounded='2px'
                     fontWeight='regular'
                     color='brand.500'
                     backgroundColor='brand.100'
-                    alignSelf={{ base: 'center', md: 'start' }}
+                    alignSelf={{ base: 'center', lg: 'start' }}
                   >
                     Our Collections
                   </Button>
@@ -155,12 +123,12 @@ const LandingScreen = () => {
               <Stack
                 direction={{ base: 'column', lg: 'row' }}
                 align='center'
-                gap={2}
+                gap={{ base: '0', lg: '2' }}
                 maxW={{ base: '190px', md: '300px' }}
               >
-                <Image src={FreeDeliveryIcon} w='60px' />
-                <Stack>
-                  <Text fontSize={{ base: 'sm', md: 'md' }} fontWeight='regular' color='brand.100'>
+                <Image src={FreeDeliveryIcon} w={{ base: '50px', lg: '60px' }} />
+                <Stack mt={0}>
+                  <Text fontSize={{ base: 'sm', md: 'md' }} color='brand.100'>
                     Free Shipping
                   </Text>
                   <Text fontSize='sm' fontWeight='light' color='brand.100' display={{ base: 'none', md: 'initial' }}>
@@ -175,9 +143,9 @@ const LandingScreen = () => {
                 gap={2}
                 maxW={{ base: '190px', md: '300px' }}
               >
-                <Image src={ReturnIcon} w='60px' />
+                <Image src={ReturnIcon} w={{ base: '50px', lg: '60px' }} />
                 <Stack>
-                  <Text fontSize={{ base: 'sm', md: 'md' }} fontWeight='regular' color='brand.100'>
+                  <Text fontSize={{ base: 'sm', md: 'md' }} color='brand.100'>
                     30 Days Guarantee
                   </Text>
                   <Text fontSize='sm' fontWeight='light' color='brand.100' display={{ base: 'none', md: 'initial' }}>
@@ -192,9 +160,9 @@ const LandingScreen = () => {
                 gap={2}
                 maxW={{ base: '190px', md: '300px' }}
               >
-                <Image src={ContactIcon} w='60px' />
+                <Image src={ContactIcon} w={{ base: '50px', lg: '60px' }} />
                 <Stack>
-                  <Text fontSize={{ base: 'sm', md: 'md' }} fontWeight='regular' color='brand.100'>
+                  <Text fontSize={{ base: 'sm', md: 'md' }} color='brand.100'>
                     24/7 Support
                   </Text>
                   <Text fontSize='sm' fontWeight='light' color='brand.100' display={{ base: 'none', md: 'initial' }}>
@@ -205,10 +173,8 @@ const LandingScreen = () => {
             </HStack>
           </Box>
           <CategoriesSection />
-
           <FeaturedProducts />
           <VideoSection />
-          {/* CONTACT */}
           <Flex width='full' justifyContent='center' py={8} id='contact-form'>
             <ContactForm />
           </Flex>

@@ -29,26 +29,28 @@ const ProductCardTest = ({ product }) => {
   const dispatch = useDispatch();
 
   return (
-    <Stack maxW='400px' mx='auto'>
-      <Link as={ReactLink} to={`/product/${product._id}`} cursor='pointer' variant='none'>
+    <Stack maxW='450px' mx='auto'>
+      <Link
+        as={ReactLink}
+        to={`/product/${product._id}`}
+        cursor='pointer'
+        variant='none'
+        _hover={{ textDecoration: 'none' }}
+      >
         <Box position='relative'>
           <Image src={product.images[0]} alt={product.name} objectFit='cover' w='full' position='relative' />
         </Box>
-      </Link>
 
-      <Flex justify='space-between' color='brand.500'>
-        <Link as={ReactLink} to={`/product/${product._id}`} cursor='pointer' _hover={{ textDecoration: 'none' }}>
-          <Box fontSize={{ base: 'md', lg: 'xl', xl: '2xl' }} fontWeight='medium' fontFamily='heading'>
+        <Flex justify='space-between' color='brand.500' textAlign='center'>
+          <Box fontSize={{ base: 'sm', md: 'lg', lg: 'md', xl: 'lg' }} fontWeight='regular' fontFamily='body'>
             {product.name}
           </Box>
-        </Link>
 
-        <Box fontSize={{ base: 'md', md: 'lg' }} fontWeight='regular'>
-          <Text alignSelf='center' mt='3px'>
+          <Box fontSize={{ base: 'sm', md: 'md' }} fontWeight='regular'>
             ${product.price.toFixed(2)}
-          </Text>
-        </Box>
-      </Flex>
+          </Box>
+        </Flex>
+      </Link>
     </Stack>
   );
 };
