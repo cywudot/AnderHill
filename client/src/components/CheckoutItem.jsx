@@ -24,6 +24,7 @@ const CheckoutItem = ({ cartItem }) => {
           </Text>
           <Spacer />
           <Select
+            name='qtyCheckout'
             maxW='80px'
             color='brand.500'
             rounded='2'

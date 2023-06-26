@@ -16,7 +16,9 @@ import {
 } from '@chakra-ui/react';
 import { Link as ReactLink, useNavigate } from 'react-router-dom';
 import { logout } from '../redux/actions/userActions';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { getUserOrders } from '../redux/actions/userActions';
+import { useEffect } from 'react';
 
 const OrderSuccessScreen = () => {
   const navigate = useNavigate();
@@ -27,6 +29,15 @@ const OrderSuccessScreen = () => {
     toast({ description: 'You have been logged out', status: 'success', isClosable: true });
     navigate('/');
   };
+
+  const user = useSelector((state) => state.user);
+  const { loading, error, orders, userInfo } = user;
+
+  useEffect(() => {
+    if (userInfo) {
+      dispatch(getUserOrders());
+    }
+  }, []);
 
   return (
     <Wrap

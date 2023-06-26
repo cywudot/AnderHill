@@ -58,6 +58,7 @@ const CartItem = ({ cartItem }) => {
         display='flex'
       >
         <Select
+          name='qty'
           maxW='80px'
           color='brand.500'
           backgroundColor='white'

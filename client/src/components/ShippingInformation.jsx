@@ -25,7 +25,7 @@ const ShippingInformation = () => {
 
   return (
     <Formik
-      initialValues={{ address: '', postalCode: '', city: '', country: '' }}
+      initialValues={{ address: '', postalCode: '', city: '', province: '', country: '' }}
       validationSchema={Yup.object({
         address: Yup.string().required('This field is required.').min(2, 'This address is too short'),
         postalCode: Yup.string()
@@ -37,6 +37,7 @@ const ShippingInformation = () => {
             (value) => value && value.replace(/\s/g, '').length <= 6
           ),
         city: Yup.string().required('This field is required.').min(2, 'This city is too short'),
+        province: Yup.string().required('This field is required.').min(2, 'This province is too short'),
         country: Yup.string().required('This field is required.').min(2, 'This country is too short'),
       })}
     >
@@ -49,16 +50,25 @@ const ShippingInformation = () => {
                 : setErrorState(true)
             }
           >
-            <TextField name='address' placeholder='Street Address' label='Steet Address' />
+            <TextField name='address' placeholder='Street Address' label='Street Address' autocomplete='on' />
+
             <Flex>
-              <Box flex='1' mr='10'>
-                <TextField name='postalCode' placeholder='Postal Code' label='Postal Code' />
+              <Box flex='1' mr='5'>
+                <TextField name='postalCode' placeholder='Postal Code' label='Postal Code' autocomplete='on' />
               </Box>
               <Box flex='2'>
-                <TextField name='city' placeholder='City' label='City' />
+                <TextField name='city' placeholder='City' label='City' autocomplete='on' />
               </Box>
             </Flex>
-            <TextField name='country' placeholder='Country' label='' Country />
+
+            <Flex>
+              <Box flex='1' mr='5'>
+                <TextField name='province' placeholder='Province' label='Province' autocomplete='on' />
+              </Box>
+              <Box flex='2'>
+                <TextField name='country' placeholder='Country' label='Country' autocomplete='on' />
+              </Box>
+            </Flex>
           </FormControl>
 
           <Box w='100%' h='180px' pr='5'>

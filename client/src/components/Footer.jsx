@@ -137,6 +137,7 @@ const Footer = () => {
               >
                 <Input
                   placeholder='Enter your email'
+                  name='enteremail'
                   size='sm'
                   type='email'
                   required

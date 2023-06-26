@@ -1,23 +1,4 @@
-import {
-  Flex,
-  Circle,
-  Box,
-  Image,
-  Badge,
-  useColorModeValue,
-  Icon,
-  Button,
-  Tooltip,
-  Stack,
-  Link,
-  HStack,
-  Text,
-  useToast,
-  Card,
-  Fade,
-  AspectRatio,
-  useTheme,
-} from '@chakra-ui/react';
+import { Flex, Box, Image, Badge, Icon, Button, Tooltip, Stack, Link, HStack, Text, useToast } from '@chakra-ui/react';
 import { FaCartPlus } from 'react-icons/fa';
 import { Link as ReactLink } from 'react-router-dom';
 import { StarIcon } from '@chakra-ui/icons';
@@ -144,6 +125,7 @@ const ProductCard = ({ product }) => {
           color={'gray.800'}
           fontSize={{ base: 'sm', lg: 'md' }}
           isDisabled={product.stock === 0}
+          p={2}
         >
           <Button
             variant='ghost'

@@ -8,17 +8,13 @@ import {
   DrawerOverlay,
   DrawerContent,
   DrawerCloseButton,
-  DrawerHeader,
   DrawerFooter,
   DrawerBody,
-  IconButton,
   Icon,
   Text,
   useDisclosure,
   Button,
-  Stack,
   Image,
-  useColorModeValue,
   useColorMode,
   useToast,
   Menu,
@@ -27,7 +23,6 @@ import {
   MenuDivider,
   MenuButton,
   VStack,
-  Center,
   chakra,
 } from '@chakra-ui/react';
 
@@ -79,8 +74,6 @@ const MobileNav = ({ width, placement = 'right', children, title = 'Menu', foote
   const user = useSelector((state) => state.user);
   const { userInfo } = user;
 
-  const p = 15;
-
   const { isOpen, onOpen, onClose } = useDisclosure();
   const btnRef = useRef();
 
@@ -89,11 +82,11 @@ const MobileNav = ({ width, placement = 'right', children, title = 'Menu', foote
       <Button ref={btnRef} onClick={onOpen} variant='none'>
         <IoMdMenu size='26px' />
       </Button>
-      <Drawer isOpen={isOpen} placement={placement} onClose={onClose} finalFocusRef={btnRef}>
+      <Drawer isOpen={isOpen} placement={placement} onClose={onClose} finalFocusRef={btnRef} m={0}>
         <DrawerOverlay />
         <DrawerContent alignItems='center'>
-          <DrawerCloseButton alignSelf='end' mx={p} my={p} />
-          <DrawerBody mt={8}>
+          <DrawerCloseButton alignSelf='end' px={8} py={8} _hover={{ backgroundColor: 'none' }} />
+          <DrawerBody pt={8}>
             <VStack alignItems='left'>
               {links.map((item, i) => (
                 <NavLink key={item.linkName} path={item.path} color='brand.500' alt={item.linkName}>
@@ -147,7 +140,6 @@ const ShoppingCartIcon = () => {
         </Badge>
       )}
       <Icon as={AiOutlineShoppingCart} h='10' w='7' alignSelf='center' />
-      {/* <AiOutlineShoppingCart size='30px' /> */}
     </Flex>
   );
 };
@@ -166,32 +158,12 @@ const Navbar = () => {
   };
 
   return (
-    <chakra.header
-      id='header'
-      // position='fixed'
-      // top='0'
-      // width='100%'
-      // zIndex='9999'
-      // boxShadow='base'
-      // backgroundColor='brand.100'
-    >
+    <chakra.header id='header'>
       <Flex w='100%' px='6' py='5' align='center' justify='space-between'>
         {/* Logo */}
         <Link as={ReactLink} to='/'>
-          <Image
-            src={AHLogo}
-            display={{ base: 'none', lg: 'initial' }}
-            // alignItems='center'
-            minWidth='120px'
-            maxWidth='150px'
-          />
-          <Image
-            src={AHLogo2}
-            display={{ base: 'initial', lg: 'none' }}
-            // alignItems='center'
-            minWidth='100px'
-            maxWidth='120px'
-          />
+          <Image src={AHLogo} display={{ base: 'none', lg: 'initial' }} minWidth='120px' maxWidth='150px' />
+          <Image src={AHLogo2} display={{ base: 'initial', lg: 'none' }} minWidth='100px' maxWidth='120px' />
         </Link>
         {/* Nav Items */}
 
@@ -204,30 +176,25 @@ const Navbar = () => {
         </HStack>
         {/* Call to action items */}
         <HStack>
-          {/* <Button aria-label={CTA} variant='outline'>
-            {CTA}
-          </Button> */}
-
           {userInfo ? (
             <>
               <Menu>
-                <MenuButton px='4' py='2' mt={1} transition='all 0.3s' as={Button} variant='none'>
-                  {/* Hi, {userInfo.name} <ChevronDownIcon /> */}
+                <MenuButton px='4' py='2' pt={1} transition='all 0.3s' as={Button} variant='none'>
                   <Icon as={BsPersonCircle} w={6} h={6} color='brand.500' />
                 </MenuButton>
                 <MenuList rounded={2} backgroundColor='brand.100' borderColor='brand.500'>
                   <MenuItem as={ReactLink} to='/profile' backgroundColor='brand.100' color='brand.500'>
                     <CgProfile color='brand.500' />
-                    <Text ml='2'>Profile</Text>
+                    <Text pl='2'>Profile</Text>
                   </MenuItem>
                   <MenuItem as={ReactLink} to='/your-orders' backgroundColor='brand.100' color='brand.500'>
                     <MdLocalShipping />
-                    <Text ml='2'>Your Order</Text>
+                    <Text pl='2'>Your Order</Text>
                   </MenuItem>
                   <MenuDivider />
                   <MenuItem onClick={logoutHandler} backgroundColor='brand.100' color='brand.500'>
                     <MdLogout color='brand.500' />
-                    <Text ml='2'>Logout</Text>
+                    <Text pl='2'>Logout</Text>
                   </MenuItem>
                 </MenuList>
               </Menu>

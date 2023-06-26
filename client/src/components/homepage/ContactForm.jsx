@@ -59,8 +59,6 @@ const ContactForm = () => {
               width={{ base: 'full', md: '50%' }}
               py={{ base: '3', sm: '6' }}
               px={{ base: '3', sm: '6' }}
-
-              // backgroundColor='brand.600'
             >
               <Stack spacing='0'>
                 <Stack spacing='6'>
@@ -72,16 +70,16 @@ const ContactForm = () => {
                   </Stack>
                 </Stack>
                 <FormControl>
-                  <TextField type='text' name='name' placeholder='Your name' label='Name' />
+                  <TextField type='text' name='name' placeholder='Your name' label='Name' autocomplete='on' />
                 </FormControl>
                 <FormControl>
-                  <TextField type='text' name='email' placeholder='you@example.com' label='Email' />
+                  <TextField type='text' name='email' placeholder='you@example.com' label='Email' autocomplete='on' />
                 </FormControl>
                 <FormControl isInvalid={formik.touched.message && formik.errors.message}>
                   <FormLabel htmlFor='message'>Message</FormLabel>
                   <Textarea
                     type='text'
-                    name='message'
+                    id='message'
                     placeholder='Your message'
                     resize='none'
                     rows={4}
