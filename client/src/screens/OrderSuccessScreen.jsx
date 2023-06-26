@@ -1,4 +1,19 @@
-import { Button, Alert, AlertTitle, AlertIcon, Wrap, useToast, Stack, Text, Link } from '@chakra-ui/react';
+import {
+  Button,
+  Box,
+  Heading,
+  Alert,
+  AlertTitle,
+  AlertIcon,
+  Divider,
+  Wrap,
+  useToast,
+  Stack,
+  HStack,
+  VStack,
+  Text,
+  Link,
+} from '@chakra-ui/react';
 import { Link as ReactLink, useNavigate } from 'react-router-dom';
 import { logout } from '../redux/actions/userActions';
 import { useDispatch } from 'react-redux';
@@ -36,40 +51,58 @@ const OrderSuccessScreen = () => {
         rounded='2'
         p={10}
       >
-        <AlertIcon boxSize='55px' />
-        <AlertTitle pt='8px' fontSize='2xl' fontFamily='heading'>
-          Thank you! Your order has been placed.
-        </AlertTitle>
+        <Box>
+          <Heading color='brand.500' textTransform='uppercase'>
+            Ander Hill Pottery
+          </Heading>
+        </Box>
+        <Divider orientation='horizontal' py={3} />
 
-        <Stack>
-          <Text mt={2}>An email receipt including the detail's about your order has been sent to your email</Text>
-        </Stack>
+        <VStack mt={2}>
+          <Box p={5} mx={{ base: '0', md: '24' }}>
+            <AlertTitle pt='8px' color='brand.500'>
+              Thank you! Your order has been placed.
+            </AlertTitle>
 
-        <Stack mt='20px' minW='200px'>
-          <Button
-            borderColor='brand.500'
-            color='brand.500'
-            variant='outline'
-            rounded='2'
-            as={ReactLink}
-            to='/your-orders'
-          >
-            Your Orders
-          </Button>
-          <Button borderColor='brand.500' color='brand.500' variant='outline' rounded='2' as={ReactLink} to='/products'>
-            Products
-          </Button>
-          <Button borderColor='brand.500' color='brand.500' variant='outline' rounded='2' onClick={logoutHandler}>
-            Logout
-          </Button>
-        </Stack>
+            <Text mt={2} textAlign='center'>
+              An email receipt including the detail's about your order has been sent to your email. You can find your
+              purchase information below
+            </Text>
+          </Box>
+
+          <Stack mt='20px' minW='200px'>
+            <Button
+              borderColor='brand.500'
+              color='brand.500'
+              variant='outline'
+              rounded='2'
+              as={ReactLink}
+              to='/your-orders'
+            >
+              Your Orders
+            </Button>
+            <Button
+              borderColor='brand.500'
+              color='brand.500'
+              variant='outline'
+              rounded='2'
+              as={ReactLink}
+              to='/products'
+            >
+              Products
+            </Button>
+            <Button borderColor='brand.500' color='brand.500' variant='outline' rounded='2' onClick={logoutHandler}>
+              Logout
+            </Button>
+          </Stack>
+        </VStack>
       </Alert>
 
-      <Stack w='full' backgroundColor='brand.700' p={5} boxShadow='base'>
-        <Text fontSize='lg' fontWeight='semibold' color='brand.500'>
+      <Stack w='full' backgroundColor='brand.500' p={5} boxShadow='base'>
+        <Text fontSize='lg' fontWeight='bold' color='brand.100'>
           Questions?
         </Text>
-        <Text>Have any questions about your order? Feel free to contact us at 604-123-4567</Text>
+        <Text color='brand.100'>Have any questions about your order? Feel free to contact us at 604-123-4567</Text>
       </Stack>
     </Wrap>
   );

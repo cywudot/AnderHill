@@ -65,12 +65,6 @@ const CartScreen = () => {
           mx='auto'
           px={{ base: '4', md: '8', lg: '12' }}
           py={{ base: '6', md: '8', lg: '12' }}
-
-          // width={[
-          //   '100%', // 0-30em
-          //   '95%', // 30em-48em
-          //   '80%', // 48em-62em
-          // ]}
         >
           <Stack
             direction={{ base: 'column', lg: 'row' }}

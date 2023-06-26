@@ -1,10 +1,13 @@
-import { Box, Button, Flex, Heading, SimpleGrid, Text, VStack } from '@chakra-ui/react';
+import { Box, Button, Flex, Heading, SimpleGrid, Text, VStack, useMediaQuery } from '@chakra-ui/react';
 import { Link as ReactLink } from 'react-router-dom';
 import ReactPlayer from 'react-player';
 import Video from '../../otherassets/AnderHillVideo.mp4';
+import VideoMobile from '../../otherassets/AnderHillVideoTwo.mp4';
 import { ArrowForwardIcon } from '@chakra-ui/icons';
 
 const VideoSection = () => {
+  const [isLargerThanMd] = useMediaQuery('(min-width: 768px)');
+
   return (
     <Box
       width='full'
@@ -25,6 +28,7 @@ const VideoSection = () => {
             lg: 24,
           }}
           mx={{ base: '4', md: '0' }}
+          gap={3}
         >
           <Box textAlign={{ base: 'center', lg: 'left' }}>
             <Heading as='h3' size={{ base: 'xl', md: '2xl' }} color='brand.500'>
@@ -65,7 +69,11 @@ const VideoSection = () => {
           </VStack>
         </SimpleGrid>
       </Flex>
-      <ReactPlayer url={Video} playing={true} loop={true} muted={true} volume={0} width='100%' height='auto' />
+      {isLargerThanMd ? (
+        <ReactPlayer url={Video} playing={true} loop={true} muted={true} volume={0} width='100%' height='auto' />
+      ) : (
+        <ReactPlayer url={VideoMobile} playing={true} loop={true} muted={true} volume={0} width='100%' height='auto' />
+      )}
     </Box>
   );
 };

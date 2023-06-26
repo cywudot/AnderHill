@@ -14,6 +14,7 @@ import {
   AlertIcon,
   AlertTitle,
   AlertDescription,
+  VStack,
   useToast,
 } from '@chakra-ui/react';
 import { useState, useEffect } from 'react';
@@ -75,12 +76,34 @@ const LoginScreen = () => {
                 <Heading size={{ headingBR }} fontFamily='body' color='brand.500'>
                   Log in to your account
                 </Heading>
-                <HStack spacing='1' justify='center' gap={1}>
-                  <Text color='brand.5001'>Don't have an account?</Text>
-                  <Button as={ReactLink} to='/registration' variant='link' color='brand.4001'>
-                    Sign up
-                  </Button>
-                </HStack>
+                <VStack spacing='1' justify='center' gap={1}>
+                  <HStack>
+                    <Text color='brand.5001'>Don't have an account?</Text>
+                    <Button
+                      as={ReactLink}
+                      to='/registration'
+                      variant='link'
+                      color='brand.4001'
+                      _hover={{ textDecoration: 'none' }}
+                    >
+                      Sign up
+                    </Button>
+                  </HStack>
+                  <HStack>
+                    <Text color='brand.5001'>For Demo User:</Text>
+                    <Button
+                      type='button'
+                      variant='link'
+                      _hover={{ textDecoration: 'none' }}
+                      color='brand.4001'
+                      onClick={() => {
+                        dispatch(login('demo@gmail.com', 'demoexp'));
+                      }}
+                    >
+                      Click Here
+                    </Button>
+                  </HStack>
+                </VStack>
               </Stack>
             </Stack>
             <Box

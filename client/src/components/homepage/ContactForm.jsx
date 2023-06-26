@@ -8,7 +8,6 @@ import {
   Heading,
   Stack,
   Textarea,
-  Link as ReactLink,
   Text,
   Container,
   Image,
@@ -16,15 +15,12 @@ import {
   useToast,
 } from '@chakra-ui/react';
 import React from 'react';
-import { BsGithub, BsLinkedin, BsPerson, BsTwitter } from 'react-icons/bs';
-import { MdEmail, MdOutlineEmail } from 'react-icons/md';
 import TextField from '../TextField';
 import QuotesImage from '../../otherassets/about-us-barnimages-02.jpg';
 import { Formik } from 'formik';
 import * as Yup from 'yup';
 
 const ContactForm = () => {
-  // const headingBR = useBreakpointValue({ base: 'md', md: 'lg' });
   const boxBR = useBreakpointValue({ base: 'transparent', md: 'bg-surface' });
   const toast = useToast();
 

@@ -175,7 +175,7 @@ const LandingScreen = () => {
           <CategoriesSection />
           <FeaturedProducts />
           <VideoSection />
-          <Flex width='full' justifyContent='center' py={8} id='contact-form'>
+          <Flex justifyContent='center' py={8} id='contact-form' px={{ base: '4', lg: '12' }}>
             <ContactForm />
           </Flex>
         </Box>
