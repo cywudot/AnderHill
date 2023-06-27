@@ -63,17 +63,23 @@ const ContactForm = () => {
               <Stack spacing='0'>
                 <Stack spacing='6'>
                   <Stack spacing={{ base: '2', md: '3' }} textAlign='center'>
-                    <Heading size={{ base: 'md', md: 'lg' }} fontFamily='body' color='brand.500'>
+                    <Heading as='h3' size={{ base: 'md', md: 'lg' }} fontFamily='body' color='brand.500'>
                       Get in touch
                     </Heading>
                     <Text color='brand.500'>We are here for you! How can we help?</Text>
                   </Stack>
                 </Stack>
                 <FormControl>
-                  <TextField type='text' name='name' placeholder='Your name' label='Name' autocomplete='on' />
+                  <FormLabel m={0} htmlFor='name'>
+                    Name
+                  </FormLabel>
+                  <TextField type='text' name='name' placeholder='Your name' autoComplete='on' id='name' />
                 </FormControl>
                 <FormControl>
-                  <TextField type='text' name='email' placeholder='you@example.com' label='Email' autocomplete='on' />
+                  <FormLabel m={0} htmlFor='email'>
+                    Email
+                  </FormLabel>
+                  <TextField type='text' name='email' placeholder='you@example.com' autoComplete='on' id='email' />
                 </FormControl>
                 <FormControl isInvalid={formik.touched.message && formik.errors.message}>
                   <FormLabel htmlFor='message'>Message</FormLabel>

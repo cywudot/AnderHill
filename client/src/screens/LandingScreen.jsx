@@ -6,7 +6,6 @@ import HeroImageMobile from '../otherassets/HomeHeroImageMobile.png';
 import ContactIcon from '../sourced-icons/contact.png';
 import FreeDeliveryIcon from '../sourced-icons/free-delivery.png';
 import ReturnIcon from '../sourced-icons/30days.png';
-import { useDispatch } from 'react-redux';
 import ContactForm from '../components/homepage/ContactForm';
 import VideoSection from '../components/homepage/VideoSection';
 import CategoriesSection from '../components/homepage/CategoriesSection';
@@ -55,6 +54,7 @@ const LandingScreen = () => {
               h='lg'
               bgPos='center'
               bgSize='cover'
+              alt='HeroImage'
               backgroundImage={{
                 base: `url(${HeroImageMobile})`,
                 md: `url(${HeroImage})`,
@@ -126,7 +126,7 @@ const LandingScreen = () => {
                 gap={{ base: '0', lg: '2' }}
                 maxW={{ base: '190px', md: '300px' }}
               >
-                <Image src={FreeDeliveryIcon} w={{ base: '50px', lg: '60px' }} />
+                <Image src={FreeDeliveryIcon} alt='Free delivery Icon over 300' w={{ base: '50px', lg: '60px' }} />
                 <Stack mt={0}>
                   <Text fontSize={{ base: 'sm', md: 'md' }} color='brand.100'>
                     Free Shipping
@@ -143,7 +143,7 @@ const LandingScreen = () => {
                 gap={2}
                 maxW={{ base: '190px', md: '300px' }}
               >
-                <Image src={ReturnIcon} w={{ base: '50px', lg: '60px' }} />
+                <Image src={ReturnIcon} alt='30 days guarantee icon' w={{ base: '50px', lg: '60px' }} />
                 <Stack>
                   <Text fontSize={{ base: 'sm', md: 'md' }} color='brand.100'>
                     30 Days Guarantee
@@ -160,7 +160,7 @@ const LandingScreen = () => {
                 gap={2}
                 maxW={{ base: '190px', md: '300px' }}
               >
-                <Image src={ContactIcon} w={{ base: '50px', lg: '60px' }} />
+                <Image src={ContactIcon} alt='Customer support icon' w={{ base: '50px', lg: '60px' }} />
                 <Stack>
                   <Text fontSize={{ base: 'sm', md: 'md' }} color='brand.100'>
                     24/7 Support

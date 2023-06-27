@@ -82,7 +82,16 @@ const MobileNav = ({ width, placement = 'right', children, title = 'Menu', foote
       <Button ref={btnRef} onClick={onOpen} variant='none'>
         <IoMdMenu size='26px' />
       </Button>
-      <Drawer isOpen={isOpen} placement={placement} onClose={onClose} finalFocusRef={btnRef} m={0}>
+      <Drawer
+        isOpen={isOpen}
+        placement={placement}
+        onClose={onClose}
+        finalFocusRef={btnRef}
+        modifiers={[
+          { name: 'preventOverflow', options: { padding: 8 } },
+          { name: 'flip', options: { padding: 8 } },
+        ]}
+      >
         <DrawerOverlay />
         <DrawerContent alignItems='center'>
           <DrawerCloseButton alignSelf='end' px={8} py={8} _hover={{ backgroundColor: 'none' }} />
@@ -145,8 +154,8 @@ const ShoppingCartIcon = () => {
 };
 
 const Navbar = () => {
-  const { isOpen, onClose, onOpen } = useDisclosure();
-  const { colorMode, toggleColorMode } = useColorMode();
+  // const { isOpen, onClose, onOpen } = useDisclosure();
+
   const user = useSelector((state) => state.user);
   const { userInfo } = user;
   const dispatch = useDispatch();

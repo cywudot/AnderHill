@@ -17,64 +17,66 @@ const CategoriesSection = () => {
         gap={4}
         pb={{ base: '12', lg: '0' }}
       >
-        <GridItem colSpan={{ base: 1, lg: 1 }} rowSpan={{ base: 1, lg: 1 }} position='relative'>
-          <Link as={ReactLink} to='/products/Home%20Accents'>
-            <Image w='full' fit='cover' objectPosition='center' src={HomeAccent} alt='avatar' />
-            <Box position='absolute' top='80%' left='50%' transform='translate(-50%, -50%)'>
-              <Button
-                p={6}
-                rounded={2}
-                variant='none'
-                fontWeight='regular'
-                w={{
-                  base: 'full',
-                  sm: 'auto',
-                }}
-                backgroundColor='brand.100'
-                color='brand.500'
-                fontSize={{
-                  base: 'sm',
-                  md: 'md',
-                }}
-              >
-                Shop Home Accents
-              </Button>
-            </Box>
-          </Link>
-        </GridItem>
+        <Link as={ReactLink} to='/products/Home%20Accents'>
+          <GridItem colSpan={{ base: 1, lg: 1 }} rowSpan={{ base: 1, lg: 1 }} position='relative'>
+            <Image w='full' fit='cover' objectPosition='center' src={HomeAccent} alt='Home accent products link' />
 
-        <GridItem colSpan={{ base: 1, lg: 1 }} rowSpan={{ base: 1, lg: 1 }} position='relative'>
-          <Link as={ReactLink} to='/products/Dinnerware'>
-            <Image w='full' fit='cover' objectPosition='center' src={Dinnerware} alt='avatar' />
-            <Box position='absolute' top='80%' left='50%' transform='translate(-50%, -50%)'>
-              <Button
-                p={6}
-                rounded={2}
-                variant='none'
-                fontWeight='regular'
-                w={{
-                  base: 'full',
-                  sm: 'auto',
-                }}
-                backgroundColor='brand.100'
-                color='brand.500'
-                fontSize={{
-                  base: 'sm',
-                  md: 'md',
-                }}
-              >
-                Shop Dinnerware
-              </Button>
-            </Box>
-          </Link>
-        </GridItem>
+            <Button
+              position='absolute'
+              top='80%'
+              left='50%'
+              transform='translate(-50%, -50%)'
+              p={6}
+              rounded={2}
+              variant='none'
+              fontWeight='regular'
+              w={{
+                base: 'full',
+                sm: 'auto',
+              }}
+              backgroundColor='brand.100'
+              color='brand.500'
+              fontSize={{
+                base: 'sm',
+                md: 'md',
+              }}
+              aria-label='Shop Home Accents'
+            >
+              Shop Home Accents
+            </Button>
+          </GridItem>
+        </Link>
 
-        <GridItem
-          colSpan={{ base: 1, sm: 2, lg: 1 }}
-          rowSpan={{ base: 1, lg: 1 }}
-          backgroundColor='brand.600'
-          position='relative'
-        >
+        <Link as={ReactLink} to='/products/Dinnerware'>
+          <GridItem colSpan={{ base: 1, lg: 1 }} rowSpan={{ base: 1, lg: 1 }} position='relative'>
+            <Image w='full' fit='cover' objectPosition='center' src={Dinnerware} alt='Dinnerware products link' />
+            <Button
+              position='absolute'
+              top='80%'
+              left='50%'
+              transform='translate(-50%, -50%)'
+              p={6}
+              rounded={2}
+              variant='none'
+              fontWeight='regular'
+              w={{
+                base: 'full',
+                sm: 'auto',
+              }}
+              backgroundColor='brand.100'
+              color='brand.500'
+              fontSize={{
+                base: 'sm',
+                md: 'md',
+              }}
+              aria-label='Shop Dinnerware'
+            >
+              Shop Dinnerware
+            </Button>
+          </GridItem>
+        </Link>
+
+        <GridItem colSpan={{ base: 1, sm: 2, lg: 1 }} rowSpan={{ base: 1, lg: 1 }} position='relative'>
           <Link as={ReactLink} to='/products'>
             <Image
               objectFit='cover'
@@ -84,28 +86,32 @@ const CategoriesSection = () => {
               w='100%'
               h='100%'
               src={ShopAll}
-              alt='avatar'
+              alt='Shop all collections link'
             />
-            <Box position='absolute' top='80%' left='50%' transform='translate(-50%, -50%)'>
-              <Button
-                p={6}
-                rounded={2}
-                variant='none'
-                fontWeight='regular'
-                w={{
-                  base: 'full',
-                  sm: 'auto',
-                }}
-                backgroundColor='brand.100'
-                color='brand.500'
-                fontSize={{
-                  base: 'sm',
-                  md: 'md',
-                }}
-              >
-                Shop All
-              </Button>
-            </Box>
+
+            <Button
+              position='absolute'
+              top='80%'
+              left='50%'
+              transform='translate(-50%, -50%)'
+              p={6}
+              rounded={2}
+              variant='none'
+              fontWeight='regular'
+              w={{
+                base: 'full',
+                sm: 'auto',
+              }}
+              backgroundColor='brand.100'
+              color='brand.500'
+              fontSize={{
+                base: 'sm',
+                md: 'md',
+              }}
+              aria-label='Shop All Products'
+            >
+              Shop All
+            </Button>
           </Link>
         </GridItem>
       </Grid>

@@ -30,15 +30,6 @@ const OrderSuccessScreen = () => {
     navigate('/');
   };
 
-  const user = useSelector((state) => state.user);
-  const { loading, error, orders, userInfo } = user;
-
-  useEffect(() => {
-    if (userInfo) {
-      dispatch(getUserOrders());
-    }
-  }, []);
-
   return (
     <Wrap
       justify='center'

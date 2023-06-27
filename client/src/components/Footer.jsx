@@ -17,6 +17,7 @@ import { FaFacebook, FaInstagram, FaTwitter } from 'react-icons/fa';
 import AHLogo from '../logo/AnderHillLogoFooter.png';
 import { Link as ReactLink } from 'react-router-dom';
 import { useState } from 'react';
+import { Field, Form, Formik } from 'formik';
 
 const Footer = () => {
   const [email, setEmail] = useState('');

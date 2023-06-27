@@ -1,4 +1,4 @@
-import { Box, Button, Flex, Heading, SimpleGrid, Text, VStack, useMediaQuery } from '@chakra-ui/react';
+import { Box, Flex, Heading, SimpleGrid, Text, VStack, useMediaQuery } from '@chakra-ui/react';
 import { Link as ReactLink } from 'react-router-dom';
 import ReactPlayer from 'react-player';
 import Video from '../../otherassets/AnderHillVideo.mp4';
@@ -43,36 +43,53 @@ const VideoSection = () => {
                   md: 'lg',
                 }}
                 color='brand.500'
+                pb={2}
               >
                 Since 1985, AnderHill has passionately honed the art of pottery, creating exquisite masterpieces that
                 embody the perfect harmony of form, function, and timeless beauty.
               </Text>
-              <Button
-                p={0}
-                variant='none'
+
+              <Text
                 as={ReactLink}
                 to='/aboutus'
-                w={{
-                  base: 'full',
-                  sm: 'auto',
-                }}
-                color='brand.500'
+                role='button'
+                aria-label='Read More About Us'
                 fontSize={{
                   base: 'sm',
                   md: 'md',
                 }}
+                fontWeight='bold'
+                color='brand.500'
               >
                 Read More About Us
-              </Button>
+              </Text>
               <ArrowForwardIcon w={5} h={5} ml={2} color='brand.500' />
             </Box>
           </VStack>
         </SimpleGrid>
       </Flex>
       {isLargerThanMd ? (
-        <ReactPlayer url={Video} playing={true} loop={true} muted={true} volume={0} width='100%' height='auto' />
+        <ReactPlayer
+          url={Video}
+          playing={true}
+          loop={true}
+          muted={true}
+          volume={0}
+          width='100%'
+          height='auto'
+          title='Behind the scenes of creating of pottery vase'
+        />
       ) : (
-        <ReactPlayer url={VideoMobile} playing={true} loop={true} muted={true} volume={0} width='100%' height='auto' />
+        <ReactPlayer
+          url={VideoMobile}
+          playing={true}
+          loop={true}
+          muted={true}
+          volume={0}
+          width='100%'
+          height='auto'
+          title='Behind the scenes of creating of pottery vase'
+        />
       )}
     </Box>
   );

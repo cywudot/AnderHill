@@ -142,7 +142,7 @@ const ProductScreen = () => {
                 )}
 
                 <Stack direction={{ base: 'row', lg: 'column' }} justify='space-between'>
-                  <Heading ing fontSize={{ base: 'lg', lg: '2xl', md: '4xl' }} fontWeight='extrabold' color='brand.500'>
+                  <Heading fontSize={{ base: 'lg', lg: '2xl', md: '4xl' }} fontWeight='extrabold' color='brand.500'>
                     {product.name}
                   </Heading>
                   <Text fontSize={{ base: 'lg', lg: '2xl', md: '3xl' }} color='brand.500'>

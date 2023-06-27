@@ -1,10 +1,8 @@
 import {
   Box,
-  Badge,
   Button,
   FormControl,
   Heading,
-  HStack,
   Stack,
   Text,
   Alert,
@@ -95,14 +93,33 @@ const ProfileScreen = () => {
                   )}
                   <Stack spacing='5'>
                     <FormControl>
-                      <TextField type='text' name='name' placeholder='First and last name' label='Full name' />
-                      <TextField type='text' name='email' placeholder='you@example.com' label='Email' />
-                      <PasswordTextField type='password' name='password' placeholder='Your password' label='Password' />
+                      <TextField
+                        type='text'
+                        name='name'
+                        placeholder='First and last name'
+                        label='Full name'
+                        autoComplete='on'
+                      />
+                      <TextField
+                        type='text'
+                        name='email'
+                        placeholder='you@example.com'
+                        label='Email'
+                        autoComplete='on'
+                      />
+                      <PasswordTextField
+                        type='password'
+                        name='password'
+                        placeholder='Your password'
+                        label='Password'
+                        autoComplete='on'
+                      />
                       <PasswordTextField
                         type='password'
                         name='confirmPassword'
                         placeholder='Confirm your password'
                         label='Password Confirmation'
+                        autoComplete='on'
                       />
                     </FormControl>
                   </Stack>
