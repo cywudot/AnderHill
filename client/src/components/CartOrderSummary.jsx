@@ -16,16 +16,7 @@ const CartOrderSummary = () => {
   };
 
   return (
-    <Stack
-      spacing='8'
-      // borderWidth='1px'
-      rounded='sm'
-      padding='12'
-      w='full'
-      backgroundColor='white'
-      boxShadow='base'
-      // mt='16'
-    >
+    <Stack spacing='8' rounded='sm' padding='12' w='full' backgroundColor='white' boxShadow='base'>
       <Heading size='sm' mx='auto' fontFamily='body'>
         Order Summary
       </Heading>

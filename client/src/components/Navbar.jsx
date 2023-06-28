@@ -34,9 +34,8 @@ import { MdLocalShipping, MdLogout } from 'react-icons/md';
 import { CgProfile } from 'react-icons/cg';
 import AHLogo from '../logo/AnderHillLogo.png';
 import AHLogo2 from '../logo/AnderHillLogo2.png';
-import { ChakraProvider, extendTheme } from '@chakra-ui/react';
 import { logout } from '../redux/actions/userActions';
-import { useLayoutEffect, useRef } from 'react';
+import { useRef } from 'react';
 import { BsPersonCircle } from 'react-icons/bs';
 
 const links = [
@@ -154,8 +153,6 @@ const ShoppingCartIcon = () => {
 };
 
 const Navbar = () => {
-  // const { isOpen, onClose, onOpen } = useDisclosure();
-
   const user = useSelector((state) => state.user);
   const { userInfo } = user;
   const dispatch = useDispatch();
@@ -175,7 +172,6 @@ const Navbar = () => {
           <Image src={AHLogo2} display={{ base: 'initial', lg: 'none' }} minWidth='100px' maxWidth='120px' />
         </Link>
         {/* Nav Items */}
-
         <HStack as='nav' spacing='5' display={{ base: 'none', md: 'flex' }}>
           {links.map((item, i) => (
             <NavLink key={item.linkName} path={item.path} color='brand.500'>
@@ -187,8 +183,8 @@ const Navbar = () => {
         <HStack>
           {userInfo ? (
             <>
-              <Menu>
-                <MenuButton px='4' py='2' pt={1} transition='all 0.3s' as={Button} variant='none'>
+              <Menu justify='center'>
+                <MenuButton pt={1} transition='all 0.3s' as={Button} variant='none'>
                   <Icon as={BsPersonCircle} w={6} h={6} color='brand.500' />
                 </MenuButton>
                 <MenuList rounded={2} backgroundColor='brand.100' borderColor='brand.500'>

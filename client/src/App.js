@@ -7,7 +7,7 @@ import '@fontsource/poppins';
 import CartScreen from './screens/CartScreen';
 import ProductScreen from './screens/ProductScreen';
 import Footer from './components/Footer';
-import LandingScreen from './screens/LandingScreen';
+import HomeScreen from './screens/HomeScreen';
 import AboutUs from './screens/AboutUs';
 import LoginScreen from './screens/LoginScreen';
 import RegistrationScreen from './screens/RegistrationScreen';
@@ -68,7 +68,7 @@ function App() {
         <Navbar />
         <main>
           <Routes>
-            <Route path='/' element={<LandingScreen />}></Route>
+            <Route path='/' element={<HomeScreen />}></Route>
             {/* <Route path='/products' element={<ProductsScreens />}></Route> */}
             <Route path='/products/:category?' element={<ProductsScreens />}></Route>
             <Route path='/aboutus' element={<AboutUs />}></Route>

@@ -11,7 +11,7 @@ import VideoSection from '../components/homepage/VideoSection';
 import CategoriesSection from '../components/homepage/CategoriesSection';
 import FeaturedProducts from '../components/homepage/FeaturedProducts';
 
-const LandingScreen = () => {
+const HomeScreen = () => {
   const [isLoading, setIsLoading] = useState(true);
 
   // manages the loading state  and perform the necessary actions once the page has finished loading
@@ -29,11 +29,30 @@ const LandingScreen = () => {
     };
   }, []);
 
+  const StoreBenefits = ({ iconSrc, title, description }) => (
+    <Stack
+      direction={{ base: 'column', lg: 'row' }}
+      align='center'
+      gap={{ base: '0', lg: '2' }}
+      maxW={{ base: '190px', md: '300px' }}
+    >
+      <Image src={iconSrc} alt={title} w={{ base: '50px', lg: '60px' }} />
+      <Stack mt={0}>
+        <Text fontSize={{ base: 'sm', md: 'md' }} color='brand.100'>
+          {title}
+        </Text>
+        <Text fontSize='sm' fontWeight='light' color='brand.100' display={{ base: 'none', md: 'initial' }}>
+          {description}
+        </Text>
+      </Stack>
+    </Stack>
+  );
+
   return (
     <>
       {isLoading ? (
         <Wrap justify='center' direction='column' mt='20px' minH='100vh'>
-          <Stack direction='row' spacing={4} textAlign='center'>
+          <Stack textAlign='center'>
             <Spinner
               mt={20}
               thickness='2px'
@@ -46,8 +65,8 @@ const LandingScreen = () => {
           </Stack>
         </Wrap>
       ) : (
-        <Box maxW='12xl' mx='auto' py={{ base: '0', lg: '0' }} minH='12xl'>
-          {/* HERO SECTION */}
+        <Box maxW='12xl' mx='auto' minH='12xl'>
+          {/* Hero Section */}
           <Box px={{ base: '0', lg: '12' }}>
             <Box
               w='full'
@@ -60,13 +79,13 @@ const LandingScreen = () => {
                 md: `url(${HeroImage})`,
               }}
             >
-              <Flex pos='relative' boxSize='full' bg='blackAlpha.300'>
+              <Flex pos='relative' boxSize='full'>
                 <Stack
                   spacing={6}
                   w={['8xl', '6xl', '2xl']}
                   pb={{ md: '5%', lg: '2%' }}
                   ml={{ md: '10%', lg: '8%' }}
-                  justify={{ base: 'center', md: 'center' }}
+                  justify='center'
                   textAlign={{ base: 'center', lg: 'left' }}
                 >
                   <Heading
@@ -76,21 +95,12 @@ const LandingScreen = () => {
                     color='brand.100'
                     textTransform='uppercase'
                     letterSpacing='wide'
-                    pl={{ base: '4', md: '0' }}
-                    pr={{ base: '4', md: '0' }}
+                    px={{ base: '4', md: '0' }}
                   >
                     Ander Hill Pottery
                   </Heading>
 
-                  <Text
-                    fontSize={{ base: 'sm', sm: 'md', lg: 'lg' }}
-                    display={{ base: 'none', sm: 'initial' }}
-                    fontWeight='thin'
-                    color='brand.100'
-                    letterSpacing='normal'
-                    pl={{ base: '8', md: '0' }}
-                    pr={{ base: '8', md: '0' }}
-                  >
+                  <Text fontSize={['sm', 'md', 'lg']} fontWeight='thin' color='brand.100' px={{ base: '8', md: '0' }}>
                     Discover the art of pottery through our exquisite offerings, and add a touch of sophistication and
                     refinement to your living space today
                   </Text>
@@ -98,9 +108,9 @@ const LandingScreen = () => {
                   <Button
                     as={ReactLink}
                     to='/products'
-                    _hover={{ color: 'brand.100', backgroundColor: 'brand.500', transition: 'all 0.3s ease-in-out' }}
+                    _hover={{ color: 'brand.100', backgroundColor: 'brand.500' }}
                     textTransform='uppercase'
-                    w='180px'
+                    size='md'
                     rounded='2px'
                     fontWeight='regular'
                     color='brand.500'
@@ -112,64 +122,20 @@ const LandingScreen = () => {
                 </Stack>
               </Flex>
             </Box>
-
+            {/* Store Benefits Section */}
             <HStack
               backgroundColor='brand.5001'
-              justify={{ base: 'space-between', sm: 'space-around' }}
-              align='center'
+              justify='space-around'
               textAlign={{ base: 'center', lg: 'left' }}
               p={5}
             >
-              <Stack
-                direction={{ base: 'column', lg: 'row' }}
-                align='center'
-                gap={{ base: '0', lg: '2' }}
-                maxW={{ base: '190px', md: '300px' }}
-              >
-                <Image src={FreeDeliveryIcon} alt='Free delivery Icon over 300' w={{ base: '50px', lg: '60px' }} />
-                <Stack mt={0}>
-                  <Text fontSize={{ base: 'sm', md: 'md' }} color='brand.100'>
-                    Free Shipping
-                  </Text>
-                  <Text fontSize='sm' fontWeight='light' color='brand.100' display={{ base: 'none', md: 'initial' }}>
-                    For orders over $300
-                  </Text>
-                </Stack>
-              </Stack>
-
-              <Stack
-                direction={{ base: 'column', lg: 'row' }}
-                align='center'
-                gap={2}
-                maxW={{ base: '190px', md: '300px' }}
-              >
-                <Image src={ReturnIcon} alt='30 days guarantee icon' w={{ base: '50px', lg: '60px' }} />
-                <Stack>
-                  <Text fontSize={{ base: 'sm', md: 'md' }} color='brand.100'>
-                    30 Days Guarantee
-                  </Text>
-                  <Text fontSize='sm' fontWeight='light' color='brand.100' display={{ base: 'none', md: 'initial' }}>
-                    Quality ensured or money back
-                  </Text>
-                </Stack>
-              </Stack>
-
-              <Stack
-                direction={{ base: 'column', lg: 'row' }}
-                align='center'
-                gap={2}
-                maxW={{ base: '190px', md: '300px' }}
-              >
-                <Image src={ContactIcon} alt='Customer support icon' w={{ base: '50px', lg: '60px' }} />
-                <Stack>
-                  <Text fontSize={{ base: 'sm', md: 'md' }} color='brand.100'>
-                    24/7 Support
-                  </Text>
-                  <Text fontSize='sm' fontWeight='light' color='brand.100' display={{ base: 'none', md: 'initial' }}>
-                    Always Here to Assist You
-                  </Text>
-                </Stack>
-              </Stack>
+              <StoreBenefits iconSrc={FreeDeliveryIcon} title='Free Shipping' description='For orders over $300' />
+              <StoreBenefits
+                iconSrc={ReturnIcon}
+                title='30 Days Guarantee'
+                description='Quality ensured or money back'
+              />
+              <StoreBenefits iconSrc={ContactIcon} title='24/7 Support' description='Always Here to Assist You' />
             </HStack>
           </Box>
           <CategoriesSection />
@@ -184,4 +150,4 @@ const LandingScreen = () => {
   );
 };
 
-export default LandingScreen;
+export default HomeScreen;

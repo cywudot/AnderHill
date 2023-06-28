@@ -25,7 +25,7 @@ import EmailSubField from './EmailSubField';
 
 const Footer = () => {
   return (
-    <Box backgroundColor='brand.500' w='100%' pb={2} pt={4}>
+    <Box as='footer' backgroundColor='brand.500' w='100%' pb={2} pt={4}>
       <Container as='footer' role='contentinfo' maxW='8xl' pt={5} pb={3}>
         <SimpleGrid
           templateColumns={{ base: '1fr 1fr', md: '1fr 1fr 1fr 2fr', lg: '1fr 1fr 1fr 1fr' }}
