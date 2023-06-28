@@ -25,6 +25,7 @@ const Rating = ({ rating, numberOfReviews }) => {
   const { iconSize, setIconSize } = useState('14px');
   return (
     <Flex mb='10px'>
+      {/* Display star icons based on the rating */}
       <HStack spacing='2px'>
         <StarIcon size={iconSize} w='14px' color={rating >= 1 ? 'brand.4001' : 'brand.200'} />
         <StarIcon size={iconSize} w='14px' color={rating >= 2 ? 'brand.4001' : 'brand.200'} />
@@ -56,6 +57,7 @@ const ProductCard = ({ product }) => {
 
   const addItem = (id) => {
     if (cart.some((cartItem) => cartItem.id === id)) {
+      // Show an error toast if the item is already in the cart
       toast({
         description: 'This item is already in your cart. Go to your cart to change the amount',
         status: 'error',
@@ -81,6 +83,7 @@ const ProductCard = ({ product }) => {
             position='relative'
           />
 
+          {/* Display a "New" or "Out of Stock" badge based on product stock & new product */}
           {product.productIsNew && (
             <chakra.span flex='1' max='5' alignItems='baseline' position='absolute' top={4} right={4}>
               <Badge

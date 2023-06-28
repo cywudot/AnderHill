@@ -12,13 +12,12 @@ import {
   AlertTitle,
   AlertDescription,
   Heading,
-  Link as ChakraLink,
 } from '@chakra-ui/react';
 import ProductCard from '../components/ProductCard';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link as ReactLink, useLocation, useParams } from 'react-router-dom';
-import { getProducts, getFilteredProducts } from '../redux/actions/productActions'; // AKA getting getProducts from productAction.jsx
+import { getProducts, getFilteredProducts } from '../redux/actions/productActions';
 import { clearCategory } from '../redux/slices/products';
 import ProductPageHero from '../otherassets/ProductPageHero.jpg';
 import ProductPageHeroMobile from '../otherassets/ProductPageHeroMobile.jpg';
@@ -37,24 +36,35 @@ const ProductsScreens = () => {
 
   useEffect(() => {
     if (!category) {
+      // Fetch all products if no category is specified
       dispatch(getProducts());
     } else {
-      dispatch(getFilteredProducts(category)); // Call getFilteredProducts action
+      dispatch(getFilteredProducts(category));
     }
     return () => {
+      // Clear the category when the component is unmounted
       dispatch(clearCategory());
     };
   }, [dispatch, category]);
 
+  //Trying dynamic number of columns based on the length of the arrays. Layout for products
   const numColumns = Math.min(
     productList.category === null ? productList.products.length : productList.filteredProducts.length,
     4
   );
 
   const { pathname } = useLocation();
-
   const isActive = (linkPath) => {
     return pathname === linkPath;
+  };
+
+  // filter button styles
+  const buttonStyles = {
+    as: ReactLink,
+    variant: 'none',
+    fontFamily: 'heading',
+    fontSize: { base: 'xl', md: '2xl' },
+    textAlign: 'left',
   };
 
   return (
@@ -90,40 +100,22 @@ const ProductsScreens = () => {
       <Stack minHeight='100vh' mx='auto' align='center'>
         <Box direction='row' pt={6} mx='auto'>
           <Button
-            as={ReactLink}
+            {...buttonStyles}
             to='/products/Home%20Accents'
             color={isActive('/products/Home%20Accents') ? 'brand.4001' : 'brand.500'}
-            // color='brand.500'
-            variant='none'
-            fontFamily='heading'
-            fontSize={{ base: 'xl', md: '2xl' }}
-            textAlign='left'
           >
             Home Accents
           </Button>
           /
           <Button
-            as={ReactLink}
+            {...buttonStyles}
             to='/products/Dinnerware'
             color={isActive('/products/Dinnerware') ? 'brand.4001' : 'brand.500'}
-            // color='brand.500'
-            variant='none'
-            fontFamily='heading'
-            fontSize={{ base: 'xl', md: '2xl' }}
-            textAlign='left'
           >
             Dinnerware
           </Button>
           /
-          <Button
-            as={ReactLink}
-            to='/products'
-            color={isActive('/products') ? 'brand.4001' : 'brand.500'}
-            // color='brand.500'
-            variant='none'
-            fontFamily='heading'
-            fontSize={{ base: 'xl', md: '2xl' }}
-          >
+          <Button {...buttonStyles} to='/products' color={isActive('/products') ? 'brand.4001' : 'brand.500'}>
             View All
           </Button>
         </Box>
@@ -143,7 +135,7 @@ const ProductsScreens = () => {
             spacing={8}
             justify='center'
             backgroundColor='brand.100'
-            px={{ base: '8', lg: '10' }}
+            px={{ base: '8', lg: '12' }}
             py={4}
             columns={{
               base: 1,

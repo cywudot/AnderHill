@@ -5,6 +5,20 @@ import Dinnerware from '../../otherassets/Dinnerware.jpg';
 import ShopAll from '../../otherassets/AllProducts.jpg';
 
 const CategoriesSection = () => {
+  const buttonStyles = {
+    position: 'absolute',
+    top: '80%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
+    p: { base: '4', md: '6' },
+    rounded: 2,
+    variant: 'none',
+    fontWeight: 'regular',
+    backgroundColor: 'brand.100',
+    color: 'brand.500',
+    fontSize: { base: 'sm', md: 'md' },
+  };
+
   return (
     <Container maxW='12xl' justifyContent='center' mt={14} p={0} px={{ base: '8', lg: '12' }}>
       <Heading as='h2' textAlign='center' textTransform='uppercase' color='brand.500' pb={{ base: '0', lg: '4' }}>
@@ -21,23 +35,7 @@ const CategoriesSection = () => {
           <GridItem colSpan={{ base: 1, lg: 1 }} rowSpan={{ base: 1, lg: 1 }} position='relative'>
             <Image w='full' fit='cover' objectPosition='center' src={HomeAccent} alt='Home accent products link' />
 
-            <Button
-              position='absolute'
-              top='80%'
-              left='50%'
-              transform='translate(-50%, -50%)'
-              p={{ base: '4', md: '6' }}
-              rounded={2}
-              variant='none'
-              fontWeight='regular'
-              backgroundColor='brand.100'
-              color='brand.500'
-              fontSize={{
-                base: 'sm',
-                md: 'md',
-              }}
-              aria-label='Shop Home Accents'
-            >
+            <Button {...buttonStyles} aria-label='Shop Home Accents'>
               Shop Home Accents
             </Button>
           </GridItem>
@@ -46,23 +44,7 @@ const CategoriesSection = () => {
         <Link as={ReactLink} to='/products/Dinnerware'>
           <GridItem colSpan={{ base: 1, lg: 1 }} rowSpan={{ base: 1, lg: 1 }} position='relative'>
             <Image w='full' fit='cover' objectPosition='center' src={Dinnerware} alt='Dinnerware products link' />
-            <Button
-              position='absolute'
-              top='80%'
-              left='50%'
-              transform='translate(-50%, -50%)'
-              p={{ base: '4', md: '6' }}
-              rounded={2}
-              variant='none'
-              fontWeight='regular'
-              backgroundColor='brand.100'
-              color='brand.500'
-              fontSize={{
-                base: 'sm',
-                md: 'md',
-              }}
-              aria-label='Shop Dinnerware'
-            >
+            <Button {...buttonStyles} aria-label='Shop Dinnerware'>
               Shop Dinnerware
             </Button>
           </GridItem>
@@ -81,23 +63,7 @@ const CategoriesSection = () => {
               alt='Shop all collections link'
             />
 
-            <Button
-              position='absolute'
-              top='80%'
-              left='50%'
-              transform='translate(-50%, -50%)'
-              p={{ base: '4', md: '6' }}
-              rounded={2}
-              variant='none'
-              fontWeight='regular'
-              backgroundColor='brand.100'
-              color='brand.500'
-              fontSize={{
-                base: 'sm',
-                md: 'md',
-              }}
-              aria-label='Shop All Products'
-            >
+            <Button {...buttonStyles} aria-label='Shop All Products'>
               Shop All
             </Button>
           </Link>
