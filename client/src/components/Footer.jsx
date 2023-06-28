@@ -3,42 +3,85 @@ import {
   Box,
   ButtonGroup,
   Container,
+  SimpleGrid,
   Divider,
   Flex,
   Icon,
   Link,
   IconButton,
+  ListHeader,
   Input,
   Stack,
+  Image,
   Text,
   useToast,
+  Heading,
 } from '@chakra-ui/react';
 import { FaFacebook, FaInstagram, FaTwitter } from 'react-icons/fa';
 import AHLogo from '../logo/AnderHillLogoFooter.png';
 import { Link as ReactLink } from 'react-router-dom';
-import { useState } from 'react';
-import { Field, Form, Formik } from 'formik';
+import FooterTest from './FooterTest';
 
 const Footer = () => {
-  const [email, setEmail] = useState('');
-  const toast = useToast();
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if (/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-      setEmail('');
-      toast({ description: 'Subscribed', status: 'success', isClosable: true });
-    } else if (!email) {
-      toast({ description: 'Please enter an email', status: 'warning', isClosable: true });
-    } else {
-      toast({ description: 'Please enter a vaild email', status: 'error', isClosable: true });
-    }
-  };
-
   return (
-    <Box backgroundColor='brand.500' w='100%'>
-      <Container as='footer' role='contentinfo' maxW='7xl'>
-        <Stack
+    <Box backgroundColor='brand.500' w='100%' p={4}>
+      <Container as='footer' role='contentinfo' maxW='8xl' p={10}>
+        <SimpleGrid
+          templateColumns={{ sm: '1fr 1fr', md: '1fr 1fr 1fr 2fr' }}
+          templateRows={{ base: '1fr 1fr 1fr', md: '1fr' }}
+          spacing={5}
+        >
+          <Stack spacing={4} gridColumn={{ base: '1 / -1', md: 'auto' }} textAlign={{ base: 'center', md: 'left' }}>
+            <Box
+              colSpan={{ base: 1, md: 1 }}
+              rowSpan={{ base: 1, lg: 1 }}
+              alignSelf={{ base: 'center', md: 'flex-start' }}
+              my='auto'
+            >
+              <Image src={AHLogo} maxWidth='180px' />
+            </Box>
+          </Stack>
+          <Stack>
+            <Heading fontSize='md' fontWeight='bold' color='brand.100' fontFamily='heading'>
+              NAVIGATION
+            </Heading>
+            <Link href={'/'} color='brand.750' fontSize='sm' style={{ textDecoration: 'none' }}>
+              Home
+            </Link>
+            <Link href={'/products'} color='brand.750' fontSize='sm' style={{ textDecoration: 'none' }}>
+              Shop
+            </Link>
+            <Link href={'/aboutus'} color='brand.750' fontSize='sm' style={{ textDecoration: 'none' }}>
+              About us
+            </Link>
+          </Stack>
+          <Stack>
+            <Heading fontSize='md' fontWeight='bold' color='brand.100' fontFamily='heading'>
+              LEGAL
+            </Heading>
+            <Link href={'#'} color='brand.750' fontSize='sm' style={{ textDecoration: 'none' }}>
+              Privacy Policy
+            </Link>
+            <Link href={'#'} color='brand.750' fontSize='sm' style={{ textDecoration: 'none' }}>
+              Terms of Service
+            </Link>
+            <Link href={'#'} color='brand.750' fontSize='sm' style={{ textDecoration: 'none' }}>
+              Partners
+            </Link>
+          </Stack>
+
+          <Stack gridColumn={{ base: '1 / -1', md: 'auto' }} pt={{ base: '3', md: '0' }}>
+            <Heading fontSize='md' fontWeight='bold' color='brand.100' fontFamily='heading'>
+              STAY IN TOUCH
+            </Heading>
+            <FooterTest />
+          </Stack>
+        </SimpleGrid>
+
+        {/* <Text fontSize='sm' color='brand.750'>
+              © 2022 Chakra Templates. All rights reserved
+            </Text> */}
+        {/* <Stack
           spacing='8'
           direction={{ base: 'column', md: 'row' }}
           justify='space-around'
@@ -46,7 +89,7 @@ const Footer = () => {
         >
           <Stack spacing={{ base: '6', md: '8' }} align='start'>
             <Flex alignItems='center' m='auto'>
-              <Box maxWidth='180px'>{<img src={AHLogo} alt='logo' />}</Box>
+              <Box maxWidth='180px'>{<img src={AHLogo} />}</Box>
             </Flex>
           </Stack>
           <Stack
@@ -56,8 +99,8 @@ const Footer = () => {
               lg: 'row',
             }}
             spacing={{
-              base: '12',
-              md: '8',
+              base: '20',
+              md: '2',
             }}
           >
             <Stack direction='row' spacing='8'>
@@ -121,11 +164,7 @@ const Footer = () => {
               </Stack>
             </Stack>
 
-            <Stack spacing='1'>
-              <Text fontSize='md' fontFamily='heading' textTransform='uppercase' fontWeight='bold' color='brand.100'>
-                Stay up to date
-              </Text>
-
+            <Stack spacing='1' align={{ base: 'center', md: 'left' }}>
               <Stack
                 spacing='4'
                 direction={{
@@ -133,43 +172,18 @@ const Footer = () => {
                   sm: 'row',
                 }}
                 maxW={{
+                  base: '400px',
                   lg: '360px',
                 }}
+                mx='auto'
               >
-                <Input
-                  placeholder='Enter your email'
-                  name='enteremail'
-                  size='sm'
-                  type='email'
-                  required
-                  variant='flushed'
-                  borderColor='brand.100'
-                  focusBorderColor='brand.800'
-                  color='brand.100'
-                  _placeholder={{ color: 'brand.800' }}
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                />
-                <Button
-                  variant='primary'
-                  size='sm'
-                  type='submit'
-                  flexShrink={0}
-                  backgroundColor='brand.100'
-                  color='brand.500'
-                  rounded='2'
-                  onClick={(e) => handleSubmit(e)}
-                >
-                  Subscribe
-                </Button>
+                <FooterTest />
               </Stack>
-              <Text color='brand.750' fontSize='sm' width='80%' pt={2}>
-                Get 15% off on your first order just by subscribing to our newsletter
-              </Text>
             </Stack>
           </Stack>
         </Stack>
-        <Divider />
+
+        <Divider py={{ base: 4, lg: 2 }} />
         <Stack
           pt='6'
           pb='6'
@@ -209,7 +223,7 @@ const Footer = () => {
               icon={<FaTwitter fontSize='1.25rem' />}
             />
           </ButtonGroup>
-        </Stack>
+        </Stack> */}
       </Container>
     </Box>
   );
