@@ -26,14 +26,10 @@ const CategoriesSection = () => {
               top='80%'
               left='50%'
               transform='translate(-50%, -50%)'
-              p={6}
+              p={{ base: '4', md: '6' }}
               rounded={2}
               variant='none'
               fontWeight='regular'
-              w={{
-                base: 'full',
-                sm: 'auto',
-              }}
               backgroundColor='brand.100'
               color='brand.500'
               fontSize={{
@@ -55,14 +51,10 @@ const CategoriesSection = () => {
               top='80%'
               left='50%'
               transform='translate(-50%, -50%)'
-              p={6}
+              p={{ base: '4', md: '6' }}
               rounded={2}
               variant='none'
               fontWeight='regular'
-              w={{
-                base: 'full',
-                sm: 'auto',
-              }}
               backgroundColor='brand.100'
               color='brand.500'
               fontSize={{
@@ -94,14 +86,10 @@ const CategoriesSection = () => {
               top='80%'
               left='50%'
               transform='translate(-50%, -50%)'
-              p={6}
+              p={{ base: '4', md: '6' }}
               rounded={2}
               variant='none'
               fontWeight='regular'
-              w={{
-                base: 'full',
-                sm: 'auto',
-              }}
               backgroundColor='brand.100'
               color='brand.500'
               fontSize={{

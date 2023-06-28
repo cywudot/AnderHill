@@ -1,4 +1,19 @@
-import { Flex, Box, Image, Badge, Icon, Button, Tooltip, Stack, Link, HStack, Text, useToast } from '@chakra-ui/react';
+import {
+  Flex,
+  Box,
+  Image,
+  Badge,
+  Icon,
+  Button,
+  Tooltip,
+  Stack,
+  Link,
+  HStack,
+  Text,
+  useToast,
+  VisuallyHidden,
+  chakra,
+} from '@chakra-ui/react';
 import { FaCartPlus } from 'react-icons/fa';
 import { Link as ReactLink } from 'react-router-dom';
 import { StarIcon } from '@chakra-ui/icons';
@@ -11,11 +26,11 @@ const Rating = ({ rating, numberOfReviews }) => {
   return (
     <Flex mb='10px'>
       <HStack spacing='2px'>
-        <StarIcon size={iconSize} w='14px' color={rating >= 1 ? 'brand.400' : 'brand.200'} />
-        <StarIcon size={iconSize} w='14px' color={rating >= 2 ? 'brand.400' : 'brand.200'} />
-        <StarIcon size={iconSize} w='14px' color={rating >= 3 ? 'brand.400' : 'brand.200'} />
-        <StarIcon size={iconSize} w='14px' color={rating >= 4 ? 'brand.400' : 'brand.200'} />
-        <StarIcon size={iconSize} w='14px' color={rating >= 5 ? 'brand.400' : 'brand.200'} />
+        <StarIcon size={iconSize} w='14px' color={rating >= 1 ? 'brand.4001' : 'brand.200'} />
+        <StarIcon size={iconSize} w='14px' color={rating >= 2 ? 'brand.4001' : 'brand.200'} />
+        <StarIcon size={iconSize} w='14px' color={rating >= 3 ? 'brand.4001' : 'brand.200'} />
+        <StarIcon size={iconSize} w='14px' color={rating >= 4 ? 'brand.4001' : 'brand.200'} />
+        <StarIcon size={iconSize} w='14px' color={rating >= 5 ? 'brand.4001' : 'brand.200'} />
       </HStack>
       <Text fontSize={{ base: 'sm', lg: 'md' }} fontWeight='regular' ml='10px' mt='5px'>
         {numberOfReviews === 0
@@ -27,8 +42,6 @@ const Rating = ({ rating, numberOfReviews }) => {
 };
 
 const ProductCard = ({ product }) => {
-  // const theme = useTheme();
-
   const dispatch = useDispatch();
   const toast = useToast();
 
@@ -69,42 +82,42 @@ const ProductCard = ({ product }) => {
           />
 
           {product.productIsNew && (
-            <Box flex='1' max='5' alignItems='baseline' position='absolute' top={4} right={4}>
+            <chakra.span flex='1' max='5' alignItems='baseline' position='absolute' top={4} right={4}>
               <Badge
                 rounded='2'
                 px='5'
                 fontSize='1em'
                 color='brand.400'
-                fontWeight='light'
+                fontWeight='regular'
                 fontFamily='body'
                 backgroundColor='brand.100'
               >
                 New
               </Badge>
-            </Box>
+            </chakra.span>
           )}
           {product.stock <= 0 && (
-            <Box flex='1' max='5' alignItems='baseline' position='absolute' top={4} right={4}>
+            <chakra.span flex='1' max='5' alignItems='baseline' position='absolute' top={4} right={4}>
               <Badge
                 rounded='2'
                 px='5'
                 fontSize='1em'
                 color='brand.600'
-                fontWeight='light'
+                fontWeight='regular'
                 as='i'
                 fontFamily='body'
                 backgroundColor='brand.100'
               >
                 Out of Stock
               </Badge>
-            </Box>
+            </chakra.span>
           )}
         </Box>
       </Link>
 
       <Flex justify='space-between' color='brand.500'>
         <Link as={ReactLink} to={`/product/${product._id}`} cursor='pointer' _hover={{ textDecoration: 'none' }}>
-          <Box fontSize={{ base: 'md', lg: 'lg' }} fontWeight='medium' fontFamily='heading'>
+          <Box fontSize={{ base: 'md', lg: 'xl' }} fontWeight='bold' fontFamily='heading'>
             {product.name}
           </Box>
         </Link>
@@ -136,7 +149,8 @@ const ProductCard = ({ product }) => {
             onClick={() => addItem(product._id)}
             backgroundColor='brand.100'
           >
-            <Icon as={FaCartPlus} h={5} w={5} fill='brand.400' mb='10px' />
+            <VisuallyHidden>Add {product.name} to cart</VisuallyHidden>
+            <Icon as={FaCartPlus} h={{ base: '5', md: '6' }} w={{ base: '5', md: '6' }} fill='brand.4001' mb='10px' />
           </Button>
         </Tooltip>
       </Flex>

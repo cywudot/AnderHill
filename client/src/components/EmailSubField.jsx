@@ -45,8 +45,8 @@ const FooterTest = () => {
                   />
                   <FormErrorMessage>{form.errors.email}</FormErrorMessage>
                   <Box>
-                    <Text color='brand.750' fontSize='sm' pt={2}>
-                      Get 15% off on your first order just by subscribing to our newsletter
+                    <Text color='brand.750' fontSize='sm' pt={1}>
+                      Subscribe to our newsletter
                     </Text>
                   </Box>
                 </FormControl>

@@ -11,6 +11,7 @@ import {
   IconButton,
   ListHeader,
   Input,
+  HStack,
   Stack,
   Image,
   Text,
@@ -24,12 +25,13 @@ import EmailSubField from './EmailSubField';
 
 const Footer = () => {
   return (
-    <Box backgroundColor='brand.500' w='100%' p={4}>
-      <Container as='footer' role='contentinfo' maxW='8xl' p={10}>
+    <Box backgroundColor='brand.500' w='100%' pb={2} pt={4}>
+      <Container as='footer' role='contentinfo' maxW='8xl' pt={5} pb={3}>
         <SimpleGrid
-          templateColumns={{ sm: '1fr 1fr', md: '1fr 1fr 1fr 2fr' }}
+          templateColumns={{ base: '1fr 1fr', md: '1fr 1fr 1fr 2fr', lg: '1fr 1fr 1fr 1fr' }}
           templateRows={{ base: '1fr 1fr 1fr', md: '1fr' }}
           spacing={5}
+          py={4}
         >
           <Stack spacing={4} gridColumn={{ base: '1 / -1', md: 'auto' }} textAlign={{ base: 'center', md: 'left' }}>
             <Box
@@ -70,13 +72,51 @@ const Footer = () => {
             </Link>
           </Stack>
 
-          <Stack gridColumn={{ base: '1 / -1', md: 'auto' }} pt={{ base: '3', md: '0' }}>
+          <Stack gridColumn={{ base: '1 / -1', md: 'auto' }} pt={{ base: '3', md: '0' }} flex={2}>
             <Heading fontSize='md' fontWeight='bold' color='brand.100' fontFamily='heading'>
               STAY IN TOUCH
             </Heading>
             <EmailSubField />
           </Stack>
         </SimpleGrid>
+
+        <Divider orientation='horizontal' py={5} />
+        <Stack direction='row' justify='space-between'>
+          <Stack justify='center'>
+            <Text color='brand.750' fontSize='sm'>
+              © 2023 AH Pottery. All rights reserved.
+            </Text>
+          </Stack>
+          <Stack direction='row'>
+            <IconButton
+              aria-label='Facebook'
+              as='a'
+              href='#'
+              size='lg'
+              backgroundColor='brand.500'
+              color='brand.100'
+              icon={<FaFacebook />}
+            />
+            <IconButton
+              aria-label='Twitter'
+              as='a'
+              href='#'
+              size='lg'
+              backgroundColor='brand.500'
+              color='brand.100'
+              icon={<FaTwitter />}
+            />
+            <IconButton
+              aria-label='Instagram'
+              as='a'
+              href='#'
+              size='lg'
+              backgroundColor='brand.500'
+              color='brand.100'
+              icon={<FaInstagram />}
+            />
+          </Stack>
+        </Stack>
       </Container>
     </Box>
   );
