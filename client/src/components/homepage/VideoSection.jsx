@@ -1,4 +1,4 @@
-import { Box, Flex, Heading, SimpleGrid, Text, VStack, useMediaQuery } from '@chakra-ui/react';
+import { Box, Button, Flex, Heading, SimpleGrid, Text, VStack, useMediaQuery } from '@chakra-ui/react';
 import { Link as ReactLink } from 'react-router-dom';
 import ReactPlayer from 'react-player';
 import Video from '../../otherassets/AnderHillVideo.mp4';
@@ -10,6 +10,7 @@ const VideoSection = () => {
 
   return (
     <Box
+      as='section'
       width='full'
       h='auto'
       px={{ base: '0', lg: '12' }}
@@ -17,57 +18,59 @@ const VideoSection = () => {
       pb={{ base: '12', lg: '14' }}
       position='relative'
     >
-      <Flex pt={{ base: '8', lg: '16' }} pb={6} w='auto' justifyContent='center' alignItems='center'>
-        <SimpleGrid
-          columns={{
-            base: 1,
-            lg: 2,
-          }}
-          spacingX={{
-            base: 10,
-            lg: 24,
-          }}
-          mx={{ base: '4', md: '0' }}
-          gap={3}
-        >
+      <SimpleGrid
+        pt={{ base: '8', lg: '16' }}
+        pb={6}
+        columns={{
+          base: 1,
+          lg: 2,
+        }}
+        spacingX={{
+          base: 10,
+          lg: 24,
+        }}
+        mx={{ base: '4', md: '0' }}
+        gap={3}
+      >
+        <Box textAlign={{ base: 'center', lg: 'left' }}>
+          <Heading as='h3' size={{ base: 'xl', md: '2xl' }} color='brand.500'>
+            Elevate your home decor with our exceptional selection of pottery
+          </Heading>
+        </Box>
+        <VStack direction='column' flexGrow={1} spacing={5} alignItems='start'>
           <Box textAlign={{ base: 'center', lg: 'left' }}>
-            <Heading as='h3' size={{ base: 'xl', md: '2xl' }} color='brand.500'>
-              Elevate your home decor with our exceptional selection of pottery
-            </Heading>
-          </Box>
-          <VStack direction='column' flexGrow={1} spacing={5} alignItems='start'>
-            <Box textAlign={{ base: 'center', lg: 'left' }}>
-              <Text
-                fontSize={{
-                  base: 'md',
-                  md: 'lg',
-                }}
-                color='brand.500'
-                pb={2}
-              >
-                Since 1985, AnderHill has passionately honed the art of pottery, creating exquisite masterpieces that
-                embody the perfect harmony of form, function, and timeless beauty.
-              </Text>
+            <Text
+              fontSize={{
+                base: 'md',
+                md: 'lg',
+              }}
+              color='brand.500'
+              pb={2}
+            >
+              Since 1985, AnderHill has passionately honed the art of pottery, creating exquisite masterpieces that
+              embody the perfect harmony of form, function, and timeless beauty.
+            </Text>
 
-              <Text
-                as={ReactLink}
-                to='/aboutus'
-                role='button'
-                aria-label='Read More About Us'
-                fontSize={{
-                  base: 'sm',
-                  md: 'md',
-                }}
-                fontWeight='bold'
-                color='brand.500'
-              >
-                Read More About Us
-              </Text>
+            <Button
+              as={ReactLink}
+              variant='link'
+              to='/aboutus'
+              _hover={{ textDecoration: 'none' }}
+              aria-label='Read More About Us'
+              fontSize={{
+                base: 'sm',
+                md: 'md',
+              }}
+              fontWeight='bold'
+              color='brand.500'
+            >
+              Read More About Us
               <ArrowForwardIcon w={5} h={5} ml={2} color='brand.500' />
-            </Box>
-          </VStack>
-        </SimpleGrid>
-      </Flex>
+            </Button>
+          </Box>
+        </VStack>
+      </SimpleGrid>
+
       {isLargerThanMd ? (
         <ReactPlayer
           url={Video}

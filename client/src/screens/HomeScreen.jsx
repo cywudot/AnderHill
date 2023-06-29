@@ -65,9 +65,9 @@ const HomeScreen = () => {
           </Stack>
         </Wrap>
       ) : (
-        <Box maxW='12xl' mx='auto' minH='12xl'>
+        <Box id='homepage' maxW='12xl' mx='auto' minH='12xl'>
           {/* Hero Section */}
-          <Box px={{ base: '0', lg: '12' }}>
+          <Box as='section' px={{ base: '0', lg: '12' }}>
             <Box
               w='full'
               h='lg'
@@ -141,7 +141,7 @@ const HomeScreen = () => {
           <CategoriesSection />
           <FeaturedProducts />
           <VideoSection />
-          <Flex justifyContent='center' py={8} id='contact-form' px={{ base: '4', lg: '12' }}>
+          <Flex justifyContent='center' pb={12} id='contact-form' px={{ base: '4', lg: '12' }}>
             <ContactForm />
           </Flex>
         </Box>

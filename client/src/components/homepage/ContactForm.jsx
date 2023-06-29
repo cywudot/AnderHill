@@ -41,90 +41,78 @@ const ContactForm = () => {
       }}
     >
       {(formik) => (
-        <Container maxW='7xl' px={{ base: '2', md: '4' }} pb={6}>
-          <Flex
-            bg={{ boxBR }}
-            boxShadow='sm'
-            display='flex'
-            direction='row'
-            w='100%'
-            gap={3}
-            backgroundColor='white'
-            rounded={2}
+        <Flex
+          maxW='7xl'
+          bg={{ boxBR }}
+          boxShadow='sm'
+          display='flex'
+          direction='row'
+          w='100%'
+          gap={3}
+          backgroundColor='white'
+          rounded={2}
+        >
+          <Stack
+            spacing='5'
+            as='form'
+            onSubmit={formik.handleSubmit}
+            width={{ base: 'full', md: '50%' }}
+            p={{ base: '3', sm: '6' }}
           >
-            <Stack
-              spacing='5'
-              as='form'
-              onSubmit={formik.handleSubmit}
-              width={{ base: 'full', md: '50%' }}
-              py={{ base: '3', sm: '6' }}
-              px={{ base: '3', sm: '6' }}
-            >
-              <Stack spacing='0'>
-                <Stack spacing='6'>
-                  <Stack spacing={{ base: '2', md: '3' }} textAlign='center'>
-                    <Heading as='h3' size={{ base: 'md', md: 'lg' }} fontFamily='body' color='brand.500'>
-                      Get in touch
-                    </Heading>
-                    <Text color='brand.500'>We are here for you! How can we help?</Text>
-                  </Stack>
-                </Stack>
-                <FormControl>
-                  <FormLabel m={0} htmlFor='name'>
-                    Name
-                  </FormLabel>
-                  <TextField type='text' name='name' placeholder='Your name' autoComplete='on' id='name' />
-                </FormControl>
-                <FormControl>
-                  <FormLabel m={0} htmlFor='email'>
-                    Email
-                  </FormLabel>
-                  <TextField type='text' name='email' placeholder='you@example.com' autoComplete='on' id='email' />
-                </FormControl>
-                <FormControl isInvalid={formik.touched.message && formik.errors.message}>
-                  <FormLabel htmlFor='message'>Message</FormLabel>
-                  <Textarea
-                    type='text'
-                    id='message'
-                    placeholder='Your message'
-                    resize='none'
-                    rows={4}
-                    onChange={formik.handleChange}
-                    onBlur={formik.handleBlur}
-                    value={formik.values.message}
-                  />
-                  <FormErrorMessage>{formik.errors.message}</FormErrorMessage>
-                </FormControl>
+            <Stack spacing='0'>
+              <Stack spacing={{ base: '2', md: '3' }} textAlign='center' pb={2}>
+                <Heading as='h3' size={{ base: 'md', md: 'lg' }} fontFamily='body' color='brand.500'>
+                  Get in touch
+                </Heading>
+                <Text color='brand.500'>We are here for you! How can we help?</Text>
               </Stack>
-              <Stack spacing='5'>
-                <Button
-                  backgroundColor='brand.300'
-                  color='brand.100'
-                  _hover={{ backgroundColor: 'brand.3001' }}
-                  size='lg'
-                  fontSize='md'
-                  type='submit'
-                  rounded={2}
-                >
-                  Submit
-                </Button>
-              </Stack>
-            </Stack>
-            <Stack w='50%' display={{ base: 'none', md: 'block' }}>
-              <Box mx='auto' my='auto' rounded='2px' overflow='hidden' width='100%' height='full'>
-                <Image
-                  w='full'
-                  h='full'
-                  fit='cover'
-                  rounded={2}
-                  objectPosition='center'
-                  src={QuotesImage}
-                  alt='work studio'
-                />
+              <Box>
+                <TextField type='text' name='name' placeholder='Your name' id='name' label='Name' />
               </Box>
+              <Box>
+                <TextField type='text' name='email' placeholder='you@example.com' id='email' label='Email' />
+              </Box>
+              <FormControl id='message' isInvalid={formik.touched.message && formik.errors.message}>
+                <FormLabel>Message</FormLabel>
+                <Textarea
+                  type='text'
+                  id='message'
+                  placeholder='Your message'
+                  resize='none'
+                  rows={4}
+                  onChange={formik.handleChange}
+                  onBlur={formik.handleBlur}
+                  value={formik.values.message}
+                />
+                <FormErrorMessage>{formik.errors.message}</FormErrorMessage>
+              </FormControl>
             </Stack>
-          </Flex>
-        </Container>
+            <Stack spacing='5'>
+              <Button
+                backgroundColor='brand.300'
+                color='brand.100'
+                _hover={{ backgroundColor: 'brand.3001' }}
+                size='lg'
+                fontSize='md'
+                type='submit'
+                rounded={2}
+              >
+                Submit
+              </Button>
+            </Stack>
+          </Stack>
+          <Stack w='50%' display={{ base: 'none', md: 'block' }}>
+            <Image
+              w='full'
+              h='full'
+              fit='cover'
+              rounded={2}
+              objectPosition='center'
+              src={QuotesImage}
+              alt='work studio'
+            />
+          </Stack>
+        </Flex>
       )}
     </Formik>
   );

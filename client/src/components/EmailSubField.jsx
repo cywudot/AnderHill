@@ -22,6 +22,7 @@ const FooterTest = () => {
       toast({ description: 'Subscribed', status: 'success', isClosable: true });
       actions.setSubmitting(false);
     }, 500);
+    actions.resetForm();
   };
 
   return (

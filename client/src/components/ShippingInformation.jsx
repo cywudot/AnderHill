@@ -50,23 +50,23 @@ const ShippingInformation = () => {
                 : setErrorState(true)
             }
           >
-            <TextField name='address' placeholder='Street Address' label='Street Address' autoComplete='on' />
+            <TextField name='address' placeholder='Street Address' label='Street Address'  />
 
             <Flex>
               <Box flex='1' mr='5'>
-                <TextField name='postalCode' placeholder='Postal Code' label='Postal Code' autoComplete='on' />
+                <TextField name='postalCode' placeholder='Postal Code' label='Postal Code'  />
               </Box>
               <Box flex='2'>
-                <TextField name='city' placeholder='City' label='City' autoComplete='on' />
+                <TextField name='city' placeholder='City' label='City'  />
               </Box>
             </Flex>
 
             <Flex>
               <Box flex='1' mr='5'>
-                <TextField name='province' placeholder='Province' label='Province' autoComplete='on' />
+                <TextField name='province' placeholder='Province' label='Province' />
               </Box>
               <Box flex='2'>
-                <TextField name='country' placeholder='Country' label='Country' autoComplete='on' />
+                <TextField name='country' placeholder='Country' label='Country'  />
               </Box>
             </Flex>
           </FormControl>

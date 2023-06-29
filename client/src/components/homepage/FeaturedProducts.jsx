@@ -41,7 +41,7 @@ const FeatureProducts = () => {
   }, [productList.products]);
 
   return (
-    <>
+    <Box as='section'>
       <Flex
         w='100%'
         justifyContent={{ base: 'center', lg: 'left' }}
@@ -92,14 +92,12 @@ const FeatureProducts = () => {
         >
           {randomProducts.map((product) => (
             <GridItem key={product._id} mx='auto'>
-              <Center>
-                <FeaturedProductCard product={product} />
-              </Center>
+              <FeaturedProductCard product={product} />
             </GridItem>
           ))}
         </SimpleGrid>
       )}
-    </>
+    </Box>
   );
 };
 
