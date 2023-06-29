@@ -25,13 +25,14 @@ import EmailSubField from './EmailSubField';
 
 const Footer = () => {
   return (
-    <Box as='footer' backgroundColor='brand.500' w='100%' pb={2} pt={4}>
-      <Container as='footer' role='contentinfo' maxW='8xl' pt={5} pb={3}>
+    <Box as='footer' backgroundColor='brand.500' pb={2} pt={2}>
+      <Container role='contentinfo' maxW={{ base: 'lg', md: '8xl' }} pt={3} pb={3}>
         <SimpleGrid
-          templateColumns={{ base: '1fr 1fr', md: '1fr 1fr 1fr 2fr', lg: '1fr 1fr 1fr 1fr' }}
+          templateColumns={{ base: '1fr 1fr', md: '1fr 1fr 1fr 2fr', lg: '1fr 1fr 1fr 2fr' }}
           templateRows={{ base: '1fr 1fr 1fr', md: '1fr' }}
           spacing={5}
           py={4}
+          px={4}
         >
           <Stack spacing={4} gridColumn={{ base: '1 / -1', md: 'auto' }} textAlign={{ base: 'center', md: 'left' }}>
             <Box
@@ -40,7 +41,7 @@ const Footer = () => {
               alignSelf={{ base: 'center', md: 'flex-start' }}
               my='auto'
             >
-              <Image src={AHLogo} maxWidth='180px' />
+              <Image src={AHLogo} maxWidth='180' />
             </Box>
           </Stack>
           <Stack>
@@ -80,7 +81,7 @@ const Footer = () => {
           </Stack>
         </SimpleGrid>
 
-        <Divider orientation='horizontal' py={5} />
+        <Divider orientation='horizontal' py={3} />
         <Stack direction='row' justify='space-between'>
           <Stack justify='center'>
             <Text color='brand.750' fontSize='sm'>
