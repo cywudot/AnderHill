@@ -34,7 +34,7 @@ const CategoriesSection = () => {
         <Link as={ReactLink} to='/products/Home%20Accents'>
           <GridItem colSpan={{ base: 1, lg: 1 }} rowSpan={{ base: 1, lg: 1 }} position='relative'>
             <Image w='full' fit='cover' objectPosition='center' src={HomeAccent} alt='Home accent products link' />
-            <Text {...mockButtonStyles} aria-label='Shop Home Accents' whiteSpace='nowrap'>
+            <Text {...mockButtonStyles} whiteSpace='nowrap'>
               Shop Home Accents
             </Text>
           </GridItem>
@@ -43,7 +43,7 @@ const CategoriesSection = () => {
         <Link as={ReactLink} to='/products/Dinnerware'>
           <GridItem colSpan={{ base: 1, lg: 1 }} rowSpan={{ base: 1, lg: 1 }} position='relative'>
             <Image w='full' fit='cover' objectPosition='center' src={Dinnerware} alt='Dinnerware products link' />
-            <Text {...mockButtonStyles} whiteSpace='nowrap' aria-label='Shop Dinnerware'>
+            <Text {...mockButtonStyles} whiteSpace='nowrap'>
               Shop Dinnerware
             </Text>
           </GridItem>
@@ -61,8 +61,7 @@ const CategoriesSection = () => {
               src={ShopAll}
               alt='Shop all collections link'
             />
-
-            <Text {...mockButtonStyles} whiteSpace='nowrap' aria-label='Shop All Products'>
+            <Text {...mockButtonStyles} whiteSpace='nowrap'>
               Shop All
             </Text>
           </Link>
