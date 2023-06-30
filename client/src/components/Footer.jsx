@@ -97,6 +97,7 @@ const Footer = () => {
               backgroundColor='brand.500'
               color='brand.100'
               icon={<FaFacebook />}
+              variant='none'
             />
             <IconButton
               aria-label='Twitter'
@@ -106,6 +107,7 @@ const Footer = () => {
               backgroundColor='brand.500'
               color='brand.100'
               icon={<FaTwitter />}
+              variant='none'
             />
             <IconButton
               aria-label='Instagram'
@@ -115,6 +117,7 @@ const Footer = () => {
               backgroundColor='brand.500'
               color='brand.100'
               icon={<FaInstagram />}
+              variant='none'
             />
           </Stack>
         </Stack>

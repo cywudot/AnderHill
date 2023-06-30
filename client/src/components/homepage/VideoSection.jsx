@@ -56,7 +56,6 @@ const VideoSection = () => {
               variant='link'
               to='/aboutus'
               _hover={{ textDecoration: 'none' }}
-              aria-label='Read More About Us'
               fontSize={{
                 base: 'sm',
                 md: 'md',
