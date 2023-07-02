@@ -24,7 +24,7 @@ import { addCartItem } from '../redux/actions/cartActions';
 const Rating = ({ rating, numberOfReviews }) => {
   const { iconSize, setIconSize } = useState('14px');
   return (
-    <Flex mb='10px'>
+    <Flex display={{ base: 'none', sm: 'flex' }} alignItems='center'>
       {/* Display star icons based on the rating */}
       <HStack spacing='2px'>
         <StarIcon size={iconSize} w='14px' color={rating >= 1 ? 'brand.4001' : 'brand.200'} />
@@ -33,10 +33,8 @@ const Rating = ({ rating, numberOfReviews }) => {
         <StarIcon size={iconSize} w='14px' color={rating >= 4 ? 'brand.4001' : 'brand.200'} />
         <StarIcon size={iconSize} w='14px' color={rating >= 5 ? 'brand.4001' : 'brand.200'} />
       </HStack>
-      <Text fontSize={{ base: 'sm', lg: 'md' }} fontWeight='regular' ml='10px' mt='5px'>
-        {numberOfReviews === 0
-          ? 'No Reviews Yet'
-          : `${numberOfReviews} ${numberOfReviews === 1 ? 'Review' : 'Reviews'}`}
+      <Text fontSize={{ base: 'sm', lg: 'md' }} fontWeight='regular' ml='10px'>
+        {numberOfReviews === 0 ? 'No Reviews ' : `${numberOfReviews} ${numberOfReviews === 1 ? 'Review' : 'Reviews'}`}
       </Text>
     </Flex>
   );
@@ -69,6 +67,33 @@ const ProductCard = ({ product }) => {
     }
   };
 
+  const Cart = ({ product }) => {
+    return (
+      <Tooltip
+        label='Add to cart'
+        bg='white'
+        placement={'top'}
+        color={'gray.800'}
+        fontSize={{ base: 'sm', lg: 'md' }}
+        isDisabled={product.stock === 0}
+        p={2}
+      >
+        <Button
+          variant='ghost'
+          _hover={{ bg: 'transparent' }}
+          isDisabled={product.stock === 0}
+          p='0px'
+          onClick={() => addItem(product._id)}
+          backgroundColor='brand.100'
+          h='20px'
+        >
+          <VisuallyHidden>Add {product.name} to cart</VisuallyHidden>
+          <Icon as={FaCartPlus} h={{ base: '4', sm: '5' }} w={{ base: '4', sm: '5' }} fill='brand.4001' />
+        </Button>
+      </Tooltip>
+    );
+  };
+
   return (
     <Stack maxW='320px' mx='auto'>
       <Link as={ReactLink} to={`/product/${product._id}`} cursor='pointer' variant='none'>
@@ -88,8 +113,8 @@ const ProductCard = ({ product }) => {
             <chakra.span flex='1' max='5' alignItems='baseline' position='absolute' top={4} right={4}>
               <Badge
                 rounded='2'
-                px='5'
-                fontSize='1em'
+                px={{ base: '2', sm: '5' }}
+                fontSize={{ base: 'sm', md: 'lg' }}
                 color='brand.400'
                 fontWeight='regular'
                 fontFamily='body'
@@ -103,8 +128,8 @@ const ProductCard = ({ product }) => {
             <chakra.span flex='1' max='5' alignItems='baseline' position='absolute' top={4} right={4}>
               <Badge
                 rounded='2'
-                px='5'
-                fontSize='1em'
+                px={{ base: '2', sm: '5' }}
+                fontSize={{ base: 'sm', md: 'lg' }}
                 color='brand.600'
                 fontWeight='regular'
                 as='i'
@@ -118,44 +143,36 @@ const ProductCard = ({ product }) => {
         </Box>
       </Link>
 
-      <Flex justify='space-between' color='brand.500'>
-        <Link as={ReactLink} to={`/product/${product._id}`} cursor='pointer' _hover={{ textDecoration: 'none' }}>
-          <Box fontSize={{ base: 'md', lg: 'xl' }} fontWeight='bold' fontFamily='heading'>
-            {product.name}
-          </Box>
+      <Flex
+        direction={{ base: 'column', sm: 'row' }}
+        justify='space-between'
+        color='brand.500'
+        textAlign={{ base: 'left', lg: 'center' }}
+      >
+        <Link
+          as={ReactLink}
+          to={`/product/${product._id}`}
+          cursor='pointer'
+          _hover={{ textDecoration: 'none' }}
+          fontWeight='bold'
+          fontFamily='heading'
+          fontSize={{ base: 'md', sm: 'lg', md: 'xl' }}
+        >
+          {product.name}
         </Link>
-
-        <Box fontSize={{ base: 'sm', lg: 'md' }} fontWeight='regular'>
-          <Text alignSelf='center' mt='3px'>
+        <Stack direction='row' justify='space-between' alignItems='center'>
+          <Text mt='3px' fontSize={{ base: 'sm', lg: 'md' }} fontWeight='regular'>
             ${product.price.toFixed(2)}
           </Text>
-        </Box>
+        </Stack>
       </Flex>
 
-      <Flex justify='space-between'>
+      <Flex direction={{ base: 'column', sm: 'row' }} justify='space-between' alignItems='center'>
         <Rating rating={product.rating} numberOfReviews={product.numberOfReviews} />
-        <Tooltip
-          label='Add to cart'
-          bg='white'
-          placement={'top'}
-          color={'gray.800'}
-          fontSize={{ base: 'sm', lg: 'md' }}
-          isDisabled={product.stock === 0}
-          p={2}
-        >
-          <Button
-            variant='ghost'
-            bg='white'
-            _hover={{ bg: 'transparent' }}
-            isDisabled={product.stock === 0}
-            p='0px'
-            onClick={() => addItem(product._id)}
-            backgroundColor='brand.100'
-          >
-            <VisuallyHidden>Add {product.name} to cart</VisuallyHidden>
-            <Icon as={FaCartPlus} h={{ base: '5', md: '6' }} w={{ base: '5', md: '6' }} fill='brand.4001' mb='10px' />
-          </Button>
-        </Tooltip>
+
+        <Box display={{ base: 'none', sm: 'initial' }}>
+          <Cart product={product} />
+        </Box>
       </Flex>
     </Stack>
   );

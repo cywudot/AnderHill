@@ -15,7 +15,6 @@ import {
   useDisclosure,
   Button,
   Image,
-  useColorMode,
   useToast,
   Menu,
   MenuList,
@@ -55,9 +54,9 @@ const NavLink = ({ path, children }) => {
       px={2}
       py={2}
       alt={links.linkName}
-      fontSize={{ base: '2xl', md: 'lg' }}
+      fontSize='xl'
       fontWeight='semibold'
-      color={isActive ? 'brand.400' : 'brand.500'}
+      color={isActive ? 'brand.4001' : 'brand.500'}
       textTransform='uppercase'
       variant='none'
       _activeLink={{ color: 'brand.400' }}
@@ -147,7 +146,7 @@ const ShoppingCartIcon = () => {
           {cartItemsTotalCalc(cart)}
         </Badge>
       )}
-      <Icon as={AiOutlineShoppingCart} h='10' w='7' alignSelf='center' />
+      <Icon as={AiOutlineShoppingCart} h='7' w='7' alignSelf='center' />
     </Flex>
   );
 };
@@ -165,11 +164,21 @@ const Navbar = () => {
 
   return (
     <chakra.header id='header'>
-      <Flex w='100%' px='6' py='5' align='center' justify='space-between'>
+      <Flex w='100%' px={{ md: '2', lg: '12' }} py={{ base: '2', md: '4' }} align='center' justify='space-between'>
         {/* Logo */}
         <Link as={ReactLink} to='/'>
-          <Image src={AHLogo} display={{ base: 'none', lg: 'initial' }} minWidth='120px' maxWidth='150px' />
-          <Image src={AHLogo2} display={{ base: 'initial', lg: 'none' }} minWidth='100px' maxWidth='120px' />
+          <Image src={AHLogo} display={{ base: 'none', lg: 'initial' }} minWidth='100px' maxWidth='150px' />
+          <Text
+            display={{ base: 'initial', lg: 'none' }}
+            fontFamily='heading'
+            textTransform='uppercase'
+            color='brand.500'
+            fontWeight='bold'
+            fontSize={['xl', '3xl']}
+            ml={3}
+          >
+            ANDER HILL
+          </Text>
         </Link>
         {/* Nav Items */}
         <HStack as='nav' spacing='5' display={{ base: 'none', md: 'flex' }}>
@@ -184,22 +193,22 @@ const Navbar = () => {
           {userInfo ? (
             <>
               <Menu justify='center'>
-                <MenuButton pt={1} transition='all 0.3s' as={Button} variant='none'>
+                <MenuButton mt={1} transition='all 0.3s' as={Button} variant='none'>
                   <Icon as={BsPersonCircle} w={6} h={6} color='brand.500' />
                 </MenuButton>
                 <MenuList rounded={2} backgroundColor='brand.100' borderColor='brand.500'>
                   <MenuItem as={ReactLink} to='/profile' backgroundColor='brand.100' color='brand.500'>
                     <CgProfile color='brand.500' />
-                    <Text pl='2'>Profile</Text>
+                    <Text ml='2'>Profile</Text>
                   </MenuItem>
                   <MenuItem as={ReactLink} to='/your-orders' backgroundColor='brand.100' color='brand.500'>
                     <MdLocalShipping />
-                    <Text pl='2'>Your Order</Text>
+                    <Text ml='2'>Your Order</Text>
                   </MenuItem>
                   <MenuDivider />
                   <MenuItem onClick={logoutHandler} backgroundColor='brand.100' color='brand.500'>
                     <MdLogout color='brand.500' />
-                    <Text pl='2'>Logout</Text>
+                    <Text ml='2'>Logout</Text>
                   </MenuItem>
                 </MenuList>
               </Menu>

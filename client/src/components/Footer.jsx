@@ -25,7 +25,7 @@ import EmailSubField from './EmailSubField';
 
 const Footer = () => {
   return (
-    <Box as='footer' backgroundColor='brand.500' pb={2} pt={2}>
+    <Box as='footer' backgroundColor='brand.500' mt={8}>
       <Container role='contentinfo' maxW={{ base: 'lg', md: '8xl' }} pt={3} pb={3}>
         <SimpleGrid
           templateColumns={{ base: '1fr 1fr', md: '1fr 1fr 1fr 2fr', lg: '1fr 1fr 1fr 2fr' }}
@@ -82,18 +82,18 @@ const Footer = () => {
         </SimpleGrid>
 
         <Divider orientation='horizontal' py={3} />
-        <Stack direction='row' justify='space-between'>
+        <Stack direction={['column-reverse', 'row']} justify='space-between' textAlign='center'>
           <Stack justify='center'>
-            <Text color='brand.750' fontSize='sm'>
+            <Text color='brand.750' fontSize={['xs', 'sm']}>
               © 2023 AH Pottery. All rights reserved.
             </Text>
           </Stack>
-          <Stack direction='row'>
+          <Stack direction='row' justify={{ base: 'center', sm: 'right' }}>
             <IconButton
               aria-label='Facebook'
               as='a'
               href='#'
-              size='lg'
+              size={{ base: 'md', md: 'lg' }}
               backgroundColor='brand.500'
               color='brand.100'
               icon={<FaFacebook />}
@@ -103,7 +103,7 @@ const Footer = () => {
               aria-label='Twitter'
               as='a'
               href='#'
-              size='lg'
+              size={{ base: 'md', md: 'lg' }}
               backgroundColor='brand.500'
               color='brand.100'
               icon={<FaTwitter />}
@@ -113,7 +113,7 @@ const Footer = () => {
               aria-label='Instagram'
               as='a'
               href='#'
-              size='lg'
+              size={{ base: 'md', md: 'lg' }}
               backgroundColor='brand.500'
               color='brand.100'
               icon={<FaInstagram />}

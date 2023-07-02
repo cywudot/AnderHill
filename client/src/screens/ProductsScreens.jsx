@@ -97,7 +97,7 @@ const ProductsScreens = () => {
         </Box>
       </Box>
 
-      <Stack minHeight='100vh' mx='auto' align='center'>
+      <Stack minHeight='100vh' mx='auto' align='center' as='section'>
         <Box direction='row' pt={6} mx='auto'>
           <Button
             {...buttonStyles}
@@ -132,14 +132,15 @@ const ProductsScreens = () => {
           </Alert>
         ) : (
           <SimpleGrid
+            id='products-collection'
             spacing={8}
             justify='center'
             backgroundColor='brand.100'
-            px={{ base: '8', lg: '12' }}
+            px={{ base: '4', lg: '12' }}
             py={4}
             columns={{
-              base: 1,
-              sm: Math.min(2, numColumns),
+              base: Math.min(2, numColumns),
+              // sm: Math.min(2, numColumns),
               lg: Math.min(3, numColumns),
               xl: Math.min(4, numColumns),
             }}
