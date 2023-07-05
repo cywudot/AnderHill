@@ -166,7 +166,7 @@ const Navbar = () => {
     <chakra.header id='header'>
       <Flex w='100%' px={{ md: '2', lg: '12' }} py={{ base: '2', md: '4' }} align='center' justify='space-between'>
         {/* Logo */}
-        <Link as={ReactLink} to='/'>
+        <Link as={ReactLink} to='/' _hover={{ textDecoration: 'none' }}>
           <Image src={AHLogo} display={{ base: 'none', lg: 'initial' }} minWidth='100px' maxWidth='150px' />
           <Text
             display={{ base: 'initial', lg: 'none' }}

@@ -44,7 +44,6 @@ const theme = extendTheme({
       750: '#CCCCCC',
       780: '#B6B5B5',
       800: '#84817C',
-      // 900: '#5c5a56',
       1000: '#17B169',
       1001: '#128C53',
       2000: '#131413',
@@ -54,9 +53,6 @@ const theme = extendTheme({
   fonts: {
     heading: `'Cormorant Garamond', sans-serif`,
     body: `'Poppins', sans-serif`,
-  },
-  body: {
-    background: '#FCFAF7',
   },
 });
 
@@ -69,7 +65,6 @@ function App() {
         <main>
           <Routes>
             <Route path='/' element={<HomeScreen />}></Route>
-            {/* <Route path='/products' element={<ProductsScreens />}></Route> */}
             <Route path='/products/:category?' element={<ProductsScreens />}></Route>
             <Route path='/aboutus' element={<AboutUs />}></Route>
             <Route path='/product/:id' element={<ProductScreen />}></Route>

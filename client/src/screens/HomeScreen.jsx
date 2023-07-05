@@ -91,11 +91,12 @@ const HomeScreen = () => {
                   <Heading
                     as='h1'
                     size={['xl', '3xl', '4xl']}
-                    fontWeight='extrabold'
+                    fontWeight='bold'
                     color='brand.100'
                     textTransform='uppercase'
                     letterSpacing='wide'
                     px={{ base: '4', md: '0' }}
+                    fontFamily='heading'
                   >
                     Ander Hill Pottery
                   </Heading>

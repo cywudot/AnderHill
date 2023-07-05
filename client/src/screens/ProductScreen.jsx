@@ -24,7 +24,7 @@ import {
 } from '@chakra-ui/react';
 import { StarIcon } from '@chakra-ui/icons';
 import { FaPlus, FaMinus } from 'react-icons/fa';
-import { BiSupport } from 'react-icons/bi';
+import { BiSupport, BiSolidWasher } from 'react-icons/bi';
 import { useDispatch, useSelector } from 'react-redux';
 import { getProduct, createProductReview, resetProductError } from '../redux/actions/productActions';
 import { addCartItem } from '../redux/actions/cartActions';
@@ -104,13 +104,13 @@ const ProductScreen = () => {
       ) : (
         product && (
           <Box
-            maxW={{ base: '3xl', lg: '7xl' }}
+            maxW={{ base: '2xl', lg: '7xl' }}
             mx='auto'
             px={{ base: '4', md: '8', lg: '12' }}
             py={{ base: '6', md: '8', lg: '12' }}
           >
-            <Stack direction={{ base: 'column-reverse', lg: 'row' }} align='center' mb='50px'>
-              <Stack pr={{ base: '0', md: '12' }} spacing={{ base: '8', md: '4' }} flex='1.5'>
+            <Stack direction={{ base: 'column-reverse', lg: 'row' }} align='center' mb='50px' gap={5}>
+              <Stack spacing={{ base: '8', md: '4' }} flex='1.5'>
                 {product.productIsNew && (
                   <Badge
                     rounded='full'
@@ -142,10 +142,10 @@ const ProductScreen = () => {
                 )}
 
                 <Stack direction={{ base: 'row', lg: 'column' }} justify='space-between'>
-                  <Heading fontSize={{ base: 'lg', lg: '2xl', md: '4xl' }} fontWeight='extrabold' color='brand.500'>
+                  <Heading fontSize={{ base: 'xl', sm: '2xl', lg: '3xl' }} fontWeight='extrabold' color='brand.500'>
                     {product.name}
                   </Heading>
-                  <Text fontSize={{ base: 'lg', lg: '2xl', md: '3xl' }} color='brand.500'>
+                  <Text fontSize={{ base: 'lg', sm: 'xl', md: '2xl' }} color='brand.500'>
                     ${product.price.toFixed(2)}
                   </Text>
                 </Stack>
@@ -160,22 +160,24 @@ const ProductScreen = () => {
                         <StarIcon color={product.rating >= 4 ? 'brand.400' : 'brand.200'} />
                         <StarIcon color={product.rating >= 5 ? 'brand.400' : 'brand.200'} />
                       </HStack>
-                      <Text fontSize='md' fontWeight='bold' ml='15px' color='brand.500'>
+                      <Text fontSize={{ base: 'md', md: 'lg' }} fontWeight='bold' ml='15px' color='brand.500'>
                         {product.numberOfReviews === 0
                           ? 'No Reviews Yet'
                           : `${product.numberOfReviews} ${product.numberOfReviews === 1 ? 'Review' : 'Reviews'}`}
                       </Text>
                     </Flex>
                   </Box>
-                  <Text color='brand.500'>{product.description}</Text>
+                  <Text color='brand.500' fontSize={{ base: 'md', md: 'lg' }}>
+                    {product.description}
+                  </Text>
                   <Stack spacing='2px' direction='column'>
-                    <Text color='brand.500' fontFamily='heading' fontSize='lg'>
+                    <Text color='brand.500' fontFamily='heading' fontWeight='bold' fontSize={{ base: 'lg', lg: 'xl' }}>
                       Color: {product.color}
                     </Text>
-                    <Text color='brand.500' fontFamily='heading' fontSize='lg'>
+                    <Text color='brand.500' fontFamily='heading' fontWeight='bold' fontSize={{ base: 'lg', lg: 'xl' }}>
                       Size: {product.dimensions.diameter}cm diameter / {product.dimensions.height}cm height
                     </Text>
-                    <Text color='brand.500' fontFamily='heading' fontSize='lg'>
+                    <Text color='brand.500' fontFamily='heading' fontWeight='bold' fontSize={{ base: 'lg', lg: 'xl' }}>
                       Material: {product.material}
                     </Text>
                   </Stack>
@@ -234,6 +236,12 @@ const ProductScreen = () => {
                       <TbTruckDelivery size='20px' color='#DFBD8E' />
                       <Text fontWeight='medium' fontSize='sm' ml='2' color='brand.500'>
                         Free shipping if order is $300 or above
+                      </Text>
+                    </Flex>
+                    <Flex alignItems='center'>
+                      <BiSolidWasher size='20px' color='#DFBD8E' />
+                      <Text fontWeight='medium' fontSize='sm' ml='2' color='brand.500'>
+                        Dishwasher Safe
                       </Text>
                     </Flex>
                     <Flex alignItems='center'>
