@@ -73,7 +73,7 @@ const ContactForm = () => {
                 <TextField type='text' name='email' placeholder='you@example.com' id='email' label='Email' />
               </Box>
               <FormControl id='message' isInvalid={formik.touched.message && formik.errors.message}>
-                <FormLabel>Message</FormLabel>
+                <FormLabel color='brand.500'>Message</FormLabel>
                 <Textarea
                   type='text'
                   id='message'

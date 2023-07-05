@@ -59,21 +59,20 @@ const ProfileScreen = () => {
       {(formik) => (
         <Box
           minH='100vh'
-          maxW={{ base: '3xl', lg: '7xl' }}
+          maxW={{ base: '3xl', lg: '6xl' }}
           mx='auto'
           px={{ base: '4', md: '8', lg: '12' }}
           py={{ base: '6', md: '8', lg: '12' }}
         >
-          <Stack spacing='5' direction={{ base: 'column', lg: 'row' }} align={{ lg: 'flex-start' }}>
-            <Stack
-              flex='1.5'
-              mb={{ base: '2xl', md: 'none' }}
-              backgroundColor='white'
-              p={5}
-              rounded={2}
-              boxShadow='base'
-            >
-              <Heading fontSize='3xl' fontWeight='extrabold' pb={4}>
+          <Stack
+            // spacing='5'
+            direction={{ base: 'column', lg: 'row' }}
+            align={{ lg: 'flex-start' }}
+            spacing={{ base: '8', md: '10' }}
+            w='full'
+          >
+            <Stack flex='2' backgroundColor='white' p={5} rounded={2} boxShadow='base'>
+              <Heading as='h2' fontSize='3xl' fontWeight='extrabold' pb={4} textTransform='uppercase' color='brand.500'>
                 Profile
               </Heading>
               <Stack spacing='6'>
@@ -122,14 +121,17 @@ const ProfileScreen = () => {
                 </Stack>
               </Stack>
             </Stack>
-            <Flex direction='column' align='center' flex='1'>
+
+            <Flex direction='column' flex='1'>
               <Card boxShadow='base' rounded={2}>
                 <CardHeader>
-                  <Heading size='md'> Welcome, {userInfo.name} </Heading>
+                  <Heading as='h3' color='brand.500' size='md' fontWeight='semibold'>
+                    Welcome, {userInfo.name}
+                  </Heading>
                 </CardHeader>
                 <CardBody>
                   <Stack divider={<StackDivider />} spacing='4'>
-                    <Box pt='2' fontSize='sm'>
+                    <Box pt='2' fontSize='sm' color='brand.500'>
                       Registered on {new Date(userInfo.createdAt).toDateString()}
                     </Box>
                   </Stack>
