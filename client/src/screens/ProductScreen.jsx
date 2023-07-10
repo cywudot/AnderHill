@@ -97,7 +97,7 @@ const ProductScreen = () => {
 
   return (
     <Box>
-      <Box as='section' justify='center'>
+      <Box as='section' justify='center' minH='100vh'>
         {loading ? (
           <Center>
             <Spinner mt={20} thickness='2px' speed='0.65s' emptyColor='gray.200' color='brand.400' size='xl' />

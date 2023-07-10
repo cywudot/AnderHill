@@ -1,5 +1,5 @@
 import Navbar from './components/Navbar';
-import { ChakraProvider, extendTheme } from '@chakra-ui/react';
+import { ChakraProvider, extendTheme, Box } from '@chakra-ui/react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import ProductsScreens from './screens/ProductsScreens';
 import '@fontsource/cormorant-garamond';
@@ -62,21 +62,29 @@ function App() {
       <Router>
         <ScrollToTop />
         <Navbar />
-        <main>
-          <Routes>
-            <Route path='/' element={<HomeScreen />}></Route>
-            <Route path='/products/:category?' element={<ProductsScreens />}></Route>
-            <Route path='/aboutus' element={<AboutUs />}></Route>
-            <Route path='/product/:id' element={<ProductScreen />}></Route>
-            <Route path='/shoppingcart' element={<CartScreen />}></Route>
-            <Route path='/login' element={<LoginScreen />}></Route>
-            <Route path='/registration' element={<RegistrationScreen />}></Route>
-            <Route path='/profile' element={<ProfileScreen />}></Route>
-            <Route path='/checkout' element={<CheckoutScreen />}></Route>
-            <Route path='/order-success' element={<OrderSuccessScreen />}></Route>
-            <Route path='/your-orders' element={<YourOrdersScreen />}></Route>
-          </Routes>
-        </main>
+        <Box
+          display='flex'
+          minHeight='calc(100vh - 100px)'
+          flexDirection='column'
+          position='relative'
+          mt={{ base: '50px', lg: '100px' }}
+        >
+          <main>
+            <Routes>
+              <Route path='/' element={<HomeScreen />}></Route>
+              <Route path='/products/:category?' element={<ProductsScreens />}></Route>
+              <Route path='/aboutus' element={<AboutUs />}></Route>
+              <Route path='/product/:id' element={<ProductScreen />}></Route>
+              <Route path='/shoppingcart' element={<CartScreen />}></Route>
+              <Route path='/login' element={<LoginScreen />}></Route>
+              <Route path='/registration' element={<RegistrationScreen />}></Route>
+              <Route path='/profile' element={<ProfileScreen />}></Route>
+              <Route path='/checkout' element={<CheckoutScreen />}></Route>
+              <Route path='/order-success' element={<OrderSuccessScreen />}></Route>
+              <Route path='/your-orders' element={<YourOrdersScreen />}></Route>
+            </Routes>
+          </main>
+        </Box>
         <Footer />
       </Router>
     </ChakraProvider>

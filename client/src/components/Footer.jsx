@@ -25,7 +25,7 @@ import EmailSubField from './EmailSubField';
 
 const Footer = () => {
   return (
-    <Box as='footer' backgroundColor='brand.500' mt={8}>
+    <Box as='footer' backgroundColor='brand.500' mt={8} position='relative' bottom={0} width='100%'>
       <Container role='contentinfo' maxW={{ base: 'lg', md: '8xl' }} pt={3} pb={3}>
         <SimpleGrid
           templateColumns={{ base: '1fr 1fr', md: '1fr 1fr 1fr 2fr', lg: '1fr 1fr 1fr 2fr' }}
@@ -41,7 +41,7 @@ const Footer = () => {
               alignSelf={{ base: 'center', md: 'flex-start' }}
               my='auto'
             >
-              <Image src={AHLogo} maxWidth='180' />
+              <Image src={AHLogo} maxWidth='180' alt='footer-logo' />
             </Box>
           </Stack>
           <Stack>
@@ -91,7 +91,7 @@ const Footer = () => {
           <Stack direction='row' justify={{ base: 'center', sm: 'right' }}>
             <IconButton
               aria-label='Facebook'
-              as='a'
+              as={Link}
               href='#'
               size={{ base: 'md', md: 'lg' }}
               backgroundColor='brand.500'
@@ -101,7 +101,7 @@ const Footer = () => {
             />
             <IconButton
               aria-label='Twitter'
-              as='a'
+              as={Link}
               href='#'
               size={{ base: 'md', md: 'lg' }}
               backgroundColor='brand.500'
@@ -111,7 +111,7 @@ const Footer = () => {
             />
             <IconButton
               aria-label='Instagram'
-              as='a'
+              as={Link}
               href='#'
               size={{ base: 'md', md: 'lg' }}
               backgroundColor='brand.500'

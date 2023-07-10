@@ -32,7 +32,6 @@ import { AiOutlineShoppingCart, AiOutlineLogin } from 'react-icons/ai';
 import { MdLocalShipping, MdLogout } from 'react-icons/md';
 import { CgProfile } from 'react-icons/cg';
 import AHLogo from '../logo/AnderHillLogo.png';
-import AHLogo2 from '../logo/AnderHillLogo2.png';
 import { logout } from '../redux/actions/userActions';
 import { useRef } from 'react';
 import { BsPersonCircle } from 'react-icons/bs';
@@ -164,7 +163,19 @@ const Navbar = () => {
 
   return (
     <chakra.header id='header'>
-      <Flex w='100%' px={{ md: '2', lg: '12' }} py={{ base: '2', md: '4' }} align='center' justify='space-between'>
+      <Flex
+        w='100%'
+        px={{ md: '2', lg: '12' }}
+        py={{ base: '2', md: '4' }}
+        align='center'
+        justify='space-between'
+        pos='fixed'
+        top='0'
+        left='0'
+        right='0'
+        zIndex='sticky'
+        bg='brand.100'
+      >
         {/* Logo */}
         <Link as={ReactLink} to='/' _hover={{ textDecoration: 'none' }}>
           <Image src={AHLogo} display={{ base: 'none', lg: 'initial' }} minWidth='100px' maxWidth='150px' />
@@ -218,7 +229,6 @@ const Navbar = () => {
               <Button
                 as={ReactLink}
                 to='/registration'
-                fontWeight={400}
                 variant='none'
                 color='brand.500'
                 display={{ base: 'none', md: 'inline-flex' }}
@@ -238,7 +248,7 @@ const Navbar = () => {
               <Button
                 as={ReactLink}
                 to='/login'
-                alt='login'
+                alt='login-button'
                 color='brand.500'
                 px={0}
                 variant='none'
@@ -252,7 +262,7 @@ const Navbar = () => {
             as={ReactLink}
             to='/shoppingcart'
             color='brand.500'
-            alt='cart'
+            alt='cart-button'
             px={0}
             variant='none'
             backgroundColor='transparent'
