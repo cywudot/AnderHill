@@ -63,15 +63,15 @@ const ProfileScreen = () => {
           mx='auto'
           px={{ base: '4', md: '8', lg: '12' }}
           py={{ base: '6', md: '8', lg: '12' }}
+          className='main-content'
         >
           <Stack
-            // spacing='5'
             direction={{ base: 'column', lg: 'row' }}
             align={{ lg: 'flex-start' }}
             spacing={{ base: '8', md: '10' }}
             w='full'
           >
-            <Stack flex='2' backgroundColor='white' p={5} rounded={2} boxShadow='base'>
+            <Stack flex='2' backgroundColor='white' p={5} rounded={2} boxShadow='base' as='section'>
               <Heading as='h2' fontSize='3xl' fontWeight='extrabold' pb={4} textTransform='uppercase' color='brand.500'>
                 Profile
               </Heading>
@@ -122,7 +122,7 @@ const ProfileScreen = () => {
               </Stack>
             </Stack>
 
-            <Flex direction='column' flex='1'>
+            <Flex direction='column' flex='1' as='section'>
               <Card boxShadow='base' rounded={2}>
                 <CardHeader>
                   <Heading as='h3' color='brand.500' size='md' fontWeight='semibold'>

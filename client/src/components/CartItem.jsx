@@ -7,81 +7,74 @@ const CartItem = ({ cartItem }) => {
   const dispatch = useDispatch();
 
   return (
-    <Flex
-      direction={{ base: 'column', md: 'row' }}
+    <Stack
+      className='checkout-item'
+      direction={{ base: 'column', sm: 'row' }}
       justify='space-between'
-      gap='10px'
+      gap={['20px', '50px']}
       align='center'
-      // maxWidth={{ base: '300px', md: '600px' }}
       backgroundColor='white'
       boxShadow='base'
-      p={5}
+      p={3}
     >
-      <Stack direction={{ base: 'row', md: 'column' }} spacing='5' width={{ base: 'full', lg: '500px' }}>
+      <Stack width={{ base: 'full', lg: '350px' }} flex='1'>
         <Image
           rounded='sm'
-          w='160px'
-          h='170px'
+          w='full'
+          h={{ base: '170px', sm: 'auto' }}
           fit='cover'
           src={image[0]}
           alt={image}
-          draggable='false'
-          loading='lazy'
+          mx='auto'
         />
-
-        <Box>
-          <Stack spacing='0.5'>
-            <Text fontWeight='semibold' fontSize={{ base: 'sm', md: 'md' }} color='brand.500'>
-              {name}
-            </Text>
-
-            <Stack direction='row' gap='10px'>
-              <Text fontWeight={{ base: 'sm', md: 'regular' }} fontSize='sm' color='brand.800'>
-                Color: {color}
-              </Text>
-              <Text fontWeight={{ base: 'sm', md: 'regular' }} fontSize='sm' color='brand.800'>
-                Material: {material}
-              </Text>
-            </Stack>
-          </Stack>
-          <Text fontWeight={{ base: 'sm', md: 'regular' }} fontSize='sm' color='brand.800'>
-            Size: {diameter}cm / {height}cm
-          </Text>
-        </Box>
       </Stack>
 
-      <Flex
-        w='full'
-        mt={{ base: '4', md: '0' }}
-        align={{ base: 'center', md: 'baseline' }}
-        justify='space-between'
-        display='flex'
-      >
-        <Select
-          name='qty'
-          maxW='80px'
-          color='brand.500'
-          backgroundColor='white'
-          rounded='sm'
-          focusBorderColor='brand.500'
-          borderColor='brand.500'
-          value={qty}
-          onChange={(e) => {
-            dispatch(addCartItem(id, e.target.value));
-          }}
-        >
-          {[...Array(stock).keys()].map((x) => (
-            <option key={x + 1} value={x + 1}>
-              {x + 1}
-            </option>
-          ))}
-        </Select>
-        <Text fontWeight='bold' color='brand.500'>
-          ${price}
-        </Text>
-        <CloseButton onClick={() => dispatch(removeCartItem(id))} color='brand.500' />
-      </Flex>
-    </Flex>
+      <Stack flex='2' w='full' gap={['5', '10']} justify='space-between' className='item-description'>
+        <Stack align='flex-start'>
+          <Text fontWeight='semibold' fontSize={{ base: 'sm', md: 'md' }} color='brand.500'>
+            {name}
+          </Text>
+          <Stack spacing={['8px', '20px']} direction={['column', 'row']}>
+            <Text fontSize='sm' color='brand.800'>
+              Color: {color}
+            </Text>
+            <Text fontSize='sm' color='brand.800'>
+              Material: {material}
+            </Text>
+          </Stack>
+
+          <Text fontSize='sm' color='brand.800'>
+            Size: {diameter}cm / {height}cm
+          </Text>
+        </Stack>
+
+        <Flex direction='row' justify='space-between' w='full' gap={5}>
+          <Select
+            name='qty'
+            maxW='80px'
+            color='brand.500'
+            backgroundColor='white'
+            rounded='sm'
+            focusBorderColor='brand.500'
+            borderColor='brand.500'
+            value={qty}
+            onChange={(e) => {
+              dispatch(addCartItem(id, e.target.value));
+            }}
+          >
+            {[...Array(stock).keys()].map((x) => (
+              <option key={x + 1} value={x + 1}>
+                {x + 1}
+              </option>
+            ))}
+          </Select>
+          <Text fontWeight='bold' color='brand.500'>
+            ${price}
+          </Text>
+          <CloseButton onClick={() => dispatch(removeCartItem(id))} color='brand.500' />
+        </Flex>
+      </Stack>
+    </Stack>
   );
 };
 

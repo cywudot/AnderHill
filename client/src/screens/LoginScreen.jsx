@@ -1,7 +1,6 @@
 import {
   Button,
   Box,
-  Checkbox,
   Container,
   FormControl,
   Heading,
@@ -9,7 +8,6 @@ import {
   Stack,
   Text,
   useBreakpointValue,
-  useColorModeValue,
   Alert,
   AlertIcon,
   AlertTitle,
@@ -17,7 +15,7 @@ import {
   VStack,
   useToast,
 } from '@chakra-ui/react';
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import { Formik } from 'formik';
 import * as Yup from 'yup';
 import { useSelector, useDispatch } from 'react-redux';
@@ -69,7 +67,13 @@ const LoginScreen = () => {
       }}
     >
       {(formik) => (
-        <Container maxW='lg' py={{ base: '12', md: '24' }} px={{ base: '0', md: '8' }} minH='4xl'>
+        <Container
+          maxW='lg'
+          py={{ base: '12', md: '24' }}
+          px={{ base: '0', md: '8' }}
+          minH='4xl'
+          className='login-screen'
+        >
           <Stack spacing='8'>
             <Stack spacing='6'>
               <Stack spacing={{ base: '2', md: '3' }} textAlign='center'>
@@ -110,7 +114,8 @@ const LoginScreen = () => {
               py={{ base: '0', sm: '8' }}
               px={{ base: '4', sm: '10' }}
               bg={{ boxBR }}
-              boxShadow={{ base: 'none', md: 'xl' }}
+              boxShadow='sm'
+              backgroundColor='white'
             >
               <Stack spacing='6' as='form' onSubmit={formik.handleSubmit}>
                 {error && (

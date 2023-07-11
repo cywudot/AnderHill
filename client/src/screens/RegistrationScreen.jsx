@@ -33,7 +33,6 @@ const RegistrationScreen = () => {
   const redirect = '/products';
   const toast = useToast();
   const headingBR = useBreakpointValue({ base: 'xs', md: 'sm' });
-  const boxBR = useBreakpointValue({ base: 'transparent', md: 'bg-surface' });
 
   useEffect(() => {
     if (userInfo) {
@@ -80,8 +79,8 @@ const RegistrationScreen = () => {
             <Box
               py={{ base: '0', sm: '8' }}
               px={{ base: '4', sm: '10' }}
-              bg={{ boxBR }}
               boxShadow={{ base: 'none', md: 'xl' }}
+              backgroundColor='white'
             >
               <Stack spacing='6' as='form' onSubmit={formik.handleSubmit}>
                 {error && (

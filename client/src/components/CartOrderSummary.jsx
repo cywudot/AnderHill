@@ -16,12 +16,22 @@ const CartOrderSummary = () => {
   };
 
   return (
-    <Stack spacing='8' rounded='sm' padding='12' w='full' backgroundColor='white' boxShadow='base'>
+    <Stack
+      className='order-summary'
+      spacing='8'
+      rounded='sm'
+      padding='12'
+      w='full'
+      backgroundColor='white'
+      boxShadow='base'
+      flex='1'
+      minW='250px'
+    >
       <Heading size='sm' mx='auto' fontFamily='body'>
         Order Summary
       </Heading>
       <Stack spacing='6'>
-        <Flex justify='space-between'>
+        <Flex justify='space-between' gap={20}>
           <Text fontWeight='medium' color='brand.500' size='sm'>
             Subtotal
           </Text>

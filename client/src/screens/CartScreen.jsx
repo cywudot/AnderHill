@@ -13,7 +13,6 @@ import {
   AlertTitle,
   Wrap,
   Text,
-  Icon,
   VStack,
   Image,
 } from '@chakra-ui/react';
@@ -33,11 +32,10 @@ const CartScreen = () => {
     return total;
   };
 
-  // const getHeadingContent = () => (cart.length === 1 ? '(1 item)' : `(${cart.length} items)`);
   const getHeadingContent = () => (cartItemsTotalCalc === 1 ? '(1 item)' : `(${cartItemsTotalCalc(cart)} items)`);
 
   return (
-    <Wrap spacing='30px' justify='center' minHeight='100vh' backgroundColor='brand.100'>
+    <Wrap spacing='30px' justify='center' minHeight='100vh' backgroundColor='brand.100' className='main-content'>
       {loading ? (
         <Stack direction='row' spacing={4}>
           <Spinner mt={20} thinkness='2px' speed='0.65s' emptyColor='gray.200' color='brand.400' size='xl' />
@@ -59,22 +57,16 @@ const CartScreen = () => {
           </AlertDescription>
         </Alert>
       ) : (
-        <Box
-          maxW={{ base: '3xl', lg: '6xl' }}
-          w={{ base: '95%', md: '80%' }}
-          mx='auto'
-          px={{ base: '4', md: '8', lg: '12' }}
-          py={{ base: '6', md: '8', lg: '12' }}
-        >
+        <Box maxW='8xl' mx='auto' px={{ base: '4', md: '10', lg: '12' }} py={{ base: '6', md: '10', lg: '12' }}>
           <Stack
             direction={{ base: 'column', lg: 'row' }}
             align={{ lg: 'flex-start' }}
             spacing={{ base: '8', md: '10' }}
-            w='full'
+            maxW='8xl'
           >
-            <Stack spacing={{ base: '8', md: '5' }} flex='2'>
+            <Stack spacing={{ base: '8', md: '5' }} flex='1' as='section' className='checkout-items-list'>
               <Heading
-                fontSize='xl'
+                fontSize={['lg', 'xl']}
                 fontWeight='Regular'
                 fontFamily='body'
                 color='brand.500'
@@ -85,14 +77,14 @@ const CartScreen = () => {
                 Shopping Cart {getHeadingContent()}
               </Heading>
 
-              <Stack spacing='6'>
-                {cart.map((cartItem) => (
-                  <CartItem key={cartItem.id} cartItem={cartItem} />
-                ))}
-              </Stack>
+              {/* <Stack spacing='6' className='checkout-items-list'> */}
+              {cart.map((cartItem) => (
+                <CartItem key={cartItem.id} cartItem={cartItem} />
+              ))}
+              {/* </Stack> */}
+
               <HStack
                 fontSize='xl'
-                fontWeight='Regular'
                 fontFamily='body'
                 color='brand.100'
                 backgroundColor='brand.500'
@@ -109,7 +101,7 @@ const CartScreen = () => {
               </HStack>
             </Stack>
 
-            <Flex direction='column' align='center' flex='1'>
+            <Flex direction='column' align='center' flex='1' as='section'>
               <CartOrderSummary />
 
               <HStack mt='6' fontWeight='semibold'>
