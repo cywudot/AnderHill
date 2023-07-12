@@ -1,5 +1,4 @@
 import { Box, Flex, Heading, Stack, Image, Text } from '@chakra-ui/react';
-import ReactPlayer from 'react-player';
 import AboutUsHeroImage from '../otherassets/AboutUsHero.jpg';
 import AboutUsHeroImageMobile from '../otherassets/AboutUsHeroMobile.png';
 import AboutUsHandsOne from '../otherassets/AboutUs-quinoal-unsplash.jpg';
@@ -7,7 +6,7 @@ import AboutUsHandsTwo from '../otherassets/AboutUs-barnimages.jpg';
 import AboutUsThree from '../otherassets/AboutUs-barn03.jpg';
 const AboutUs = () => {
   return (
-    <Box maxW='12xl' mx='auto' px={{ base: '0', lg: '12' }} py={{ base: '0', lg: '0' }} minH='8xl'>
+    <Box maxW='12xl' mx='auto' px={{ base: '0', lg: '12' }} minH='8xl'>
       <Flex
         w='full'
         h='lg'
@@ -20,10 +19,10 @@ const AboutUs = () => {
       >
         <Heading
           color='brand.100'
-          fontSize={['2em', '2.5em', '3em']}
+          fontSize={['2xl', '4xl', '5xl']}
           alignSelf='center'
           mx='auto'
-          w={['90%', '80%', '60%']}
+          w={['85%', '75%']}
           textAlign='center'
         >
           Where artisanal, handcrafted pieces fuse traditional techniques with contemporary design.
@@ -31,17 +30,16 @@ const AboutUs = () => {
       </Flex>
 
       {/* Section One  */}
-      <Flex direction='column' minH='full'>
+      <Flex direction='column' minH='full' as='article'>
         <Text
           fontFamily='heading'
           color='brand.500'
           fontSize={['1.2em', '1.5em', '1.8em']}
-          px={5}
+          fontWeight='bold'
           textAlign='center'
           mx='auto'
-          w={{ sm: '80%', md: '70%', lg: '50%' }}
-          mt={12}
-          mb={12}
+          w={['80%', '70%', '65%']}
+          my={12}
         >
           Step into the world of Ander Hill's Pottery, where we take pride in creating pottery that is both beautiful
           and functional, meant to be used and enjoyed in your everyday life.
@@ -60,7 +58,7 @@ const AboutUs = () => {
 
           <Box textAlign={{ base: 'center', md: 'left' }} mx='auto' alignSelf='center' flex={1}>
             <Text
-              color='brand.4001'
+              color='brand.500'
               fontSize={{ base: '2xl', lg: '3xl' }}
               fontWeight='bold'
               fontFamily='heading'
@@ -68,7 +66,7 @@ const AboutUs = () => {
               mx='auto'
               mb={5}
             >
-              We are passionate believers in the power of beauty and meaning in the objects we surround ourselves with.
+              We believe in the beauty and meaning of surrounding objects.
             </Text>
             <Text color='brand.500' fontSize='1em' maxW='2xl' mx='auto'>
               That's why we craft each piece with loving care and purpose, employing only the finest materials and
@@ -81,8 +79,9 @@ const AboutUs = () => {
 
       {/* Section Two  */}
       <Flex
+        as='article'
         w='full'
-        my={8}
+        py={12}
         h={{ base: 'md', lg: '2xl' }}
         bgPos='center'
         bgSize='cover'
@@ -92,7 +91,7 @@ const AboutUs = () => {
         <Box
           backgroundColor='brand.5001'
           py={8}
-          px={12}
+          px={10}
           rounded={2}
           pos='absolute'
           maxW='500px'
@@ -102,8 +101,8 @@ const AboutUs = () => {
           zIndex='1'
           display={{ base: 'none', lg: 'initial' }}
         >
-          <Text color='brand.100' pb={3} fontFamily='heading' fontSize='1.5em'>
-            We are committed to sustainability and minimizing our environmental impact.
+          <Text color='brand.100' pb={3} fontFamily='heading' fontSize={{ base: '2xl', lg: '3xl' }} fontWeight='bold'>
+            Our commitment to sustainability.
           </Text>
           <Text color='brand.100' fontSize='1em'>
             We use locally sourced our materials whenever possible, recycle all of our clay and package our products
@@ -112,11 +111,18 @@ const AboutUs = () => {
           </Text>
         </Box>
       </Flex>
-      <Box display={{ base: 'initial', lg: 'none' }} textAlign='center'>
-        <Text color='brand.4001' pb={3} fontFamily='heading' fontSize='1.5em' px={5}>
-          We are committed to sustainability and minimizing our environmental impact.
+      <Box display={{ base: 'initial', lg: 'none' }} textAlign='center' as='article'>
+        <Text
+          color='brand.500'
+          pt={6}
+          fontFamily='heading'
+          fontSize={{ base: '2xl', lg: '3xl' }}
+          px={5}
+          fontWeight='bold'
+        >
+          Our commitment to sustainability.
         </Text>
-        <Text color='brand.500' fontSize='1em' px={5}>
+        <Text color='brand.500' fontSize='1em' px={8}>
           We use locally sourced our materials whenever possible, recycle all of our clay and package our products with
           sustainable materials. We believe that exquisite design should never come at the expense of the planet, and we
           are honored to share our commitment with you.
@@ -124,11 +130,11 @@ const AboutUs = () => {
       </Box>
 
       {/* Section Three  */}
-      <Flex direction='column' minH='full' mt={12} mb={12} px={{ base: '5', lg: '0' }}>
+      <Flex direction='column' minH='full' my={12} px={{ base: '5', lg: '0' }} as='article'>
         <Stack direction={{ base: 'column-reverse', md: 'row' }} justify='space-between' gap={5}>
           <Box textAlign={{ base: 'center', md: 'left' }} mx='auto' alignSelf='center' flex={1}>
             <Text
-              color='brand.4001'
+              color='brand.500'
               fontSize={{ base: '2xl', lg: '3xl' }}
               fontWeight='bold'
               fontFamily='heading'
@@ -136,8 +142,7 @@ const AboutUs = () => {
               mx='auto'
               mb={5}
             >
-              At Ander Hill's Pottery, we believe that every piece we create tells a story and becomes a cherished part
-              of your life's journey.
+              Crafting meaningful pieces for cherished journeys.
             </Text>
             <Text color='brand.500' fontSize='1em' maxW='2xl' mx='auto'>
               Thank you for choosing Ander Hill's Pottery, where beauty, sustainability, and craftsmanship meet to

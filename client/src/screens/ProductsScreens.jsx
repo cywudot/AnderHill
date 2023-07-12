@@ -47,7 +47,6 @@ const ProductsScreens = () => {
     };
   }, [dispatch, category]);
 
-  //Trying dynamic number of columns based on the length of the arrays. Layout for products
   const numColumns = Math.min(
     productList.category === null ? productList.products.length : productList.filteredProducts.length,
     4
@@ -72,7 +71,7 @@ const ProductsScreens = () => {
       <Box mx='auto' overflow='hidden' flex={1} minW='100%' px={{ base: '0', lg: '12' }}>
         <Box
           w='full'
-          h='lg'
+          h={['md', 'lg']}
           bgPos='center'
           bgSize='cover'
           backgroundImage={{
@@ -140,7 +139,6 @@ const ProductsScreens = () => {
             py={4}
             columns={{
               base: Math.min(2, numColumns),
-              // sm: Math.min(2, numColumns),
               lg: Math.min(3, numColumns),
               xl: Math.min(4, numColumns),
             }}
