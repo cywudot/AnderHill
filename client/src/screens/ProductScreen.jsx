@@ -29,6 +29,7 @@ import { BiSupport, BiSolidWasher } from 'react-icons/bi';
 import { useDispatch, useSelector } from 'react-redux';
 import { getProduct, createProductReview, resetProductError } from '../redux/actions/productActions';
 import { addCartItem } from '../redux/actions/cartActions';
+import { resetProduct } from '../redux/slices/products';
 import { useEffect, useState } from 'react';
 import { TbTruckDelivery } from 'react-icons/tb';
 import ProductsYouMightLike from '../components/ProductsYouMightLike';
@@ -63,11 +64,14 @@ const ProductScreen = () => {
       dispatch(resetProductError());
       setReviewBoxOpen(false);
     }
+    return () => {
+      // Clean up the product state when leaving the product page
+      dispatch(resetProduct());
+    };
   }, [dispatch, id, cart, reviewSend, toast]);
 
   //images carousel
   const [currentIndex, setCurrentIndex] = useState(0);
-
   const handleDotClick = (index) => {
     setCurrentIndex(index);
   };
@@ -81,7 +85,6 @@ const ProductScreen = () => {
       setAmount(amount - 1);
     }
   };
-
   //add to cart
   const addItem = () => {
     dispatch(addCartItem(product._id, amount));
@@ -115,11 +118,11 @@ const ProductScreen = () => {
                 direction={{ base: 'column-reverse', lg: 'row' }}
                 align='center'
                 mb='50px'
-                gap={{ base: '2', lg: '10' }}
+                gap={{ base: 0, lg: '10' }}
                 maxW={{ base: '2xl', lg: '7xl' }}
                 mx='auto'
               >
-                <Stack flex='1.5'>
+                <Stack flex='1.5' className='product-description'>
                   {product.stock <= 0 && (
                     <Badge
                       mb={[0, '3']}
@@ -128,7 +131,6 @@ const ProductScreen = () => {
                       fontSize={['md', 'lg']}
                       bg='brand.100'
                       color='brand.600'
-                      fontWeight='regular'
                       as='i'
                       fontFamily='body'
                     >
@@ -233,7 +235,7 @@ const ProductScreen = () => {
                         w={{ base: '100%', lg: '50%' }}
                         h='50px'
                       >
-                        <Text fontWeight='regular'>Add to cart</Text>
+                        <Text>Add to cart</Text>
                       </Button>
                     </Stack>
 
@@ -259,7 +261,7 @@ const ProductScreen = () => {
                     </Stack>
                   </Stack>
                 </Stack>
-                <Flex direction='column' align='center' flex='1' position='relative'>
+                <Flex direction='column' align='center' flex='1' position='relative' className='product-image'>
                   <Image
                     mb='30px'
                     borderRadius='2px'
@@ -307,7 +309,7 @@ const ProductScreen = () => {
               >
                 Customer Reviews
               </Text>
-              <Stack align='center' w='full' backgroundColor='white' rounded={2}>
+              <Stack align='center' w='full' backgroundColor='white' rounded={2} className='customer-reviews'>
                 <Stack spacingx='40px' spacing='20px' w='100%' p={3} rounded={2}>
                   {product.reviews.length === 0 ? (
                     <Text fontSize='md' color='brand.500' textAlign='center'>
@@ -322,6 +324,7 @@ const ProductScreen = () => {
                         gap={{ base: 0, md: '50px' }}
                         backgroundColor='brand.720'
                         p={5}
+                        className='customer-review'
                       >
                         <Stack
                           justify='space-between'
@@ -370,8 +373,8 @@ const ProductScreen = () => {
                       _hover={{ backgroundColor: 'brand.3001' }}
                       color='brand.100'
                       rounded='2'
-                      fontWeight='regular'
                       onClick={() => setReviewBoxOpen(!reviewBoxOpen)}
+                      fontWeight='regular'
                     >
                       Write a review
                     </Button>
@@ -417,7 +420,6 @@ const ProductScreen = () => {
                         _hover={{ backgroundColor: 'brand.4001' }}
                         color='brand.100'
                         rounded='2'
-                        fontWeight='regular'
                         onClick={() => onSubmit()}
                       >
                         Submit Review

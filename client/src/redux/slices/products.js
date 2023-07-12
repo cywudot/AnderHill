@@ -7,6 +7,7 @@ export const initialState = {
   loading: false,
   error: null,
   products: [],
+  product: null,
   filteredProducts: [],
   category: null,
   reviewSend: null,
@@ -30,11 +31,13 @@ export const productsSlice = createSlice({
       state.loading = false;
       state.error = null;
     },
+    resetProduct: (state, { payload }) => {
+      state.product = null;
+    },
     setError: (state, { payload }) => {
       state.error = payload;
       state.loading = false;
     },
-
     setFilterCategory: (state, { payload }) => {
       state.category = payload;
       const { category, products } = state;
@@ -66,6 +69,7 @@ export const {
   setFilterCategory,
   setFilteredProducts,
   clearCategory,
+  resetProduct,
   productReviewed,
   resetError,
 } = productsSlice.actions;

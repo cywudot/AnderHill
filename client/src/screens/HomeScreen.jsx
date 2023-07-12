@@ -1,4 +1,4 @@
-import { Box, Flex, Heading, HStack, Stack, Button, Image, Spinner, Text, Wrap } from '@chakra-ui/react';
+import { Box, Flex, Heading, HStack, Stack, Button, Image, Spinner, Text, Wrap, Center } from '@chakra-ui/react';
 import React, { useState, useEffect } from 'react';
 import { Link as ReactLink } from 'react-router-dom';
 import HeroImage from '../otherassets/HomeHeroImage.png';
@@ -36,7 +36,7 @@ const HomeScreen = () => {
       gap={{ base: '0', lg: '2' }}
       maxW={{ base: '190px', md: '300px' }}
     >
-      <Image src={iconSrc} alt={title} w={{ base: '50px', lg: '60px' }} />
+      <Image src={iconSrc} alt={title} w={{ base: '45px', md: '60px' }} />
       <Stack mt={0}>
         <Text fontSize={{ base: 'sm', md: 'md' }} color='brand.100'>
           {title}
@@ -52,7 +52,7 @@ const HomeScreen = () => {
     <>
       {isLoading ? (
         <Wrap justify='center' direction='column' mt='20px' minH='100vh'>
-          <Stack textAlign='center'>
+          <Center>
             <Spinner
               mt={20}
               thickness='2px'
@@ -62,7 +62,7 @@ const HomeScreen = () => {
               size='xl'
               mx='auto'
             />
-          </Stack>
+          </Center>
         </Wrap>
       ) : (
         <Box id='homepage' maxW='12xl' mx='auto' minH='12xl'>
@@ -70,7 +70,7 @@ const HomeScreen = () => {
           <Box as='section' px={{ base: '0', lg: '12' }}>
             <Box
               w='full'
-              h='lg'
+              h={['md', 'lg']}
               bgPos='center'
               bgSize='cover'
               alt='HeroImage'
@@ -96,7 +96,6 @@ const HomeScreen = () => {
                     textTransform='uppercase'
                     letterSpacing='wide'
                     px={{ base: '4', md: '0' }}
-                    fontFamily='heading'
                   >
                     Ander Hill Pottery
                   </Heading>
@@ -139,6 +138,7 @@ const HomeScreen = () => {
               <StoreBenefits iconSrc={ContactIcon} title='24/7 Support' description='Always Here to Assist You' />
             </HStack>
           </Box>
+
           <CategoriesSection />
           <FeaturedProducts />
           <VideoSection />
