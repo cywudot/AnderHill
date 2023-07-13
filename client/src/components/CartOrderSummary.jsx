@@ -30,7 +30,7 @@ const CartOrderSummary = () => {
       <Heading size='sm' mx='auto' fontFamily='body'>
         Order Summary
       </Heading>
-      <Stack spacing='6'>
+      <Stack spacing='5'>
         <Flex justify='space-between' gap={20}>
           <Text fontWeight='medium' color='brand.500' size='sm'>
             Subtotal
@@ -54,7 +54,7 @@ const CartOrderSummary = () => {
           </Text>
         </Flex>
         <Flex justify='space-between'>
-          <Text fontSize='lg' fontWeight='extrabold'>
+          <Text fontSize={'lg'} fontWeight='extrabold'>
             Total
           </Text>
           <Text fontSize='lg'>

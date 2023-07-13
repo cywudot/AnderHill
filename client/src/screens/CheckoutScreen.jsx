@@ -11,6 +11,7 @@ const CheckoutScreen = () => {
 
   return userInfo ? (
     <Box
+      id='content'
       minH='100vh'
       maxW={{ base: '3xl', lg: '7xl' }}
       mx='auto'
@@ -33,7 +34,7 @@ const CheckoutScreen = () => {
             <ShippingInformation />
           </Stack>
         </Stack>
-        <Flex direction='column' align='center' flex='1'>
+        <Flex direction='column' align='center' flex='1' as='section'>
           <CheckoutOrderSummary />
         </Flex>
       </Stack>

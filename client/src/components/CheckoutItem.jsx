@@ -1,4 +1,4 @@
-import { Flex, Select, useColorModeValue as mode, Image, Box, Text, Spacer, Divider } from '@chakra-ui/react';
+import { Flex, Select, useColorModeValue as mode, Image, Text, Spacer, Divider } from '@chakra-ui/react';
 import { useDispatch } from 'react-redux';
 import { addCartItem } from '../redux/actions/cartActions';
 
@@ -7,25 +7,21 @@ const CheckoutItem = ({ cartItem }) => {
   const dispatch = useDispatch();
   return (
     <>
-      <Flex gap='10px'>
-        <Image
-          rounded='sm'
-          width='120px'
-          height='120px'
-          fit='cover'
-          src={image[0]}
-          alt={name}
-          draggable='false'
-          loading='lazy'
-        />
+      <Flex gap='10px' className='checkout-product'>
+        <Image rounded='sm' width='120px' height='120px' fit='cover' src={image[0]} alt={name} loading='lazy' />
         <Flex direction='column' align='stretch' flex='1' mx='2' spacing='4'>
-          <Text noOfLines='2' maxW='150px'>
-            {name}
-          </Text>
+          <Flex direction={['column', 'row']} justify='space-between' gap={2}>
+            <Text fontSize={['sm', 'md']}>{name}</Text>
+
+            <Text fontWeight='bold' fontSize={['sm', 'md']}>
+              ${price.toFixed(2)}
+            </Text>
+          </Flex>
+
           <Spacer />
           <Select
             name='qtyCheckout'
-            maxW='80px'
+            maxW={['70px', '80px']}
             color='brand.500'
             rounded='2'
             backgroundColor='white'
@@ -43,10 +39,6 @@ const CheckoutItem = ({ cartItem }) => {
             ))}
           </Select>
         </Flex>
-
-        <Box>
-          <Text fontWeight='bold'>${price.toFixed(2)}</Text>
-        </Box>
       </Flex>
       <Divider bg={mode('gray.400', 'gray.800')} />
     </>

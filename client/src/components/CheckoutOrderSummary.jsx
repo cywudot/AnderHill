@@ -109,10 +109,10 @@ const CheckoutOrderSummary = () => {
         </Flex>
 
         <Flex justify='space-between' color='brand.500'>
-          <Text fontSize='lg' fontWeight='semibold' color='brand.5001'>
+          <Text fontSize={['md', 'lg']} fontWeight='semibold' color='brand.5001'>
             Subtotal
           </Text>
-          <Text fontSize='xl' fontWeight='extrabold'>
+          <Text fontSize={['md', 'lg']} fontWeight='extrabold'>
             ${Number(total())}
           </Text>
         </Flex>
@@ -122,7 +122,6 @@ const CheckoutOrderSummary = () => {
         onPaymentSuccess={onPaymentSuccess}
         onPaymentError={onPaymentError}
         disabled={buttonDisabled}
-        // isDisabled={buttonDisabled}
       />
       <Box align='center'>
         <Text fontSize='sm' color='brand.500'>
