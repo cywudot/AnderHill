@@ -17,12 +17,19 @@ const CheckoutScreen = () => {
       px={{ base: '4', md: '8', lg: '12' }}
       py={{ base: '6', md: '8', lg: '12' }}
     >
-      <Stack direction={{ base: 'column', lg: 'row' }} align={{ lg: 'flex-start' }} gap={10}>
-        <Stack spacing={{ base: '8', md: '5' }} flex='1.5' mb={{ base: '12', md: 'none' }}>
-          <Heading size='lg' fontWeight='extrabold' backgroundColor='white' p={5} boxShadow='base'>
+      <Stack direction={{ base: 'column', lg: 'row' }} align={{ lg: 'flex-start' }} gap={{ lg: '5' }}>
+        <Stack spacing={{ base: '8', md: '5' }} flex='1.5' mb={{ base: '5', md: 'none' }}>
+          <Heading
+            size='lg'
+            fontWeight='extrabold'
+            backgroundColor='white'
+            p={5}
+            boxShadow='base'
+            textTransform='uppercase'
+          >
             Shipping Information
           </Heading>
-          <Stack spacing='6'>
+          <Stack spacing='5'>
             <ShippingInformation />
           </Stack>
         </Stack>

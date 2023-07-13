@@ -174,19 +174,19 @@ const ProductScreen = () => {
                     </Text>
 
                     <Stack direction='column' backgroundColor='brand.700' p={4}>
-                      <Text color='brand.500' fontSize={{ base: 'sm', md: 'lg' }}>
+                      <Text color='brand.500' fontSize={{ base: 'sm', md: 'md' }}>
                         <Text as='span' fontWeight='medium'>
                           Color:{' '}
                         </Text>
                         {product.color}
                       </Text>
-                      <Text color='brand.500' fontSize={{ base: 'sm', md: 'lg' }}>
+                      <Text color='brand.500' fontSize={{ base: 'sm', md: 'md' }}>
                         <Text as='span' fontWeight='medium'>
                           Dimensions:{' '}
                         </Text>
                         {product.dimensions.diameter}cm diameter / {product.dimensions.height}cm height
                       </Text>
-                      <Text color='brand.500' fontSize={{ base: 'sm', md: 'lg' }}>
+                      <Text color='brand.500' fontSize={{ base: 'sm', md: 'md' }}>
                         <Text as='span' fontWeight='medium'>
                           Material:{' '}
                         </Text>

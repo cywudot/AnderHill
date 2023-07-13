@@ -1,10 +1,8 @@
 import {
   Box,
   Button,
-  FormControl,
   Heading,
   Stack,
-  Text,
   Alert,
   AlertIcon,
   AlertTitle,
@@ -18,7 +16,7 @@ import {
 } from '@chakra-ui/react';
 import TextField from '../components/TextField';
 import PasswordTextField from '../components/PasswordTextField';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { Formik } from 'formik';
 import * as Yup from 'yup';
 import { useDispatch, useSelector } from 'react-redux';
@@ -72,11 +70,18 @@ const ProfileScreen = () => {
             w='full'
           >
             <Stack flex='2' backgroundColor='white' p={5} rounded={2} boxShadow='base' as='section'>
-              <Heading as='h2' fontSize='3xl' fontWeight='extrabold' pb={4} textTransform='uppercase' color='brand.500'>
+              <Heading
+                as='h2'
+                fontSize={['2xl', '3xl']}
+                fontWeight='extrabold'
+                pb={4}
+                textTransform='uppercase'
+                color='brand.500'
+              >
                 Profile
               </Heading>
-              <Stack spacing='6'>
-                <Stack spacing='6' as='form' onSubmit={formik.handleSubmit}>
+              <Stack spacing='5'>
+                <Stack spacing='5' as='form' onSubmit={formik.handleSubmit}>
                   {error && (
                     <Alert
                       status='error'
@@ -103,7 +108,7 @@ const ProfileScreen = () => {
                       />
                     </Box>
                   </Stack>
-                  <Stack spacing='6'>
+                  <Stack spacing='5'>
                     <Button
                       backgroundColor='brand.800'
                       _hover={{ backgroundColor: 'brand.500' }}
