@@ -17,7 +17,6 @@ import {
   ListItem,
   UnorderedList,
   Wrap,
-  Container,
 } from '@chakra-ui/react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getUserOrders } from '../redux/actions/userActions';
@@ -30,9 +29,6 @@ const YourOrdersScreen = () => {
   const user = useSelector((state) => state.user);
   const { loading, error, orders, userInfo } = user;
   const location = useLocation();
-
-  // const orderList = useSelector((state) => state.order);
-  // const { loading, error, shippingAddress, orderInfo } = orderList;
 
   useEffect(() => {
     if (userInfo) {
@@ -64,8 +60,8 @@ const YourOrdersScreen = () => {
         </Alert>
       ) : (
         orders && (
-          <Box color='brand.500' pt={4}>
-            <TableContainer minHeight='100vh' color='brand.500' pt={4} overflowY={{ base: 'scroll', lg: 'unset' }}>
+          <Box color='brand.500' pt={4} className='orders'>
+            <TableContainer color='brand.500' pt={4} overflowY={{ base: 'scroll', lg: 'unset' }}>
               <Table variant='simple'>
                 <Thead>
                   <Tr>

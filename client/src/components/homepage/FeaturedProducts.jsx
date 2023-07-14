@@ -67,7 +67,7 @@ const FeatureProducts = () => {
       ) : productList.error ? (
         <Alert status='error'>
           <AlertIcon />
-          <AlertTitle>We are sorry!</AlertTitle>
+          <AlertTitle>We are sorry! Failed to fetch products.</AlertTitle>
           <AlertDescription>{productList.error}</AlertDescription>
         </Alert>
       ) : (

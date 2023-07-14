@@ -6,8 +6,9 @@ import AboutUsHandsTwo from '../otherassets/AboutUs-barnimages.jpg';
 import AboutUsThree from '../otherassets/AboutUs-barn03.jpg';
 const AboutUs = () => {
   return (
-    <Box maxW='12xl' mx='auto' px={{ base: '0', lg: '12' }} minH='8xl'>
+    <Box maxW='12xl' mx='auto' px={{ base: '0', lg: '12' }} minH='8xl' id='main-content-about'>
       <Flex
+        as='section'
         w='full'
         h='lg'
         bgPos='center'
@@ -30,7 +31,7 @@ const AboutUs = () => {
       </Flex>
 
       {/* Section One  */}
-      <Flex direction='column' minH='full' as='article'>
+      <Flex direction='column' minH='full' as='section'>
         <Text
           fontFamily='heading'
           color='brand.500'
@@ -52,11 +53,11 @@ const AboutUs = () => {
           px={{ base: '5', lg: '0' }}
           mb={12}
         >
-          <Box mx='auto' rounded='2px' overflow='hidden' flex={1}>
-            <Image fit='cover' src={AboutUsHandsOne} alt='Pottery Making' maxW='100%' minH='350px' />
+          <Box mx='auto' rounded='2px' overflow='hidden' flex={1} as='section'>
+            <Image fit='cover' src={AboutUsHandsOne} alt='Handing shaping pottery' maxW='100%' minH='350px' />
           </Box>
 
-          <Box textAlign={{ base: 'center', md: 'left' }} mx='auto' alignSelf='center' flex={1}>
+          <Box textAlign={{ base: 'center', md: 'left' }} mx='auto' alignSelf='center' flex={1} as='section'>
             <Text
               color='brand.500'
               fontSize={{ base: '2xl', lg: '3xl' }}
@@ -79,7 +80,7 @@ const AboutUs = () => {
 
       {/* Section Two  */}
       <Flex
-        as='article'
+        as='section'
         w='full'
         py={12}
         h={{ base: 'md', lg: '2xl' }}
@@ -111,7 +112,7 @@ const AboutUs = () => {
           </Text>
         </Box>
       </Flex>
-      <Box display={{ base: 'initial', lg: 'none' }} textAlign='center' as='article'>
+      <Box display={{ base: 'initial', lg: 'none' }} textAlign='center' as='section'>
         <Text
           color='brand.500'
           pt={6}
@@ -130,9 +131,9 @@ const AboutUs = () => {
       </Box>
 
       {/* Section Three  */}
-      <Flex direction='column' minH='full' my={12} px={{ base: '5', lg: '0' }} as='article'>
+      <Flex direction='column' minH='full' my={12} px={{ base: '5', lg: '0' }} as='section'>
         <Stack direction={{ base: 'column-reverse', md: 'row' }} justify='space-between' gap={5}>
-          <Box textAlign={{ base: 'center', md: 'left' }} mx='auto' alignSelf='center' flex={1}>
+          <Box textAlign={{ base: 'center', md: 'left' }} mx='auto' alignSelf='center' flex={1} as='section'>
             <Text
               color='brand.500'
               fontSize={{ base: '2xl', lg: '3xl' }}
@@ -150,8 +151,15 @@ const AboutUs = () => {
               wait to see how our pottery adds warmth, joy, and meaning to your life.
             </Text>
           </Box>
-          <Box mx='auto' rounded='2px' overflow='hidden' flex={1}>
-            <Image fit='cover' src={AboutUsHandsTwo} alt='Pottery Making' maxW='100%' minH='350px' ml='auto' />
+          <Box mx='auto' rounded='2px' overflow='hidden' flex={1} as='section'>
+            <Image
+              fit='cover'
+              src={AboutUsHandsTwo}
+              alt='Cutting the clay into pieces'
+              maxW='100%'
+              minH='350px'
+              ml='auto'
+            />
           </Box>
         </Stack>
       </Flex>

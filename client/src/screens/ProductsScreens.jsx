@@ -67,33 +67,40 @@ const ProductsScreens = () => {
   };
 
   return (
-    <Box textAlign='center'>
-      <Box mx='auto' overflow='hidden' flex={1} minW='100%' px={{ base: '0', lg: '12' }}>
-        <Box
-          w='full'
-          h={['md', 'lg']}
-          bgPos='center'
-          bgSize='cover'
-          backgroundImage={{
-            base: `url(${ProductPageHeroMobile})`,
-            md: `url(${ProductPageHero})`,
-          }}
-        >
-          <Flex pos='relative' boxSize='full' bg='blackAlpha.300'>
-            <Stack mx='auto' spacing={6} w='4xl' justify='center' px={2}>
-              <Heading
-                fontSize={['2xl', '4xl', '6xl']}
-                fontWeight='extrabold'
-                color='brand.100'
-                letterSpacing='wide'
-                textAlign='center'
-                justify='center'
-              >
-                Explore the Craftsmanship of Handmade Pottery
-              </Heading>
-            </Stack>
-          </Flex>
-        </Box>
+    <Box
+      textAlign='center'
+      id='main-content-products'
+      mx='auto'
+      overflow='hidden'
+      flex={1}
+      minW='100%'
+      px={{ base: '0', lg: '12' }}
+    >
+      <Box
+        as='section'
+        w='full'
+        h={['md', 'lg']}
+        bgPos='center'
+        bgSize='cover'
+        backgroundImage={{
+          base: `url(${ProductPageHeroMobile})`,
+          md: `url(${ProductPageHero})`,
+        }}
+      >
+        <Flex pos='relative' boxSize='full' bg='blackAlpha.300'>
+          <Stack mx='auto' spacing={6} w='4xl' justify='center' px={2}>
+            <Heading
+              fontSize={['2xl', '4xl', '6xl']}
+              fontWeight='extrabold'
+              color='brand.100'
+              letterSpacing='wide'
+              textAlign='center'
+              justify='center'
+            >
+              Explore the Craftsmanship of Handmade Pottery
+            </Heading>
+          </Stack>
+        </Flex>
       </Box>
 
       <Stack minHeight='100vh' mx='auto' align='center' as='section'>
@@ -131,7 +138,7 @@ const ProductsScreens = () => {
           </Alert>
         ) : (
           <SimpleGrid
-            id='products-collection'
+            as='section'
             spacing={8}
             justify='center'
             backgroundColor='brand.100'

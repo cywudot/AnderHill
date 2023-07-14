@@ -1,4 +1,4 @@
-import { Box, Heading, VStack, FormControl, Flex, Stack, Text, Radio, RadioGroup } from '@chakra-ui/react';
+import { Box, Heading, VStack, FormControl, Flex, Stack, Text, Radio, RadioGroup, Tooltip } from '@chakra-ui/react';
 import { Formik } from 'formik';
 import * as Yup from 'yup';
 import TextField from './TextField';
@@ -94,12 +94,14 @@ const ShippingInformation = () => {
                   <Stack spacing='6'>Express</Stack>
                 </Stack>
                 <Radio value='false'>
-                  <Box>
-                    <Text fontWeight='bold' fontSize={['sm', 'md']}>
-                      Standard $4.99
-                    </Text>
-                    <Text fontSize={['sm', 'md']}>Dispatched in 2-3 days</Text>
-                  </Box>
+                  <Tooltip label='Free Shipping for orders of $300 or more' bg='brand.500' color='brand.100'>
+                    <Box>
+                      <Text fontWeight='bold' fontSize={['sm', 'md']}>
+                        Standard $4.99
+                      </Text>
+                      <Text fontSize={['sm', 'md']}>Dispatched in 2-3 days</Text>
+                    </Box>
+                  </Tooltip>
                 </Radio>
               </Stack>
             </RadioGroup>
