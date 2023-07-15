@@ -1,11 +1,9 @@
 import {
-  Box,
   Flex,
   Heading,
   HStack,
   Link,
   Stack,
-  useColorModeValue as mode,
   Spinner,
   Alert,
   AlertIcon,
@@ -57,62 +55,60 @@ const CartScreen = () => {
           </AlertDescription>
         </Alert>
       ) : (
-        <Box maxW='8xl' mx='auto' px={{ base: '4', md: '10', lg: '12' }} py={{ base: '6', md: '10', lg: '12' }}>
-          <Stack
-            direction={{ base: 'column', lg: 'row' }}
-            align={{ lg: 'flex-start' }}
-            spacing={{ base: '8', md: '10' }}
-            maxW='8xl'
-          >
-            <Stack spacing={{ base: '8', md: '5' }} flex='1' as='section' className='checkout-items-list'>
-              <Heading
-                fontSize={['lg', 'xl']}
-                fontWeight='Regular'
-                fontFamily='body'
-                color='brand.500'
-                backgroundColor='white'
-                p={5}
-                boxShadow='base'
-              >
-                Shopping Cart {getHeadingContent()}
-              </Heading>
+        <Stack
+          direction={{ base: 'column', lg: 'row' }}
+          align={{ lg: 'flex-start' }}
+          spacing={{ base: '8', md: '10' }}
+          maxW={{ base: '2xl', lg: '8xl' }}
+          mx='auto'
+          px={{ base: '4', md: '10', lg: '12' }}
+          py={{ base: '6', md: '10', lg: '12' }}
+        >
+          <Stack spacing={{ base: '8', md: '5' }} flex='1' as='section'>
+            <Heading
+              fontSize={['lg', 'xl']}
+              fontWeight='Regular'
+              fontFamily='body'
+              color='brand.500'
+              backgroundColor='white'
+              p={5}
+              boxShadow='base'
+            >
+              Shopping Cart {getHeadingContent()}
+            </Heading>
 
-              {/* <Stack spacing='6' className='checkout-items-list'> */}
-              {cart.map((cartItem) => (
-                <CartItem key={cartItem.id} cartItem={cartItem} />
-              ))}
-              {/* </Stack> */}
+            {cart.map((cartItem) => (
+              <CartItem key={cartItem.id} cartItem={cartItem} />
+            ))}
 
-              <HStack
-                fontSize='xl'
-                fontFamily='body'
-                color='brand.100'
-                backgroundColor='brand.500'
-                p={5}
-                boxShadow='base'
-                gap={3}
-                alignItems='flex-start'
-              >
-                <Image src={FreeDeliveryIcon} w='60px' color='brand.500' />
-                <VStack alignItems='flex-start'>
-                  <Text>Free Standard Delivery</Text>
-                  <Text fontSize='sm'>For orders $300 or above</Text>
-                </VStack>
-              </HStack>
-            </Stack>
-
-            <Flex direction='column' align='center' flex='1' as='section'>
-              <CartOrderSummary />
-
-              <HStack mt='6' fontWeight='semibold'>
-                <Text fontWeight='light'>or</Text>
-                <Link as={ReactLink} variant='none' to='/products'>
-                  Continue Shopping
-                </Link>
-              </HStack>
-            </Flex>
+            <HStack
+              fontSize='xl'
+              fontFamily='body'
+              color='brand.100'
+              backgroundColor='brand.500'
+              p={5}
+              boxShadow='base'
+              gap={3}
+              alignItems='flex-start'
+            >
+              <Image src={FreeDeliveryIcon} w='60px' color='brand.500' />
+              <VStack alignItems='flex-start'>
+                <Text>Free Standard Delivery</Text>
+                <Text fontSize='sm'>For orders $300 or above</Text>
+              </VStack>
+            </HStack>
           </Stack>
-        </Box>
+
+          <Flex direction='column' align='center' flex='1' as='section'>
+            <CartOrderSummary />
+            <HStack mt='6' fontWeight='semibold'>
+              <Text fontWeight='light'>or</Text>
+              <Link as={ReactLink} variant='none' to='/products'>
+                Continue Shopping
+              </Link>
+            </HStack>
+          </Flex>
+        </Stack>
       )}
     </Wrap>
   );

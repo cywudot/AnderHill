@@ -11,17 +11,15 @@ const CheckoutScreen = () => {
 
   return userInfo ? (
     <Box
-      id='content'
-      minH='100vh'
       maxW={{ base: '3xl', lg: '7xl' }}
-      mx='auto'
       px={{ base: '4', md: '8', lg: '12' }}
       py={{ base: '6', md: '8', lg: '12' }}
+      mx='auto'
     >
-      <Stack direction={{ base: 'column', lg: 'row' }} align={{ lg: 'flex-start' }} gap={{ lg: '5' }}>
-        <Stack spacing={{ base: '8', md: '5' }} flex='1.5' mb={{ base: '5', md: 'none' }}>
+      <Stack direction={{ base: 'column', lg: 'row' }} align={{ lg: 'flex-start' }} gap={{ lg: '5' }} minH='100vh'>
+        <Stack spacing={{ base: '8', md: '5' }} flex='1.5' mb={{ base: '5', md: 'none' }} as='section'>
           <Heading
-            size='lg'
+            size={['md', 'lg']}
             fontWeight='extrabold'
             backgroundColor='white'
             p={5}

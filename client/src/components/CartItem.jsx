@@ -8,39 +8,35 @@ const CartItem = ({ cartItem }) => {
 
   return (
     <Stack
-      className='checkout-item'
       direction={{ base: 'column', sm: 'row' }}
       justify='space-between'
-      gap={['20px', '50px']}
+      gap={['10px', '50px']}
       align='center'
       backgroundColor='white'
       boxShadow='base'
       p={3}
     >
+      {/* IMAGE */}
       <Stack width={{ base: 'full', lg: '350px' }} flex='1'>
         <Image
           rounded='sm'
           w='full'
-          h={{ base: '170px', sm: 'auto' }}
+          h={{ base: '170px', md: 'auto' }}
           fit='cover'
           src={image[0]}
-          alt={image}
+          alt={name}
           mx='auto'
         />
       </Stack>
-
-      <Stack flex='2' w='full' gap={['5', '10']} justify='space-between' className='item-description'>
+      {/* PRODUCT DETAILS */}
+      <Stack flex='2' w='full' gap={['5', '10']} justify='space-between'>
         <Stack align='flex-start'>
           <Text fontWeight='semibold' fontSize={{ base: 'sm', md: 'md' }} color='brand.500'>
             {name}
           </Text>
-          <Stack spacing={['8px', '20px']} direction={['column', 'row']}>
-            <Text fontSize='sm' color='brand.800'>
-              Color: {color}
-            </Text>
-            <Text fontSize='sm' color='brand.800'>
-              Material: {material}
-            </Text>
+          <Stack spacing={[2, 5]} direction={['column', 'row']} fontSize='sm'>
+            <Text color='brand.800'>Color: {color}</Text>
+            <Text color='brand.800'>Material: {material}</Text>
           </Stack>
 
           <Text fontSize='sm' color='brand.800'>
