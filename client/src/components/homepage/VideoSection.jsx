@@ -69,30 +69,16 @@ const VideoSection = () => {
           </Box>
         </VStack>
       </SimpleGrid>
-
-      {isLargerThanMd ? (
-        <ReactPlayer
-          url={Video}
-          playing={true}
-          loop={true}
-          muted={true}
-          volume={0}
-          width='100%'
-          height='auto'
-          title='Behind the scenes of creating of pottery vase'
-        />
-      ) : (
-        <ReactPlayer
-          url={VideoMobile}
-          playing={true}
-          loop={true}
-          muted={true}
-          volume={0}
-          width='100%'
-          height='auto'
-          title='Behind the scenes of creating of pottery vase'
-        />
-      )}
+      <ReactPlayer
+        url={isLargerThanMd ? Video : VideoMobile}
+        playing={true}
+        loop={true}
+        muted={true}
+        volume={0}
+        width='100%'
+        height='auto'
+        title='Behind the scenes of creating of pottery vase'
+      />
     </Box>
   );
 };

@@ -1,4 +1,4 @@
-import { Box, Button, Container, Grid, GridItem, Text, Image, Link, Heading } from '@chakra-ui/react';
+import { Container, Grid, GridItem, Text, Image, Link, Heading } from '@chakra-ui/react';
 import { Link as ReactLink } from 'react-router-dom';
 import HomeAccent from '../../otherassets/HomeAccent.jpg';
 import Dinnerware from '../../otherassets/Dinnerware.jpg';

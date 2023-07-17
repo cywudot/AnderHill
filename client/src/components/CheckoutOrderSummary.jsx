@@ -1,15 +1,4 @@
-import {
-  Flex,
-  Heading,
-  Stack,
-  Text,
-  useColorModeValue as mode,
-  Badge,
-  Box,
-  Link,
-  Divider,
-  useToast,
-} from '@chakra-ui/react';
+import { Flex, Heading, Stack, Text, Badge, Box, Link, Divider, useToast } from '@chakra-ui/react';
 import { useEffect, useState, useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link as ReactLink, useNavigate } from 'react-router-dom';
@@ -20,7 +9,6 @@ import CheckoutItem from './CheckoutItem';
 import PayPalButton from './PayPalButton';
 
 const CheckoutOrderSummary = () => {
-  const colorMode = mode('gray.600', 'gray.400');
   const cartItems = useSelector((state) => state.cart);
   const { cart, subtotal, expressShipping } = cartItems;
   const user = useSelector((state) => state.user);
@@ -67,11 +55,13 @@ const CheckoutOrderSummary = () => {
     navigate('/order-success');
   };
 
-  const onPaymentError = () => {
+  const onPaymentError = (error) => {
     toast({
-      description: 'Something went wrong during payment process. Please try again.',
+      description:
+        'Something went wrong during the payment process. Please try again or make sure that your PayPal account balance is enough for this purchase.',
       status: 'error',
-      duration: '20s',
+
+      duration: '600000',
       isClosable: true,
     });
   };
@@ -84,6 +74,7 @@ const CheckoutOrderSummary = () => {
       {cart.map((item) => (
         <CheckoutItem key={item.id} cartItem={item} />
       ))}
+
       <Stack spacing='6' color='brand.500'>
         <Flex justify='space-between'>
           <Text fontWeight='medium' color='brand.5001'>

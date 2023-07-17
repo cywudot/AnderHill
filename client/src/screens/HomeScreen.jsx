@@ -66,7 +66,6 @@ const HomeScreen = () => {
         </Wrap>
       ) : (
         <Box id='homepage' maxW='12xl' mx='auto' minH='12xl'>
-          {/* Hero Section */}
           <Box as='section' px={{ base: '0', lg: '12' }}>
             <Box
               w='full'
@@ -128,7 +127,7 @@ const HomeScreen = () => {
                 </Stack>
               </Flex>
             </Box>
-            {/* Store Benefits Section */}
+
             <HStack
               backgroundColor='brand.5001'
               justify='space-around'

@@ -28,7 +28,7 @@ const CheckoutScreen = () => {
           >
             Shipping Information
           </Heading>
-          <Stack spacing='5'>
+          <Stack spacing='5' as='section'>
             <ShippingInformation />
           </Stack>
         </Stack>
