@@ -90,7 +90,7 @@ const HomeScreen = () => {
                 >
                   <Heading
                     as='h1'
-                    size={['xl', '3xl', '4xl']}
+                    size={['2xl', '3xl', '4xl']}
                     fontWeight='bold'
                     color='brand.100'
                     textTransform='uppercase'
@@ -100,8 +100,14 @@ const HomeScreen = () => {
                     Ander Hill Pottery
                   </Heading>
 
-                  <Text fontSize={['sm', 'md', 'lg']} fontWeight='thin' color='brand.100' px={{ base: '8', md: '0' }}>
-                    Discover the art of pottery through our exquisite offerings, and add a touch of sophistication and
+                  <Text
+                    fontSize={['md', 'lg', 'xl']}
+                    fontWeight='thin'
+                    color='brand.100'
+                    px={{ base: '8', md: '0' }}
+                    display={{ base: 'none', sm: 'initial' }}
+                  >
+                    Discover the art of pottery through our exquisite collection, and add a touch of sophistication and
                     refinement to your living space today
                   </Text>
 

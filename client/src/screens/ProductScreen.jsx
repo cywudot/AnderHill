@@ -121,8 +121,9 @@ const ProductScreen = () => {
                 gap={{ base: 0, lg: '10' }}
                 maxW={{ base: '2xl', lg: '7xl' }}
                 mx='auto'
+                as='section'
               >
-                <Stack flex='1.5' className='product-description'>
+                <Stack flex='1.5' className='product-description' as='section'>
                   {product.stock <= 0 && (
                     <Badge
                       mb={[0, '3']}
@@ -207,6 +208,7 @@ const ProductScreen = () => {
                         <Button
                           isDisabled={amount <= 1}
                           onClick={() => changeAmount('minus')}
+                          aria-label='Decrease Quantity'
                           borderRadius='2px'
                           backgroundColor='brand.500'
                           _hover={{ backgroundColor: 'brand.5001' }}
@@ -217,6 +219,7 @@ const ProductScreen = () => {
                         <Button
                           isDisabled={amount >= product.stock}
                           onClick={() => changeAmount('plus')}
+                          aria-label='Increase Quantity'
                           borderRadius='0px'
                           backgroundColor='brand.500'
                           _hover={{ backgroundColor: 'brand.5001' }}
@@ -261,7 +264,15 @@ const ProductScreen = () => {
                     </Stack>
                   </Stack>
                 </Stack>
-                <Flex direction='column' align='center' flex='1' position='relative' className='product-image'>
+
+                <Flex
+                  direction='column'
+                  align='center'
+                  flex='1'
+                  position='relative'
+                  className='product-image'
+                  as='section'
+                >
                   <Image
                     mb='30px'
                     borderRadius='2px'
@@ -297,137 +308,139 @@ const ProductScreen = () => {
               </Stack>
 
               <Divider orientation='horizontal' backgroundColor='brand.400' h='2px' maxW='80%' mx='auto' />
+              <Box as='section'>
+                <Heading
+                  as='h3'
+                  fontSize='2xl'
+                  fontWeight='bold'
+                  p={5}
+                  fontFamily='heading'
+                  color='brand.500'
+                  textTransform='uppercase'
+                  textAlign='center'
+                >
+                  Customer Reviews
+                </Heading>
 
-              <Text
-                fontSize='2xl'
-                fontWeight='bold'
-                p={5}
-                fontFamily='heading'
-                color='brand.500'
-                textTransform='uppercase'
-                textAlign='center'
-              >
-                Customer Reviews
-              </Text>
-              <Stack align='center' w='full' backgroundColor='white' rounded={2} className='customer-reviews'>
-                <Stack spacingx='40px' spacing='20px' w='100%' p={3} rounded={2}>
-                  {product.reviews.length === 0 ? (
-                    <Text fontSize='md' color='brand.500' textAlign='center'>
-                      No reviews yet. Be the first to leave a review!
-                    </Text>
-                  ) : (
-                    product.reviews.map((review) => (
-                      <Stack
-                        key={review._id}
-                        minHeight='100px'
-                        direction={{ base: 'column', md: 'row' }}
-                        gap={{ base: 0, md: '50px' }}
-                        backgroundColor='brand.720'
-                        p={5}
-                        className='customer-review'
-                      >
+                <Stack align='center' w='full' backgroundColor='white' rounded={2} className='customer-reviews'>
+                  <Stack spacingx='40px' spacing='20px' w='100%' p={3} rounded={2}>
+                    {product.reviews.length === 0 ? (
+                      <Text fontSize='md' color='brand.500' textAlign='center'>
+                        No reviews yet. Be the first to leave a review!
+                      </Text>
+                    ) : (
+                      product.reviews.map((review) => (
                         <Stack
-                          justify='space-between'
-                          minW='150px'
-                          direction={{ base: 'row', md: 'column' }}
-                          py={{ base: '10px', md: '0px' }}
+                          key={review._id}
+                          minHeight='100px'
+                          direction={{ base: 'column', md: 'row' }}
+                          gap={{ base: 0, md: '50px' }}
+                          backgroundColor='brand.720'
+                          p={5}
+                          className='customer-review'
                         >
-                          <Text fontSize='md' color='brand.500' fontWeight='semibold'>
-                            {review.name}
-                          </Text>
-                          <Text color='brand.800' fontSize='sm'>
-                            {/* {new Date(review.createdAt).toDateString()} */}
-                            {formatReviewDate(review.createdAt)}
-                          </Text>
-                        </Stack>
+                          <Stack
+                            justify='space-between'
+                            minW='150px'
+                            direction={{ base: 'row', md: 'column' }}
+                            py={{ base: '10px', md: '0px' }}
+                          >
+                            <Text fontSize='md' color='brand.500' fontWeight='semibold'>
+                              {review.name}
+                            </Text>
+                            <Text color='brand.800' fontSize='sm'>
+                              {formatReviewDate(review.createdAt)}
+                            </Text>
+                          </Stack>
 
-                        <Stack justify='space-between'>
-                          <HStack spacing='5px' mt='3px' pb={3}>
-                            <StarIcon w={['14px', '16px']} color='brand.400' />
-                            <StarIcon w={['14px', '16px']} color={review.rating >= 2 ? 'brand.400' : 'brand.200'} />
-                            <StarIcon w={['14px', '16px']} color={review.rating >= 3 ? 'brand.400' : 'brand.200'} />
-                            <StarIcon w={['14px', '16px']} color={review.rating >= 4 ? 'brand.400' : 'brand.200'} />
-                            <StarIcon w={['14px', '16px']} color={review.rating >= 5 ? 'brand.400' : 'brand.200'} />
-                          </HStack>
-                          <Text fontWeight='semibold' color='brand.500'>
-                            {review.title && review.title}
-                          </Text>
-                          <Text color='brand.500' fontSize={['sm', 'md']}>
-                            {review.comment}
-                          </Text>
+                          <Stack justify='space-between'>
+                            <HStack spacing='5px' mt='3px' pb={3}>
+                              <StarIcon w={['14px', '16px']} color='brand.400' />
+                              <StarIcon w={['14px', '16px']} color={review.rating >= 2 ? 'brand.400' : 'brand.200'} />
+                              <StarIcon w={['14px', '16px']} color={review.rating >= 3 ? 'brand.400' : 'brand.200'} />
+                              <StarIcon w={['14px', '16px']} color={review.rating >= 4 ? 'brand.400' : 'brand.200'} />
+                              <StarIcon w={['14px', '16px']} color={review.rating >= 5 ? 'brand.400' : 'brand.200'} />
+                            </HStack>
+                            <Text fontWeight='semibold' color='brand.500'>
+                              {review.title && review.title}
+                            </Text>
+                            <Text color='brand.500' fontSize={['sm', 'md']}>
+                              {review.comment}
+                            </Text>
+                          </Stack>
                         </Stack>
-                      </Stack>
-                    ))
-                  )}
+                      ))
+                    )}
+                  </Stack>
                 </Stack>
-              </Stack>
 
-              {userInfo && (
-                <>
-                  <Tooltip label={hasUserReviewed() ? 'You have already reviewed this product' : ''} fontSize='md'>
-                    <Button
-                      isDisabled={hasUserReviewed()}
-                      my='20px'
-                      w='140px'
-                      backgroundColor='brand.300'
-                      _hover={{ backgroundColor: 'brand.3001' }}
-                      color='brand.100'
-                      rounded='2'
-                      onClick={() => setReviewBoxOpen(!reviewBoxOpen)}
-                      fontWeight='regular'
-                    >
-                      Write a review
-                    </Button>
-                  </Tooltip>
-                  {reviewBoxOpen && (
-                    <Stack mb='20px'>
-                      <Wrap>
-                        <HStack spacing='2px'>
-                          <Button variant='outline' rounded='2' onClick={() => setRating(1)}>
-                            <StarIcon color='brand.400' />
-                          </Button>
-                          <Button variant='outline' rounded='2' onClick={() => setRating(2)}>
-                            <StarIcon color={rating >= 2 ? 'brand.400' : 'gray.200'} />
-                          </Button>
-                          <Button variant='outline' rounded='2' onClick={() => setRating(3)}>
-                            <StarIcon color={rating >= 3 ? 'brand.400' : 'gray.200'} />
-                          </Button>
-                          <Button variant='outline' rounded='2' onClick={() => setRating(4)}>
-                            <StarIcon color={rating >= 4 ? 'brand.400' : 'gray.200'} />
-                          </Button>
-                          <Button variant='outline' rounded='2' onClick={() => setRating(5)}>
-                            <StarIcon color={rating >= 5 ? 'brand.400' : 'gray.200'} />
-                          </Button>
-                        </HStack>
-                      </Wrap>
-                      <Input
-                        rounded='2'
-                        onChange={(e) => {
-                          setTitle(e.target.value);
-                        }}
-                        placeholder='Review title (optional)'
-                      />
-                      <Textarea
-                        rounded='2'
-                        onChange={(e) => {
-                          setComment(e.target.value);
-                        }}
-                        placeholder='Write your review here'
-                      />
+                {userInfo && (
+                  <>
+                    <Tooltip label={hasUserReviewed() ? 'You have already reviewed this product' : ''} fontSize='md'>
                       <Button
+                        isDisabled={hasUserReviewed()}
+                        my='20px'
                         w='140px'
-                        backgroundColor='brand.400'
-                        _hover={{ backgroundColor: 'brand.4001' }}
+                        backgroundColor='brand.300'
+                        _hover={{ backgroundColor: 'brand.3001' }}
                         color='brand.100'
                         rounded='2'
-                        onClick={() => onSubmit()}
+                        onClick={() => setReviewBoxOpen(!reviewBoxOpen)}
+                        fontWeight='regular'
                       >
-                        Submit Review
+                        Write a review
                       </Button>
-                    </Stack>
-                  )}
-                </>
-              )}
+                    </Tooltip>
+                    {reviewBoxOpen && (
+                      <Stack mb='20px'>
+                        <Wrap>
+                          <HStack spacing='2px'>
+                            <Button variant='outline' rounded='2' onClick={() => setRating(1)}>
+                              <StarIcon color='brand.400' />
+                            </Button>
+                            <Button variant='outline' rounded='2' onClick={() => setRating(2)}>
+                              <StarIcon color={rating >= 2 ? 'brand.400' : 'gray.200'} />
+                            </Button>
+                            <Button variant='outline' rounded='2' onClick={() => setRating(3)}>
+                              <StarIcon color={rating >= 3 ? 'brand.400' : 'gray.200'} />
+                            </Button>
+                            <Button variant='outline' rounded='2' onClick={() => setRating(4)}>
+                              <StarIcon color={rating >= 4 ? 'brand.400' : 'gray.200'} />
+                            </Button>
+                            <Button variant='outline' rounded='2' onClick={() => setRating(5)}>
+                              <StarIcon color={rating >= 5 ? 'brand.400' : 'gray.200'} />
+                            </Button>
+                          </HStack>
+                        </Wrap>
+                        <Input
+                          rounded='2'
+                          onChange={(e) => {
+                            setTitle(e.target.value);
+                          }}
+                          placeholder='Review title (optional)'
+                        />
+                        <Textarea
+                          rounded='2'
+                          onChange={(e) => {
+                            setComment(e.target.value);
+                          }}
+                          placeholder='Write your review here'
+                        />
+                        <Button
+                          w='140px'
+                          backgroundColor='brand.400'
+                          _hover={{ backgroundColor: 'brand.4001' }}
+                          color='brand.100'
+                          rounded='2'
+                          onClick={() => onSubmit()}
+                        >
+                          Submit Review
+                        </Button>
+                      </Stack>
+                    )}
+                  </>
+                )}
+              </Box>
             </Box>
           )
         )}

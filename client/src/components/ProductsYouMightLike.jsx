@@ -1,19 +1,4 @@
-import {
-  Center,
-  Stack,
-  Spinner,
-  SimpleGrid,
-  Box,
-  Flex,
-  GridItem,
-  Alert,
-  AlertIcon,
-  AlertTitle,
-  AlertDescription,
-  Heading,
-  VStack,
-  HStack,
-} from '@chakra-ui/react';
+import { Box, Flex, Heading } from '@chakra-ui/react';
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getProducts } from '../redux/actions/productActions';
@@ -51,7 +36,7 @@ const ProductsYouMightLike = () => {
   const PrevArrow = (props) => {
     const { className, style, onClick } = props;
     return (
-      <Box className={className} style={{ ...style, cursor: 'pointer' }} onClick={onClick}>
+      <Box className={className} style={{ ...style, cursor: 'pointer' }} onClick={onClick} aria-label='Previous'>
         <BiSolidChevronLeftSquare size='25px' color='#454545' />
       </Box>
     );
@@ -60,7 +45,7 @@ const ProductsYouMightLike = () => {
   const NextArrow = (props) => {
     const { className, style, onClick } = props;
     return (
-      <Box className={className} style={{ ...style, cursor: 'pointer' }} onClick={onClick}>
+      <Box className={className} style={{ ...style, cursor: 'pointer' }} onClick={onClick} aria-label='Next'>
         <BiSolidChevronRightSquare size='25px' color='#454545' />
       </Box>
     );
@@ -68,7 +53,7 @@ const ProductsYouMightLike = () => {
   const slickSettings = {
     dots: false,
     infinite: true,
-    speed: 3000,
+    speed: 2000,
     autoplay: true,
     slidesToShow: 5,
     slidesToScroll: 1,
@@ -124,7 +109,7 @@ const ProductsYouMightLike = () => {
         </Heading>
       </Flex>
 
-      <Box mx={{ base: '10', lg: '20' }} mt={5} mb={10}>
+      <Box mx={{ base: '10', lg: '20' }} mt={5} mb={5}>
         <Box>
           <Slider {...slickSettings}>
             {randomProducts.map((product) => (

@@ -67,7 +67,7 @@ const CartItem = ({ cartItem }) => {
           <Text fontWeight='bold' color='brand.500'>
             ${price}
           </Text>
-          <CloseButton onClick={() => dispatch(removeCartItem(id))} color='brand.500' />
+          <CloseButton onClick={() => dispatch(removeCartItem(id))} color='brand.500' aria-label='Remove item' />
         </Flex>
       </Stack>
     </Stack>
