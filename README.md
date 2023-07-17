@@ -9,6 +9,7 @@
 
 
 **About**<br>
+
 This is a pottery eCommerce application built using the MERN (MongoDB, Express.js, React, and Node.js) stack along with Chakra UI for the user interface. The application allows users to browse and purchase pottery products, manage their cart, checkout, and perform user authentication.
 
 **Key Features:**
