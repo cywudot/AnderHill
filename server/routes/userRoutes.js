@@ -31,7 +31,7 @@ const loginUser = asyncHandler(async (req, res) => {
 
     //If the user does not exist or the password does not match, it sets the HTTP status code to 401 (Unauthorized) and throws an error with the message 'Invalid email or password'.
   } else {
-    res.status(401).send('Invalid Email or Password');
+    res.status(401).send('Invalid email or password');
     throw new Error('User not found.');
   }
 });
@@ -56,6 +56,7 @@ const registerUser = asyncHandler(async (req, res) => {
       email: user.email,
       isAdmin: user.isAdmin,
       token: genToken(user._id),
+      createdAt: user.createdAt,
     });
   } else {
     res.status(400).send('We could not register you.');
