@@ -1,23 +1,4 @@
-import {
-  Button,
-  Box,
-  ButtonGroup,
-  Container,
-  SimpleGrid,
-  Divider,
-  Flex,
-  Icon,
-  Link,
-  IconButton,
-  ListHeader,
-  Input,
-  HStack,
-  Stack,
-  Image,
-  Text,
-  useToast,
-  Heading,
-} from '@chakra-ui/react';
+import { Box, Container, SimpleGrid, Divider, Link, IconButton, Stack, Image, Text, Heading } from '@chakra-ui/react';
 import { FaFacebook, FaInstagram, FaTwitter } from 'react-icons/fa';
 import AHLogo from '../logo/AnderHillLogoFooter.png';
 import { Link as ReactLink } from 'react-router-dom';

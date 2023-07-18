@@ -1,3 +1,5 @@
+//format review dates for products
+
 export function formatReviewDate(createdAt) {
   const reviewDate = new Date(createdAt);
   const currentDate = new Date();

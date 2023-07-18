@@ -67,7 +67,7 @@ const CartScreen = () => {
           <Stack spacing={{ base: '8', md: '5' }} flex='1' as='section'>
             <Heading
               fontSize={['lg', 'xl']}
-              fontWeight='Regular'
+              fontWeight='regular'
               fontFamily='body'
               color='brand.500'
               backgroundColor='white'
@@ -91,7 +91,7 @@ const CartScreen = () => {
               gap={3}
               alignItems='flex-start'
             >
-              <Image src={FreeDeliveryIcon} w='60px' color='brand.500' />
+              <Image src={FreeDeliveryIcon} w='60px' color='brand.500' alt='delivery truck' />
               <VStack alignItems='flex-start'>
                 <Text>Free Standard Delivery</Text>
                 <Text fontSize='sm'>For orders $300 or above</Text>

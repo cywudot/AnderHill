@@ -4,21 +4,16 @@ import {
   Heading,
   Alert,
   AlertTitle,
-  AlertIcon,
   Divider,
   Wrap,
   useToast,
   Stack,
-  HStack,
   VStack,
   Text,
-  Link,
 } from '@chakra-ui/react';
 import { Link as ReactLink, useNavigate } from 'react-router-dom';
 import { logout } from '../redux/actions/userActions';
-import { useDispatch, useSelector } from 'react-redux';
-import { getUserOrders } from '../redux/actions/userActions';
-import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 
 const OrderSuccessScreen = () => {
   const navigate = useNavigate();
@@ -41,6 +36,7 @@ const OrderSuccessScreen = () => {
       p={10}
     >
       <Alert
+        as='section'
         status='success'
         variant='subtle'
         flexDirection='column'
@@ -100,7 +96,7 @@ const OrderSuccessScreen = () => {
         </VStack>
       </Alert>
 
-      <Stack w='full' backgroundColor='brand.500' p={5} boxShadow='base'>
+      <Stack w='full' backgroundColor='brand.500' p={5} boxShadow='base' as='section'>
         <Text fontSize='lg' fontWeight='bold' color='brand.100'>
           Questions?
         </Text>
