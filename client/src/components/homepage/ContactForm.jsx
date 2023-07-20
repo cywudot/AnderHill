@@ -9,14 +9,12 @@ import {
   Stack,
   Textarea,
   Text,
-  Container,
   Image,
   useBreakpointValue,
   useToast,
 } from '@chakra-ui/react';
 import React from 'react';
 import TextField from '../TextField';
-import QuotesImage from '../../otherassets/about-us-barnimages-02.jpg';
 import { Formik } from 'formik';
 import * as Yup from 'yup';
 
@@ -108,8 +106,9 @@ const ContactForm = () => {
               fit='cover'
               rounded={2}
               objectPosition='center'
-              src={QuotesImage}
+              src='https://storage.googleapis.com/anderhillproducts/otherassets/about-us-barnimages-02.jpg'
               alt='work studio'
+              loading='lazy'
             />
           </Stack>
         </Flex>

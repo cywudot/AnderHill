@@ -1,9 +1,9 @@
 import { Box, Flex, Heading, Stack, Image, Text } from '@chakra-ui/react';
-import AboutUsHeroImage from '../otherassets/AboutUsHero.jpg';
+// import AboutUsHeroImage from '../otherassets/AboutUsHero.jpg';
 import AboutUsHeroImageMobile from '../otherassets/AboutUsHeroMobile.jpg';
 import AboutUsHandsOne from '../otherassets/AboutUs-quinoal-unsplash.jpg';
 import AboutUsHandsTwo from '../otherassets/AboutUs-barnimages.jpg';
-import AboutUsThree from '../otherassets/AboutUs-barn03.jpg';
+// import AboutUsThree from '../otherassets/AboutUs-barn03.jpg';
 const AboutUs = () => {
   return (
     <Box maxW='12xl' mx='auto' px={{ base: '0', lg: '12' }} minH='8xl' id='main-content-about'>
@@ -15,7 +15,7 @@ const AboutUs = () => {
         bgSize='cover'
         backgroundImage={{
           base: `url(${AboutUsHeroImageMobile})`,
-          md: `url(${AboutUsHeroImage})`,
+          md: `url(https://storage.googleapis.com/anderhillproducts/otherassets/AboutUsHero.jpg)`,
         }}
       >
         <Heading
@@ -54,7 +54,14 @@ const AboutUs = () => {
           mb={12}
         >
           <Box mx='auto' rounded='2px' overflow='hidden' flex={1} as='section'>
-            <Image fit='cover' src={AboutUsHandsOne} alt='Handing shaping pottery' maxW='100%' minH='350px' />
+            <Image
+              fit='cover'
+              src={AboutUsHandsOne}
+              alt='Handing shaping pottery'
+              maxW='100%'
+              minH='350px'
+              loading='lazy'
+            />
           </Box>
 
           <Box textAlign={{ base: 'center', md: 'left' }} mx='auto' alignSelf='center' flex={1} as='section'>
@@ -86,7 +93,7 @@ const AboutUs = () => {
         h={{ base: 'md', lg: '2xl' }}
         bgPos='center'
         bgSize='cover'
-        backgroundImage={AboutUsThree}
+        backgroundImage='url(https://storage.googleapis.com/anderhillproducts/otherassets/AboutUs-barn03.jpg)'
         pos='relative'
       >
         <Box
@@ -159,6 +166,7 @@ const AboutUs = () => {
               maxW='100%'
               minH='350px'
               ml='auto'
+              loading='lazy'
             />
           </Box>
         </Stack>
