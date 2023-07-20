@@ -1,12 +1,11 @@
-import { Box, Container, SimpleGrid, Divider, Link, IconButton, Stack, Image, Text, Heading } from '@chakra-ui/react';
-import { FaFacebook, FaInstagram, FaTwitter } from 'react-icons/fa';
+import { Box, Container, SimpleGrid, Divider, Link, Stack, Image, Text, Heading } from '@chakra-ui/react';
 import AHLogo from '../logo/AnderHillLogoFooter.png';
 import { Link as ReactLink } from 'react-router-dom';
 import EmailSubField from './EmailSubField';
 
 const Footer = () => {
   return (
-    <Box as='footer' backgroundColor='brand.500' mt={8} position='relative' bottom={0} width='100%'>
+    <Box as='footer' backgroundColor='brand.500' mt={8} position='relative' bottom={0} width='100%' minH='200px'>
       <Container role='contentinfo' maxW={{ base: 'lg', md: '8xl' }} pt={3} pb={3}>
         <SimpleGrid
           templateColumns={{ base: '1fr 1fr', md: '1fr 1fr 1fr 2fr', lg: '1fr 1fr 1fr 2fr' }}
@@ -22,7 +21,7 @@ const Footer = () => {
               alignSelf={{ base: 'center', md: 'flex-start' }}
               my='auto'
             >
-              <Image src={AHLogo} maxWidth='180' alt='footer-logo' />
+              <Image src={AHLogo} maxWidth='180px' alt='footer-logo' />
             </Box>
           </Stack>
           <Stack>
@@ -64,43 +63,9 @@ const Footer = () => {
 
         <Divider orientation='horizontal' py={3} />
         <Stack direction={['column-reverse', 'row']} justify='space-between' textAlign='center'>
-          <Stack justify='center'>
-            <Text color='brand.750' fontSize={['xs', 'sm']}>
-              © 2023 AH Pottery. All rights reserved.
-            </Text>
-          </Stack>
-          <Stack direction='row' justify={{ base: 'center', sm: 'right' }}>
-            <IconButton
-              aria-label='Facebook'
-              as={Link}
-              href='#'
-              size={{ base: 'md', md: 'lg' }}
-              backgroundColor='brand.500'
-              color='brand.100'
-              icon={<FaFacebook />}
-              variant='none'
-            />
-            <IconButton
-              aria-label='Twitter'
-              as={Link}
-              href='#'
-              size={{ base: 'md', md: 'lg' }}
-              backgroundColor='brand.500'
-              color='brand.100'
-              icon={<FaTwitter />}
-              variant='none'
-            />
-            <IconButton
-              aria-label='Instagram'
-              as={Link}
-              href='#'
-              size={{ base: 'md', md: 'lg' }}
-              backgroundColor='brand.500'
-              color='brand.100'
-              icon={<FaInstagram />}
-              variant='none'
-            />
-          </Stack>
+          <Text color='brand.750' fontSize={['xs', 'sm']} pt={2}>
+            © 2023 AH Pottery. All rights reserved.
+          </Text>
         </Stack>
       </Container>
     </Box>
