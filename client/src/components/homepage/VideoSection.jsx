@@ -1,11 +1,12 @@
-import { Box, Button, Flex, Heading, SimpleGrid, Text, VStack, useMediaQuery } from '@chakra-ui/react';
+import { Box, Button, Heading, SimpleGrid, Text, VStack, useMediaQuery } from '@chakra-ui/react';
 import { Link as ReactLink } from 'react-router-dom';
 import ReactPlayer from 'react-player';
-import Video from '../../otherassets/AnderHillVideo.mp4';
-import VideoMobile from '../../otherassets/AnderHillVideoTwo.mp4';
 import { ArrowForwardIcon } from '@chakra-ui/icons';
 
 const VideoSection = () => {
+  const Video = 'https://storage.googleapis.com/anderhillproducts/AnderHillVideo.mp4';
+  const VideoMobile = 'https://storage.googleapis.com/anderhillproducts/AnderHillVideoTwo.mp4';
+
   const [isLargerThanMd] = useMediaQuery('(min-width: 768px)');
 
   return (

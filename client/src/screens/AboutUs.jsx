@@ -1,6 +1,6 @@
 import { Box, Flex, Heading, Stack, Image, Text } from '@chakra-ui/react';
 import AboutUsHeroImage from '../otherassets/AboutUsHero.jpg';
-import AboutUsHeroImageMobile from '../otherassets/AboutUsHeroMobile.png';
+import AboutUsHeroImageMobile from '../otherassets/AboutUsHeroMobile.jpg';
 import AboutUsHandsOne from '../otherassets/AboutUs-quinoal-unsplash.jpg';
 import AboutUsHandsTwo from '../otherassets/AboutUs-barnimages.jpg';
 import AboutUsThree from '../otherassets/AboutUs-barn03.jpg';

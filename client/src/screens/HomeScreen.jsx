@@ -1,8 +1,8 @@
 import { Box, Flex, Heading, HStack, Stack, Button, Image, Spinner, Text, Wrap, Center } from '@chakra-ui/react';
 import React, { useState, useEffect } from 'react';
 import { Link as ReactLink } from 'react-router-dom';
-import HeroImage from '../otherassets/HomeHeroImage.png';
-import HeroImageMobile from '../otherassets/HomeHeroImageMobile.png';
+import HeroImage from '../otherassets/HomeHeroImage.jpg';
+import HeroImageMobile from '../otherassets/HomeHeroImageMobile.jpg';
 import ContactIcon from '../sourced-icons/contact.png';
 import FreeDeliveryIcon from '../sourced-icons/free-delivery.png';
 import ReturnIcon from '../sourced-icons/30days.png';
