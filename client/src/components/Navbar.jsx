@@ -178,7 +178,13 @@ const Navbar = () => {
       >
         {/* Logo */}
         <Link as={ReactLink} to='/' _hover={{ textDecoration: 'none' }}>
-          <Image src={AHLogo} display={{ base: 'none', lg: 'initial' }} minWidth='100px' maxWidth='150px' />
+          <Image
+            src={AHLogo}
+            display={{ base: 'none', lg: 'initial' }}
+            minWidth='100px'
+            maxWidth='150px'
+            alt='anderhilllogo'
+          />
           <Text
             display={{ base: 'initial', lg: 'none' }}
             fontFamily='heading'
@@ -253,6 +259,7 @@ const Navbar = () => {
                 px={0}
                 variant='none'
                 backgroundColor='transparent'
+                aria-label='Login'
               >
                 <Icon as={AiOutlineLogin} h='7' w='7' />
               </Button>
@@ -266,6 +273,7 @@ const Navbar = () => {
             px={0}
             variant='none'
             backgroundColor='transparent'
+            aria-label='To shopping cart'
           >
             <ShoppingCartIcon />
           </Button>
