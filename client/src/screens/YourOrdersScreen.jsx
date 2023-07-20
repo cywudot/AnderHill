@@ -34,7 +34,7 @@ const YourOrdersScreen = () => {
     if (userInfo) {
       dispatch(getUserOrders());
     }
-  }, []);
+  }, [dispatch, userInfo]);
 
   return userInfo ? (
     <Box justify='center' w='full'>
