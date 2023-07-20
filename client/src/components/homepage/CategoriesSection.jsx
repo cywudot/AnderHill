@@ -60,6 +60,7 @@ const CategoriesSection = () => {
               h='100%'
               src={ShopAll}
               alt='Shop all collections link'
+              maxW='900px'
             />
             <Text {...mockButtonStyles} whiteSpace='nowrap'>
               Shop All
