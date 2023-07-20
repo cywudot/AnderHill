@@ -108,7 +108,6 @@ const ContactForm = () => {
               objectPosition='center'
               src='https://storage.googleapis.com/anderhillproducts/otherassets/about-us-barnimages-02.jpg'
               alt='work studio'
-              loading='lazy'
             />
           </Stack>
         </Flex>

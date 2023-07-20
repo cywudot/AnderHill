@@ -54,14 +54,7 @@ const AboutUs = () => {
           mb={12}
         >
           <Box mx='auto' rounded='2px' overflow='hidden' flex={1} as='section'>
-            <Image
-              fit='cover'
-              src={AboutUsHandsOne}
-              alt='Handing shaping pottery'
-              maxW='100%'
-              minH='350px'
-              loading='lazy'
-            />
+            <Image fit='cover' src={AboutUsHandsOne} alt='Handing shaping pottery' maxW='100%' minH='350px' />
           </Box>
 
           <Box textAlign={{ base: 'center', md: 'left' }} mx='auto' alignSelf='center' flex={1} as='section'>
@@ -166,7 +159,6 @@ const AboutUs = () => {
               maxW='100%'
               minH='350px'
               ml='auto'
-              loading='lazy'
             />
           </Box>
         </Stack>

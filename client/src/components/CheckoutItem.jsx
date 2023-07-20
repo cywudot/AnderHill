@@ -8,7 +8,7 @@ const CheckoutItem = ({ cartItem }) => {
   return (
     <>
       <Flex gap='10px' className='checkout-product'>
-        <Image rounded='sm' width='120px' height='120px' fit='cover' src={image[0]} alt={name} loading='lazy' />
+        <Image rounded='sm' width='120px' height='120px' fit='cover' src={image[0]} alt={name} />
         <Flex direction='column' align='stretch' flex='1' mx='2' spacing='4'>
           <Flex direction={['column', 'row']} justify='space-between' gap={2}>
             <Text fontSize={['sm', 'md']}>{name}</Text>
