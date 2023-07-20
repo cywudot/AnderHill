@@ -133,24 +133,13 @@ const HomeScreen = () => {
               textAlign={{ base: 'center', lg: 'left' }}
               p={5}
             >
-              <StoreBenefits
-                iconSrc={FreeDeliveryIcon}
-                title='Free Shipping'
-                description='For orders over $300'
-                maxW='60px'
-              />
+              <StoreBenefits iconSrc={FreeDeliveryIcon} title='Free Shipping' description='For orders over $300' />
               <StoreBenefits
                 iconSrc={ReturnIcon}
                 title='30 Days Guarantee'
                 description='Quality ensured or money back'
-                maxW='60px'
               />
-              <StoreBenefits
-                iconSrc={ContactIcon}
-                title='24/7 Support'
-                description='Always Here to Assist You'
-                maxW='60px'
-              />
+              <StoreBenefits iconSrc={ContactIcon} title='24/7 Support' description='Always Here to Assist You' />
             </HStack>
           </Box>
 
