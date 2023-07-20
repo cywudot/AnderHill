@@ -1,22 +1,35 @@
-import Navbar from './components/Navbar';
 import { ChakraProvider, extendTheme, Box } from '@chakra-ui/react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import ProductsScreens from './screens/ProductsScreens';
 import '@fontsource/cormorant-garamond';
 import '@fontsource/poppins';
-import CartScreen from './screens/CartScreen';
-import ProductScreen from './screens/ProductScreen';
+import React, { Suspense } from 'react';
+
+import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import HomeScreen from './screens/HomeScreen';
-import AboutUs from './screens/AboutUs';
-import LoginScreen from './screens/LoginScreen';
-import RegistrationScreen from './screens/RegistrationScreen';
-import ProfileScreen from './screens/ProfileScreen';
-import CheckoutScreen from './screens/CheckoutScreen';
-import OrderSuccessScreen from './screens/OrderSuccessScreen';
-import YourOrdersScreen from './screens/YourOrdersScreen';
 import ScrollToTop from './helpers/ScrollToTop.js';
-// import theme from './theme.js';
+import { Stack, Spinner } from '@chakra-ui/react';
+// import ProductsScreens from './screens/ProductsScreens';
+const ProductsScreens = React.lazy(() => import('./screens/ProductsScreens'));
+// import CartScreen from './screens/CartScreen';
+const CartScreen = React.lazy(() => import('./screens/CartScreen'));
+// import ProductScreen from './screens/ProductScreen';
+const ProductScreen = React.lazy(() => import('./screens/ProductScreen'));
+
+// import AboutUs from './screens/AboutUs';
+const AboutUs = React.lazy(() => import('./screens/AboutUs'));
+// import LoginScreen from './screens/LoginScreen';
+const LoginScreen = React.lazy(() => import('./screens/LoginScreen'));
+// import RegistrationScreen from './screens/RegistrationScreen';
+const RegistrationScreen = React.lazy(() => import('./screens/RegistrationScreen'));
+// import ProfileScreen from './screens/ProfileScreen';
+const ProfileScreen = React.lazy(() => import('./screens/ProfileScreen'));
+// import CheckoutScreen from './screens/CheckoutScreen';
+const CheckoutScreen = React.lazy(() => import('./screens/CheckoutScreen'));
+// import OrderSuccessScreen from './screens/OrderSuccessScreen';
+const OrderSuccessScreen = React.lazy(() => import('./screens/OrderSuccessScreen'));
+// import YourOrdersScreen from './screens/YourOrdersScreen';
+const YourOrdersScreen = React.lazy(() => import('./screens/YourOrdersScreen'));
 
 const theme = extendTheme({
   styles: {
@@ -43,7 +56,6 @@ const theme = extendTheme({
       700: '#ECE8E8',
       720: '#F0F0F0',
       750: '#CCCCCC',
-      780: '#B6B5B5',
       800: '#84817C',
       1000: '#17B169',
       1001: '#128C53',
@@ -69,19 +81,27 @@ function App() {
           mt={{ base: '50px', lg: '100px' }}
         >
           <main>
-            <Routes>
-              <Route path='/' element={<HomeScreen />}></Route>
-              <Route path='/products/:category?' element={<ProductsScreens />}></Route>
-              <Route path='/aboutus' element={<AboutUs />}></Route>
-              <Route path='/product/:id' element={<ProductScreen />}></Route>
-              <Route path='/shoppingcart' element={<CartScreen />}></Route>
-              <Route path='/login' element={<LoginScreen />}></Route>
-              <Route path='/registration' element={<RegistrationScreen />}></Route>
-              <Route path='/profile' element={<ProfileScreen />}></Route>
-              <Route path='/checkout' element={<CheckoutScreen />}></Route>
-              <Route path='/order-success' element={<OrderSuccessScreen />}></Route>
-              <Route path='/your-orders' element={<YourOrdersScreen />}></Route>
-            </Routes>
+            <Suspense
+              fallback={
+                <Stack direction='row' justify='center' pt={10} spacing={4}>
+                  <Spinner mt={20} thickness='2px' speed='0.65s' emptyColor='gray.200' color='brand.400' size='xl' />
+                </Stack>
+              }
+            >
+              <Routes>
+                <Route path='/' element={<HomeScreen />}></Route>
+                <Route path='/products/:category?' element={<ProductsScreens />}></Route>
+                <Route path='/aboutus' element={<AboutUs />}></Route>
+                <Route path='/product/:id' element={<ProductScreen />}></Route>
+                <Route path='/shoppingcart' element={<CartScreen />}></Route>
+                <Route path='/login' element={<LoginScreen />}></Route>
+                <Route path='/registration' element={<RegistrationScreen />}></Route>
+                <Route path='/profile' element={<ProfileScreen />}></Route>
+                <Route path='/checkout' element={<CheckoutScreen />}></Route>
+                <Route path='/order-success' element={<OrderSuccessScreen />}></Route>
+                <Route path='/your-orders' element={<YourOrdersScreen />}></Route>
+              </Routes>
+            </Suspense>
           </main>
         </Box>
         <Footer />
