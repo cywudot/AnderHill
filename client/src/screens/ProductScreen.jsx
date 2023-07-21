@@ -22,6 +22,7 @@ import {
   Input,
   Textarea,
   Center,
+  useMediaQuery,
 } from '@chakra-ui/react';
 import { StarIcon } from '@chakra-ui/icons';
 import { FaPlus, FaMinus } from 'react-icons/fa';
@@ -75,7 +76,7 @@ const ProductScreen = () => {
   const handleDotClick = (index) => {
     setCurrentIndex(index);
   };
-
+  const [isMobile] = useMediaQuery('(max-width: 420px)');
   //shopping cart quantity
   const changeAmount = (input) => {
     if (input === 'plus') {
@@ -119,7 +120,7 @@ const ProductScreen = () => {
                 align='center'
                 mb='50px'
                 gap={{ base: 0, lg: '10' }}
-                maxW={{ base: '2xl', lg: '7xl' }}
+                maxW={{ base: 'xl', lg: '7xl' }}
                 mx='auto'
                 as='section'
               >
@@ -273,15 +274,29 @@ const ProductScreen = () => {
                   className='product-image'
                   as='section'
                 >
-                  <Image
-                    mb='30px'
-                    borderRadius='2px'
-                    objectFit='cover'
-                    src={product.images[currentIndex]}
-                    alt={product.name}
-                    width='100%'
-                    maxH={{ base: 'none', lg: '520px' }}
-                  />
+                  <Box>
+                    {isMobile ? (
+                      <Image
+                        mb='30px'
+                        borderRadius='2px'
+                        objectFit='cover'
+                        src={product.mobileimages[currentIndex]}
+                        alt={product.name}
+                        width='100%'
+                        maxH={{ base: 'none', lg: '520px' }}
+                      />
+                    ) : (
+                      <Image
+                        mb='30px'
+                        borderRadius='2px'
+                        objectFit='cover'
+                        src={product.images[currentIndex]}
+                        alt={product.name}
+                        width='100%'
+                        maxH={{ base: 'none', lg: '520px' }}
+                      />
+                    )}
+                  </Box>
                   <Box textAlign='center' mt={2} position='absolute' bottom='0'>
                     <Box display='flex' justifyContent='center'>
                       {product.images.map((image, index) => (
