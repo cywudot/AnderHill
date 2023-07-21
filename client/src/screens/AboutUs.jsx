@@ -1,9 +1,9 @@
 import { Box, Flex, Heading, Stack, Image, Text } from '@chakra-ui/react';
-// import AboutUsHeroImage from '../otherassets/AboutUsHero.jpg';
 import AboutUsHeroImageMobile from '../otherassets/AboutUsHeroMobile.jpg';
 import AboutUsHandsOne from '../otherassets/AboutUs-quinoal-unsplash.jpg';
 import AboutUsHandsTwo from '../otherassets/AboutUs-barnimages.jpg';
-// import AboutUsThree from '../otherassets/AboutUs-barn03.jpg';
+
+
 const AboutUs = () => {
   return (
     <Box maxW='12xl' mx='auto' px={{ base: '0', lg: '12' }} minH='8xl' id='main-content-about'>
