@@ -12,14 +12,7 @@ const ProductCardTest = ({ product }) => {
       _hover={{ textDecoration: 'none' }}
     >
       <Box position='relative' maxW='450px' mx='auto'>
-        <Image
-          src={product.mobileimages[1]}
-          alt={product.name}
-          objectFit='cover'
-          w='full'
-          position='relative'
-          maxW='440px'
-        />
+        <Image src={product.images[1]} alt={product.name} objectFit='cover' w='full' position='relative' maxW='440px' />
       </Box>
 
       <Flex justify='space-between' color='brand.500' textAlign='center'>

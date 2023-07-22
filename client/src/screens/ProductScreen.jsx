@@ -76,7 +76,7 @@ const ProductScreen = () => {
   const handleDotClick = (index) => {
     setCurrentIndex(index);
   };
-  const [isMobile] = useMediaQuery('(max-width: 420px)');
+
   //shopping cart quantity
   const changeAmount = (input) => {
     if (input === 'plus') {
@@ -275,27 +275,15 @@ const ProductScreen = () => {
                   as='section'
                 >
                   <Box>
-                    {isMobile ? (
-                      <Image
-                        mb='30px'
-                        borderRadius='2px'
-                        objectFit='cover'
-                        src={product.mobileimages[currentIndex]}
-                        alt={product.name}
-                        width='100%'
-                        maxH={{ base: 'none', lg: '520px' }}
-                      />
-                    ) : (
-                      <Image
-                        mb='30px'
-                        borderRadius='2px'
-                        objectFit='cover'
-                        src={product.images[currentIndex]}
-                        alt={product.name}
-                        width='100%'
-                        maxH={{ base: 'none', lg: '520px' }}
-                      />
-                    )}
+                    <Image
+                      mb='30px'
+                      borderRadius='2px'
+                      objectFit='cover'
+                      src={product.images[currentIndex]}
+                      alt={product.name}
+                      width='100%'
+                      maxH={{ base: 'none', lg: '520px' }}
+                    />
                   </Box>
                   <Box textAlign='center' mt={2} position='absolute' bottom='0'>
                     <Box display='flex' justifyContent='center'>
