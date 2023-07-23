@@ -8,7 +8,7 @@ import ReturnIcon from '../sourced-icons/30days.png';
 import ContactForm from '../components/homepage/ContactForm';
 import VideoSection from '../components/homepage/VideoSection';
 import CategoriesSection from '../components/homepage/CategoriesSection';
-import FeaturedProducts from '../components/homepage/FeaturedProducts';
+// import FeaturedProducts from '../components/homepage/FeaturedProducts';
 
 const HomeScreen = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -144,7 +144,7 @@ const HomeScreen = () => {
           </Box>
 
           <CategoriesSection />
-          <FeaturedProducts />
+          {/* <FeaturedProducts /> */}
           <VideoSection />
           <Flex justifyContent='center' pb={12} id='contact-form' px={{ base: '4', lg: '12' }}>
             <ContactForm />
