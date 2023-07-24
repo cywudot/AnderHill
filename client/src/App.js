@@ -1,12 +1,8 @@
 import { ChakraProvider, extendTheme, Box } from '@chakra-ui/react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-// import '@fontsource/cormorant-garamond';
-// import '@fontsource/poppins';
 import React, { Suspense } from 'react';
-
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
-// import HomeScreen from './screens/HomeScreen';
 import ScrollToTop from './helpers/ScrollToTop.js';
 import { Stack, Spinner } from '@chakra-ui/react';
 

@@ -1,7 +1,8 @@
+import React, { Suspense } from 'react';
 import { Box, Container, SimpleGrid, Divider, Link, Stack, Image, Text, Heading } from '@chakra-ui/react';
 import AHLogo from '../logo/AnderHillLogoFooter.png';
 import { Link as ReactLink } from 'react-router-dom';
-import EmailSub from './EmailSub';
+const EmailSub = React.lazy(() => import('./EmailSub'));
 
 const Footer = () => {
   return (
@@ -58,7 +59,9 @@ const Footer = () => {
             <Heading fontSize='md' fontWeight='bold' color='brand.100' fontFamily='heading' textTransform='uppercase'>
               Subscribe to our newsletter
             </Heading>
-            <EmailSub />
+            <Suspense fallback={<div>Loading...</div>}>
+              <EmailSub />
+            </Suspense>
           </Stack>
         </SimpleGrid>
 
