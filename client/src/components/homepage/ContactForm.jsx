@@ -59,7 +59,7 @@ const ContactForm = () => {
           >
             <Stack spacing='0'>
               <Stack spacing={{ base: '2', md: '3' }} textAlign='center' pb={2}>
-                <Heading as='h3' size={{ base: 'md', md: 'lg' }} fontFamily='body' color='brand.500'>
+                <Heading as='h3' size={{ base: 'md', md: 'lg' }} textTransform='uppercase' color='brand.500'>
                   Get in touch
                 </Heading>
                 <Text color='brand.500'>We are here for you! How can we help?</Text>

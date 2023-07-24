@@ -9,7 +9,6 @@ import ContactForm from '../components/homepage/ContactForm';
 import VideoSection from '../components/homepage/VideoSection';
 import CategoriesSection from '../components/homepage/CategoriesSection';
 
-
 const HomeScreen = () => {
   const [isLoading, setIsLoading] = useState(true);
 
@@ -81,8 +80,7 @@ const HomeScreen = () => {
                 <Stack
                   spacing={6}
                   w={['8xl', '6xl', '2xl']}
-                  pb={{ md: '5%', lg: '2%' }}
-                  ml={{ md: '10%', lg: '8%' }}
+                  ml={{ base: '0%', md: '10%', lg: '8%' }}
                   justify='center'
                   textAlign={{ base: 'center', lg: 'left' }}
                 >
@@ -142,11 +140,9 @@ const HomeScreen = () => {
               <StoreBenefits iconSrc={ContactIcon} title='24/7 Support' description='Always Here to Assist You' />
             </HStack>
           </Box>
-
           <CategoriesSection />
-      
           <VideoSection />
-          <Flex justifyContent='center' pb={12} id='contact-form' px={{ base: '4', lg: '12' }}>
+          <Flex justifyContent='center' pb={12} id='contact-form' px={{ base: '0', md: '10', lg: '12' }}>
             <ContactForm />
           </Flex>
         </Box>

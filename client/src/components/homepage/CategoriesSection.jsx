@@ -1,8 +1,9 @@
-import { Container, Grid, GridItem, Text, Image, Link, Heading } from '@chakra-ui/react';
+import { Container, Grid, GridItem, Text, Image, Link, Heading, useMediaQuery } from '@chakra-ui/react';
 import { Link as ReactLink } from 'react-router-dom';
 import HomeAccent from '../../otherassets/HomeAccent.jpg';
 import Dinnerware from '../../otherassets/Dinnerware.jpg';
 import ShopAll from '../../otherassets/AllProducts.jpg';
+import ShopAllMobile from '../../otherassets/AllProductsMobile.jpg';
 
 const CategoriesSection = () => {
   const mockButtonStyles = {
@@ -10,7 +11,7 @@ const CategoriesSection = () => {
     top: '80%',
     left: '50%',
     transform: 'translate(-50%, -50%)',
-    p: { base: '2', md: '4' },
+    p: { base: '2', md: '3' },
     rounded: 2,
     variant: 'none',
     fontWeight: 'regular',
@@ -19,9 +20,18 @@ const CategoriesSection = () => {
     fontSize: { base: 'sm', md: 'md' },
   };
 
+  const [isMobile] = useMediaQuery('(max-width: 768px)');
+
   return (
-    <Container as='section' maxW='12xl' justifyContent='center' mt={14} p={0} px={{ base: '8', lg: '12' }}>
-      <Heading as='h2' textAlign='center' textTransform='uppercase' color='brand.500' pb={{ base: '0', lg: '4' }}>
+    <Container as='section' maxW='12xl' justifyContent='center' mt={[8, 10]} px={{ base: '8', md: '10', lg: '12' }}>
+      <Heading
+        as='h2'
+        size={['lg', 'xl']}
+        textAlign='center'
+        textTransform='uppercase'
+        color='brand.500'
+        pb={{ base: '2', lg: '4' }}
+      >
         Discover Ander Hill
       </Heading>
 
@@ -33,7 +43,14 @@ const CategoriesSection = () => {
       >
         <Link as={ReactLink} to='/products/Home%20Accents'>
           <GridItem colSpan={{ base: 1, lg: 1 }} rowSpan={{ base: 1, lg: 1 }} position='relative'>
-            <Image w='full' fit='cover' objectPosition='center' src={HomeAccent} alt='Home accent products link' />
+            <Image
+              w='full'
+              fit='cover'
+              objectPosition='center'
+              src={HomeAccent}
+              alt='Home accent products link'
+              maxW='600px'
+            />
             <Text {...mockButtonStyles} whiteSpace='nowrap'>
               Shop Home Accents
             </Text>
@@ -41,8 +58,15 @@ const CategoriesSection = () => {
         </Link>
 
         <Link as={ReactLink} to='/products/Dinnerware'>
-          <GridItem colSpan={{ base: 1, lg: 1 }} rowSpan={{ base: 1, lg: 1 }} position='relative'>
-            <Image w='full' fit='cover' objectPosition='center' src={Dinnerware} alt='Dinnerware products link' />
+          <GridItem colSpan={{ base: 1, md: 1 }} rowSpan={{ base: 1, lg: 1 }} position='relative'>
+            <Image
+              w='full'
+              fit='cover'
+              objectPosition='center'
+              src={Dinnerware}
+              alt='Dinnerware products link'
+              maxW='600px'
+            />
             <Text {...mockButtonStyles} whiteSpace='nowrap'>
               Shop Dinnerware
             </Text>
@@ -58,9 +82,9 @@ const CategoriesSection = () => {
               left={0}
               w='100%'
               h='100%'
-              src={ShopAll}
+              src={isMobile ? ShopAllMobile : ShopAll}
               alt='Shop all collections link'
-              maxW='900px'
+              maxW={{ sm: '920px', lg: '600px' }}
             />
             <Text {...mockButtonStyles} whiteSpace='nowrap'>
               Shop All

@@ -1,34 +1,25 @@
 import { ChakraProvider, extendTheme, Box } from '@chakra-ui/react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import '@fontsource/cormorant-garamond';
-import '@fontsource/poppins';
+// import '@fontsource/cormorant-garamond';
+// import '@fontsource/poppins';
 import React, { Suspense } from 'react';
 
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
-import HomeScreen from './screens/HomeScreen';
+// import HomeScreen from './screens/HomeScreen';
 import ScrollToTop from './helpers/ScrollToTop.js';
 import { Stack, Spinner } from '@chakra-ui/react';
-// import ProductsScreens from './screens/ProductsScreens';
-const ProductsScreens = React.lazy(() => import('./screens/ProductsScreens'));
-// import CartScreen from './screens/CartScreen';
-const CartScreen = React.lazy(() => import('./screens/CartScreen'));
-// import ProductScreen from './screens/ProductScreen';
-const ProductScreen = React.lazy(() => import('./screens/ProductScreen'));
 
-// import AboutUs from './screens/AboutUs';
+const HomeScreen = React.lazy(() => import('./screens/HomeScreen'));
+const ProductsScreens = React.lazy(() => import('./screens/ProductsScreens'));
+const CartScreen = React.lazy(() => import('./screens/CartScreen'));
+const ProductScreen = React.lazy(() => import('./screens/ProductScreen'));
 const AboutUs = React.lazy(() => import('./screens/AboutUs'));
-// import LoginScreen from './screens/LoginScreen';
 const LoginScreen = React.lazy(() => import('./screens/LoginScreen'));
-// import RegistrationScreen from './screens/RegistrationScreen';
 const RegistrationScreen = React.lazy(() => import('./screens/RegistrationScreen'));
-// import ProfileScreen from './screens/ProfileScreen';
 const ProfileScreen = React.lazy(() => import('./screens/ProfileScreen'));
-// import CheckoutScreen from './screens/CheckoutScreen';
 const CheckoutScreen = React.lazy(() => import('./screens/CheckoutScreen'));
-// import OrderSuccessScreen from './screens/OrderSuccessScreen';
 const OrderSuccessScreen = React.lazy(() => import('./screens/OrderSuccessScreen'));
-// import YourOrdersScreen from './screens/YourOrdersScreen';
 const YourOrdersScreen = React.lazy(() => import('./screens/YourOrdersScreen'));
 
 const theme = extendTheme({
@@ -48,7 +39,6 @@ const theme = extendTheme({
       300: '#BFB5A6',
       3001: '#989084',
       400: '#DFBD8E',
-      450: '#ECD7BA',
       4001: '#C4A67C',
       500: '#454545',
       5001: '#343434',
