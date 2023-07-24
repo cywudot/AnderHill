@@ -1,8 +1,9 @@
-import React, { Suspense } from 'react';
+import React, { lazy, Suspense } from 'react';
 import { Box, Container, SimpleGrid, Divider, Link, Stack, Image, Text, Heading } from '@chakra-ui/react';
 import AHLogo from '../logo/AnderHillLogoFooter.png';
 import { Link as ReactLink } from 'react-router-dom';
-const EmailSub = React.lazy(() => import('./EmailSub'));
+
+const EmailSub = lazy(() => import('./EmailSub'));
 
 const Footer = () => {
   return (

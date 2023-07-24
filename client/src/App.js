@@ -1,22 +1,22 @@
 import { ChakraProvider, extendTheme, Box } from '@chakra-ui/react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import React, { Suspense } from 'react';
+import React, { lazy, Suspense } from 'react';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import ScrollToTop from './helpers/ScrollToTop.js';
 import { Stack, Spinner } from '@chakra-ui/react';
 
-const HomeScreen = React.lazy(() => import('./screens/HomeScreen'));
-const ProductsScreens = React.lazy(() => import('./screens/ProductsScreens'));
-const CartScreen = React.lazy(() => import('./screens/CartScreen'));
-const ProductScreen = React.lazy(() => import('./screens/ProductScreen'));
-const AboutUs = React.lazy(() => import('./screens/AboutUs'));
-const LoginScreen = React.lazy(() => import('./screens/LoginScreen'));
-const RegistrationScreen = React.lazy(() => import('./screens/RegistrationScreen'));
-const ProfileScreen = React.lazy(() => import('./screens/ProfileScreen'));
-const CheckoutScreen = React.lazy(() => import('./screens/CheckoutScreen'));
-const OrderSuccessScreen = React.lazy(() => import('./screens/OrderSuccessScreen'));
-const YourOrdersScreen = React.lazy(() => import('./screens/YourOrdersScreen'));
+const HomeScreen = lazy(() => import('./screens/HomeScreen'));
+const ProductsScreens = lazy(() => import('./screens/ProductsScreens'));
+const CartScreen = lazy(() => import('./screens/CartScreen'));
+const ProductScreen = lazy(() => import('./screens/ProductScreen'));
+const AboutUs = lazy(() => import('./screens/AboutUs'));
+const LoginScreen = lazy(() => import('./screens/LoginScreen'));
+const RegistrationScreen = lazy(() => import('./screens/RegistrationScreen'));
+const ProfileScreen = lazy(() => import('./screens/ProfileScreen'));
+const CheckoutScreen = lazy(() => import('./screens/CheckoutScreen'));
+const OrderSuccessScreen = lazy(() => import('./screens/OrderSuccessScreen'));
+const YourOrdersScreen = lazy(() => import('./screens/YourOrdersScreen'));
 
 const theme = extendTheme({
   styles: {
