@@ -145,7 +145,7 @@ const ShoppingCartIcon = () => {
           {cartItemsTotalCalc(cart)}
         </Badge>
       )}
-      <Icon as={AiOutlineShoppingCart} h='7' w='7' alignSelf='center' />
+      <Icon as={AiOutlineShoppingCart} h='7' w='7' alignSelf='center' aria-label='Shopping Cart' />
     </Flex>
   );
 };
@@ -210,20 +210,32 @@ const Navbar = () => {
           {userInfo ? (
             <>
               <Menu justify='center'>
-                <MenuButton mt={1} transition='all 0.3s' as={Button} variant='none'>
+                <MenuButton mt={1} transition='all 0.3s' as={Button} variant='none' aria-label='Account icon'>
                   <Icon as={BsPersonCircle} w={6} h={6} color='brand.500' />
                 </MenuButton>
                 <MenuList rounded={2} backgroundColor='brand.100' borderColor='brand.500'>
-                  <MenuItem as={ReactLink} to='/profile' backgroundColor='brand.100' color='brand.500'>
+                  <MenuItem
+                    as={ReactLink}
+                    to='/profile'
+                    backgroundColor='brand.100'
+                    color='brand.500'
+                    aria-label='Your profile'
+                  >
                     <CgProfile color='brand.500' />
                     <Text ml='2'>Profile</Text>
                   </MenuItem>
-                  <MenuItem as={ReactLink} to='/your-orders' backgroundColor='brand.100' color='brand.500'>
+                  <MenuItem
+                    as={ReactLink}
+                    to='/your-orders'
+                    backgroundColor='brand.100'
+                    color='brand.500'
+                    aria-label='Your order'
+                  >
                     <MdLocalShipping />
                     <Text ml='2'>Your Order</Text>
                   </MenuItem>
                   <MenuDivider />
-                  <MenuItem onClick={logoutHandler} backgroundColor='brand.100' color='brand.500'>
+                  <MenuItem onClick={logoutHandler} backgroundColor='brand.100' color='brand.500' aria-label='Log out'>
                     <MdLogout color='brand.500' />
                     <Text ml='2'>Logout</Text>
                   </MenuItem>
