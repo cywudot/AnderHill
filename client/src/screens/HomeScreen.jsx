@@ -6,7 +6,6 @@ import ContactIcon from '../sourced-icons/contact.png';
 import FreeDeliveryIcon from '../sourced-icons/free-delivery.png';
 import ReturnIcon from '../sourced-icons/30days.png';
 import ContactForm from '../components/homepage/ContactForm';
-import VideoSection from '../components/homepage/VideoSection';
 import CategoriesSection from '../components/homepage/CategoriesSection';
 
 const HomeScreen = () => {
@@ -143,7 +142,6 @@ const HomeScreen = () => {
 
           <CategoriesSection />
 
-          <VideoSection />
           <Flex justifyContent='center' pb={12} id='contact-form' px={{ base: '0', md: '10', lg: '12' }}>
             <ContactForm />
           </Flex>
