@@ -3,14 +3,13 @@ import AboutUsHeroImageMobile from '../otherassets/AboutUsHeroMobile.jpg';
 import AboutUsHandsOne from '../otherassets/AboutUs-quinoal-unsplash.jpg';
 import AboutUsHandsTwo from '../otherassets/AboutUs-barnimages.jpg';
 
-
 const AboutUs = () => {
   return (
     <Box maxW='12xl' mx='auto' px={{ base: '0', lg: '12' }} minH='8xl' id='main-content-about'>
       <Flex
         as='section'
         w='full'
-        h='lg'
+        h={['md', 'lg']}
         bgPos='center'
         bgSize='cover'
         backgroundImage={{

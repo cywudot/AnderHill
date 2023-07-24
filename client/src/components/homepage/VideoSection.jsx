@@ -20,7 +20,7 @@ const VideoSection = () => {
       position='relative'
     >
       <SimpleGrid
-        pt={{ base: '8', lg: '16' }}
+        pt={{ base: '0', lg: '10' }}
         pb={6}
         columns={{
           base: 1,
@@ -35,7 +35,7 @@ const VideoSection = () => {
       >
         <Box textAlign={{ base: 'center', lg: 'left' }}>
           <Heading as='h3' size={{ base: 'xl', md: '2xl' }} color='brand.500'>
-            Elevate your home decor with our exceptional selection of pottery
+            Enhance your living space with our exquisite ceramic artistry
           </Heading>
         </Box>
         <VStack direction='column' flexGrow={1} spacing={5} alignItems='start'>
