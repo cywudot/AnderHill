@@ -40,8 +40,8 @@ const HomeScreen = () => {
             bgSize='cover'
             alt='HeroImage'
             backgroundImage={{
-              base: `url(https://storage.googleapis.com/anderhillproducts/otherassets/HomeHeroImageMobile.jpg)`,
-              md: `url(https://storage.googleapis.com/anderhillproducts/otherassets/HomeHeroImage.jpg)`,
+              base: `url(https://storage.googleapis.com/anderhillproducts/otherassets/HomeHeroPageMobile.jpg)`,
+              md: `url(https://storage.googleapis.com/anderhillproducts/otherassets/HomePageHero.jpg)`,
             }}
           >
             <Flex pos='relative' boxSize='full'>
