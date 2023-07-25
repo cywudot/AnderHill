@@ -7,6 +7,7 @@ import FreeDeliveryIcon from '../sourced-icons/free-delivery.png';
 import ReturnIcon from '../sourced-icons/30days.png';
 import ContactForm from '../components/homepage/ContactForm';
 import CategoriesSection from '../components/homepage/CategoriesSection';
+import VideoSection from '../components/homepage/VideoSection';
 
 const HomeScreen = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -141,7 +142,7 @@ const HomeScreen = () => {
           </Box>
 
           <CategoriesSection />
-
+          <VideoSection />
           <Flex justifyContent='center' pb={12} id='contact-form' px={{ base: '0', md: '10', lg: '12' }}>
             <ContactForm />
           </Flex>
