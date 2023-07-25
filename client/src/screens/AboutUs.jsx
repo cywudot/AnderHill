@@ -1,7 +1,4 @@
 import { Box, Flex, Heading, Stack, Image, Text } from '@chakra-ui/react';
-import AboutUsHeroImageMobile from '../otherassets/AboutUsHeroMobile.jpg';
-import AboutUsHandsOne from '../otherassets/AboutUs-quinoal-unsplash.jpg';
-import AboutUsHandsTwo from '../otherassets/AboutUs-barnimages.jpg';
 
 const AboutUs = () => {
   return (
@@ -13,7 +10,7 @@ const AboutUs = () => {
         bgPos='center'
         bgSize='cover'
         backgroundImage={{
-          base: `url(${AboutUsHeroImageMobile})`,
+          base: `url(https://storage.googleapis.com/anderhillproducts/otherassets/AboutUsHeroMobile.jpg)`,
           md: `url(https://storage.googleapis.com/anderhillproducts/otherassets/AboutUsHero.jpg)`,
         }}
       >
@@ -53,7 +50,12 @@ const AboutUs = () => {
           mb={12}
         >
           <Box mx='auto' rounded='2px' overflow='hidden' flex={1} as='section'>
-            <Image fit='cover' src={AboutUsHandsOne} alt='Handing shaping pottery' maxW='100%' minH='350px' />
+            <Image
+              fit='cover'
+              src='https://storage.googleapis.com/anderhillproducts/otherassets/AboutUs-quinoal-unsplash.jpg'
+              alt='Handing shaping pottery'
+              minH='350px'
+            />
           </Box>
 
           <Box textAlign={{ base: 'center', md: 'left' }} mx='auto' alignSelf='center' flex={1} as='section'>
@@ -153,9 +155,8 @@ const AboutUs = () => {
           <Box mx='auto' rounded='2px' overflow='hidden' flex={1} as='section'>
             <Image
               fit='cover'
-              src={AboutUsHandsTwo}
+              src='https://storage.googleapis.com/anderhillproducts/otherassets/AboutUs-barnimages.jpg'
               alt='Cutting the clay into pieces'
-              maxW='100%'
               minH='350px'
               ml='auto'
             />
