@@ -19,7 +19,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Link as ReactLink, useLocation, useParams } from 'react-router-dom';
 import { getProducts, getFilteredProducts } from '../redux/actions/productActions';
 import { clearCategory } from '../redux/slices/products';
-import ProductPageHeroMobile from '../otherassets/ProductPageHeroMobile.jpg';
 
 const ProductsScreens = () => {
   const dispatch = useDispatch();
@@ -81,7 +80,7 @@ const ProductsScreens = () => {
         bgPos='center'
         bgSize='cover'
         backgroundImage={{
-          base: `url(${ProductPageHeroMobile})`,
+          base: `url(https://storage.googleapis.com/anderhillproducts/otherassets/ProductPageHeroMobile.jpg)`,
           md: `url(https://storage.googleapis.com/anderhillproducts/otherassets/ProductPageHero.jpg)`,
         }}
       >

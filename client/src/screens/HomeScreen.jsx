@@ -1,13 +1,11 @@
 import { Box, Flex, Heading, HStack, Stack, Button, Image, Text } from '@chakra-ui/react';
 import React, { lazy, Suspense } from 'react';
 import { Link as ReactLink } from 'react-router-dom';
-import HeroImageMobile from '../otherassets/HomeHeroImageMobile.jpg';
 import ContactIcon from '../sourced-icons/contact.png';
 import FreeDeliveryIcon from '../sourced-icons/free-delivery.png';
 import ReturnIcon from '../sourced-icons/30days.png';
 import ContactForm from '../components/homepage/ContactForm';
 import CategoriesSection from '../components/homepage/CategoriesSection';
-// import VideoSection from '../components/homepage/VideoSection';
 
 const VideoSection = lazy(() => import('../components/homepage/VideoSection'));
 
@@ -42,7 +40,7 @@ const HomeScreen = () => {
             bgSize='cover'
             alt='HeroImage'
             backgroundImage={{
-              base: `url(${HeroImageMobile})`,
+              base: `url(https://storage.googleapis.com/anderhillproducts/otherassets/HomeHeroImageMobile.jpg)`,
               md: `url(https://storage.googleapis.com/anderhillproducts/otherassets/HomeHeroImage.jpg)`,
             }}
           >

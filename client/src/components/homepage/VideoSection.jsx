@@ -4,7 +4,7 @@ import ReactPlayer from 'react-player';
 import { ArrowForwardIcon } from '@chakra-ui/icons';
 
 const VideoSection = () => {
-  const Video = 'https://storage.googleapis.com/anderhillproducts/AnderhillvideoLarge.mp4';
+  const Video = 'https://storage.googleapis.com/anderhillproducts/AnderHillVideoTwo.mp4';
   const VideoMobile = 'https://storage.googleapis.com/anderhillproducts/AnderhillvideotwoMobile.mp4';
 
   const [isLargerThanMd] = useMediaQuery('(min-width: 768px)');
