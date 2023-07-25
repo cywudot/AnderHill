@@ -62,7 +62,6 @@ const ProductsScreens = () => {
     variant: 'none',
     fontFamily: 'heading',
     fontSize: { base: 'xl', md: '2xl' },
-    textAlign: 'left',
   };
 
   return (
@@ -75,7 +74,7 @@ const ProductsScreens = () => {
       minW='100%'
       px={{ base: '0', lg: '12' }}
     >
-      <Box
+      <Flex
         as='section'
         w='full'
         h={['md', 'lg']}
@@ -86,22 +85,18 @@ const ProductsScreens = () => {
           md: `url(https://storage.googleapis.com/anderhillproducts/otherassets/ProductPageHero.jpg)`,
         }}
       >
-        <Flex pos='relative' boxSize='full' bg='blackAlpha.300'>
-          <Stack mx='auto' spacing={6} w='4xl' justify='center' px={2}>
-            <Heading
-              fontSize={['2xl', '4xl', '6xl']}
-              fontWeight='extrabold'
-              color='brand.100'
-              letterSpacing='wide'
-              textAlign='center'
-              justify='center'
-            >
-              Explore the Craftsmanship of Handmade Pottery
-            </Heading>
-          </Stack>
-        </Flex>
-      </Box>
-
+        <Heading
+          color='brand.100'
+          as='h2'
+          fontSize={['4xl', '5xl', '7xl']}
+          alignSelf='center'
+          mx='auto'
+          w={['85%', '75%']}
+          textAlign='center'
+        >
+          Our Collections
+        </Heading>
+      </Flex>
       <Stack minHeight='100vh' mx='auto' align='center' as='section'>
         <Box direction='row' pt={6} mx='auto'>
           <Button
