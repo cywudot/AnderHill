@@ -1,5 +1,5 @@
 import { Box, Flex, Heading, HStack, Stack, Button, Image, Text } from '@chakra-ui/react';
-import React from 'react';
+import React, { lazy, Suspense } from 'react';
 import { Link as ReactLink } from 'react-router-dom';
 import HeroImageMobile from '../otherassets/HomeHeroImageMobile.jpg';
 import ContactIcon from '../sourced-icons/contact.png';
@@ -7,7 +7,9 @@ import FreeDeliveryIcon from '../sourced-icons/free-delivery.png';
 import ReturnIcon from '../sourced-icons/30days.png';
 import ContactForm from '../components/homepage/ContactForm';
 import CategoriesSection from '../components/homepage/CategoriesSection';
-import VideoSection from '../components/homepage/VideoSection';
+// import VideoSection from '../components/homepage/VideoSection';
+
+const VideoSection = lazy(() => import('../components/homepage/VideoSection'));
 
 const HomeScreen = () => {
   const StoreBenefits = ({ iconSrc, title, description }) => (
@@ -102,7 +104,9 @@ const HomeScreen = () => {
         <CategoriesSection />
         <VideoSection />
         <Flex justifyContent='center' pb={12} id='contact-form' px={{ base: '0', md: '10', lg: '12' }}>
-          <ContactForm />
+          <Suspense fallback={<div>loading...</div>}>
+            <ContactForm />
+          </Suspense>
         </Flex>
       </Box>
     </>

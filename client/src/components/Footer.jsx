@@ -6,6 +6,12 @@ import { Link as ReactLink } from 'react-router-dom';
 const EmailSub = lazy(() => import('./EmailSub'));
 
 const Footer = () => {
+  const styleLink = {
+    textDecoration: 'none',
+    color: 'brand.750',
+    fontSize: 'sm',
+  };
+
   return (
     <Box as='footer' backgroundColor='brand.500' mt={8} position='relative' bottom={0} width='100%' minH='200px'>
       <Container role='contentinfo' maxW={{ base: 'lg', md: '8xl' }} pt={3} pb={3}>
@@ -31,13 +37,13 @@ const Footer = () => {
             <Heading fontSize='md' fontWeight='bold' color='brand.100' fontFamily='heading'>
               NAVIGATION
             </Heading>
-            <Link as={ReactLink} to='/' color='brand.750' fontSize='sm' style={{ textDecoration: 'none' }}>
+            <Link as={ReactLink} to='/' sx={styleLink}>
               Home
             </Link>
-            <Link as={ReactLink} to='/products' color='brand.750' fontSize='sm' style={{ textDecoration: 'none' }}>
+            <Link as={ReactLink} to='/products' sx={styleLink}>
               Shop
             </Link>
-            <Link as={ReactLink} to='/aboutus' color='brand.750' fontSize='sm' style={{ textDecoration: 'none' }}>
+            <Link as={ReactLink} to='/aboutus' sx={styleLink}>
               About us
             </Link>
           </Stack>
@@ -45,13 +51,13 @@ const Footer = () => {
             <Heading fontSize='md' fontWeight='bold' color='brand.100' fontFamily='heading'>
               LEGAL
             </Heading>
-            <Link href={'#'} color='brand.750' fontSize='sm' style={{ textDecoration: 'none' }}>
+            <Link href={'#'} sx={styleLink}>
               Privacy Policy
             </Link>
-            <Link href={'#'} color='brand.750' fontSize='sm' style={{ textDecoration: 'none' }}>
+            <Link href={'#'} sx={styleLink}>
               Terms of Service
             </Link>
-            <Link href={'#'} color='brand.750' fontSize='sm' style={{ textDecoration: 'none' }}>
+            <Link href={'#'} sx={styleLink}>
               Partners
             </Link>
           </Stack>
