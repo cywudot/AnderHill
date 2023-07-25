@@ -1,9 +1,5 @@
 import { Container, Grid, GridItem, Text, Image, Link, Heading, useMediaQuery } from '@chakra-ui/react';
 import { Link as ReactLink } from 'react-router-dom';
-import HomeAccent from '../../otherassets/HomeAccent.jpg';
-import Dinnerware from '../../otherassets/Dinnerware.jpg';
-import ShopAll from '../../otherassets/AllProducts.jpg';
-import ShopAllMobile from '../../otherassets/AllProductsMobile.jpg';
 
 const CategoriesSection = () => {
   const mockButtonStyles = {
@@ -20,6 +16,8 @@ const CategoriesSection = () => {
     fontSize: { base: 'sm', md: 'md' },
   };
 
+  const ShopAll = 'https://storage.googleapis.com/anderhillproducts/otherassets/AllProducts.jpg';
+  const ShopAllMobile = 'https://storage.googleapis.com/anderhillproducts/otherassets/AllProductsMobile.jpg';
   const [isMobile] = useMediaQuery('(max-width: 768px)');
 
   return (
@@ -47,7 +45,7 @@ const CategoriesSection = () => {
               w='full'
               fit='cover'
               objectPosition='center'
-              src={HomeAccent}
+              src='https://storage.googleapis.com/anderhillproducts/otherassets/HomeAccent.jpg'
               alt='Home accent products link'
               maxW='600px'
             />
@@ -63,7 +61,7 @@ const CategoriesSection = () => {
               w='full'
               fit='cover'
               objectPosition='center'
-              src={Dinnerware}
+              src='https://storage.googleapis.com/anderhillproducts/otherassets/Dinnerware.jpg'
               alt='Dinnerware products link'
               maxW='600px'
             />
