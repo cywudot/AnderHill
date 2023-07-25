@@ -4,10 +4,10 @@ import { Link as ReactLink } from 'react-router-dom';
 import ContactIcon from '../sourced-icons/contact.png';
 import FreeDeliveryIcon from '../sourced-icons/free-delivery.png';
 import ReturnIcon from '../sourced-icons/30days.png';
-import ContactForm from '../components/homepage/ContactForm';
 import CategoriesSection from '../components/homepage/CategoriesSection';
 
 const VideoSection = lazy(() => import('../components/homepage/VideoSection'));
+const ContactForm = lazy(() => import('../components/homepage/ContactForm'));
 
 const HomeScreen = () => {
   const StoreBenefits = ({ iconSrc, title, description }) => (
@@ -17,8 +17,8 @@ const HomeScreen = () => {
       gap={{ base: '0', lg: '5' }}
       maxW={{ base: '190px', md: '300px' }}
     >
-      <Image src={iconSrc} alt={title} w={{ base: '45px', md: '60px' }} />
-      <Stack>
+      <Image src={iconSrc} alt={title} w={['45px', '60px']} />
+      <Stack mt={1}>
         <Text fontSize={{ base: 'sm', md: 'md' }} color='brand.100'>
           {title}
         </Text>
@@ -100,12 +100,12 @@ const HomeScreen = () => {
         </Box>
 
         <CategoriesSection />
-        <VideoSection />
-        <Flex justifyContent='center' pb={12} id='contact-form' px={{ base: '0', md: '10', lg: '12' }}>
-          <Suspense fallback={<div>loading...</div>}>
+        <Suspense fallback={<div>loading...</div>}>
+          <VideoSection />
+          <Flex justifyContent='center' pb={12} id='contact-form' px={{ base: '0', md: '10', lg: '12' }}>
             <ContactForm />
-          </Suspense>
-        </Flex>
+          </Flex>
+        </Suspense>
       </Box>
     </>
   );
