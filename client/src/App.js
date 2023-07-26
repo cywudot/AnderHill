@@ -5,12 +5,8 @@ import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import ScrollToTop from './helpers/ScrollToTop.js';
 import { Stack, Spinner } from '@chakra-ui/react';
-import '@fontsource/poppins/200.css';
-import '@fontsource/poppins/300.css';
-import '@fontsource/poppins/400.css';
-import '@fontsource/poppins/500.css';
-import '@fontsource/poppins/600.css';
-import '@fontsource/poppins/700.css';
+
+import '@fontsource-variable/manrope';
 import '@fontsource-variable/cormorant';
 
 const HomeScreen = lazy(() => import('./screens/HomeScreen'));
@@ -56,7 +52,7 @@ const theme = extendTheme({
   },
   fonts: {
     heading: `'Cormorant Variable', sans-serif`,
-    body: `'Poppins', sans-serif`,
+    body: `'Manrope Variable', sans-serif`,
   },
 });
 
