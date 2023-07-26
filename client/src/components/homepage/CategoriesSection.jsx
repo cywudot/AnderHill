@@ -4,13 +4,11 @@ import { Link as ReactLink } from 'react-router-dom';
 const CategoriesSection = () => {
   const mockButtonStyles = {
     position: 'absolute',
-    top: '80%',
+    bottom: '15%',
     left: '50%',
-    transform: 'translate(-50%, -50%)',
+    transform: 'translateX(-50%)',
     p: { base: '2', md: '3' },
     rounded: 2,
-    variant: 'none',
-    fontWeight: 'regular',
     backgroundColor: 'brand.100',
     color: 'brand.500',
     fontSize: { base: 'sm', md: 'md' },
@@ -18,7 +16,12 @@ const CategoriesSection = () => {
 
   const ShopAll = 'https://storage.googleapis.com/anderhillproducts/otherassets/AllProducts.jpg';
   const ShopAllMobile = 'https://storage.googleapis.com/anderhillproducts/otherassets/AllProductsMobile.jpg';
+  const Dinnerware = 'https://storage.googleapis.com/anderhillproducts/otherassets/Dinnerware.jpg';
+  const DinnerwareM = 'https://storage.googleapis.com/anderhillproducts/otherassets/DinnerwareMobile.jpg';
+  const HomeAccent = 'https://storage.googleapis.com/anderhillproducts/otherassets/HomeAccent.jpg';
+  const HomeAccentM = 'https://storage.googleapis.com/anderhillproducts/otherassets/HomeAccentMobile.jpg';
   const [isMobile] = useMediaQuery('(max-width: 768px)');
+  const [isBase] = useMediaQuery('(max-width: 375px)');
 
   return (
     <Container as='section' maxW='12xl' justifyContent='center' mt={[8, 10]} px={{ base: '8', md: '10', lg: '12' }}>
@@ -45,7 +48,7 @@ const CategoriesSection = () => {
               w='full'
               fit='cover'
               objectPosition='center'
-              src='https://storage.googleapis.com/anderhillproducts/otherassets/HomeAccent.jpg'
+              src={isBase ? HomeAccentM : HomeAccent}
               alt='Home accent products link'
               maxW='600px'
             />
@@ -61,7 +64,7 @@ const CategoriesSection = () => {
               w='full'
               fit='cover'
               objectPosition='center'
-              src='https://storage.googleapis.com/anderhillproducts/otherassets/Dinnerware.jpg'
+              src={isBase ? DinnerwareM : Dinnerware}
               alt='Dinnerware products link'
               maxW='600px'
             />
