@@ -40,7 +40,7 @@ const CategoriesSection = () => {
         templateColumns={{ base: 'repeat(1, 1fr)', sm: 'repeat(2, 1fr)', lg: 'repeat(3, 1fr)' }}
         templateRows={{ base: 'repeat(3, 1fr)', sm: 'repeat(2, 1fr)', lg: '1fr' }}
         gap={4}
-        pb={{ base: '12', lg: '0' }}
+        pb={{ base: '10', lg: '0' }}
       >
         <Link as={ReactLink} to='/products/Home%20Accents'>
           <GridItem colSpan={{ base: 1, lg: 1 }} rowSpan={{ base: 1, lg: 1 }} position='relative'>

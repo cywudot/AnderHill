@@ -21,7 +21,7 @@ const VideoSection = () => {
     >
       <SimpleGrid
         pt={{ base: '0', lg: '10' }}
-        pb={6}
+        pb={10}
         columns={{
           base: 1,
           lg: 2,
@@ -32,6 +32,7 @@ const VideoSection = () => {
         }}
         mx={{ base: '4', md: '0' }}
         gap={3}
+        px={{ base: '3', lg: '0' }}
       >
         <Box textAlign={{ base: 'center', lg: 'left' }}>
           <Heading as='h3' size={{ base: 'xl', md: '2xl' }} color='brand.500'>
