@@ -41,39 +41,40 @@ const HomeScreen = () => {
             alt='HeroImage'
             backgroundImage={{
               base: `url(https://storage.googleapis.com/anderhillproducts/otherassets/HomeHeroPageMobile.jpg)`,
+              sm: `url(https://storage.googleapis.com/anderhillproducts/otherassets/HomeHeroPageMobile.jpg)`,
               md: `url(https://storage.googleapis.com/anderhillproducts/otherassets/HomePageHero.jpg)`,
             }}
           >
-            <Flex pos='relative' boxSize='full'>
-              <Stack
-                spacing={6}
-                w={['8xl', '6xl', '2xl']}
-                ml={{ base: '0%', md: '10%', lg: '8%' }}
-                justify='center'
-                textAlign={{ base: 'center', lg: 'left' }}
-              >
+            <Stack
+              pos='relative'
+              boxSize='full'
+              justify='center'
+              textAlign={{ base: 'center', lg: 'left' }}
+              mx='auto'
+              px={3}
+            >
+              <Stack spacing={5} ml={{ lg: '8%' }} justify='center' textAlign={{ base: 'center', lg: 'left' }}>
                 <Heading
                   as='h1'
-                  size={['2xl', '3xl', '4xl']}
+                  size={{ base: '2xl', sm: '3xl', lg: '4xl' }}
                   color='brand.100'
                   textTransform='uppercase'
                   letterSpacing='wide'
-                  px={{ base: '4', md: '0' }}
+                  maxW={{ base: 'full', lg: '2xl' }}
                 >
                   Ander Hill Pottery
                 </Heading>
-
                 <Text
                   fontSize={['md', 'lg', 'xl']}
                   fontWeight='thin'
                   color='brand.100'
                   px={{ base: '8', md: '0' }}
-                  display={{ base: 'none', sm: 'initial' }}
+                  display={{ base: 'none', lg: 'initial' }}
+                  maxW='2xl'
                 >
                   Discover the art of pottery through our exquisite collection, and add a touch of sophistication and
                   refinement to your living space today
                 </Text>
-
                 <Button
                   as={ReactLink}
                   to='/products'
@@ -89,10 +90,15 @@ const HomeScreen = () => {
                   Our Collections
                 </Button>
               </Stack>
-            </Flex>
+            </Stack>
           </Box>
 
-          <HStack backgroundColor='brand.5001' justify='space-around' textAlign={{ base: 'center', lg: 'left' }} p={5}>
+          <HStack
+            backgroundColor='brand.5001'
+            justify='space-around'
+            textAlign={{ base: 'center', lg: 'left' }}
+            p={[3, 5]}
+          >
             <StoreBenefits iconSrc={FreeDeliveryIcon} title='Free Shipping' description='For orders over $300' />
             <StoreBenefits iconSrc={ReturnIcon} title='30 Days Guarantee' description='Quality ensured or money back' />
             <StoreBenefits iconSrc={ContactIcon} title='24/7 Support' description='Always Here to Assist You' />
@@ -102,7 +108,7 @@ const HomeScreen = () => {
         <CategoriesSection />
         <Suspense fallback={<div>loading...</div>}>
           <VideoSection />
-          <Flex justifyContent='center' pb={12} id='contact-form' px={{ base: '0', md: '10', lg: '12' }}>
+          <Flex justifyContent='center' pb={10} id='contact-form' px={{ base: '0', md: '10', lg: '12' }}>
             <ContactForm />
           </Flex>
         </Suspense>
