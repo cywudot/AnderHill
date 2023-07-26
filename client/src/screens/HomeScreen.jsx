@@ -17,7 +17,7 @@ const HomeScreen = () => {
       gap={{ base: '0', lg: '5' }}
       maxW={{ base: '190px', md: '300px' }}
     >
-      <Image src={iconSrc} alt={title} w={['45px', '60px']} />
+      <Image src={iconSrc} alt={title} w={['45px', '60px']} h='auto' />
       <Stack mt={1}>
         <Text fontSize={{ base: 'sm', md: 'md' }} color='brand.100'>
           {title}
@@ -40,7 +40,7 @@ const HomeScreen = () => {
             bgSize='cover'
             alt='HeroImage'
             backgroundImage={{
-              base: `url(https://storage.googleapis.com/anderhillproducts/otherassets/HomeHeroPageMobile.jpg)`,
+              base: `url(https://storage.googleapis.com/anderhillproducts/otherassets/HomeHeroMobileBase.jpg)`,
               sm: `url(https://storage.googleapis.com/anderhillproducts/otherassets/HomeHeroPageMobile.jpg)`,
               md: `url(https://storage.googleapis.com/anderhillproducts/otherassets/HomePageHero.jpg)`,
             }}
