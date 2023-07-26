@@ -61,16 +61,17 @@ const HomeScreen = () => {
                   textTransform='uppercase'
                   letterSpacing='wide'
                   maxW={{ base: 'full', lg: '2xl' }}
+                  fontWeight='bold'
                 >
                   Ander Hill Pottery
                 </Heading>
                 <Text
                   fontSize={['md', 'lg', 'xl']}
-                  fontWeight='thin'
                   color='brand.100'
-                  px={{ base: '8', md: '0' }}
-                  display={{ base: 'none', lg: 'initial' }}
                   maxW='2xl'
+                  px={{ base: '8', md: '0' }}
+                  fontWeight='thin'
+                  display={{ base: 'none', lg: 'initial' }}
                 >
                   Discover the art of pottery through our exquisite collection, and add a touch of sophistication and
                   refinement to your living space today
@@ -82,7 +83,6 @@ const HomeScreen = () => {
                   textTransform='uppercase'
                   size='md'
                   rounded='2px'
-                  fontWeight='regular'
                   color='brand.500'
                   backgroundColor='brand.100'
                   alignSelf={{ base: 'center', lg: 'start' }}
