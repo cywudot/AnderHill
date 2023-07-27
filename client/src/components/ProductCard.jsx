@@ -13,6 +13,7 @@ import {
   useToast,
   VisuallyHidden,
   chakra,
+  useMediaQuery,
 } from '@chakra-ui/react';
 import { FaCartPlus } from 'react-icons/fa';
 import { Link as ReactLink } from 'react-router-dom';
@@ -94,12 +95,18 @@ const ProductCard = ({ product }) => {
     );
   };
 
+  const [isMobile] = useMediaQuery('(max-width: 420px)');
+  // Determine which set of images to use based on isMobile and isHovering states
+  const imagesToShow = isMobile ? product.mobileimages : product.images;
+  const imageIndex = isHovering ? 1 : 0;
+
   return (
     <Stack maxW='320px' mx='auto'>
       <Link as={ReactLink} to={`/product/${product._id}`} cursor='pointer' variant='none'>
         <Box position='relative'>
           <Image
-            src={product.images[isHovering ? 1 : 0]}
+            // src={product.images[isHovering ? 1 : 0]}
+            src={imagesToShow[imageIndex]}
             alt={product.name}
             objectFit='cover'
             w='full'

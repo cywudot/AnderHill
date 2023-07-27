@@ -57,6 +57,8 @@ const ProductScreen = () => {
   const user = useSelector((state) => state.user);
   const { userInfo } = user;
 
+  const [isMobile] = useMediaQuery('(max-width: 420px)');
+
   useEffect(() => {
     dispatch(getProduct(id));
 
@@ -279,7 +281,7 @@ const ProductScreen = () => {
                       mb='30px'
                       borderRadius='2px'
                       objectFit='cover'
-                      src={product.images[currentIndex]}
+                      src={isMobile ? product.mobileimages[currentIndex] : product.images[currentIndex]}
                       alt={product.name}
                       width='100%'
                       maxH={{ base: 'none', lg: '520px' }}
