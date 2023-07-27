@@ -168,7 +168,7 @@ const ProductCard = ({ product }) => {
           {product.name}
         </Link>
         <Stack direction='row' justify='space-between' alignItems='center'>
-          <Text mt='3px' fontSize={{ base: 'sm', lg: 'md' }} fontWeight='regular'>
+          <Text mt='3px' fontSize={{ base: 'md', lg: 'lg' }}>
             ${product.price.toFixed(2)}
           </Text>
         </Stack>

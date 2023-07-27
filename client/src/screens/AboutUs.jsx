@@ -46,7 +46,7 @@ const AboutUs = () => {
           direction={{ base: 'column', md: 'row' }}
           justify='space-between'
           gap={5}
-          px={{ base: '5', lg: '0' }}
+          px={{ base: '3', lg: '0' }}
           mb={12}
         >
           <Box mx='auto' rounded='2px' overflow='hidden' flex={1} as='section'>
@@ -54,7 +54,7 @@ const AboutUs = () => {
               fit='cover'
               src='https://storage.googleapis.com/anderhillproducts/otherassets/AboutUs-quinoal-unsplash.jpg'
               alt='Handing shaping pottery'
-              minH='350px'
+              minH='250px'
             />
           </Box>
 
@@ -66,11 +66,11 @@ const AboutUs = () => {
               fontFamily='heading'
               maxW='2xl'
               mx='auto'
-              mb={5}
+              mb={3}
             >
               We believe in the beauty and meaning of surrounding objects.
             </Text>
-            <Text color='brand.500' fontSize='1em' maxW='2xl' mx='auto'>
+            <Text color='brand.500' fontSize={{ base: 'md', lg: 'xl' }} maxW='2xl' mx='auto'>
               That's why we craft each piece with loving care and purpose, employing only the finest materials and
               employing time-honored techniques. We take pride in crafting pieces that inspire and delight our
               customers, each one showcasing the nuances and character that come from being made by hand.
@@ -103,10 +103,10 @@ const AboutUs = () => {
           zIndex='1'
           display={{ base: 'none', lg: 'initial' }}
         >
-          <Text color='brand.100' pb={3} fontFamily='heading' fontSize={{ base: '2xl', lg: '3xl' }} fontWeight='bold'>
+          <Text color='brand.100' fontFamily='heading' fontSize={{ base: '2xl', lg: '3xl' }} fontWeight='bold' mb={3}>
             Our commitment to sustainability.
           </Text>
-          <Text color='brand.100' fontSize='1em'>
+          <Text color='brand.100' fontSize={{ base: 'md', lg: 'xl' }}>
             We use locally sourced our materials whenever possible, recycle all of our clay and package our products
             with sustainable materials. We believe that exquisite design should never come at the expense of the planet,
             and we are honored to share our commitment with you.
@@ -120,11 +120,12 @@ const AboutUs = () => {
           fontFamily='heading'
           fontSize={{ base: '2xl', lg: '3xl' }}
           px={5}
+          mb={3}
           fontWeight='bold'
         >
           Our commitment to sustainability.
         </Text>
-        <Text color='brand.500' fontSize='1em' px={8}>
+        <Text color='brand.500' fontSize={{ base: 'md', lg: 'xl' }} px={8}>
           We use locally sourced our materials whenever possible, recycle all of our clay and package our products with
           sustainable materials. We believe that exquisite design should never come at the expense of the planet, and we
           are honored to share our commitment with you.
@@ -132,7 +133,7 @@ const AboutUs = () => {
       </Box>
 
       {/* Section Three  */}
-      <Flex direction='column' minH='full' my={12} px={{ base: '5', lg: '0' }} as='section'>
+      <Flex direction='column' minH='full' my={12} px={{ base: '3', lg: '0' }} as='section'>
         <Stack direction={{ base: 'column-reverse', md: 'row' }} justify='space-between' gap={5}>
           <Box textAlign={{ base: 'center', md: 'left' }} mx='auto' alignSelf='center' flex={1} as='section'>
             <Text
@@ -142,11 +143,11 @@ const AboutUs = () => {
               fontFamily='heading'
               maxW='2xl'
               mx='auto'
-              mb={5}
+              mb={3}
             >
               Crafting meaningful pieces for cherished journeys.
             </Text>
-            <Text color='brand.500' fontSize='1em' maxW='2xl' mx='auto'>
+            <Text color='brand.500' fontSize={{ base: 'md', lg: 'xl' }} maxW='2xl' mx='auto'>
               Thank you for choosing Ander Hill's Pottery, where beauty, sustainability, and craftsmanship meet to
               elevate your everyday routines. We are thrilled to be a part of your home and your story, and we can't
               wait to see how our pottery adds warmth, joy, and meaning to your life.
@@ -157,7 +158,7 @@ const AboutUs = () => {
               fit='cover'
               src='https://storage.googleapis.com/anderhillproducts/otherassets/AboutUs-barnimages.jpg'
               alt='Cutting the clay into pieces'
-              minH='350px'
+              minH='250px'
               ml='auto'
             />
           </Box>
