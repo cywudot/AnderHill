@@ -5,9 +5,8 @@ import { ArrowForwardIcon } from '@chakra-ui/icons';
 
 const VideoSection = () => {
   const Video = 'https://storage.googleapis.com/anderhillproducts/AnderHillVideoLarge.mp4';
-  const VideoMobile = 'https://storage.googleapis.com/anderhillproducts/AnderhillvideotwoMobile.mp4';
 
-  const [isLargerThanMd] = useMediaQuery('(min-width: 768px)');
+  const [isLargerThan] = useMediaQuery('(min-width: 768px)');
 
   return (
     <Box
@@ -16,7 +15,7 @@ const VideoSection = () => {
       h='auto'
       px={{ base: '0', lg: '12' }}
       backgroundColor='brand.100'
-      pb={{ base: '12', lg: '14' }}
+      pb={{ base: '0', md: '14' }}
       position='relative'
     >
       <SimpleGrid
@@ -71,16 +70,18 @@ const VideoSection = () => {
           </Box>
         </VStack>
       </SimpleGrid>
-      <ReactPlayer
-        url={isLargerThanMd ? Video : VideoMobile}
-        playing={true}
-        loop={true}
-        muted={true}
-        volume={0}
-        width='100%'
-        height='auto'
-        title='Behind the scenes of creating of pottery vase'
-      />
+      {isLargerThan && (
+        <ReactPlayer
+          url={Video}
+          playing={true}
+          loop={true}
+          muted={true}
+          volume={0}
+          width='100%'
+          height='auto'
+          title='Behind the scenes of creating of pottery vase'
+        />
+      )}
     </Box>
   );
 };
